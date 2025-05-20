@@ -4,7 +4,7 @@ import { Mail, Phone, Linkedin, Github } from 'lucide-react';
 import Link from 'next/link';
 
 export function ContactSection() {
-  const contactEmail = "simon.styles@example.com";
+  const contactEmail = "simonwanjiru224@gmail.com";
   const contactPhone = "07586 73616"; // Updated phone number
   const linkedInUrl = "https://linkedin.com/in/simonstyles"; // Replace with actual URL
   const githubUrl = "https://github.com/simonstyles"; // Replace with actual URL
