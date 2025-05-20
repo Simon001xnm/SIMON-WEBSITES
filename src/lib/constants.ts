@@ -13,7 +13,7 @@ export const MOCK_PROJECTS: Project[] = [
     dataAiHint: 'online store',
     techStack: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'],
     liveUrl: 'https://bms-28in.vercel.app/',
-    repoUrl: '#',
+    repoUrl: 'https://github.com/Symoh242',
     projectType: 'Web',
   },
   {
@@ -48,6 +48,7 @@ export const MOCK_PROJECTS: Project[] = [
     dataAiHint: 'portfolio website',
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Genkit', 'Gemini AI'],
     liveUrl: 'https://simon-styles-openhub.vercel.app/',
+    repoUrl: 'https://github.com/Symoh242',
     projectType: 'Web',
   },
   {
@@ -70,7 +71,7 @@ export const MOCK_PROJECTS: Project[] = [
     image: 'https://placehold.co/600x400.png',
     dataAiHint: 'crm dashboard',
     techStack: ['Django (Python)', 'Vue.js', 'PostgreSQL', 'Celery', 'REST APIs'],
-    repoUrl: '#',
+    repoUrl: 'https://github.com/Symoh242',
     projectType: 'Systems',
   },
 ];

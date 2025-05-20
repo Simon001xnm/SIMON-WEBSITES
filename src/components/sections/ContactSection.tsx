@@ -5,9 +5,9 @@ import Link from 'next/link';
 
 export function ContactSection() {
   const contactEmail = "simonwanjiru224@gmail.com";
-  const contactPhone = "07586 73616"; // Updated phone number
-  const linkedInUrl = "https://linkedin.com/in/simonstyles"; // Replace with actual URL
-  const githubUrl = "https://github.com/simonstyles"; // Replace with actual URL
+  const contactPhone = "07586 73616";
+  const linkedInUrl = "https://www.linkedin.com/in/simon-styles-technologies-644a00257/";
+  const githubUrl = "https://github.com/Symoh242";
 
 
   return (
