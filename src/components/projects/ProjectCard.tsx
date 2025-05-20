@@ -24,7 +24,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             data-ai-hint={project.dataAiHint || "project image"}
           />
         </div>
-        <CardTitle className="text-xl font-semibold">{project.title}</CardTitle>
+        <CardTitle className="text-lg sm:text-xl font-semibold">{project.title}</CardTitle>
         <CardDescription className="text-sm min-h-[3em]">{project.description}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
@@ -40,7 +40,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </CardContent>
       <CardFooter className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pt-4 border-t">
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
         {project.liveUrl && (
           <Button asChild variant="default" size="sm">
             <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">

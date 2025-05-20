@@ -91,16 +91,16 @@ export function ApplicationForm() {
   }
 
   return (
-    <Card className="w-full shadow-xl">
-      <CardHeader className="text-center">
-        <CardTitle className="text-3xl font-bold">Join Our Team</CardTitle>
-        <CardDescription className="text-lg text-muted-foreground max-w-xl mx-auto">
+    <Card className="w-full shadow-xl border-0 sm:border"> {/* Remove border on mobile for edge-to-edge feel in dialog */}
+      <CardHeader className="text-center px-4 pt-6 pb-4 sm:p-6">
+        <CardTitle className="text-2xl sm:text-3xl font-bold">Join Our Team</CardTitle>
+        <CardDescription className="text-base sm:text-lg text-muted-foreground max-w-md sm:max-w-xl mx-auto mt-1">
           Interested in working with us? Fill out the form below to apply.
         </CardDescription>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-0">
-          <CardContent className="space-y-6 pt-6">
+          <CardContent className="space-y-4 sm:space-y-6 px-4 pb-4 pt-0 sm:p-6 sm:pt-0">
             <FormField
               control={form.control}
               name="fullName"
@@ -136,7 +136,7 @@ export function ApplicationForm() {
                   <FormControl>
                     <Textarea
                       placeholder="Tell us a bit about yourself and why you'd be a great fit..."
-                      className="min-h-[120px] resize-y"
+                      className="min-h-[100px] sm:min-h-[120px] resize-y"
                       {...field}
                     />
                   </FormControl>
@@ -157,7 +157,7 @@ export function ApplicationForm() {
                       onChange={(e) => field.onChange(e.target.files)} 
                     />
                   </FormControl>
-                  <FormDescription>
+                  <FormDescription className="text-xs sm:text-sm">
                     PDF, DOC, or DOCX files accepted. Max 5MB.
                   </FormDescription>
                   <FormMessage />
@@ -165,8 +165,8 @@ export function ApplicationForm() {
               )}
             />
           </CardContent>
-          <CardFooter className="pt-6">
-            <Button type="submit" className="w-full" disabled={isPending}>
+          <CardFooter className="px-4 pb-6 pt-4 sm:p-6 sm:pt-4">
+            <Button type="submit" className="w-full text-base" disabled={isPending}>
               {isPending ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
