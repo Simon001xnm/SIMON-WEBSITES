@@ -13,7 +13,7 @@ export const MOCK_PROJECTS: Project[] = [
     dataAiHint: 'community platform',
     techStack: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker', 'GraphQL'],
     liveUrl: '#',
-    repoUrl: 'https://github.com/Symoh242',
+    repoUrl: 'https://github.com/Symoh242/Opensource-Simon-version-1',
     projectType: 'Web',
   },
   {
@@ -36,7 +36,7 @@ export const MOCK_PROJECTS: Project[] = [
     dataAiHint: 'tech solutions',
     techStack: ['Python (Flask)', 'React', 'D3.js', 'Kafka', 'Spark', 'MongoDB'],
     liveUrl: 'https://royaltech-system-1-version.vercel.app/',
-    repoUrl: '#',
+    repoUrl: 'https://github.com/Symoh242/ROYALTECH-SYSTEM-1VERSION',
     projectType: 'Systems',
   },
   {
@@ -48,7 +48,7 @@ export const MOCK_PROJECTS: Project[] = [
     dataAiHint: 'portfolio website',
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Genkit', 'Gemini AI'],
     liveUrl: 'https://simon-styles-openhub.vercel.app/',
-    repoUrl: 'https://github.com/Symoh242',
+    repoUrl: 'https://github.com/Symoh242/SIMON-STYLES-OPENHUB',
     projectType: 'Web',
   },
   {
@@ -76,3 +76,4 @@ export const MOCK_PROJECTS: Project[] = [
     projectType: 'Systems',
   },
 ];
+
