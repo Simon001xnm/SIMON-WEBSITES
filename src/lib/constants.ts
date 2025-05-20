@@ -1,3 +1,4 @@
+
 import type { Project, ProjectType } from '@/components/projects/types';
 
 export const PROJECT_TYPES: ProjectType[] = ["All", "Web", "Mobile", "Systems"];
@@ -11,7 +12,7 @@ export const MOCK_PROJECTS: Project[] = [
     image: 'https://placehold.co/600x400.png',
     dataAiHint: 'online store',
     techStack: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'],
-    liveUrl: '#',
+    liveUrl: 'https://bms-28in.vercel.app/',
     repoUrl: '#',
     projectType: 'Web',
   },
@@ -34,7 +35,7 @@ export const MOCK_PROJECTS: Project[] = [
     image: 'https://placehold.co/600x400.png',
     dataAiHint: 'data dashboard',
     techStack: ['Python (Flask)', 'React', 'D3.js', 'Kafka', 'Spark', 'MongoDB'],
-    liveUrl: '#',
+    liveUrl: 'https://royaltech-system-1-version.vercel.app/',
     repoUrl: '#',
     projectType: 'Systems',
   },
@@ -46,7 +47,7 @@ export const MOCK_PROJECTS: Project[] = [
     image: 'https://placehold.co/600x400.png',
     dataAiHint: 'portfolio website',
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Genkit', 'Gemini AI'],
-    liveUrl: '#',
+    liveUrl: 'https://simon-styles-openhub.vercel.app/',
     projectType: 'Web',
   },
   {
