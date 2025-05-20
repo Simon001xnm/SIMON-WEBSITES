@@ -4,6 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/next";
 
 // The GeistSans and GeistMono objects from 'geist/font' directly provide .variable
 // so we don't need to call them as functions like with next/font/google.
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
