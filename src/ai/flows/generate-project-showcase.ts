@@ -72,7 +72,7 @@ const prompt = ai.definePrompt({
 
   Project Links: {{{projectLinks}}}
 
-  Showcase Section:`, //The prompt should be a well-structured project showcase section, highlighting key features, tech stack, and relevant links.
+  Showcase Section:`,
 });
 
 const generateProjectShowcaseFlow = ai.defineFlow(
