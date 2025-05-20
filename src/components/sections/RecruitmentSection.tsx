@@ -66,7 +66,7 @@ export function RecruitmentSection() {
 
         <div className="text-center">
           <Button asChild size="lg" className="group text-lg py-6 px-10">
-            <Link href="#contact">
+            <Link href="#apply">
               Ready to Make an Impact? <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>

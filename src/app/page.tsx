@@ -5,6 +5,7 @@ import { Container } from '@/components/layout/Container';
 import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
+import { ApplicationForm } from '@/components/sections/ApplicationForm'; // New import
 import { MOCK_PROJECTS } from '@/lib/constants';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -70,6 +71,18 @@ export default function HomePage() {
             </div>
           </Container>
         </section>
+
+        <Separator />
+
+        {/* Application Form Section */}
+        <section id="apply" className="py-16 md:py-20 bg-background">
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <ApplicationForm />
+            </div>
+          </Container>
+        </section>
+
       </main>
       <Footer />
     </div>
