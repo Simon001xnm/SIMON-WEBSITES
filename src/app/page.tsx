@@ -1,14 +1,15 @@
+
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Container } from '@/components/layout/Container';
-import { ProjectShowcaseAITool } from '@/components/ai/ProjectShowcaseAITool';
 import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { ContactSection } from '@/components/sections/ContactSection';
+import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
 import { MOCK_PROJECTS } from '@/lib/constants';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function HomePage() {
   return (
@@ -31,8 +32,8 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="group">
-                <Link href="#ai-tool">
-                  <Sparkles className="mr-2 h-5 w-5 text-accent transition-transform group-hover:rotate-12" /> Try AI Showcase Tool
+                <Link href="#join-us">
+                  Join Our Team <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
             </div>
@@ -41,14 +42,8 @@ export default function HomePage() {
 
         <Separator />
 
-        {/* Project Showcase AI Tool Section */}
-        <section id="ai-tool" className="py-16 md:py-20 bg-secondary/30">
-          <Container>
-            <div className="max-w-3xl mx-auto">
-              <ProjectShowcaseAITool />
-            </div>
-          </Container>
-        </section>
+        {/* Recruitment Section */}
+        <RecruitmentSection />
 
         <Separator />
 
