@@ -12,12 +12,21 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
+import { submitApplication, type ApplicationFormDataForAction } from '@/app/actions/submitApplication';
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const ACCEPTED_FILE_TYPES = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+const ACCEPTED_FILE_EXTENSIONS = '.pdf, .doc, .docx';
+
 
 const applicationFormSchema = z.object({
   fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   message: z.string().min(10, { message: "Your message must be at least 10 characters." }).max(1000, { message: "Your message must not exceed 1000 characters." }),
-  resume: z.any().optional() // Basic handling for file input, specific validation can be complex
+  resume: z.custom<FileList>()
+    .optional()
+    .refine(files => !files || files.length === 0 || files[0].size <= MAX_FILE_SIZE, `Max file size is 5MB.`)
+    .refine(files => !files || files.length === 0 || ACCEPTED_FILE_TYPES.includes(files[0].type), `Accepted file types: PDF, DOC, DOCX.`)
 });
 
 type ApplicationFormValues = z.infer<typeof applicationFormSchema>;
@@ -36,19 +45,48 @@ export function ApplicationForm() {
     },
   });
 
-  function onSubmit(data: ApplicationFormValues) {
-    startTransition(() => {
-      // Simulate API call
-      console.log('Application Data:', data);
-      // In a real application, you would send this data to your backend.
-      // For now, we'll just show a success toast.
-      setTimeout(() => {
+  async function onSubmit(data: ApplicationFormValues) {
+    startTransition(async () => {
+      let resumeInfo: ApplicationFormDataForAction['resumeInfo'] = undefined;
+      if (data.resume && data.resume.length > 0) {
+        const file = data.resume[0];
+        resumeInfo = {
+          name: file.name,
+          type: file.type,
+          size: file.size,
+        };
+      }
+
+      const actionData: ApplicationFormDataForAction = {
+        fullName: data.fullName,
+        email: data.email,
+        message: data.message,
+        resumeInfo: resumeInfo,
+      };
+
+      try {
+        const result = await submitApplication(actionData);
+        if (result.success) {
+          toast({
+            title: "Application Submitted!",
+            description: result.message || "Thank you! We'll review your application.",
+          });
+          form.reset();
+        } else {
+          toast({
+            title: "Submission Failed",
+            description: result.message || "Could not submit application. Please try again.",
+            variant: "destructive",
+          });
+        }
+      } catch (e) {
+        console.error("Client-side submission error:", e);
         toast({
-          title: "Application Submitted!",
-          description: "Thank you for your interest. We will review your application and get back to you soon.",
+          title: "Error",
+          description: "An unexpected error occurred. Please try again.",
+          variant: "destructive",
         });
-        form.reset(); // Reset form after successful submission
-      }, 1000);
+      }
     });
   }
 
@@ -113,14 +151,10 @@ export function ApplicationForm() {
                 <FormItem>
                   <FormLabel>CV / Resume (Optional)</FormLabel>
                   <FormControl>
-                     {/* For file inputs, React Hook Form needs manual handling for `onChange` and `value` if you want to store the File object.
-                         For simplicity, this example lets the browser handle it directly, and `field.value` would be a FileList.
-                         You might need a custom component or more logic for advanced file handling (e.g., preview, upload progress).
-                     */}
                     <Input 
                       type="file" 
-                      accept=".pdf,.doc,.docx"
-                      onChange={(e) => field.onChange(e.target.files)} // Store FileList
+                      accept={ACCEPTED_FILE_EXTENSIONS}
+                      onChange={(e) => field.onChange(e.target.files)} 
                     />
                   </FormControl>
                   <FormDescription>
