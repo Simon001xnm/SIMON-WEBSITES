@@ -3,7 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Container } from '@/components/layout/Container';
 import { ArrowRight, Code, Users, Lightbulb, Sparkles } from 'lucide-react';
-import Link from 'next/link';
+// Removed Link import as it's no longer used for the button
+import { DialogTrigger } from '@/components/ui/dialog'; // Added for Dialog
 
 export function RecruitmentSection() {
   return (
@@ -65,11 +66,11 @@ export function RecruitmentSection() {
         </div>
 
         <div className="text-center">
-          <Button asChild size="lg" className="group text-lg py-6 px-10">
-            <Link href="#apply">
+          <DialogTrigger asChild>
+            <Button size="lg" className="group text-lg py-6 px-10">
               Ready to Make an Impact? <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
+            </Button>
+          </DialogTrigger>
         </div>
       </Container>
     </section>
