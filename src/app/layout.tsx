@@ -1,17 +1,12 @@
 import type {Metadata} from 'next';
-import { Geist_Sans as GeistSans, Geist_Mono as GeistMono } from 'next/font/google'; // Corrected import for Geist
+// Corrected imports for Geist fonts
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"; // Added Toaster
+import { Toaster } from "@/components/ui/toaster";
 
-const geistSans = GeistSans({ // Use GeistSans as imported
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = GeistMono({ // Use GeistMono as imported
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+// The GeistSans and GeistMono objects from 'geist/font' directly provide .variable
+// so we don't need to call them as functions like with next/font/google.
 
 export const metadata: Metadata = {
   title: 'Simon Styles Limited | Digital Solutions',
@@ -24,8 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning> {/* Added suppressHydrationWarning for potential theme issues */}
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}> {/* Use font-sans as base */}
+    <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      {/*
+        The font-sans and font-mono classes (typically from Tailwind's base or utility)
+        will now correctly pick up the CSS variables (--font-geist-sans, --font-geist-mono)
+        defined by the classes applied to the <html> tag.
+      */}
+      <body className={`font-sans antialiased`}>
         {children}
         <Toaster />
       </body>
