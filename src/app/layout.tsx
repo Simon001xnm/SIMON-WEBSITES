@@ -12,6 +12,9 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   title: 'Simon Styles Limited | Digital Solutions',
   description: 'Portfolio of Simon Styles, showcasing web, mobile, and system development projects.',
+  verification: {
+    google: 'iL8hUbqCiIxBbr8PF-HLXDFor0u8O9b3DwYHjzKu7LE',
+  },
 };
 
 export default function RootLayout({
