@@ -40,7 +40,13 @@ const nextConfig: NextConfig = {
         hostname: 'picsum.photos',
         port: '',
         pathname: '/**',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'scontent.fnbo10-1.fna.fbcdn.net', // Added Facebook CDN
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
