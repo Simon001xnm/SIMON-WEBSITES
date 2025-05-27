@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 // Corrected imports for Geist fonts
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import Script from 'next/script'; // Import the Script component
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/next";
@@ -24,6 +25,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-5L0N9NZMQ6"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-5L0N9NZMQ6');
+            `,
+          }}
+        />
+      </head>
       {/*
         The font-sans and font-mono classes (typically from Tailwind's base or utility)
         will now correctly pick up the CSS variables (--font-geist-sans, --font-geist-mono)
