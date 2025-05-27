@@ -125,6 +125,7 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
             <Button asChild variant="ghost" size="icon" className="h-8 w-8 rounded-full bg-muted hover:bg-primary/20">
               <Link href={`/laptops/${laptop.id}`}>
                 <ArrowRight className="h-4 w-4 text-primary" />
+                <span className="sr-only">View Details</span>
               </Link>
             </Button>
           </div>
