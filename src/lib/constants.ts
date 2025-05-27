@@ -3,7 +3,7 @@ import type { Project, ProjectType } from '@/components/projects/types';
 
 export const PROJECT_TYPES: ProjectType[] = ["All", "Web", "Mobile", "Systems"];
 
-export const WHATSAPP_ORDER_NUMBER = "254700000000"; // IMPORTANT: Replace with your actual WhatsApp business number, e.g., "254712345678" (no +)
+export const WHATSAPP_ORDER_NUMBER = "254758673616"; // IMPORTANT: User's WhatsApp business number
 
 export const MOCK_PROJECTS: Project[] = [
   {
@@ -13,7 +13,7 @@ export const MOCK_PROJECTS: Project[] = [
     longDescription: "OpenSource Hub aims to be a central nexus for the open-source community. It facilitates project discovery through advanced search and categorization, supports collaboration with integrated version control and issue tracking, and provides tools for project maintainers to manage contributions and releases effectively. Built for transparency and community growth.",
     image: 'https://picsum.photos/id/1/600/400',
     dataAiHint: 'community platform',
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
+    techStack: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
     liveUrl: '#',
     repoUrl: 'https://github.com/Symoh242/Opensource-Simon-version-1',
     projectType: 'Web',
