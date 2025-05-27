@@ -60,8 +60,8 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Lenovo',
     price: 27999,
     originalPrice: 31000,
-    imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'lenovo laptop',
+    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2021/06/Lenovo-S145.jpg',
+    dataAiHint: 'lenovo s145',
     shortDescription: 'Celeron, 4 GB Ram, 1 TB',
     specs: [
       { key: 'Processor', value: 'Intel Celeron' },
