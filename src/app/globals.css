@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,6 +38,13 @@ body {
     --ring: 220 70% 45%; /* Navy Blue for focus rings */
 
     --radius: 0.5rem;
+
+    /* Custom badge colors */
+    --badge-new-bg: 34 100% 50%; /* Similar to screenshot's orange */
+    --badge-new-fg: 0 0% 100%;
+    --badge-hotdeal-bg: 50 100% 50%; /* A distinct yellow/gold */
+    --badge-hotdeal-fg: 0 0% 0%;
+
 
     /* Chart colors (can keep default or adjust if charts are used) */
     --chart-1: 12 76% 61%;
@@ -85,6 +93,12 @@ body {
     --border: 220 15% 25%;
     --input: 220 15% 25%;
     --ring: 220 70% 50%;
+
+    /* Custom badge colors for dark theme */
+    --badge-new-bg: 30 95% 55%;
+    --badge-new-fg: 0 0% 10%;
+    --badge-hotdeal-bg: 45 90% 50%;
+    --badge-hotdeal-fg: 0 0% 0%;
     
     /* Chart colors for dark theme */
     --chart-1: 220 70% 50%;
