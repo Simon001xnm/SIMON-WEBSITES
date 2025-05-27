@@ -5,6 +5,7 @@ import { Container } from '@/components/layout/Container';
 import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
+import { CategoriesSection } from '@/components/sections/CategoriesSection'; // Added import
 import { ApplicationForm } from '@/components/sections/ApplicationForm';
 import { MOCK_PROJECTS } from '@/lib/constants';
 import { Separator } from '@/components/ui/separator';
@@ -12,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+
 export default function HomePage() {
   return (
     <Dialog> {/* Main Dialog wrapper for ApplicationForm */}
@@ -41,6 +43,11 @@ export default function HomePage() {
               </div>
             </Container>
           </section>
+
+          <Separator />
+
+          {/* Categories Section - New */}
+          <CategoriesSection />
 
           <Separator />
 
