@@ -35,7 +35,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Asus',
     price: 26499,
     originalPrice: 28000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2021/04/ASUS-X543M-1.jpg', // Updated image
     dataAiHint: 'asus laptop',
     shortDescription: 'N4020, 4 GB Ram, 1 TB',
     specs: [
@@ -627,4 +627,5 @@ export const MOCK_LAPTOPS: Laptop[] = [
     operatingSystem: 'Windows 11'
   },
 ];
+
 
