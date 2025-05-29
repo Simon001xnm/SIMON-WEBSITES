@@ -1,3 +1,4 @@
+
 import type {Metadata} from 'next';
 // Corrected imports for Geist fonts
 import { GeistSans } from 'geist/font/sans';
@@ -6,6 +7,7 @@ import Script from 'next/script'; // Import the Script component
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/next";
+import { FloatingSocialButtons } from '@/components/layout/FloatingSocialButtons'; // Added import
 
 // The GeistSans and GeistMono objects from 'geist/font' directly provide .variable
 // so we don't need to call them as functions like with next/font/google.
@@ -53,6 +55,7 @@ export default function RootLayout({
         {children}
         <Toaster />
         <Analytics />
+        <FloatingSocialButtons />
       </body>
     </html>
   );
