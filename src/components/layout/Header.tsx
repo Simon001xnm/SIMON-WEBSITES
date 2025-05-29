@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
-import { CodeXml, Laptop } from 'lucide-react';
+import { CodeXml, ShoppingBag } from 'lucide-react'; // Added ShoppingBag for Shop link
 import { Button } from '@/components/ui/button';
 
 export function Header() {
@@ -13,14 +13,19 @@ export function Header() {
             <CodeXml className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-accent" />
             Simon Styles Ltd.
           </Link>
-          <nav className="flex items-center gap-2 sm:gap-3">
+          <nav className="flex items-center gap-1 sm:gap-2"> {/* Reduced gap slightly to accommodate new link */}
             <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
               <Link href="/">Home</Link>
             </Button>
             <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
               <Link href="/#projects">Portfolio</Link>
             </Button>
-            {/* Removed Laptops link */}
+            <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
+              <Link href="/laptops"> {/* Link to the laptops page */}
+                <ShoppingBag className="mr-1 h-3 w-3 sm:h-4 sm:w-4" /> {/* Icon for Shop */}
+                Shop
+              </Link>
+            </Button>
             <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
               <Link href="/#contact">Contact</Link>
             </Button>
