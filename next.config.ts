@@ -47,12 +47,7 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'smartbuy.co.ke', // Added for smartbuy images
-        port: '',
-        pathname: '/**',
-      }
+      // Removed smartbuy.co.ke as it was specific to laptop images
     ],
   },
 };
