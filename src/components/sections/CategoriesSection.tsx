@@ -37,10 +37,10 @@ export function CategoriesSection() {
               <div className="aspect-video relative mb-4 sm:mb-6 overflow-hidden rounded-md border p-2"> {/* Added p-2 for padding */}
                 <Image
                   src="https://nairobicomputershop.co.ke/media/cache/3c/eb/3cebd8fb6a43acf83b8efcb652cd79a8.jpg"
-                  alt="Tech Products Showcase"
+                  alt="Logitech Products Showcase"
                   fill
-                  className="object-cover"
-                  data-ai-hint="computer hardware tech products"
+                  className="object-contain"
+                  data-ai-hint="logitech products"
                 />
               </div>
             </CardContent>
