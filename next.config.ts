@@ -49,7 +49,19 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'smartbuy.co.ke', // Re-added for laptop images
+        hostname: 'smartbuy.co.ke',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'hewlettcomputersolution.co.ke', // Added new hostname
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'nairobicomputershop.co.ke', // Added new hostname
         port: '',
         pathname: '/**',
       },

@@ -35,7 +35,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Asus',
     price: 26499,
     originalPrice: 28000,
-    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2021/04/ASUS-X543M-1.jpg', // Updated image
+    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2021/04/ASUS-X543M-1.jpg',
     dataAiHint: 'asus laptop',
     shortDescription: 'N4020, 4 GB Ram, 1 TB',
     specs: [
@@ -110,7 +110,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Lenovo',
     price: 29999,
     originalPrice: 32000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2021/09/LENOVO-IDEAPAD-330.jpg',
     dataAiHint: 'lenovo ideapad',
     shortDescription: 'Intel Celeron, 1TB, 4GB',
     specs: [
@@ -134,7 +134,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'HP',
     price: 29999,
     originalPrice: 33000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2022/01/HP-250-G8-CELERON-4.jpg',
     dataAiHint: 'hp laptop',
     shortDescription: 'N4020, 4GB Ram, 500GB',
     specs: [
@@ -158,7 +158,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'HP',
     price: 29999,
     originalPrice: 31000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2022/03/hp-250-g7-celeron-.jpg',
     dataAiHint: 'hp g7 laptop',
     shortDescription: 'N4020, 4GB Ram, 500GB',
     specs: [
@@ -183,7 +183,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Lenovo',
     price: 29999,
     originalPrice: 31000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://placehold.co/600x400.png', // Keeping placeholder as no new image provided
     dataAiHint: 'ideapad 3',
     shortDescription: 'Intel Celeron, 4GB, 1TB',
      specs: [
@@ -207,7 +207,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'HP',
     price: 33999,
     originalPrice: 36000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://placehold.co/600x400.png', // Keeping placeholder
     dataAiHint: 'hp 14 notebook',
     shortDescription: 'Celeron, 4 GB Ram, 500 GB HDD',
     specs: [
@@ -216,7 +216,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
       { key: 'Storage', value: '500GB HDD' },
       { key: 'Display', value: '14" HD' },
     ],
-    stock: 5, // Changed from 0 to make it available
+    stock: 5,
     badgeText: 'LIMITED STOCK',
     badgeVariant: 'hotdeal',
     processorType: 'Celeron',
@@ -225,13 +225,12 @@ export const MOCK_LAPTOPS: Laptop[] = [
     graphicsType: 'Integrated',
     operatingSystem: 'Windows 10'
   },
-  // Adding more diverse laptops
   {
     id: 'laptop-9',
     name: 'Dell Inspiron 15 3000, Core i3, 8GB RAM, 256GB SSD',
     brand: 'Dell',
     price: 45999,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://hewlettcomputersolution.co.ke/wp-content/uploads/2023/12/Dell-Inspiron-15-3000-I3-10th-Gen-8-128-Touch-Laptop.png',
     dataAiHint: 'dell inspiron laptop',
     shortDescription: 'Core i3, 8GB RAM, 256GB SSD',
     specs: [
@@ -255,7 +254,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Apple',
     price: 109999,
     originalPrice: 115000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://nairobicomputershop.co.ke/media/products/2022/07/MC_1.jpg',
     dataAiHint: 'macbook air silver',
     shortDescription: 'M1 Chip, 8GB RAM, 256GB SSD',
     specs: [
@@ -627,5 +626,3 @@ export const MOCK_LAPTOPS: Laptop[] = [
     operatingSystem: 'Windows 11'
   },
 ];
-
-
