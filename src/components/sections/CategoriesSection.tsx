@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
-import { ArrowRight, Layers, ShoppingBag } from 'lucide-react'; // Added ShoppingBag icon
+import { ArrowRight, ShoppingBag } from 'lucide-react'; // Added ShoppingBag icon
 
 export function CategoriesSection() {
   return (
@@ -34,7 +34,7 @@ export function CategoriesSection() {
               </CardDescription> {/* Updated Description */}
             </CardHeader>
             <CardContent className="flex-grow p-4 sm:p-6 pt-0 text-center">
-              <div className="aspect-video relative mb-4 sm:mb-6 overflow-hidden rounded-md border">
+              <div className="aspect-video relative mb-4 sm:mb-6 overflow-hidden rounded-md border p-2"> {/* Added p-2 for padding */}
                 <Image
                   src="https://nairobicomputershop.co.ke/media/cache/3c/eb/3cebd8fb6a43acf83b8efcb652cd79a8.jpg"
                   alt="Tech Products Showcase"
