@@ -9,9 +9,17 @@ export function Header() {
     <header className="py-4 sm:py-6 border-b sticky top-0 bg-background/95 backdrop-blur z-50">
       <Container>
         <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
-            <CodeXml className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-accent" />
-            Simon Styles Technology Ltd.
+          <Link href="/" className="flex items-start gap-2 hover:opacity-80 transition-opacity">
+            <CodeXml className="w-6 h-6 sm:w-7 sm:w-7 md:w-8 md:h-8 text-accent shrink-0 mt-1 md:mt-1.5" />
+            <div className="flex flex-col">
+              <span className="text-lg sm:text-xl md:text-2xl font-bold text-primary leading-tight">
+                Simon<span className="tracking-tight">Styles</span>
+              </span>
+              <div className="text-xs sm:text-sm font-medium text-primary/90 leading-snug -mt-0.5 sm:-mt-1">
+                <div>Technology</div>
+                <div>Limited</div>
+              </div>
+            </div>
           </Link>
           <nav className="flex items-center gap-1 sm:gap-2"> {/* Reduced gap slightly to accommodate new link */}
             <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
