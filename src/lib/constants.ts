@@ -4,7 +4,7 @@ import type { Project, ProjectType } from '@/components/projects/types';
 export const PROJECT_TYPES: ProjectType[] = ["All", "Web", "Mobile", "Systems"];
 
 export const WHATSAPP_ORDER_NUMBER = "254758673616"; // IMPORTANT: User's WhatsApp business number
-export const INSTAGRAM_PROFILE_URL = "https://instagram.com/your_profile_here"; // IMPORTANT: Replace with your actual Instagram profile URL
+export const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/00001000692y63iwt/";
 
 export const MOCK_PROJECTS: Project[] = [
   {
@@ -12,7 +12,7 @@ export const MOCK_PROJECTS: Project[] = [
     title: 'OpenSource Hub',
     description: 'A platform for discovering, collaborating on, and managing open-source projects.',
     longDescription: "OpenSource Hub aims to be a central nexus for the open-source community. It facilitates project discovery through advanced search and categorization, supports collaboration with integrated version control and issue tracking, and provides tools for project maintainers to manage contributions and releases effectively. Built for transparency and community growth.",
-    image: 'https://smartbuy.co.ke/wp-content/uploads/2021/04/ASUS-X543M-1.jpg', // Was picsum
+    image: 'https://smartbuy.co.ke/wp-content/uploads/2021/04/ASUS-X543M-1.jpg',
     dataAiHint: 'community platform',
     techStack: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
     liveUrl: '#',
@@ -44,9 +44,9 @@ export const MOCK_PROJECTS: Project[] = [
   },
   {
     id: '4',
-    title: 'Simon Styles Ltd.',
-    description: "Professional portfolio and service showcase for Simon Styles Ltd., detailing expertise and projects.",
-    longDescription: "The official online presence of Simon Styles Ltd., showcasing a range of successfully delivered web, mobile, and system development projects. This platform highlights the skills, methodologies, and innovative solutions offered, providing a comprehensive overview of capabilities and an easy way for potential clients to connect.",
+    title: 'Simon Styles Technology Limited',
+    description: "Professional portfolio and service showcase for Simon Styles Technology Limited, detailing expertise and projects.",
+    longDescription: "The official online presence of Simon Styles Technology Limited, showcasing a range of successfully delivered web, mobile, and system development projects. This platform highlights the skills, methodologies, and innovative solutions offered, providing a comprehensive overview of capabilities and an easy way for potential clients to connect.",
     image: 'https://picsum.photos/id/1/600/400',
     dataAiHint: 'portfolio website',
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Genkit', 'Gemini AI'],

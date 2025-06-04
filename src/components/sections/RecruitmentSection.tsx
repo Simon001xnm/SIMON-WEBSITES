@@ -15,7 +15,7 @@ export function RecruitmentSection() {
             Shape the Future with Us
           </h2>
           <p className="text-md sm:text-lg text-muted-foreground max-w-2xl md:max-w-3xl mx-auto">
-            At Simon Styles Ltd., we're not just building software; we're crafting digital experiences that make a difference.
+            At Simon Styles Technology Limited, we're not just building software; we're crafting digital experiences that make a difference.
             We're on the lookout for talented, passionate, and driven developers to join our innovative team.
           </p>
         </div>

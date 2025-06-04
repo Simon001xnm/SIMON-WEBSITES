@@ -11,7 +11,7 @@ export function Header() {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
             <CodeXml className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-accent" />
-            Simon Styles Ltd.
+            Simon Styles Technology Ltd.
           </Link>
           <nav className="flex items-center gap-1 sm:gap-2"> {/* Reduced gap slightly to accommodate new link */}
             <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
