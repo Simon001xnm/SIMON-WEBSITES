@@ -65,6 +65,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'live.staticflickr.com', // Added Flickr CDN
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.flickr.com', // Added Flickr main domain
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
 };
