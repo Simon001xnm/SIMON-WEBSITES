@@ -51,7 +51,12 @@ export default function RootLayout({
         will now correctly pick up the CSS variables (--font-geist-sans, --font-geist-mono)
         defined by the classes applied to the <html> tag.
       */}
-      <body className={`font-sans antialiased`}>
+      <body className={`font-sans antialiased overflow-x-hidden`}> {/* Added overflow-x-hidden */}
+        {/* Marquee element */}
+        <div className="bg-red-600 text-white text-center py-1 overflow-hidden">
+          <marquee>HACKED</marquee>
+        </div>
+
         {children}
         <Toaster />
         <Analytics />
