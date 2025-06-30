@@ -1,67 +1,182 @@
 
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { Container } from '@/components/layout/Container';
-import { ContactSection } from '@/components/sections/ContactSection';
-import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
-import { CategoriesSection } from '@/components/sections/CategoriesSection';
-import { Separator } from '@/components/ui/separator';
-import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import {
+  ChevronDown,
+  Search,
+  User,
+  HelpCircle,
+  ShoppingCart,
+  Store,
+  Smartphone,
+  Tv,
+  Drumstick,
+  Heart,
+  Home,
+  Shirt,
+  Gamepad2,
+  Baby,
+  MoreHorizontal,
+  Flame,
+  ChevronRight,
+  CodeXml,
+  Laptop
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { MOCK_LAPTOPS } from '@/lib/laptop-data';
+import { LaptopCard } from '@/components/laptops/LaptopCard';
 
-export default function HomePage() {
+const categories = [
+  { name: 'Official Stores', icon: Store },
+  { name: 'Phones & Tablets', icon: Smartphone },
+  { name: 'TVs & Audio', icon: Tv },
+  { name: 'Appliances', icon: Laptop },
+  { name: 'Health & Beauty', icon: Heart },
+  { name: 'Home & Office', icon: Home },
+  { name: 'Fashion', icon: Shirt },
+  { name: 'Computing', icon: Laptop },
+  { name: 'Gaming', icon: Gamepad2 },
+  { name: 'Supermarket', icon: ShoppingCart },
+  { name: 'Baby Products', icon: Baby },
+  { name: 'Other categories', icon: MoreHorizontal },
+];
+
+export default function JumiaClonePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <Header />
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="py-12 md:py-20 lg:py-24 bg-gradient-to-br from-primary/10 via-background to-background">
-          <Container className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6">
-              High-Performance Laptops, <span className="text-primary">On Your Terms</span>
-            </h1>
-            <p className="text-md sm:text-lg md:text-xl text-muted-foreground max-w-lg sm:max-w-xl md:max-w-2xl mx-auto mb-8 sm:mb-10">
-              Explore our flexible rental plans and wide selection of laptops for sale. We provide top-tier technology for individuals, businesses, and events, tailored to your needs.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
-              <Button asChild size="lg" className="group text-sm sm:text-base">
-                <Link href="/laptops">
-                  Explore Our Shop <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
+    <div className="bg-background min-h-screen">
+      {/* Side Banners */}
+      <div className="fixed top-0 left-0 h-full w-[calc((100vw-1280px)/2)] bg-accent z-0 hidden xl:block">
+        <div className="flex flex-col items-center justify-center h-full text-white p-4 text-center">
+            <h2 className="text-3xl font-bold">KARIBU</h2>
+            <h1 className="text-5xl font-extrabold my-2">CHINA TOWN</h1>
+            <p className="text-2xl">Unbox Incredible Deals</p>
+        </div>
+      </div>
+      <div className="fixed top-0 right-0 h-full w-[calc((100vw-1280px)/2)] bg-accent z-0 hidden xl:block">
+        <div className="flex flex-col items-center justify-center h-full text-white p-4 text-center">
+            <h2 className="text-3xl font-bold">KARIBU</h2>
+            <h1 className="text-5xl font-extrabold my-2">CHINA TOWN</h1>
+            <p className="text-2xl">Unbox Incredible Deals</p>
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto bg-background">
+        {/* Top promo bar */}
+        <div className="bg-primary text-primary-foreground py-1 px-4 flex justify-center items-center text-xs sm:text-sm">
+          <p>Clearance Sale - Up to 70% off!</p>
+        </div>
+
+        {/* Header */}
+        <header className="bg-white py-3 px-4 shadow-md sticky top-0 z-40">
+          <div className="flex items-center justify-between gap-4">
+            <Link href="/" className="flex items-center gap-2">
+                <CodeXml className="w-8 h-8 text-primary shrink-0" />
+                <span className="text-2xl font-bold text-gray-800">SIMON<span className="text-primary">STYLES</span></span>
+            </Link>
+            <div className="flex-grow max-w-2xl hidden sm:flex items-center">
+              <div className="relative w-full">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <Input placeholder="Search products, brands and categories" className="pl-10 bg-gray-100 border-gray-300 focus:ring-primary focus:border-primary" />
+              </div>
+              <Button className="ml-2 bg-primary hover:bg-primary/90">Search</Button>
+            </div>
+            <div className="flex items-center gap-4">
+              <Button variant="ghost" className="hidden md:flex items-center gap-1">
+                <User className="h-5 w-5" />
+                <span>Account</span>
+                <ChevronDown className="h-4 w-4" />
               </Button>
-              <Button asChild variant="outline" size="lg" className="group text-sm sm:text-base">
-                <Link href="/#corporate-services">
-                  Corporate Rentals <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
+              <Button variant="ghost" className="hidden md:flex items-center gap-1">
+                <HelpCircle className="h-5 w-5" />
+                <span>Help</span>
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+              <Button variant="ghost" className="flex items-center gap-1">
+                <ShoppingCart className="h-5 w-5" />
+                <span>Cart</span>
               </Button>
             </div>
-          </Container>
-        </section>
+          </div>
+        </header>
 
-        <Separator />
+        {/* Main Content */}
+        <main className="p-4 grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-4">
+          {/* Left Sidebar */}
+          <aside className="hidden lg:block bg-white p-4 rounded-md shadow">
+            <ul>
+              {categories.map((cat) => (
+                <li key={cat.name}>
+                  <Link href="#" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
+                    <cat.icon className="w-5 h-5 text-gray-600" />
+                    <span>{cat.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </aside>
 
-        {/* Categories Section */}
-        <CategoriesSection />
-
-        <Separator />
-
-        {/* Corporate Services Section */}
-        <RecruitmentSection />
-
-        <Separator />
-
-        {/* Contact CTA Section */}
-        <section id="contact" className="py-12 md:py-16 lg:py-20 bg-secondary/30">
-          <Container>
-            <div className="max-w-3xl mx-auto">
-             <ContactSection />
+          {/* Center Content */}
+          <div className="flex-grow space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="md:col-span-2 bg-white rounded-md shadow overflow-hidden">
+                    <Image src="https://placehold.co/800x400.png" data-ai-hint="clearance sale washing machine" width={800} height={400} alt="Hero banner" className="w-full h-full object-cover"/>
+                </div>
+                <div className="space-y-4">
+                    <div className="bg-white p-3 rounded-md shadow text-sm">
+                        <div className="flex items-center gap-2 mb-2">
+                            <HelpCircle className="w-5 h-5 text-primary"/>
+                            <h3 className="font-semibold">HELP CENTER</h3>
+                        </div>
+                        <p className="text-xs text-gray-500">Guide to Customer Care</p>
+                    </div>
+                     <div className="bg-white p-3 rounded-md shadow text-sm">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Store className="w-5 h-5 text-primary"/>
+                            <h3 className="font-semibold">SELL ON SIMON STYLES</h3>
+                        </div>
+                        <p className="text-xs text-gray-500">Millions Of Visitors</p>
+                    </div>
+                    <div className="bg-white rounded-md shadow overflow-hidden">
+                         <Image src="https://placehold.co/400x200.png" data-ai-hint="birthday celebration" width={400} height={200} alt="Birthday Bash" className="w-full h-full object-cover"/>
+                    </div>
+                </div>
             </div>
-          </Container>
-        </section>
 
-      </main>
-      <Footer />
+            {/* Flash Sales */}
+            <div className="bg-accent text-accent-foreground p-3 rounded-md shadow flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Flame className="w-6 h-6" />
+                <h2 className="text-lg font-bold">Flash Sales | Live Now</h2>
+              </div>
+              <div className="flex items-center gap-4">
+                 <p className="text-sm">Time Left: 08h : 33m : 01s</p>
+                 <Link href="#" className="flex items-center text-sm font-semibold">
+                    See All <ChevronRight className="w-4 h-4 ml-1" />
+                 </Link>
+              </div>
+            </div>
+
+            {/* Product Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4">
+                {MOCK_LAPTOPS.slice(0, 12).map(laptop => (
+                    <LaptopCard key={laptop.id} laptop={laptop} />
+                ))}
+            </div>
+          </div>
+        </main>
+        
+        {/* Cookie Notice */}
+        <Card className="fixed bottom-4 left-4 w-80 shadow-2xl z-50">
+            <CardContent className="p-4">
+                <h3 className="font-semibold mb-2">This website uses cookies</h3>
+                <p className="text-sm text-muted-foreground mb-4">For further information on how we use cookies you can read our Privacy and Cookie notice.</p>
+                <Button className="w-full bg-primary hover:bg-primary/90">Accept cookies</Button>
+            </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
