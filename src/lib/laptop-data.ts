@@ -164,7 +164,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     specs: [
       { key: 'Processor', value: 'Intel Celeron N4020' },
       { key: 'RAM', value: '4GB DDR4' },
-      { key: 'Storage', value: '500GB HDD' },
+      { key: 'Storage', 'value': '500GB HDD' },
       { key: 'Display', value: '15.6" HD' },
     ],
     stock: 9,
@@ -183,8 +183,8 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Lenovo',
     price: 29999,
     originalPrice: 31000,
-    imageUrl: 'https://placehold.co/600x400.png', // Keeping placeholder as no new image provided
-    dataAiHint: 'ideapad 3',
+    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2022/02/Lenovo-V15-G2-1.jpg',
+    dataAiHint: 'lenovo ideapad',
     shortDescription: 'Intel Celeron, 4GB, 1TB',
      specs: [
       { key: 'Processor', value: 'Intel Celeron' },
@@ -207,8 +207,8 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'HP',
     price: 33999,
     originalPrice: 36000,
-    imageUrl: 'https://placehold.co/600x400.png', // Keeping placeholder
-    dataAiHint: 'hp 14 notebook',
+    imageUrl: 'https://nairobicomputershop.co.ke/media/products/2021/04/HP-Notebook-14-Intel-Celeron-4GB-RAM-500GB-Hard-Drive-3.jpg',
+    dataAiHint: 'hp notebook',
     shortDescription: 'Celeron, 4 GB Ram, 500 GB HDD',
     specs: [
       { key: 'Processor', value: 'Intel Celeron' },
@@ -277,7 +277,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'HP Pavilion 15, Ryzen 5, 8GB RAM, 512GB SSD',
     brand: 'HP',
     price: 68500,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed',
     dataAiHint: 'hp pavilion blue',
     shortDescription: 'Ryzen 5, 8GB RAM, 512GB SSD',
     specs: [
@@ -300,7 +300,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Asus',
     price: 72000,
     originalPrice: 75000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9',
     dataAiHint: 'asus vivobook grey',
     shortDescription: 'Core i5, 12GB RAM, 512GB SSD',
     specs: [
@@ -323,7 +323,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'Lenovo Legion 5, Ryzen 7, 16GB RAM, 1TB SSD, RTX 3060',
     brand: 'Lenovo',
     price: 145000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1618225042443-a614b19b6343',
     dataAiHint: 'lenovo legion gaming',
     shortDescription: 'Ryzen 7, RTX 3060, 16GB RAM',
     specs: [
@@ -348,7 +348,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'Dell XPS 13, Core i7, 16GB RAM, 512GB SSD',
     brand: 'Dell',
     price: 159999,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1542393545-10f5cde2c810',
     dataAiHint: 'dell xps silver',
     shortDescription: 'Core i7, 16GB RAM, 512GB SSD, UHD+',
     specs: [
@@ -371,7 +371,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'Apple MacBook Pro 14 M2 Pro, 16GB RAM, 512GB SSD',
     brand: 'Apple',
     price: 249999,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1569770218135-bea267ed7e84',
     dataAiHint: 'macbook pro spacegrey',
     shortDescription: 'M2 Pro, 16GB RAM, 512GB SSD',
     specs: [
@@ -394,7 +394,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Asus',
     price: 165000,
     originalPrice: 175000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1643448981657-3a443919b35b',
     dataAiHint: 'asus rog white',
     shortDescription: 'Ryzen 9, RTX 3050Ti, AniMe Matrix',
     specs: [
@@ -419,7 +419,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'HP Envy x360 13, Core i5, 8GB RAM, 512GB SSD',
     brand: 'HP',
     price: 98000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1616443185387-4a41334b0d50',
     dataAiHint: 'hp envy convertible',
     shortDescription: 'Convertible, Core i5, 8GB RAM, 512GB SSD',
     specs: [
@@ -442,7 +442,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'Lenovo ThinkPad E14 Gen 3, Ryzen 5, 16GB RAM, 512GB SSD',
     brand: 'Lenovo',
     price: 85000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://plus.unsplash.com/premium_photo-1679397828082-93856237c569',
     dataAiHint: 'lenovo thinkpad black',
     shortDescription: 'Ryzen 5, 16GB RAM, Business Laptop',
     specs: [
@@ -465,7 +465,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Dell',
     price: 115000,
     originalPrice: 125000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2',
     dataAiHint: 'dell latitude business',
     shortDescription: 'Business, Core i5, 16GB RAM, Lightweight',
     specs: [
@@ -488,7 +488,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'Asus ZenBook Duo 14, Core i7, 16GB RAM, 1TB SSD, ScreenPad Plus',
     brand: 'Asus',
     price: 199999,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1606220863836-c69224b75245',
     dataAiHint: 'asus zenbook duo',
     shortDescription: 'Dual Screen, Core i7, 16GB RAM, 1TB SSD',
     specs: [
@@ -513,7 +513,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'HP Spectre x360 14, Core i7, 16GB RAM, 1TB SSD, OLED',
     brand: 'HP',
     price: 185000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1616443185387-4a41334b0d50',
     dataAiHint: 'hp spectre gold',
     shortDescription: 'Convertible, Core i7, OLED, 1TB SSD',
     specs: [
@@ -537,7 +537,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'Lenovo',
     price: 110000,
     originalPrice: 120000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1602081036496-c1483b3815fe',
     dataAiHint: 'lenovo yoga slim',
     shortDescription: 'Ryzen 7, 16GB RAM, QHD Display',
     specs: [
@@ -561,7 +561,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'Microsoft Surface Laptop 5 13.5", Core i5, 8GB RAM, 256GB SSD',
     brand: 'Microsoft',
     price: 125000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1662010022067-5a4014c5b36e',
     dataAiHint: 'surface laptop platinum',
     shortDescription: 'Core i5, 8GB RAM, PixelSense Display',
     specs: [
@@ -584,7 +584,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'Acer Aspire 5, Core i5, 8GB RAM, 512GB SSD, MX450',
     brand: 'Acer',
     price: 65000,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1589561084212-7235b0445d44',
     dataAiHint: 'acer aspire silver',
     shortDescription: 'Core i5, 8GB RAM, NVIDIA MX450',
     specs: [
@@ -606,8 +606,8 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'Samsung Galaxy Book3 Pro 16", Core i7, 16GB RAM, 1TB SSD',
     brand: 'Samsung',
     price: 170000,
-    imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'samsung galaxy book',
+    imageUrl: 'https://images.unsplash.com/photo-1676813333332-9df75f1b2b3a',
+    dataAiHint: 'samsung galaxybook',
     shortDescription: 'AMOLED 3K, Core i7, 16GB RAM, 1TB SSD',
     specs: [
       { key: 'Processor', value: 'Intel Core i7-1360P' },
