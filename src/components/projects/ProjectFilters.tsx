@@ -2,7 +2,6 @@
 
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { ProjectType } from './types';
-import { PROJECT_TYPES } from '@/lib/constants';
 import { Globe, Smartphone, Server, LayoutGrid } from 'lucide-react';
 
 interface ProjectFiltersProps {
@@ -30,12 +29,7 @@ export function ProjectFilters({ selectedType, onFilterChange }: ProjectFiltersP
   return (
     <Tabs value={selectedType} onValueChange={(value) => onFilterChange(value as ProjectType)} className="mb-8 flex justify-center">
       <TabsList className="grid w-full max-w-md grid-cols-2 sm:grid-cols-4">
-        {PROJECT_TYPES.map((type) => (
-          <TabsTrigger key={type} value={type} className="flex items-center">
-             <TypeIcon type={type} />
-            {type}
-          </TabsTrigger>
-        ))}
+        {/* Project types removed, this will render an empty list */}
       </TabsList>
     </Tabs>
   );

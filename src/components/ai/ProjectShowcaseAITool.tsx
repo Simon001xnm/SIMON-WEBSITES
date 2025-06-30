@@ -11,16 +11,12 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input'; // Added for project title
-import { MOCK_PROJECTS } from '@/lib/constants'; // To populate dropdown
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'; // For project selection
 import { Loader2 } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 const formSchema = z.object({
-  selectedProjectId: z.string().min(1, 'Please select a project.'),
-  customProjectDetails: z.string().optional(),
-  customProjectLinks: z.string().optional(),
+  customProjectDetails: z.string().min(10, 'Please provide more details about the project.'),
+  customProjectLinks: z.string().url('Please enter a valid URL.').optional().or(z.literal('')),
 });
 
 type ProjectShowcaseFormValues = z.infer<typeof formSchema>;
@@ -33,44 +29,21 @@ export function ProjectShowcaseAITool() {
   const form = useForm<ProjectShowcaseFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      selectedProjectId: '',
       customProjectDetails: '',
       customProjectLinks: '',
     },
   });
 
-  const selectedProjectId = form.watch('selectedProjectId');
-  const selectedProject = MOCK_PROJECTS.find(p => p.id === selectedProjectId);
-
   const onSubmit = (values: ProjectShowcaseFormValues) => {
     setError(null);
     setShowcaseResult(null);
 
-    let projectDetails: string;
-    let projectLinksArray: string[];
-
-    if (selectedProject) {
-      projectDetails = values.customProjectDetails || selectedProject.longDescription;
-      const linksFromProject = [selectedProject.liveUrl, selectedProject.repoUrl].filter(Boolean) as string[];
-      const customLinks = values.customProjectLinks ? values.customProjectLinks.split('\n').map(link => link.trim()).filter(link => link.length > 0) : [];
-      projectLinksArray = [...new Set([...linksFromProject, ...customLinks])];
-    } else if (values.customProjectDetails && values.customProjectLinks) {
-        projectDetails = values.customProjectDetails;
-        projectLinksArray = values.customProjectLinks.split('\n').map(link => link.trim()).filter(link => link.length > 0);
-    }
-     else {
-      setError('Please select a project or provide custom details and links.');
-      return;
-    }
-    
-    if (!projectDetails) {
-        setError('Project details are missing.');
-        return;
-    }
-
+    const projectLinksArray = values.customProjectLinks 
+        ? values.customProjectLinks.split('\n').map(link => link.trim()).filter(link => link.length > 0) 
+        : [];
 
     const input: GenerateProjectShowcaseInput = {
-      projectDetails,
+      projectDetails: values.customProjectDetails,
       projectLinks: projectLinksArray,
     };
 
@@ -84,57 +57,18 @@ export function ProjectShowcaseAITool() {
       }
     });
   };
-  
-  // Effect to update form when selectedProject changes
-  React.useEffect(() => {
-    if (selectedProject) {
-      form.setValue('customProjectDetails', selectedProject.longDescription);
-      const linksString = [selectedProject.liveUrl, selectedProject.repoUrl].filter(Boolean).join('\n');
-      form.setValue('customProjectLinks', linksString);
-    } else {
-      form.setValue('customProjectDetails', '');
-      form.setValue('customProjectLinks', '');
-    }
-  }, [selectedProject, form]);
-
 
   return (
     <Card className="w-full shadow-lg">
       <CardHeader>
         <CardTitle className="text-2xl font-semibold">AI Project Showcase Generator</CardTitle>
         <CardDescription>
-          Select a project or enter details to generate a compelling showcase section using AI.
+          Enter details to generate a compelling showcase section using AI.
         </CardDescription>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent className="space-y-6">
-            <FormField
-              control={form.control}
-              name="selectedProjectId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Select Project (Optional)</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Choose a project to prefill details" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {MOCK_PROJECTS.map((project) => (
-                        <SelectItem key={project.id} value={project.id}>
-                          {project.title}
-                        </SelectItem>
-                      ))}
-                      <SelectItem value="custom">Enter Custom Details Below</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
             <FormField
               control={form.control}
               name="customProjectDetails"

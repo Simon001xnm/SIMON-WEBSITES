@@ -2,12 +2,10 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Container } from '@/components/layout/Container';
-import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
 import { CategoriesSection } from '@/components/sections/CategoriesSection'; // Added import
 import { ApplicationForm } from '@/components/sections/ApplicationForm';
-import { MOCK_PROJECTS } from '@/lib/constants';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -31,8 +29,8 @@ export default function HomePage() {
               </p>
               <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
                 <Button asChild size="lg" className="group text-sm sm:text-base">
-                  <Link href="#projects">
-                    View My Work <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
+                  <Link href="/laptops">
+                    Explore Our Shop <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
                 <DialogTrigger asChild>
@@ -53,21 +51,6 @@ export default function HomePage() {
 
           {/* Recruitment Section */}
           <RecruitmentSection />
-
-          <Separator />
-
-          {/* Interactive Project Grid Section */}
-          <section id="projects" className="py-12 md:py-16 lg:py-20">
-            <Container>
-              <div className="text-center mb-10 md:mb-12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">My Portfolio</h2>
-                <p className="text-md sm:text-lg text-muted-foreground mt-2 max-w-md sm:max-w-xl mx-auto">
-                  A selection of projects I've passionately built.
-                </p>
-              </div>
-              <ProjectGrid projects={MOCK_PROJECTS} />
-            </Container>
-          </section>
 
           <Separator />
 

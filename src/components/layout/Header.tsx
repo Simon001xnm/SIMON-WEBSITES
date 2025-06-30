@@ -26,9 +26,6 @@ export function Header() {
               <Link href="/">Home</Link>
             </Button>
             <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
-              <Link href="/#projects">Portfolio</Link>
-            </Button>
-            <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
               <Link href="/laptops"> {/* Link to the laptops page */}
                 <ShoppingBag className="mr-1 h-3 w-3 sm:h-4 sm:w-4" /> {/* Icon for Shop */}
                 Shop

@@ -2,5 +2,5 @@
 import { config } from 'dotenv';
 config();
 
-// Removed: import '@/ai/flows/generate-project-showcase.ts';
-// If you have other flows, they would be imported here.
+// All AI flows should be imported here.
+// Example: import '@/ai/flows/diagnose-plant-flow.ts';

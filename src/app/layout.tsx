@@ -13,8 +13,8 @@ import { FloatingSocialButtons } from '@/components/layout/FloatingSocialButtons
 // so we don't need to call them as functions like with next/font/google.
 
 export const metadata: Metadata = {
-  title: 'Simon Styles Technology Limited | Digital Solutions',
-  description: 'Portfolio of Simon Styles, showcasing web, mobile, and system development projects.',
+  title: 'Simon Styles Technology | Laptops & Tech Solutions',
+  description: 'Your one-stop shop for high-quality laptops, computer accessories, and expert tech solutions in Kenya.',
   verification: {
     google: 'iL8hUbqCiIxBbr8PF-HLXDFor0u8O9b3DwYHjzKu7LE',
   },
