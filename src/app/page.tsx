@@ -161,6 +161,13 @@ export default function JumiaClonePage() {
                             <p className="text-xs text-white/90 mt-1">The best laptop deals & suppliers in town.</p>
                         </div>
                     </div>
+                    <div className="bg-white rounded-md shadow overflow-hidden relative group">
+                         <Image src="https://placehold.co/400x200.png" data-ai-hint="tech offer banner" width={400} height={200} alt="Special Offer" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
+                         <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
+                            <h3 className="text-lg font-bold text-white">Special Offers</h3>
+                            <p className="text-xs text-white/90 mt-1">Check out our latest deals.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
