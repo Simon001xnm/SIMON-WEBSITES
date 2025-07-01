@@ -122,7 +122,7 @@ export default function JumiaClonePage() {
           <div className="flex-grow space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="md:col-span-2 bg-white rounded-md shadow overflow-hidden">
-                    <Image src="https://placehold.co/800x400.png" data-ai-hint="clearance sale washing machine" width={800} height={400} alt="Hero banner" className="w-full h-full object-cover"/>
+                    <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" width={800} height={400} alt="Hero banner" className="w-full h-full object-cover"/>
                 </div>
                 <div className="space-y-4">
                     <div className="bg-white p-3 rounded-md shadow text-sm">

@@ -76,6 +76,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.flickr.com', // Added Flickr main domain
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'royaltech.co.ke',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
