@@ -22,6 +22,7 @@ import {
   CodeXml,
   Laptop,
   Phone, // Added Phone icon
+  Gift, // Added Gift icon for side banners
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -52,16 +53,18 @@ export default function JumiaClonePage() {
       {/* Side Banners */}
       <div className="fixed top-0 left-0 h-full w-[calc((100vw-1280px)/2)] bg-accent z-0 hidden xl:block">
         <div className="flex flex-col items-center justify-center h-full text-white p-4 text-center">
-            <h2 className="text-3xl font-bold">KARIBU</h2>
-            <h1 className="text-5xl font-extrabold my-2">CHINA TOWN</h1>
-            <p className="text-2xl">Unbox Incredible Deals</p>
+            <Gift className="w-16 h-16 mb-4" />
+            <h2 className="text-3xl font-bold">Karibu To</h2>
+            <h1 className="text-5xl font-extrabold my-2">SIMON STYLES</h1>
+            <p className="text-2xl">Let's Style It</p>
         </div>
       </div>
       <div className="fixed top-0 right-0 h-full w-[calc((100vw-1280px)/2)] bg-accent z-0 hidden xl:block">
         <div className="flex flex-col items-center justify-center h-full text-white p-4 text-center">
-            <h2 className="text-3xl font-bold">KARIBU</h2>
-            <h1 className="text-5xl font-extrabold my-2">CHINA TOWN</h1>
-            <p className="text-2xl">Unbox Incredible Deals</p>
+            <Gift className="w-16 h-16 mb-4" />
+            <h2 className="text-3xl font-bold">Karibu To</h2>
+            <h1 className="text-5xl font-extrabold my-2">SIMON STYLES</h1>
+            <p className="text-2xl">Let's Style It</p>
         </div>
       </div>
 
