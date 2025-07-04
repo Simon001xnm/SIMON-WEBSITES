@@ -5,7 +5,7 @@ import type { Laptop } from '@/lib/laptop-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Heart, GitCompare, ArrowRight } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants'; // Import the WhatsApp number
 
@@ -101,34 +101,23 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
             )}
           </div>
           
-          <Button
-            asChild
-            className="w-full h-9 text-xs mb-2 bg-green-600 hover:bg-green-700 text-white"
-          >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <WhatsAppIcon />
-              Order via WhatsApp
-            </a>
-          </Button>
-
-          <div className="flex items-center justify-between gap-2">
-            <div className="flex items-center gap-1">
-              <Button variant="ghost" size="icon" className="h-7 w-7 text-muted-foreground hover:text-primary">
-                <Heart className="h-4 w-4" />
-                <span className="sr-only">Add to wishlist</span>
-              </Button>
-              <Button variant="ghost" size="icon" className="h-7 w-7 text-muted-foreground hover:text-primary">
-                <GitCompare className="h-4 w-4" />
-                <span className="sr-only">Compare</span>
-              </Button>
-            </div>
-            <Button asChild variant="ghost" size="icon" className="h-8 w-8 rounded-full bg-muted hover:bg-primary/20">
-              <Link href={`/laptops/${laptop.id}`}>
-                <ArrowRight className="h-4 w-4 text-primary" />
-                <span className="sr-only">View Details</span>
-              </Link>
+          <div className="flex flex-col gap-2">
+            <Button className="w-full h-9 text-xs">
+              <ShoppingCart className="w-4 h-4 mr-2"/>
+              Add to Cart
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="w-full h-9 text-xs bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:text-green-800"
+            >
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <WhatsAppIcon />
+                Order via WhatsApp
+              </a>
             </Button>
           </div>
+
         </div>
       </CardContent>
     </Card>
