@@ -127,7 +127,7 @@ export default function AccountPage() {
                     </Card>
                     <Card className="p-4">
                         <h2 className="font-semibold border-b pb-2 mb-2">SIMON STYLES STORE CREDIT</h2>
-                        <p className="text-sm text-gray-500">Jumia store credit balance: KSh 0</p>
+                        <p className="text-sm text-gray-500">Simon Styles store credit balance: KSh 0</p>
                     </Card>
                     <Card className="p-4">
                         <h2 className="font-semibold border-b pb-2 mb-2">NEWSLETTER PREFERENCES</h2>
