@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -24,8 +23,8 @@ import {
   ChevronRight,
   CodeXml,
   Laptop,
-  Phone, // Added Phone icon
-  Gift, // Added Gift icon for side banners
+  Phone,
+  Gift,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -33,29 +32,16 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MOCK_LAPTOPS } from '@/lib/laptop-data';
 import { LaptopCard } from '@/components/laptops/LaptopCard';
-
-const categories = [
-  { name: 'Official Stores', icon: Store },
-  { name: 'Phones & Tablets', icon: Smartphone },
-  { name: 'TVs & Audio', icon: Tv },
-  { name: 'Appliances', icon: Laptop },
-  { name: 'Health & Beauty', icon: Heart },
-  { name: 'Home & Office', icon: Home },
-  { name: 'Fashion', icon: Shirt },
-  { name: 'Computing', icon: Laptop },
-  { name: 'Gaming', icon: Gamepad2 },
-  { name: 'Supermarket', icon: ShoppingCart },
-  { name: 'Baby Products', icon: Baby },
-  { name: 'Other categories', icon: MoreHorizontal },
-];
+import { MEGA_MENU_CATEGORIES, type MegaMenuCategory } from '@/lib/category-data';
+import { MegaMenu } from '@/components/layout/MegaMenu';
 
 export default function JumiaClonePage() {
   const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(true);
-  const contactPhone = "0758673616"; // Using raw number for tel link
+  const [activeCategory, setActiveCategory] = useState<MegaMenuCategory | null>(null);
+  const contactPhone = "0758673616";
 
   return (
     <div className="bg-background min-h-screen">
-      {/* Side Banners */}
       <div className="fixed top-0 left-0 h-full w-[calc((100vw-1280px)/2)] bg-accent z-0 hidden xl:block">
         <div className="flex flex-col items-center justify-center h-full text-white p-4 text-center">
             <Gift className="w-16 h-16 mb-4" />
@@ -74,12 +60,10 @@ export default function JumiaClonePage() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto bg-background">
-        {/* Top promo bar */}
         <div className="bg-primary text-primary-foreground py-1 px-4 flex justify-center items-center text-xs sm:text-sm">
           <p>Clearance Sale - Up to 70% off!</p>
         </div>
 
-        {/* Header */}
         <header className="bg-white py-3 px-4 shadow-md sticky top-0 z-40">
           <div className="flex items-center justify-between gap-4">
             <Link href="/" className="flex items-center gap-2">
@@ -112,94 +96,95 @@ export default function JumiaClonePage() {
           </div>
         </header>
 
-        {/* Main Content */}
-        <main className="p-4 grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-4">
-          {/* Left Sidebar */}
-          <aside className="hidden lg:block bg-white p-4 rounded-md shadow">
-            <ul>
-              {categories.map((cat) => (
-                <li key={cat.name}>
-                  <Link href="#" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
-                    <cat.icon className="w-5 h-5 text-gray-600" />
-                    <span>{cat.name}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </aside>
-
-          {/* Center Content */}
-          <div className="flex-grow space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="md:col-span-2 bg-white rounded-md shadow overflow-hidden relative group">
-                    <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" width={800} height={400} alt="Hero banner" className="w-full h-full object-cover"/>
-                    <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
-                        <h2 className="text-2xl md:text-4xl font-extrabold text-white drop-shadow-lg leading-tight">Laptops For Hire Available</h2>
-                        <p className="text-white/90 mt-2 text-sm md:text-base max-w-md">Daily, weekly, & monthly rental plans for businesses, events, and corporate needs.</p>
-                        <Button asChild className="mt-4 bg-accent hover:bg-accent/90 text-accent-foreground text-base md:text-lg py-3 px-6 h-auto">
-                            <a href={`tel:${contactPhone}`}>
-                                <Phone className="mr-2 h-5 w-5"/>
-                                Call to Inquire
-                            </a>
-                        </Button>
-                    </div>
-                </div>
-                <div className="space-y-4">
-                    <div className="bg-white p-3 rounded-md shadow text-sm">
-                        <div className="flex items-center gap-2 mb-2">
-                            <HelpCircle className="w-5 h-5 text-primary"/>
-                            <h3 className="font-semibold">HELP CENTER</h3>
-                        </div>
-                        <p className="text-xs text-gray-500">Guide to Customer Care</p>
-                    </div>
-                     <div className="bg-white p-3 rounded-md shadow text-sm">
-                        <div className="flex items-center gap-2 mb-2">
-                            <Store className="w-5 h-5 text-primary"/>
-                            <h3 className="font-semibold">SELL ON SIMON STYLES</h3>
-                        </div>
-                        <p className="text-xs text-gray-500">Millions Of Visitors</p>
-                    </div>
-                    <div className="bg-white rounded-md shadow overflow-hidden relative group">
-                         <Image src="https://royaltech.co.ke/uploads/banner.jpeg" data-ai-hint="laptop partners banner" width={400} height={200} alt="Our Partners" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
-                         <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
-                            <h3 className="text-lg font-bold text-white">Our Trusted Partners</h3>
-                            <p className="text-xs text-white/90 mt-1">The best laptop deals & suppliers in town.</p>
-                        </div>
-                    </div>
-                    <div className="bg-white rounded-md shadow overflow-hidden relative group">
-                         <Image src="https://placehold.co/400x200.png" data-ai-hint="tech offer banner" width={400} height={200} alt="Special Offer" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
-                         <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
-                            <h3 className="text-lg font-bold text-white">Special Offers</h3>
-                            <p className="text-xs text-white/90 mt-1">Check out our latest deals.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Flash Sales */}
-            <div className="bg-accent text-accent-foreground p-3 rounded-md shadow flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Flame className="w-6 h-6" />
-                <h2 className="text-lg font-bold">Flash Sales | Live Now</h2>
-              </div>
-              <div className="flex items-center gap-4">
-                 <p className="text-sm">Time Left: 08h : 33m : 01s</p>
-                 <Link href="#" className="flex items-center text-sm font-semibold">
-                    See All <ChevronRight className="w-4 h-4 ml-1" />
-                 </Link>
-              </div>
-            </div>
-
-            {/* Product Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4">
-                {MOCK_LAPTOPS.slice(0, 12).map(laptop => (
-                    <LaptopCard key={laptop.id} laptop={laptop} />
+        <main className="p-4">
+          <div 
+            className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-4 relative"
+            onMouseLeave={() => setActiveCategory(null)}
+          >
+            <aside className="hidden lg:block bg-white p-4 rounded-md shadow h-fit">
+              <ul>
+                {MEGA_MENU_CATEGORIES.map((cat) => (
+                  <li key={cat.name} onMouseEnter={() => setActiveCategory(cat)}>
+                    <Link href="#" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
+                      <cat.icon className="w-5 h-5 text-gray-600" />
+                      <span>{cat.name}</span>
+                    </Link>
+                  </li>
                 ))}
+              </ul>
+            </aside>
+
+            <MegaMenu category={activeCategory} />
+            
+            <div className="flex-grow space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="md:col-span-2 bg-white rounded-md shadow overflow-hidden relative group">
+                      <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" width={800} height={400} alt="Hero banner" className="w-full h-full object-cover"/>
+                      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
+                          <h2 className="text-2xl md:text-4xl font-extrabold text-white drop-shadow-lg leading-tight">Laptops For Hire Available</h2>
+                          <p className="text-white/90 mt-2 text-sm md:text-base max-w-md">Daily, weekly, & monthly rental plans for businesses, events, and corporate needs.</p>
+                          <Button asChild className="mt-4 bg-accent hover:bg-accent/90 text-accent-foreground text-base md:text-lg py-3 px-6 h-auto">
+                              <a href={`tel:${contactPhone}`}>
+                                  <Phone className="mr-2 h-5 w-5"/>
+                                  Call to Inquire
+                              </a>
+                          </Button>
+                      </div>
+                  </div>
+                  <div className="space-y-4">
+                      <div className="bg-white p-3 rounded-md shadow text-sm">
+                          <div className="flex items-center gap-2 mb-2">
+                              <HelpCircle className="w-5 h-5 text-primary"/>
+                              <h3 className="font-semibold">HELP CENTER</h3>
+                          </div>
+                          <p className="text-xs text-gray-500">Guide to Customer Care</p>
+                      </div>
+                       <div className="bg-white p-3 rounded-md shadow text-sm">
+                          <div className="flex items-center gap-2 mb-2">
+                              <Store className="w-5 h-5 text-primary"/>
+                              <h3 className="font-semibold">SELL ON SIMON STYLES</h3>
+                          </div>
+                          <p className="text-xs text-gray-500">Millions Of Visitors</p>
+                      </div>
+                      <div className="bg-white rounded-md shadow overflow-hidden relative group">
+                           <Image src="https://royaltech.co.ke/uploads/banner.jpeg" data-ai-hint="laptop partners banner" width={400} height={200} alt="Our Partners" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
+                           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
+                              <h3 className="text-lg font-bold text-white">Our Trusted Partners</h3>
+                              <p className="text-xs text-white/90 mt-1">The best laptop deals & suppliers in town.</p>
+                          </div>
+                      </div>
+                      <div className="bg-white rounded-md shadow overflow-hidden relative group">
+                           <Image src="https://placehold.co/400x200.png" data-ai-hint="tech offer banner" width={400} height={200} alt="Special Offer" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
+                           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
+                              <h3 className="text-lg font-bold text-white">Special Offers</h3>
+                              <p className="text-xs text-white/90 mt-1">Check out our latest deals.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div className="bg-accent text-accent-foreground p-3 rounded-md shadow flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Flame className="w-6 h-6" />
+                  <h2 className="text-lg font-bold">Flash Sales | Live Now</h2>
+                </div>
+                <div className="flex items-center gap-4">
+                   <p className="text-sm">Time Left: 08h : 33m : 01s</p>
+                   <Link href="#" className="flex items-center text-sm font-semibold">
+                      See All <ChevronRight className="w-4 h-4 ml-1" />
+                   </Link>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4">
+                  {MOCK_LAPTOPS.slice(0, 12).map(laptop => (
+                      <LaptopCard key={laptop.id} laptop={laptop} />
+                  ))}
+              </div>
             </div>
           </div>
         </main>
         
-        {/* Cookie Notice */}
         {isCookieBannerVisible && (
           <Card className="fixed bottom-4 left-4 w-80 shadow-2xl z-50 animate-in fade-in-0 slide-in-from-bottom-5 duration-500">
               <CardContent className="p-4">
