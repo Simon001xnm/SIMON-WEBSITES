@@ -175,8 +175,8 @@ export default function JumiaClonePage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4">
-                  {MOCK_LAPTOPS.slice(0, 12).map(laptop => (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2 sm:gap-4">
+                  {MOCK_LAPTOPS.slice(0, 5).map(laptop => (
                       <LaptopCard key={laptop.id} laptop={laptop} />
                   ))}
               </div>

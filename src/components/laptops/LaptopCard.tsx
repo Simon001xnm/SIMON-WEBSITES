@@ -47,7 +47,7 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
       badgeClass = 'bg-secondary text-secondary-foreground';
   }
 
-  const whatsappMessage = `I'm interested in ordering the ${laptop.name} (ID: ${laptop.id}).`;
+  const whatsappMessage = `I'm interested in ordering the ${laptop.name} (ID: ${laptop.id}). Price: ${formattedPrice}`;
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
 
@@ -80,7 +80,7 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
         <div>
           <p className="text-xs text-muted-foreground mb-0.5">{laptop.brand}</p>
           <Link href={`/laptops/${laptop.id}`} className="hover:text-primary">
-            <h3 className="text-sm font-medium leading-tight mb-1 h-10 overflow-hidden group-hover:underline">
+            <h3 className="text-sm font-medium leading-tight mb-1 min-h-[2.5rem] group-hover:underline">
               {laptop.name}
             </h3>
           </Link>
