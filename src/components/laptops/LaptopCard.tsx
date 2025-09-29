@@ -111,42 +111,42 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
         <div>
           <p className="text-xs text-muted-foreground mb-0.5">{laptop.brand}</p>
           <Link href={`/laptops/${laptop.id}`} className="hover:text-primary">
-            <h3 className="text-xs font-medium leading-tight mb-1 min-h-[2rem] group-hover:underline">
+            <h3 className="text-xs font-medium leading-tight mb-1 min-h-[1.5rem] group-hover:underline">
               {laptop.name}
             </h3>
           </Link>
           {laptop.promotionalText && (
-            <p className="text-xs text-green-600 mb-1">{laptop.promotionalText}</p>
+            <p className="text-[11px] text-green-600 mb-1">{laptop.promotionalText}</p>
           )}
         </div>
 
         <div className="mt-auto">
-           <div className="flex items-baseline gap-1 mb-1.5">
-            <p className="text-base font-bold text-primary">
+           <div className="flex items-baseline gap-1 mb-1">
+            <p className="text-sm font-bold text-primary">
               {formattedPrice}
             </p>
             {formattedOriginalPrice && laptop.price < laptop.originalPrice && (
-              <p className="text-xs text-muted-foreground line-through">
+              <p className="text-[11px] text-muted-foreground line-through">
                 {formattedOriginalPrice}
               </p>
             )}
           </div>
           
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1">
             <Button 
               size="sm"
-              className="w-full h-8 text-xs rounded-md"
+              className="w-full h-7 text-xs rounded-md"
               onClick={handleAddToCart}
               disabled={laptop.stock === 0}
             >
-              <ShoppingCart className="w-3.5 h-3.5 mr-1.5"/>
+              <ShoppingCart className="w-3 h-3 mr-1.5"/>
               {laptop.stock === 0 ? 'Sold Out' : 'Add to Cart'}
             </Button>
             <Button
               asChild
               size="sm"
               variant="outline"
-              className="w-full h-8 text-xs bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:text-green-800 rounded-md"
+              className="w-full h-7 text-xs bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:text-green-800 rounded-md"
             >
               <a 
                 href={whatsappLink} 
