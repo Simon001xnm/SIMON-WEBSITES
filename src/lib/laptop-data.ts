@@ -56,29 +56,29 @@ export const MOCK_LAPTOPS: Laptop[] = [
     operatingSystem: 'Windows 10 Pro',
   },
   {
-    id: 'laptop-2',
-    name: 'Lenovo IdeaPad S145-15 Celeron, 4 GB Ram, 1 TB',
-    brand: 'Lenovo',
-    price: 27999,
-    originalPrice: 31000,
-    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2021/06/Lenovo-S145.jpg',
-    dataAiHint: 'lenovo s145',
-    shortDescription: 'Celeron, 4 GB Ram, 1 TB',
+    id: 'laptop-27',
+    name: 'HP EliteBook 820 G3, i7 6th Gen, 8GB RAM, 256GB SSD',
+    brand: 'HP',
+    price: 22000,
+    imageUrl: '/Hp820G7.jpg',
+    dataAiHint: 'hp elitebook silver',
+    shortDescription: 'Core i7 6th Gen, 8GB, 256GB SSD',
     specs: [
-      { key: 'Processor', value: 'Intel Celeron' },
-      { key: 'RAM', value: '4GB DDR4' },
-      { key: 'Storage', value: '1TB HDD' },
-      { key: 'Display', value: '15.6" HD' },
+        { key: 'Processor', value: 'Intel Core i7-6500U (6th Gen)' },
+        { key: 'RAM', value: '8GB DDR4' },
+        { key: 'Storage', value: '256GB SSD' },
+        { key: 'Display', value: '12.5" HD' },
+        { key: 'Features', value: 'Backlit Keyboard' },
     ],
-    stock: 10,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    promotionalText: 'Free Wireless Mouse',
-    processorType: 'Celeron',
-    screenSize: '15.6"',
-    storageType: '1TB HDD',
-    graphicsType: 'Integrated',
-    operatingSystem: 'Windows 10'
+    stock: 20,
+    badgeText: 'NEW',
+    badgeVariant: 'new',
+    promotionalText: '1 Year Warranty',
+    processorType: 'Core i7',
+    screenSize: '12.5"',
+    storageType: '256GB SSD',
+    graphicsType: 'Integrated Intel HD 520',
+    operatingSystem: 'Windows 10 Pro',
   },
   {
     id: 'laptop-3',
@@ -635,6 +635,8 @@ export const MOCK_LAPTOPS: Laptop[] = [
     operatingSystem: 'Windows 11'
   },
 ];
+
+    
 
     
 
