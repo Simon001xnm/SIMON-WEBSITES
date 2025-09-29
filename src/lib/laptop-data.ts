@@ -242,28 +242,20 @@ export const MOCK_LAPTOPS: Laptop[] = [
     promotionalText: 'Connect everything!',
   },
   {
-    id: 'laptop-10',
-    name: 'Apple MacBook Air M1, 8GB RAM, 256GB SSD',
-    brand: 'Apple',
-    price: 109999,
-    originalPrice: 115000,
-    imageUrl: 'https://nairobicomputershop.co.ke/media/products/2022/07/MC_1.jpg',
-    dataAiHint: 'macbook air silver',
-    shortDescription: 'M1 Chip, 8GB RAM, 256GB SSD',
+    id: 'accessory-3',
+    name: 'HP Wired Mouse X500',
+    brand: 'HP',
+    price: 350,
+    imageUrl: '/WhatsApp Image 2025-09-05 at 13.55.25_6e083999.jpg',
+    dataAiHint: 'hp wired mouse',
+    shortDescription: 'Reliable wired USB mouse',
     specs: [
-      { key: 'Processor', value: 'Apple M1 Chip' },
-      { key: 'RAM', value: '8GB Unified Memory' },
-      { key: 'Storage', value: '256GB SSD' },
-      { key: 'Display', value: '13.3" Retina' },
+      { key: 'Connectivity', value: 'Wired USB' },
+      { key: 'Compatibility', value: 'Windows & macOS' },
     ],
-    stock: 10,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    processorType: 'Apple M1',
-    screenSize: '13.3"',
-    storageType: '256GB SSD',
-    graphicsType: 'Integrated 7-core GPU',
-    operatingSystem: 'macOS'
+    stock: 50,
+    badgeText: 'ACCESSORY',
+    badgeVariant: 'secondary',
   },
   {
     id: 'laptop-11',
@@ -638,6 +630,8 @@ export const MOCK_LAPTOPS: Laptop[] = [
 
 
       
+
+    
 
     
 
