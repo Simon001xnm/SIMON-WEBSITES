@@ -258,28 +258,20 @@ export const MOCK_LAPTOPS: Laptop[] = [
     badgeVariant: 'secondary',
   },
   {
-    id: 'laptop-11',
-    name: 'HP Pavilion 15, Ryzen 5, 8GB RAM, 512GB SSD',
-    brand: 'HP',
-    price: 68500,
-    imageUrl: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed',
-    dataAiHint: 'hp pavilion blue',
-    shortDescription: 'Ryzen 5, 8GB RAM, 512GB SSD',
+    id: 'accessory-4',
+    name: 'Logitech Mouse M185',
+    brand: 'Logitech',
+    price: 1200,
+    imageUrl: '/WhatsApp Image 2025-09-05 at 13.55.44_c35d8705.jpg',
+    dataAiHint: 'logitech mouse',
+    shortDescription: 'Reliable wireless mouse',
     specs: [
-      { key: 'Processor', value: 'AMD Ryzen 5 5500U' },
-      { key: 'RAM', value: '8GB DDR4' },
-      { key: 'Storage', value: '512GB NVMe SSD' },
-      { key: 'Display', value: '15.6" FHD IPS' },
+      { key: 'Connectivity', value: 'Wireless USB Receiver' },
+      { key: 'Compatibility', value: 'Windows & macOS' },
     ],
-    stock: 18,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    promotionalText: 'Includes Backpack',
-    processorType: 'Ryzen 5',
-    screenSize: '15.6"',
-    storageType: '512GB SSD',
-    graphicsType: 'AMD Radeon Graphics',
-    operatingSystem: 'Windows 11'
+    stock: 40,
+    badgeText: 'ACCESSORY',
+    badgeVariant: 'secondary',
   },
   {
     id: 'laptop-12',
@@ -630,6 +622,8 @@ export const MOCK_LAPTOPS: Laptop[] = [
 
 
       
+
+    
 
     
 
