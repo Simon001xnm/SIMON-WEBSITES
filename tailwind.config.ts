@@ -9,7 +9,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ["var(--font-geist-sans)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+      sans: ["var(--font-roboto)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
       mono: ["var(--font-geist-mono)", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
     },
   	extend: {
