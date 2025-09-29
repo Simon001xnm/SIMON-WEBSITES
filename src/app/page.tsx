@@ -9,7 +9,6 @@ import {
   Phone,
   Gift,
   Store,
-  HelpCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MOCK_LAPTOPS } from '@/lib/laptop-data';
@@ -63,9 +62,9 @@ export default function JumiaClonePage() {
             
             <div className="flex-grow space-y-4">
               {/* Adjusted Grid for compact view */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[240px] md:h-[225px]">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-4 h-[280px]">
                   {/* Main Hero Banner with reduced height */}
-                  <div className="md:col-span-2 bg-white rounded-md shadow overflow-hidden relative group h-full">
+                  <div className="bg-white rounded-md shadow overflow-hidden relative group h-full">
                       <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" layout="fill" objectFit="cover" alt="Hero banner" className="w-full h-full"/>
                       <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
                           <h2 className="text-xl md:text-3xl font-extrabold text-white drop-shadow-lg leading-tight">Laptops For Hire Available</h2>
@@ -80,13 +79,6 @@ export default function JumiaClonePage() {
                   </div>
                   {/* Side panels with reduced height */}
                   <div className="flex flex-col gap-4 h-full">
-                      <div className="bg-white p-3 rounded-md shadow text-sm flex-grow flex flex-col justify-center">
-                          <div className="flex items-center gap-2 mb-1">
-                              <HelpCircle className="w-5 h-5 text-primary"/>
-                              <h3 className="font-semibold">HELP CENTER</h3>
-                          </div>
-                          <p className="text-xs text-gray-500">Guide to Customer Care</p>
-                      </div>
                        <div className="bg-white p-3 rounded-md shadow text-sm flex-grow flex flex-col justify-center">
                           <div className="flex items-center gap-2 mb-1">
                               <Store className="w-5 h-5 text-primary"/>
@@ -97,8 +89,8 @@ export default function JumiaClonePage() {
                       <div className="bg-white rounded-md shadow overflow-hidden relative group h-full flex-grow">
                            <Image src="/OURTEAM.jpg" data-ai-hint="our team" layout="fill" objectFit="cover" alt="Our Team" className="w-full h-full transition-transform duration-300 group-hover:scale-105"/>
                            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-2">
-                              <h3 className="text-md font-bold text-white">Our Team</h3>
-                              <p className="text-xs text-white/90 mt-1">Dedicated professionals to serve you.</p>
+                              <h3 className="text-lg font-bold text-white">Our Team</h3>
+                              <p className="text-sm text-white/90 mt-1">Dedicated professionals to serve you.</p>
                           </div>
                       </div>
                   </div>
