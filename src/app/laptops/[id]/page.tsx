@@ -43,15 +43,16 @@ export default function LaptopDetailPage({ params }: LaptopDetailPageProps) {
   const { user } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
+  const id = params.id;
 
   useEffect(() => {
-    const foundLaptop = MOCK_LAPTOPS.find((l) => l.id === params.id);
+    const foundLaptop = MOCK_LAPTOPS.find((l) => l.id === id);
     if (foundLaptop) {
       setLaptop(foundLaptop);
     } else {
       notFound();
     }
-  }, [params.id]);
+  }, [id]);
 
   if (!laptop) {
     // You can return a loading spinner here if you want
