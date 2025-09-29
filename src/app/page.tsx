@@ -49,7 +49,7 @@ export default function JumiaClonePage() {
 
   return (
     <div className="bg-background min-h-screen">
-      <div className="relative z-10 max-w-7xl mx-auto bg-background">
+      <div className="relative z-10 max-w-screen-2xl mx-auto bg-background">
         <EcommerceHeader />
 
         <main className="p-4">
@@ -111,8 +111,8 @@ export default function JumiaClonePage() {
                   </div>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2">
-                  {MOCK_LAPTOPS.slice(0, 14).map(laptop => (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+                  {MOCK_LAPTOPS.slice(0, 18).map(laptop => (
                       <LaptopCard key={laptop.id} laptop={laptop} />
                   ))}
               </div>
