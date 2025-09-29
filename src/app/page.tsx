@@ -45,7 +45,7 @@ export default function JumiaClonePage() {
 
   return (
     <div className="bg-background min-h-screen">
-      <div className="fixed top-0 left-0 h-full w-[calc((100vw-1280px)/2)] bg-accent z-0 hidden xl:block">
+      <div className="fixed top-0 left-0 h-full w-[calc((100vw-1280px)/2)] bg-primary z-0 hidden xl:block">
         <div className="flex flex-col items-center justify-center h-full text-white p-4 text-center">
             <Gift className="w-16 h-16 mb-4" />
             <h2 className="text-3xl font-bold">Karibu To</h2>

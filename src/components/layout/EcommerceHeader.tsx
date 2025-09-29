@@ -58,7 +58,7 @@ export function EcommerceHeader() {
                 height={40}
                 className="rounded-full"
             />
-            <span className="text-2xl font-bold text-gray-800">SIMON<span className="text-primary">STYLES</span></span>
+            <span className="text-2xl font-bold text-gray-800 hidden sm:inline">SIMON<span className="text-primary">STYLES</span></span>
           </Link>
           <div className="flex-grow max-w-2xl hidden sm:flex items-center">
             <div className="relative w-full">
