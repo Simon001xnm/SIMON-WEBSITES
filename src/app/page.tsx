@@ -8,7 +8,6 @@ import {
   ChevronRight,
   Phone,
   Gift,
-  HelpCircle,
   Store,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -17,6 +16,8 @@ import { LaptopCard } from '@/components/laptops/LaptopCard';
 import { MEGA_MENU_CATEGORIES } from '@/lib/category-data';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
+import { HelpCircle } from 'lucide-react';
+
 
 export default function JumiaClonePage() {
   const contactPhone = "0758673616";
@@ -51,7 +52,7 @@ export default function JumiaClonePage() {
               <ul>
                 {MEGA_MENU_CATEGORIES.map((cat) => (
                   <li key={cat.name}>
-                    <Link href="/laptops" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
+                    <Link href={cat.href} className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
                       <cat.icon className="w-5 h-5 text-gray-600" />
                       <span>{cat.name}</span>
                     </Link>

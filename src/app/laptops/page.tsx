@@ -1,4 +1,7 @@
 
+'use client';
+
+import { useSearchParams } from 'next/navigation';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
@@ -12,8 +15,14 @@ import { Search, Filter, LayoutGrid } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { LaptopStockStatus } from '@/components/laptops/LaptopStockStatus';
 
+function LaptopsPageContent() {
+  const searchParams = useSearchParams();
+  const brand = searchParams.get('brand');
 
-export default function LaptopsPage() {
+  const filteredLaptops = brand
+    ? MOCK_LAPTOPS.filter(laptop => laptop.brand.toLowerCase() === brand.toLowerCase())
+    : MOCK_LAPTOPS;
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <EcommerceHeader />
@@ -78,7 +87,7 @@ export default function LaptopsPage() {
               <div className="flex justify-between items-center mb-4">
                 <h1 className="text-xl font-semibold text-primary flex items-center">
                   <LayoutGrid className="mr-2 h-5 w-5" />
-                  Laptops
+                  {brand ? `${brand} Laptops` : 'All Laptops'}
                 </h1>
                 {/* Placeholder for sorting dropdown */}
                 <Select defaultValue="featured">
@@ -94,15 +103,15 @@ export default function LaptopsPage() {
                 </Select>
               </div>
 
-              {MOCK_LAPTOPS.length > 0 ? (
+              {filteredLaptops.length > 0 ? (
                 <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                  {MOCK_LAPTOPS.map((laptop) => (
+                  {filteredLaptops.map((laptop) => (
                     <LaptopCard key={laptop.id} laptop={laptop} />
                   ))}
                 </div>
               ) : (
                 <p className="text-center text-muted-foreground text-lg py-10">
-                  No laptops available at the moment. Please check back soon!
+                  No {brand} laptops available at the moment. Please check back soon!
                 </p>
               )}
               {/* Placeholder for Pagination */}
@@ -115,5 +124,14 @@ export default function LaptopsPage() {
       </main>
       <EcommerceFooter />
     </div>
+  );
+}
+
+
+export default function LaptopsPage() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <LaptopsPageContent />
+    </React.Suspense>
   );
 }
