@@ -1,6 +1,7 @@
 
 'use client';
 
+import React from 'react';
 import { useSearchParams } from 'next/navigation';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
