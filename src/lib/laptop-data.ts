@@ -33,7 +33,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     id: 'laptop-26',
     name: 'HP EliteBook 830 G7, i5 10th Gen, 8GB RAM, 256GB SSD, Touchscreen',
     brand: 'HP',
-    price: 85000,
+    price: 35000,
     originalPrice: 92000,
     imageUrl: '/Hp830g7.jpg',
     dataAiHint: 'hp elitebook silver',
@@ -635,5 +635,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     operatingSystem: 'Windows 11'
   },
 ];
+
+    
 
     
