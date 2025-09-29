@@ -30,6 +30,31 @@ export interface Laptop {
 
 export const MOCK_LAPTOPS: Laptop[] = [
   {
+    id: 'laptop-30',
+    name: 'HP EliteBook 830 G8, i7 11th Gen, 16GB RAM, 256GB SSD',
+    brand: 'HP',
+    price: 40000,
+    imageUrl: '/WhatsApp Image 2025-09-24 at 15.38.57_1433bae7.jpg',
+    dataAiHint: 'hp elitebook silver',
+    shortDescription: 'Core i7 11th Gen, 16GB RAM, 256GB SSD',
+    specs: [
+        { key: 'Processor', value: 'Intel Core i7-1165G7 (11th Gen)' },
+        { key: 'RAM', value: '16GB DDR4' },
+        { key: 'Storage', value: '256GB NVMe SSD' },
+        { key: 'Display', value: '13.3" FHD IPS' },
+        { key: 'Features', value: 'Backlit Keyboard, Bang & Olufsen Audio' },
+    ],
+    stock: 7,
+    badgeText: 'NEW',
+    badgeVariant: 'new',
+    promotionalText: '1 Year Warranty',
+    processorType: 'Core i7',
+    screenSize: '13.3"',
+    storageType: '256GB SSD',
+    graphicsType: 'Intel Iris Xe',
+    operatingSystem: 'Windows 11 Pro',
+  },
+  {
     id: 'laptop-28',
     name: 'HP EliteBook 1030 G3 x360, i7 8th Gen, 16GB RAM, 256GB SSD, Touchscreen',
     brand: 'HP',
@@ -178,30 +203,6 @@ export const MOCK_LAPTOPS: Laptop[] = [
     storageType: '500GB HDD',
     graphicsType: 'Integrated',
     operatingSystem: 'Windows 10'
-  },
-  {
-    id: 'laptop-7',
-    name: 'Lenovo IdeaPad 3 15 IGL05, Intel Celeron',
-    brand: 'Lenovo',
-    price: 29999,
-    originalPrice: 31000,
-    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2022/02/Lenovo-V15-G2-1.jpg',
-    dataAiHint: 'lenovo ideapad',
-    shortDescription: 'Intel Celeron, 4GB, 1TB',
-     specs: [
-      { key: 'Processor', value: 'Intel Celeron' },
-      { key: 'RAM', value: '4GB DDR4' },
-      { key: 'Storage', value: '1TB HDD' },
-      { key: 'Display', value: '15.6" HD' },
-    ],
-    stock: 11,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    processorType: 'Celeron',
-    screenSize: '15.6"',
-    storageType: '1TB HDD',
-    graphicsType: 'Integrated',
-    operatingSystem: 'Windows 11'
   },
   {
     id: 'laptop-8',
