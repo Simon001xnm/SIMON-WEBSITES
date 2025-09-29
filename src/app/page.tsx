@@ -9,6 +9,7 @@ import {
   Phone,
   Gift,
   Store,
+  HelpCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MOCK_LAPTOPS } from '@/lib/laptop-data';
@@ -97,7 +98,7 @@ export default function JumiaClonePage() {
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2">
-                  {MOCK_LAPTOPS.slice(0, 15).map(laptop => (
+                  {MOCK_LAPTOPS.slice(0, 14).map(laptop => (
                       <LaptopCard key={laptop.id} laptop={laptop} />
                   ))}
               </div>
