@@ -43,12 +43,6 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'scontent.fnbo10-1.fna.fbcdn.net', // Added Facebook CDN
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'smartbuy.co.ke',
         port: '',
         pathname: '/**',
