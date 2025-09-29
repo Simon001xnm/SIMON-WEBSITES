@@ -9,6 +9,7 @@ import {
   Phone,
   Gift,
   Store,
+  HelpCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MOCK_LAPTOPS } from '@/lib/laptop-data';
@@ -16,7 +17,6 @@ import { LaptopCard } from '@/components/laptops/LaptopCard';
 import { MEGA_MENU_CATEGORIES } from '@/lib/category-data';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
-import { HelpCircle } from 'lucide-react';
 
 
 export default function JumiaClonePage() {
@@ -48,7 +48,7 @@ export default function JumiaClonePage() {
           <div
             className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-4 relative"
           >
-            <aside className="hidden lg:block bg-white p-4 rounded-md shadow h-fit">
+            <aside className="hidden lg:block bg-white p-4 rounded-md shadow h-fit sticky top-24">
               <ul>
                 {MEGA_MENU_CATEGORIES.map((cat) => (
                   <li key={cat.name}>
