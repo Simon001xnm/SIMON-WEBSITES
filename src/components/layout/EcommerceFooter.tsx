@@ -1,9 +1,10 @@
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Container } from './Container';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
-import { CodeXml, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 
 const footerLinks = {
   "LET US HELP YOU": ["Help Center", "Contact Us", "How to shop on Simon Styles?", "Shipping and delivery", "Return Policy", "Dispute Resolution Policy", "Corporate and Bulk Purchase", "Advertise with us", "Report a Product", "Ship your package anywhere in Kenya"],
@@ -19,8 +20,14 @@ export function EcommerceFooter() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-8 border-b border-gray-600">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2">
-                <CodeXml className="w-8 h-8 text-primary shrink-0" />
+             <Link href="/" className="flex items-center gap-2">
+                <Image 
+                    src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t39.30808-6/451458933_1007831461497422_4437508781498024263_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEbtG_iV3g4N_Uf3e_F3i7u8a52Dk-dJjLxrnYOT50mMi1s9pSj8A-m9cK3K8c8jI5Y2H9F9z2SHiXvV5-vC0XF&_nc_ohc=y4A6F5A-Q0QQ7kNvgE9gG_m&_nc_ht=scontent.fnbo10-1.fna&oh=00_AYC2k-Xp3t7pZ8n8g3VvO2y3wI3lJzJkLg9hJz3m1gDkTA&oe=669B0C88"
+                    alt="Simon Styles Logo"
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                />
                 <span className="text-2xl font-bold text-white">SIMON<span className="text-primary">STYLES</span></span>
             </Link>
             <h3 className="font-semibold">NEW TO SIMON STYLES?</h3>
@@ -36,7 +43,13 @@ export function EcommerceFooter() {
           <div className="flex flex-col items-start space-y-4 md:items-center">
             <div className="flex gap-4">
               <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center">
-                <CodeXml className="w-6 h-6 text-primary"/>
+                 <Image 
+                    src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t39.30808-6/451458933_1007831461497422_4437508781498024263_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEbtG_iV3g4N_Uf3e_F3i7u8a52Dk-dJjLxrnYOT50mMi1s9pSj8A-m9cK3K8c8jI5Y2H9F9z2SHiXvV5-vC0XF&_nc_ohc=y4A6F5A-Q0QQ7kNvgE9gG_m&_nc_ht=scontent.fnbo10-1.fna&oh=00_AYC2k-Xp3t7pZ8n8g3VvO2y3wI3lJzJkLg9hJz3m1gDkTA&oe=669B0C88"
+                    alt="Simon Styles Logo"
+                    width={24}
+                    height={24}
+                    className="rounded-full"
+                />
               </div>
               <div>
                 <h3 className="font-semibold">DOWNLOAD SIMON STYLES FREE APP</h3>
