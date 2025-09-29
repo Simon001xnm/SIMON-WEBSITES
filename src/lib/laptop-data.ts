@@ -206,28 +206,23 @@ export const MOCK_LAPTOPS: Laptop[] = [
     operatingSystem: 'Windows 10 Pro',
   },
   {
-    id: 'laptop-8',
-    name: 'HP 14 Notebook, Celeron, 4 GB Ram, 500 GB HDD',
-    brand: 'HP',
-    price: 33999,
-    originalPrice: 36000,
-    imageUrl: 'https://nairobicomputershop.co.ke/media/products/2021/04/HP-Notebook-14-Intel-Celeron-4GB-RAM-500GB-Hard-Drive-3.jpg',
-    dataAiHint: 'hp notebook',
-    shortDescription: 'Celeron, 4 GB Ram, 500 GB HDD',
+    id: 'accessory-1',
+    name: '512GB SSD Hard Disk',
+    brand: 'Accessory',
+    price: 8500,
+    imageUrl: '/WhatsApp Image 2025-09-05 at 13.54.50_b821f427.jpg',
+    dataAiHint: '512gb ssd',
+    shortDescription: 'High-speed 512GB Solid State Drive',
     specs: [
-      { key: 'Processor', value: 'Intel Celeron' },
-      { key: 'RAM', value: '4GB DDR4' },
-      { key: 'Storage', value: '500GB HDD' },
-      { key: 'Display', value: '14" HD' },
+      { key: 'Capacity', value: '512GB' },
+      { key: 'Type', value: 'SSD (Solid State Drive)' },
+      { key: 'Compatibility', value: 'Laptops & Desktops' },
     ],
-    stock: 5,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    processorType: 'Celeron',
-    screenSize: '14"',
-    storageType: '500GB HDD',
-    graphicsType: 'Integrated',
-    operatingSystem: 'Windows 10'
+    stock: 20,
+    badgeText: 'UPGRADE',
+    badgeVariant: 'new',
+    promotionalText: 'Boost your speed!',
+    storageType: '512GB SSD',
   },
   {
     id: 'laptop-9',
@@ -649,3 +644,5 @@ export const MOCK_LAPTOPS: Laptop[] = [
 
 
       
+
+    
