@@ -7,6 +7,7 @@ import Script from 'next/script'; // Import the Script component
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/next";
+import { CartProvider } from '@/context/CartContext';
 
 // The GeistSans and GeistMono objects from 'geist/font' directly provide .variable
 // so we don't need to call them as functions like with next/font/google.
@@ -51,8 +52,10 @@ export default function RootLayout({
         defined by the classes applied to the <html> tag.
       */}
       <body className={`font-sans antialiased overflow-x-hidden`}> {/* Added overflow-x-hidden */}
-        {children}
-        <Toaster />
+        <CartProvider>
+          {children}
+          <Toaster />
+        </CartProvider>
         <Analytics />
       </body>
     </html>

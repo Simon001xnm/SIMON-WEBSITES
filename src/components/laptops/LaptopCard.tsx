@@ -8,6 +8,9 @@ import { Badge } from '@/components/ui/badge';
 import { ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants'; // Import the WhatsApp number
+import { useCart } from '@/context/CartContext';
+import { useToast } from '@/hooks/use-toast';
+
 
 // Inline SVG for WhatsApp icon
 const WhatsAppIcon = () => (
@@ -29,6 +32,9 @@ interface LaptopCardProps {
 }
 
 export function LaptopCard({ laptop }: LaptopCardProps) {
+  const { addToCart } = useCart();
+  const { toast } = useToast();
+
   const formattedPrice = new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(laptop.price);
   const formattedOriginalPrice = laptop.originalPrice ? new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(laptop.originalPrice) : null;
 
@@ -50,6 +56,13 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
   const whatsappMessage = `I'm interested in ordering the ${laptop.name} (ID: ${laptop.id}). Price: ${formattedPrice}`;
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
+  const handleAddToCart = () => {
+    addToCart(laptop);
+    toast({
+      title: "Added to Cart",
+      description: `${laptop.name} has been added to your cart.`,
+    });
+  };
 
   return (
     <Card className="flex flex-col overflow-hidden h-full transition-all duration-300 ease-in-out hover:shadow-lg group border rounded-none">
@@ -102,9 +115,13 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
           </div>
           
           <div className="flex flex-col gap-2">
-            <Button className="w-full h-9 text-xs rounded-none">
+            <Button 
+              className="w-full h-9 text-xs rounded-none"
+              onClick={handleAddToCart}
+              disabled={laptop.stock === 0}
+            >
               <ShoppingCart className="w-4 h-4 mr-2"/>
-              Add to Cart
+              {laptop.stock === 0 ? 'Sold Out' : 'Add to Cart'}
             </Button>
             <Button
               asChild
@@ -123,5 +140,3 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
     </Card>
   );
 }
-
-    

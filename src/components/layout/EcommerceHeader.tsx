@@ -13,8 +13,14 @@ import {
   ShoppingCart,
   CodeXml,
 } from 'lucide-react';
+import { useCart } from '@/context/CartContext';
+import { Badge } from '@/components/ui/badge';
+
 
 export function EcommerceHeader() {
+  const { cart } = useCart();
+  const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <>
       <div className="bg-primary text-primary-foreground py-1 px-4 flex justify-center items-center text-xs sm:text-sm">
@@ -52,9 +58,16 @@ export function EcommerceHeader() {
               <span>Help</span>
               <ChevronDown className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" className="flex items-center gap-1">
-              <ShoppingCart className="h-5 w-5" />
-              <span>Cart</span>
+            <Button variant="ghost" className="flex items-center gap-1 relative" asChild>
+              <Link href="/cart">
+                <ShoppingCart className="h-5 w-5" />
+                <span>Cart</span>
+                {itemCount > 0 && (
+                  <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0 rounded-full bg-accent text-accent-foreground">
+                    {itemCount}
+                  </Badge>
+                )}
+              </Link>
             </Button>
           </div>
         </div>
