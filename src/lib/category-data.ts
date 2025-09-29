@@ -26,9 +26,9 @@ const brandLogos: { [key: string]: string } = {
   "Apple": "/applelogo.png",
   "Lenovo": "/lenovologo.png",
   "Asus": "/asuslogo.png",
+  "Acer": "/acerlogo.png", // Added Acer logo
   "Microsoft": "/microsoftlogo.png",
   "Samsung": "/samsunglogo.png",
-  // Acer does not have a logo provided, will default to Laptop icon
 };
 
 export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
