@@ -50,14 +50,21 @@ export default function JumiaClonePage() {
           >
             <aside className="hidden lg:block bg-white p-4 rounded-md shadow h-fit sticky top-24">
               <ul>
-                {MEGA_MENU_CATEGORIES.map((cat) => (
-                  <li key={cat.name}>
-                    <Link href={cat.href} className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
-                      <cat.icon className="w-5 h-5 text-gray-600" />
-                      <span>{cat.name}</span>
-                    </Link>
-                  </li>
-                ))}
+                {MEGA_MENU_CATEGORIES.map((cat) => {
+                  const Icon = cat.icon;
+                  return (
+                    <li key={cat.name}>
+                      <Link href={cat.href} className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
+                        {typeof Icon === 'string' ? (
+                          <Image src={Icon} alt={`${cat.name} logo`} width={20} height={20} className="w-5 h-5 object-contain" />
+                        ) : (
+                          <Icon className="w-5 h-5 text-gray-600" />
+                        )}
+                        <span>{cat.name}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </aside>
             
