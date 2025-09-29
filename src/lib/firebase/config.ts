@@ -1,4 +1,3 @@
-
 // This file is intentionally left blank. 
 // The Firebase configuration will be populated by the build process.
 // In your local development, you would initialize Firebase here.
@@ -7,12 +6,15 @@ import { initializeApp, getApps, getApp } from 'firebase/app';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  "projectId": "simon-styles-limited",
+  "appId": "1:105541216160:web:3c8ba629e8745afca5e6c5",
+  "apiKey": "AIzaSyAOd3j292aQ-YHLUo-ztX0ysF4iXuustDE",
+  "authDomain": "simon-styles-limited.firebaseapp.com",
+  "measurementId": "",
+  "messagingSenderId": "105541216160",
+  // The storageBucket is not provided by the config service but is often needed.
+  // It can usually be derived from the projectId.
+  "storageBucket": "simon-styles-limited.appspot.com"
 };
 
 // Initialize Firebase
