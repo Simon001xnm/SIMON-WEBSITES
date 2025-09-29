@@ -1,6 +1,6 @@
 
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
+import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { MOCK_LAPTOPS } from '@/lib/laptop-data';
 import { LaptopCard } from '@/components/laptops/LaptopCard';
@@ -16,7 +16,7 @@ import { LaptopStockStatus } from '@/components/laptops/LaptopStockStatus';
 export default function LaptopsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Header />
+      <EcommerceHeader />
       <main className="flex-grow">
         {/* Search and Category Section - Made Sticky */}
         <div className="sticky top-[56px] sm:top-[76px] z-40 bg-background shadow-md py-1"> {/* Adjusted top values and added py-1 for some spacing if needed */}
@@ -95,7 +95,7 @@ export default function LaptopsPage() {
               </div>
 
               {MOCK_LAPTOPS.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
                   {MOCK_LAPTOPS.map((laptop) => (
                     <LaptopCard key={laptop.id} laptop={laptop} />
                   ))}
@@ -113,7 +113,7 @@ export default function LaptopsPage() {
           </div>
         </Container>
       </main>
-      <Footer />
+      <EcommerceFooter />
     </div>
   );
 }

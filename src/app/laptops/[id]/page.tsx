@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MOCK_LAPTOPS, type Laptop } from '@/lib/laptop-data';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
+import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -13,6 +13,7 @@ import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table';
 import { Separator } from '@/components/ui/separator';
 import { ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { FloatingSocialButtons } from '@/components/layout/FloatingSocialButtons';
 
 // Inline SVG for WhatsApp icon
 const WhatsAppIcon = () => (
@@ -61,7 +62,7 @@ export default async function LaptopDetailPage({ params }: LaptopDetailPageProps
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Header />
+      <EcommerceHeader />
       <main className="flex-grow py-8">
         <Container>
           <div className="mb-6">
@@ -145,15 +146,8 @@ export default async function LaptopDetailPage({ params }: LaptopDetailPageProps
           </div>
         </Container>
       </main>
-      <Footer />
+      <FloatingSocialButtons />
+      <EcommerceFooter />
     </div>
   );
 }
-
-// Optional: Generate static paths if you know all laptop IDs at build time
-// export async function generateStaticParams() {
-//   return MOCK_LAPTOPS.map((laptop) => ({
-//     id: laptop.id,
-//   }));
-// }
-

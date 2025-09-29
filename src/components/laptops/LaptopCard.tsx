@@ -67,12 +67,12 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
   };
 
   return (
-    <Card className="flex flex-col overflow-hidden h-full transition-all duration-300 ease-in-out hover:shadow-lg group border rounded-none">
+    <Card className="flex flex-col overflow-hidden h-full transition-all duration-300 ease-in-out hover:shadow-lg group border rounded-md">
       <div className="relative p-2">
         {laptop.badgeText && (
           <Badge
             className={cn(
-              "absolute top-2 left-2 z-10 text-xs px-1.5 py-0.5 rounded-none",
+              "absolute top-2 left-2 z-10 text-xs px-1.5 py-0.5 rounded-md",
               badgeClass
             )}
           >
@@ -118,7 +118,7 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
           
           <div className="flex flex-col gap-2">
             <Button 
-              className="w-full h-9 text-xs rounded-none"
+              className="w-full h-9 text-xs rounded-md"
               onClick={handleAddToCart}
               disabled={laptop.stock === 0}
             >
@@ -128,7 +128,7 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
             <Button
               asChild
               variant="outline"
-              className="w-full h-9 text-xs bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:text-green-800 rounded-none"
+              className="w-full h-9 text-xs bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:text-green-800 rounded-md"
             >
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon />
