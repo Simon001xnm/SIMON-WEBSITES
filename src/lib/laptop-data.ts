@@ -225,27 +225,21 @@ export const MOCK_LAPTOPS: Laptop[] = [
     storageType: '512GB SSD',
   },
   {
-    id: 'laptop-9',
-    name: 'Dell Inspiron 15 3000, Core i3, 8GB RAM, 256GB SSD',
-    brand: 'Dell',
-    price: 45999,
-    imageUrl: 'https://hewlettcomputersolution.co.ke/wp-content/uploads/2023/12/Dell-Inspiron-15-3000-I3-10th-Gen-8-128-Touch-Laptop.png',
-    dataAiHint: 'dell inspiron laptop',
-    shortDescription: 'Core i3, 8GB RAM, 256GB SSD',
+    id: 'accessory-2',
+    name: 'TYPE C TO HDTV 5 IN 1 ADAPTER',
+    brand: 'Accessory',
+    price: 1500,
+    imageUrl: '/WhatsApp Image 2025-09-05 at 13.55.02_bf51d633.jpg',
+    dataAiHint: 'usb-c adapter',
+    shortDescription: '5-in-1 USB-C to HDMI Multiport Adapter',
     specs: [
-      { key: 'Processor', value: 'Intel Core i3-1115G4' },
-      { key: 'RAM', value: '8GB DDR4' },
-      { key: 'Storage', value: '256GB SSD' },
-      { key: 'Display', value: '15.6" FHD' },
+        { key: 'Ports', value: 'HDMI, USB 3.0, SD/TF Card Reader, USB-C PD' },
+        { key: 'Compatibility', value: 'MacBook, Dell XPS, HP Spectre, etc.' },
     ],
-    stock: 20,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    processorType: 'Core i3',
-    screenSize: '15.6"',
-    storageType: '256GB SSD',
-    graphicsType: 'Integrated Intel UHD',
-    operatingSystem: 'Windows 11'
+    stock: 30,
+    badgeText: 'NEW',
+    badgeVariant: 'new',
+    promotionalText: 'Connect everything!',
   },
   {
     id: 'laptop-10',
@@ -644,5 +638,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
 
 
       
+
+    
 
     
