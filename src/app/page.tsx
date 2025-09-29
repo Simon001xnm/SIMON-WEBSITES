@@ -87,7 +87,7 @@ export default function JumiaClonePage() {
             
             <div className="flex-grow space-y-4">
               {/* Adjusted Grid for compact view */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[240px] md:h-[300px]">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[240px] md:h-[225px]">
                   {/* Main Hero Banner with reduced height */}
                   <div className="md:col-span-2 bg-white rounded-md shadow overflow-hidden relative group h-full">
                       <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" layout="fill" objectFit="cover" alt="Hero banner" className="w-full h-full"/>
@@ -142,7 +142,7 @@ export default function JumiaClonePage() {
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2 sm:gap-4">
-                  {MOCK_LAPTOPS.slice(0, 5).map(laptop => (
+                  {MOCK_LAPTOPS.slice(0, 15).map(laptop => (
                       <LaptopCard key={laptop.id} laptop={laptop} />
                   ))}
               </div>
