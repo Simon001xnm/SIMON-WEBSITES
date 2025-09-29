@@ -30,29 +30,30 @@ export interface Laptop {
 
 export const MOCK_LAPTOPS: Laptop[] = [
   {
-    id: 'laptop-1',
-    name: 'ASUS X543M, Celeron N4020, 4 GB Ram, 1 TB',
-    brand: 'Asus',
-    price: 26499,
-    originalPrice: 28000,
-    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2021/04/ASUS-X543M-1.jpg',
-    dataAiHint: 'asus laptop',
-    shortDescription: 'N4020, 4 GB Ram, 1 TB',
+    id: 'laptop-26',
+    name: 'HP EliteBook 830 G7, i5 10th Gen, 8GB RAM, 256GB SSD, Touchscreen',
+    brand: 'HP',
+    price: 85000,
+    originalPrice: 92000,
+    imageUrl: '/HP830G7.jpg',
+    dataAiHint: 'hp elitebook silver',
+    shortDescription: 'Core i5 10th Gen, 8GB, 256GB SSD, Touchscreen',
     specs: [
-      { key: 'Processor', value: 'Intel Celeron N4020' },
-      { key: 'RAM', value: '4GB DDR4' },
-      { key: 'Storage', value: '1TB HDD' },
-      { key: 'Display', value: '15.6" HD' },
+      { key: 'Processor', value: 'Intel Core i5-10210U (10th Gen)' },
+      { key: 'RAM', value: '8GB DDR4' },
+      { key: 'Storage', value: '256GB NVMe SSD' },
+      { key: 'Display', value: '13.3" FHD Touchscreen' },
+      { key: 'Features', value: 'Backlit Keyboard, Fingerprint Reader' },
     ],
     stock: 15,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    promotionalText: '+ Free Mouse',
-    processorType: 'Celeron N4020',
-    screenSize: '15.6"',
-    storageType: '1TB HDD',
-    graphicsType: 'Integrated',
-    operatingSystem: 'Windows 10'
+    badgeText: 'NEW',
+    badgeVariant: 'new',
+    promotionalText: '1 Year Warranty',
+    processorType: 'Core i5',
+    screenSize: '13.3"',
+    storageType: '256GB SSD',
+    graphicsType: 'Integrated Intel UHD',
+    operatingSystem: 'Windows 10 Pro',
   },
   {
     id: 'laptop-2',
@@ -634,3 +635,5 @@ export const MOCK_LAPTOPS: Laptop[] = [
     operatingSystem: 'Windows 11'
   },
 ];
+
+    

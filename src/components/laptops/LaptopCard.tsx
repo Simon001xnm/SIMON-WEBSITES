@@ -52,19 +52,19 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
 
 
   return (
-    <Card className="flex flex-col overflow-hidden h-full transition-all duration-300 ease-in-out hover:shadow-lg group border rounded-md">
+    <Card className="flex flex-col overflow-hidden h-full transition-all duration-300 ease-in-out hover:shadow-lg group border rounded-none">
       <div className="relative p-2">
         {laptop.badgeText && (
           <Badge
             className={cn(
-              "absolute top-2 left-2 z-10 text-xs px-1.5 py-0.5",
+              "absolute top-2 left-2 z-10 text-xs px-1.5 py-0.5 rounded-none",
               badgeClass
             )}
           >
             {laptop.badgeText}
           </Badge>
         )}
-        <Link href={`/laptops/${laptop.id}`} className="block aspect-[4/3] relative overflow-hidden rounded-sm">
+        <Link href={`/laptops/${laptop.id}`} className="block aspect-square relative overflow-hidden">
           <Image
             src={laptop.imageUrl}
             alt={laptop.name}
@@ -102,14 +102,14 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
           </div>
           
           <div className="flex flex-col gap-2">
-            <Button className="w-full h-9 text-xs">
+            <Button className="w-full h-9 text-xs rounded-none">
               <ShoppingCart className="w-4 h-4 mr-2"/>
               Add to Cart
             </Button>
             <Button
               asChild
               variant="outline"
-              className="w-full h-9 text-xs bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:text-green-800"
+              className="w-full h-9 text-xs bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:text-green-800 rounded-none"
             >
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon />
@@ -123,3 +123,5 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
     </Card>
   );
 }
+
+    
