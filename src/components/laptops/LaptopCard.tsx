@@ -3,6 +3,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import type { Laptop } from '@/lib/laptop-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,7 @@ import { ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants'; // Import the WhatsApp number
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/hooks/use-auth';
 import { useToast } from '@/hooks/use-toast';
 
 
@@ -35,6 +37,8 @@ interface LaptopCardProps {
 
 export function LaptopCard({ laptop }: LaptopCardProps) {
   const { addToCart } = useCart();
+  const { user } = useAuth();
+  const router = useRouter();
   const { toast } = useToast();
 
   const formattedPrice = new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(laptop.price);
@@ -54,6 +58,18 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
     default:
       badgeClass = 'bg-secondary text-secondary-foreground';
   }
+
+  const handleOrderViaWhatsApp = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!user) {
+      e.preventDefault();
+      toast({
+        title: "Login Required",
+        description: "Please log in to your account to place an order.",
+        variant: "destructive",
+      });
+      router.push('/login');
+    }
+  };
 
   const whatsappMessage = `I'm interested in ordering the ${laptop.name} (ID: ${laptop.id}). Price: ${formattedPrice}`;
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -130,7 +146,12 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
               variant="outline"
               className="w-full h-9 text-xs bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:text-green-800 rounded-md"
             >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <a 
+                href={whatsappLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={handleOrderViaWhatsApp}
+              >
                 <WhatsAppIcon />
                 Order via WhatsApp
               </a>

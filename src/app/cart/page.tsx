@@ -3,7 +3,10 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/hooks/use-auth';
+import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
@@ -16,6 +19,9 @@ import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, cartTotal } = useCart();
+  const { user } = useAuth();
+  const router = useRouter();
+  const { toast } = useToast();
 
   const handleQuantityChange = (id: string, currentQuantity: number, change: number) => {
     const newQuantity = currentQuantity + change;
@@ -28,6 +34,18 @@ export default function CartPage() {
     const quantity = parseInt(value, 10);
     if (!isNaN(quantity) && quantity >= 1) {
       updateQuantity(id, quantity);
+    }
+  };
+  
+  const handleCheckout = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!user) {
+      e.preventDefault();
+      toast({
+        title: "Login Required",
+        description: "Please log in or create an account to proceed with checkout.",
+        variant: "destructive",
+      });
+      router.push('/login');
     }
   };
 
@@ -142,7 +160,12 @@ export default function CartPage() {
                       <span>{formattedCartTotal}</span>
                     </div>
                     <Button asChild size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white text-base">
-                      <a href={whatsappCheckoutLink} target="_blank" rel="noopener noreferrer">
+                      <a 
+                        href={whatsappCheckoutLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        onClick={handleCheckout}
+                      >
                         Proceed to Checkout via WhatsApp
                       </a>
                     </Button>

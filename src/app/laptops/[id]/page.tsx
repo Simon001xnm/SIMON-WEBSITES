@@ -1,7 +1,9 @@
 
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, useRouter } from 'next/navigation';
 import { MOCK_LAPTOPS, type Laptop } from '@/lib/laptop-data';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
@@ -14,6 +16,9 @@ import { Separator } from '@/components/ui/separator';
 import { ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FloatingSocialButtons } from '@/components/layout/FloatingSocialButtons';
+import { useAuth } from '@/hooks/use-auth';
+import { useToast } from '@/hooks/use-toast';
+import { useEffect, useState } from 'react';
 
 // Inline SVG for WhatsApp icon
 const WhatsAppIcon = () => (
@@ -33,21 +38,42 @@ interface LaptopDetailPageProps {
   params: { id: string };
 }
 
-async function getLaptopById(id: string): Promise<Laptop | undefined> {
-  return MOCK_LAPTOPS.find((laptop) => laptop.id === id);
-}
+export default function LaptopDetailPage({ params }: LaptopDetailPageProps) {
+  const [laptop, setLaptop] = useState<Laptop | null>(null);
+  const { user } = useAuth();
+  const router = useRouter();
+  const { toast } = useToast();
 
-export default async function LaptopDetailPage({ params }: LaptopDetailPageProps) {
-  const laptop = await getLaptopById(params.id);
+  useEffect(() => {
+    const foundLaptop = MOCK_LAPTOPS.find((l) => l.id === params.id);
+    if (foundLaptop) {
+      setLaptop(foundLaptop);
+    } else {
+      notFound();
+    }
+  }, [params.id]);
 
   if (!laptop) {
-    notFound();
+    // You can return a loading spinner here if you want
+    return null;
   }
-
+  
   const formattedPrice = new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(laptop.price);
   const formattedOriginalPrice = laptop.originalPrice ? new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(laptop.originalPrice) : null;
 
-  const whatsappMessage = `Hello, I'm interested in the ${laptop.name} (ID: ${laptop.id}). Price: ${formattedPrice}. More info: ${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/laptops/${laptop.id}`;
+  const handleOrderViaWhatsApp = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!user) {
+      e.preventDefault();
+      toast({
+        title: "Login Required",
+        description: "Please log in to your account to place an order.",
+        variant: "destructive",
+      });
+      router.push('/login');
+    }
+  };
+
+  const whatsappMessage = `Hello, I'm interested in the ${laptop.name} (ID: ${laptop.id}). Price: ${formattedPrice}. More info: ${window.location.href}`;
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   let badgeClass = '';
@@ -121,7 +147,12 @@ export default async function LaptopDetailPage({ params }: LaptopDetailPageProps
                 className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white text-base py-3 mb-6"
                 disabled={laptop.stock === 0}
               >
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <a 
+                  href={whatsappLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={handleOrderViaWhatsApp}
+                >
                   <WhatsAppIcon />
                   Order via WhatsApp
                 </a>
