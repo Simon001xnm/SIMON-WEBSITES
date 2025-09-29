@@ -3,43 +3,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import {
-  ChevronDown,
-  Search,
-  User,
-  HelpCircle,
-  ShoppingCart,
-  Store,
-  Smartphone,
-  Tv,
-  Drumstick,
-  Heart,
-  Home,
-  Shirt,
-  Gamepad2,
-  Baby,
-  MoreHorizontal,
   Flame,
   ChevronRight,
-  CodeXml,
-  Laptop,
   Phone,
   Gift,
+  HelpCircle,
+  Store,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { MOCK_LAPTOPS } from '@/lib/laptop-data';
 import { LaptopCard } from '@/components/laptops/LaptopCard';
-import { MEGA_MENU_CATEGORIES, type MegaMenuCategory } from '@/lib/category-data';
-import { MegaMenu } from '@/components/layout/MegaMenu';
+import { MEGA_MENU_CATEGORIES } from '@/lib/category-data';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 
 export default function JumiaClonePage() {
-  const [activeCategory, setActiveCategory] = useState<MegaMenuCategory | null>(null);
   const contactPhone = "0758673616";
 
   return (
@@ -65,15 +44,14 @@ export default function JumiaClonePage() {
         <EcommerceHeader />
 
         <main className="p-4">
-          <div 
+          <div
             className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-4 relative"
-            onMouseLeave={() => setActiveCategory(null)}
           >
             <aside className="hidden lg:block bg-white p-4 rounded-md shadow h-fit">
               <ul>
                 {MEGA_MENU_CATEGORIES.map((cat) => (
-                  <li key={cat.name} onMouseEnter={() => setActiveCategory(cat)}>
-                    <Link href="#" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
+                  <li key={cat.name}>
+                    <Link href="/laptops" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
                       <cat.icon className="w-5 h-5 text-gray-600" />
                       <span>{cat.name}</span>
                     </Link>
@@ -81,8 +59,6 @@ export default function JumiaClonePage() {
                 ))}
               </ul>
             </aside>
-
-            <MegaMenu category={activeCategory} />
             
             <div className="flex-grow space-y-4">
               {/* Adjusted Grid for compact view */}

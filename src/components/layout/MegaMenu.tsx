@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -8,7 +9,7 @@ interface MegaMenuProps {
 }
 
 export function MegaMenu({ category }: MegaMenuProps) {
-  if (!category || !category.subCategories.length) {
+  if (!category || !category.subCategories || category.subCategories.length === 0) {
     return null;
   }
 
