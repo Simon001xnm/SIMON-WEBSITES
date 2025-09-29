@@ -306,27 +306,20 @@ export const MOCK_LAPTOPS: Laptop[] = [
     badgeVariant: 'secondary',
   },
   {
-    id: 'laptop-14',
-    name: 'Dell XPS 13, Core i7, 16GB RAM, 512GB SSD',
-    brand: 'Dell',
-    price: 159999,
-    imageUrl: 'https://images.unsplash.com/photo-1542393545-10f5cde2c810',
-    dataAiHint: 'dell xps silver',
-    shortDescription: 'Core i7, 16GB RAM, 512GB SSD, UHD+',
+    id: 'accessory-7',
+    name: 'Logitech M171 Mouse',
+    brand: 'Logitech',
+    price: 1100,
+    imageUrl: '/WhatsApp Image 2025-09-05 at 13.56.18_85468525.jpg',
+    dataAiHint: 'logitech mouse black',
+    shortDescription: 'Plug and play wireless mouse',
     specs: [
-      { key: 'Processor', value: 'Intel Core i7-1260P' },
-      { key: 'RAM', value: '16GB LPDDR5' },
-      { key: 'Storage', value: '512GB NVMe SSD' },
-      { key: 'Display', value: '13.4" FHD+ InfinityEdge' },
+        { key: 'Connectivity', value: 'Wireless USB Receiver' },
+        { key: 'Compatibility', value: 'Windows & macOS' },
     ],
-    stock: 7,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    processorType: 'Core i7',
-    screenSize: '13.4"',
-    storageType: '512GB SSD',
-    graphicsType: 'Intel Iris Xe',
-    operatingSystem: 'Windows 11 Pro'
+    stock: 50,
+    badgeText: 'ACCESSORY',
+    badgeVariant: 'secondary',
   },
   {
     id: 'laptop-15',
@@ -479,7 +472,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     name: 'HP Spectre x360 14, Core i7, 16GB RAM, 1TB SSD, OLED',
     brand: 'HP',
     price: 185000,
-    imageUrl: 'https://images.unsplash.com/photo-1616443185387-4a41334b0d50',
+    imageUrl: 'https://images.unsplash.com/photo-1616443185387-4a41334b0d_50',
     dataAiHint: 'hp spectre gold',
     shortDescription: 'Convertible, Core i7, OLED, 1TB SSD',
     specs: [
@@ -614,3 +607,6 @@ export const MOCK_LAPTOPS: Laptop[] = [
 
     
 
+
+
+    
