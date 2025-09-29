@@ -290,29 +290,20 @@ export const MOCK_LAPTOPS: Laptop[] = [
     badgeVariant: 'secondary',
   },
   {
-    id: 'laptop-13',
-    name: 'Lenovo Legion 5, Ryzen 7, 16GB RAM, 1TB SSD, RTX 3060',
-    brand: 'Lenovo',
-    price: 145000,
-    imageUrl: 'https://images.unsplash.com/photo-1618225042443-a614b19b6343',
-    dataAiHint: 'lenovo legion gaming',
-    shortDescription: 'Ryzen 7, RTX 3060, 16GB RAM',
+    id: 'accessory-6',
+    name: 'Logitech M170 Mouse',
+    brand: 'Logitech',
+    price: 1300,
+    imageUrl: '/WhatsApp Image 2025-09-05 at 13.56.10_52ffee68.jpg',
+    dataAiHint: 'logitech mouse wireless',
+    shortDescription: 'Wireless mouse with reliable connectivity',
     specs: [
-      { key: 'Processor', value: 'AMD Ryzen 7 5800H' },
-      { key: 'RAM', value: '16GB DDR4' },
-      { key: 'Storage', value: '1TB NVMe SSD' },
-      { key: 'Display', value: '15.6" FHD 165Hz' },
-      { key: 'Graphics', value: 'NVIDIA GeForce RTX 3060 6GB' },
+      { key: 'Connectivity', value: 'Wireless USB Receiver' },
+      { key: 'Compatibility', value: 'Windows & macOS' },
     ],
-    stock: 5,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    promotionalText: 'RGB Keyboard',
-    processorType: 'Ryzen 7',
-    screenSize: '15.6"',
-    storageType: '1TB SSD',
-    graphicsType: 'NVIDIA RTX 3060',
-    operatingSystem: 'Windows 11'
+    stock: 45,
+    badgeText: 'ACCESSORY',
+    badgeVariant: 'secondary',
   },
   {
     id: 'laptop-14',
@@ -622,3 +613,4 @@ export const MOCK_LAPTOPS: Laptop[] = [
     
 
     
+
