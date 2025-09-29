@@ -30,6 +30,31 @@ export interface Laptop {
 
 export const MOCK_LAPTOPS: Laptop[] = [
   {
+    id: 'laptop-32',
+    name: 'HP Zhan 66 Pro 14 G4, i7 11th Gen, 8GB RAM, 256GB SSD',
+    brand: 'HP',
+    price: 55000,
+    imageUrl: '/WhatsApp Image 2025-09-05 at 13.54.32_6faecb81.jpg',
+    dataAiHint: 'hp zhan 66 pro',
+    shortDescription: 'Core i7 11th Gen, 8GB RAM, 256GB SSD',
+    specs: [
+      { key: 'Processor', value: 'Intel Core i7-1165G7 (11th Gen)' },
+      { key: 'RAM', value: '8GB DDR4' },
+      { key: 'Storage', value: '256GB NVMe SSD' },
+      { key: 'Display', value: '14" FHD' },
+      { key: 'Features', value: 'Backlit Keyboard, Business Laptop' },
+    ],
+    stock: 6,
+    badgeText: 'NEW',
+    badgeVariant: 'new',
+    promotionalText: '1 Year Warranty',
+    processorType: 'Core i7',
+    screenSize: '14"',
+    storageType: '256GB SSD',
+    graphicsType: 'Intel Iris Xe',
+    operatingSystem: 'Windows 11 Pro',
+  },
+  {
     id: 'laptop-31',
     name: 'HP EliteBook 1030 G7 x360, i7 10th Gen, 16GB RAM, 512GB SSD, Touchscreen',
     brand: 'HP',
@@ -179,31 +204,6 @@ export const MOCK_LAPTOPS: Laptop[] = [
     storageType: '256GB SSD',
     graphicsType: 'Integrated Intel UHD 620',
     operatingSystem: 'Windows 10 Pro',
-  },
-  {
-    id: 'laptop-6',
-    name: 'HP 250 G7 Celeron N4020, 4GB Ram, 500GB',
-    brand: 'HP',
-    price: 29999,
-    originalPrice: 31000,
-    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2022/03/hp-250-g7-celeron-.jpg',
-    dataAiHint: 'hp g7 laptop',
-    shortDescription: 'N4020, 4GB Ram, 500GB',
-    specs: [
-      { key: 'Processor', value: 'Intel Celeron N4020' },
-      { key: 'RAM', value: '4GB DDR4' },
-      { key: 'Storage', 'value': '500GB HDD' },
-      { key: 'Display', value: '15.6" HD' },
-    ],
-    stock: 9,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    promotionalText: '+ Free Bag',
-    processorType: 'Celeron N4020',
-    screenSize: '15.6"',
-    storageType: '500GB HDD',
-    graphicsType: 'Integrated',
-    operatingSystem: 'Windows 10'
   },
   {
     id: 'laptop-8',
@@ -646,3 +646,6 @@ export const MOCK_LAPTOPS: Laptop[] = [
     
 
     
+
+
+      
