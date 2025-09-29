@@ -7,29 +7,14 @@ import { Separator } from "@/components/ui/separator";
 
 const filterCategories = [
   {
-    title: "Processor",
-    options: ["Any Core type", "Intel Core i3", "Intel Core i5", "Intel Core i7", "AMD Ryzen 3", "AMD Ryzen 5", "AMD Ryzen 7", "Celeron"],
-    placeholder: "Any Core type",
+    title: "Brand",
+    options: ["All Brands", "HP", "Dell", "Apple", "Lenovo", "Asus", "Acer", "Microsoft", "Samsung"],
+    placeholder: "All Brands",
   },
   {
-    title: "Screen-Size",
-    options: ["Any Laptop display size", "13 inch", "14 inch", "15.6 inch", "17 inch"],
-    placeholder: "Any Laptop display size",
-  },
-  {
-    title: "Storage",
-    options: ["Any Hard disk size", "256GB SSD", "512GB SSD", "1TB SSD", "1TB HDD", "2TB HDD"],
-    placeholder: "Any Hard disk size",
-  },
-  {
-    title: "Graphics card type",
-    options: ["Any Graphics card type", "Integrated Graphics", "NVIDIA MX Series", "NVIDIA GTX Series", "NVIDIA RTX Series", "AMD Radeon RX"],
-    placeholder: "Any Graphics card type",
-  },
-  {
-    title: "Operating system",
-    options: ["Any Operating system", "Windows 10", "Windows 11", "macOS", "Linux", "ChromeOS", "DOS / No OS"],
-    placeholder: "Any Operating system",
+    title: "Category",
+    options: ["All Categories", "Laptops", "Monitors", "Keyboards", "Mice"],
+    placeholder: "All Categories",
   },
 ];
 

@@ -39,7 +39,6 @@ import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 
 export default function JumiaClonePage() {
-  const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(true);
   const [activeCategory, setActiveCategory] = useState<MegaMenuCategory | null>(null);
   const contactPhone = "0758673616";
 
@@ -149,21 +148,6 @@ export default function JumiaClonePage() {
             </div>
           </div>
         </main>
-        
-        {isCookieBannerVisible && (
-          <Card className="fixed bottom-4 left-4 w-80 shadow-2xl z-50 animate-in fade-in-0 slide-in-from-bottom-5 duration-500">
-              <CardContent className="p-4">
-                  <h3 className="font-semibold mb-2">This website uses cookies</h3>
-                  <p className="text-sm text-muted-foreground mb-4">For further information on how we use cookies you can read our Privacy and Cookie notice.</p>
-                  <Button 
-                    className="w-full bg-primary hover:bg-primary/90"
-                    onClick={() => setIsCookieBannerVisible(false)}
-                  >
-                    Accept cookies
-                  </Button>
-              </CardContent>
-          </Card>
-        )}
 
         <EcommerceFooter />
       </div>

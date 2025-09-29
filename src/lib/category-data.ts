@@ -1,3 +1,4 @@
+
 import {
   Store,
   Smartphone,
@@ -34,6 +35,15 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
     ]
   },
   {
+    name: 'Computing',
+    icon: Laptop,
+    subCategories: [
+      { title: 'Laptops', items: ['HP', 'Lenovo', 'Dell', 'Asus', 'Apple MacBook'] },
+      { title: 'Desktops', items: ['All-in-Ones', 'Towers'] },
+      { title: 'Accessories', items: ['Keyboards', 'Mice', 'Monitors', 'Printers', 'Canon'] }
+    ]
+  },
+  {
     name: 'Phones & Tablets',
     icon: Smartphone,
     subCategories: [
@@ -52,7 +62,7 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
   },
   {
     name: 'Appliances',
-    icon: Laptop,
+    icon: Laptop, // This icon might be confusing. Consider changing to something like 'Wind' or a custom icon.
     subCategories: [
       { title: 'Large Appliances', items: ['Fridges', 'Washing Machines', 'Cookers'] },
       { title: 'Small Appliances', items: ['Microwaves', 'Blenders', 'Kettles', 'Nunix', 'Roch', 'Ramtons', 'Hotpoint', 'Mika'] }
@@ -83,15 +93,6 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
       { title: 'Men\'s Fashion', items: ['T-Shirts', 'Trousers', 'Shoes'] },
       { title: 'Women\'s Fashion', items: ['Dresses', 'Tops', 'Handbags'] },
       { title: 'Brands', items: ['adidas', 'Ecko Unltd', 'Nike'] }
-    ]
-  },
-  {
-    name: 'Computing',
-    icon: Laptop,
-    subCategories: [
-      { title: 'Laptops', items: ['HP', 'Lenovo', 'Dell', 'Asus', 'Apple MacBook'] },
-      { title: 'Desktops', items: ['All-in-Ones', 'Towers'] },
-      { title: 'Accessories', items: ['Keyboards', 'Mice', 'Monitors', 'Printers', 'Canon'] }
     ]
   },
   {
