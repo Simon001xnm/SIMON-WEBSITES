@@ -9,8 +9,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
   AuthError
 } from 'firebase/auth';
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { app } from '@/lib/firebase/config';
 import { SignUpData, SignInData } from '@/lib/types';
 
@@ -20,11 +22,13 @@ interface AuthContextType {
   signup: (data: SignUpData) => Promise<User | null>;
   login: (data: SignInData) => Promise<User | null>;
   logout: () => Promise<void>;
+  updateUserProfile: (displayName: string, photoFile: File | null) => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const auth = getAuth(app);
+const storage = getStorage(app);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -80,7 +84,29 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const value = { user, loading, signup, login, logout };
+  const updateUserProfile = async (displayName: string, photoFile: File | null) => {
+    if (!auth.currentUser) {
+      throw new Error("No user is signed in to update profile.");
+    }
+    
+    let photoURL = auth.currentUser.photoURL;
+
+    if (photoFile) {
+        const storageRef = ref(storage, `profile-pictures/${auth.currentUser.uid}`);
+        await uploadBytes(storageRef, photoFile);
+        photoURL = await getDownloadURL(storageRef);
+    }
+    
+    await updateProfile(auth.currentUser, {
+        displayName,
+        photoURL,
+    });
+
+    // Manually update the user state to reflect changes immediately
+    setUser({ ...auth.currentUser });
+  };
+
+  const value = { user, loading, signup, login, logout, updateUserProfile };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

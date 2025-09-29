@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useAuth } from '@/hooks/use-auth';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
@@ -16,6 +16,7 @@ import { LaptopCard } from '@/components/laptops/LaptopCard';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
     User,
     Package,
@@ -33,34 +34,41 @@ import {
     ShieldCheck,
     Heart,
     Newspaper,
+    Camera,
 } from 'lucide-react';
 
 const sidebarNavItems = [
     { title: 'My Simon Styles Account', icon: User, href: '/account', active: true },
-    { title: 'Orders', icon: Package, href: '#' },
-    { title: 'Inbox', icon: Inbox, href: '#' },
-    { title: 'Pending Reviews', icon: MessageSquare, href: '#' },
-    { title: 'Vouchers', icon: Ticket, href: '#' },
-    { title: 'Saved Items', icon: Heart, href: '#'},
-    { title: 'Recently Viewed', icon: History, href: '#' },
+    { title: 'Orders', icon: Package, href: '/account/orders' },
+    { title: 'Inbox', icon: Inbox, href: '/account/inbox' },
+    { title: 'Pending Reviews', icon: MessageSquare, href: '/account/reviews' },
+    { title: 'Vouchers', icon: Ticket, href: '/account/vouchers' },
+    { title: 'Saved Items', icon: Heart, href: '/account/saved-items'},
+    { title: 'Recently Viewed', icon: History, href: '/account/recently-viewed' },
 ];
 
 const accountManagementItems = [
-    { title: 'Address Book', icon: BookUser, href: '#' },
-    { title: 'Account Management', icon: ShieldCheck, href: '#' },
-    { title: 'Newsletter Preferences', icon: Newspaper, href: '#' },
+    { title: 'Address Book', icon: BookUser, href: '/account/address-book' },
+    { title: 'Account Management', icon: ShieldCheck, href: '/account/management' },
+    { title: 'Newsletter Preferences', icon: Newspaper, href: '/account/newsletter' },
 ];
 
 
 export default function AccountPage() {
-  const { user, loading, logout } = useAuth();
+  const { user, loading, logout, updateUserProfile } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [isEditing, setIsEditing] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  
+  // State for form fields
   const [displayName, setDisplayName] = useState('');
   const [address, setAddress] = useState('Nairobi CBD, Nairobi');
   const [phone, setPhone] = useState('+254-758673616');
+  const [profileImage, setProfileImage] = useState<File | null>(null);
+  const [previewImageUrl, setPreviewImageUrl] = useState<string | null>(null);
 
 
   useEffect(() => {
@@ -69,19 +77,48 @@ export default function AccountPage() {
     }
     if (user) {
       setDisplayName(user.displayName || 'Your Name');
+      setPreviewImageUrl(user.photoURL);
     }
   }, [user, loading, router]);
   
-  const handleEditToggle = () => {
+  const handleEditToggle = async () => {
     if (isEditing) {
-      // Logic to save data would go here
-      // For now, just simulating a save with a toast
-      toast({
-        title: "Details Saved",
-        description: "Your account information has been updated.",
-      });
+      setIsSaving(true);
+      try {
+        await updateUserProfile(displayName, profileImage);
+        toast({
+          title: "Profile Updated",
+          description: "Your account information has been successfully saved.",
+        });
+      } catch (error) {
+        console.error("Profile update error:", error);
+        toast({
+          title: "Update Failed",
+          description: "Could not save your profile. Please try again.",
+          variant: "destructive"
+        });
+      } finally {
+        setIsSaving(false);
+        setIsEditing(false);
+        setProfileImage(null); // Clear the image file after saving
+      }
+    } else {
+      setIsEditing(true);
     }
-    setIsEditing(!isEditing);
+  };
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      setProfileImage(file);
+      setPreviewImageUrl(URL.createObjectURL(file));
+    }
+  };
+
+  const handleAvatarClick = () => {
+    if (isEditing) {
+      fileInputRef.current?.click();
+    }
   };
   
   if (loading || !user) {
@@ -97,6 +134,10 @@ export default function AccountPage() {
     router.push('/login');
   };
   
+  const getInitials = (name: string) => {
+    return name.split(' ').map(n => n[0]).join('').toUpperCase() || 'S';
+  }
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <EcommerceHeader />
@@ -112,7 +153,7 @@ export default function AccountPage() {
                       <Link
                         href={item.href}
                         className={`flex items-center gap-3 p-3 rounded text-sm font-medium transition-colors ${
-                          item.active
+                          router.pathname === item.href
                             ? 'bg-primary/10 text-primary'
                             : 'text-gray-700 hover:bg-gray-100'
                         }`}
@@ -125,11 +166,15 @@ export default function AccountPage() {
                 </ul>
                 <Separator className="my-4" />
                 <ul>
-                   {accountManagementItems.map((item, index) => (
+                   {accountManagementItems.map((item) => (
                      <li key={item.title}>
                           <Link
                             href={item.href}
-                            className="flex items-center gap-3 p-3 rounded text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                            className={`flex items-center gap-3 p-3 rounded text-sm font-medium transition-colors ${
+                                router.pathname === item.href
+                                    ? 'bg-primary/10 text-primary'
+                                    : 'text-gray-700 hover:bg-gray-100'
+                            }`}
                           >
                             <item.icon className="w-5 h-5" />
                             <span>{item.title}</span>
@@ -156,70 +201,85 @@ export default function AccountPage() {
                     <CardHeader className="flex flex-row items-center justify-between">
                         <div>
                             <CardTitle>Personal Profile</CardTitle>
-                            <CardDescription>Manage your name, email and address.</CardDescription>
+                            <CardDescription>Manage your name, email and profile picture.</CardDescription>
                         </div>
-                        <Button onClick={handleEditToggle} variant={isEditing ? 'default' : 'outline'}>
-                            {isEditing ? 'Save Changes' : 'Edit Profile'}
+                        <Button onClick={handleEditToggle} variant={isEditing ? 'default' : 'outline'} disabled={isSaving}>
+                            {isSaving ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Saving...</> : isEditing ? 'Save Changes' : 'Edit Profile'}
                         </Button>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div>
-                            <Label htmlFor="displayName">Full Name</Label>
-                            {isEditing ? (
-                              <Input id="displayName" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
-                            ) : (
-                              <p className="text-sm font-medium p-2">{displayName}</p>
+                       <div className="flex flex-col md:flex-row items-center gap-6">
+                          <div className="relative">
+                            <Avatar 
+                              className={`h-24 w-24 border-2 ${isEditing ? 'cursor-pointer border-primary' : 'border-transparent'}`}
+                              onClick={handleAvatarClick}
+                            >
+                              <AvatarImage src={previewImageUrl || user.photoURL || ''} alt={displayName} />
+                              <AvatarFallback className="text-3xl">{getInitials(displayName)}</AvatarFallback>
+                            </Avatar>
+                            {isEditing && (
+                              <div className="absolute bottom-0 right-0 bg-primary text-primary-foreground rounded-full p-1.5 cursor-pointer">
+                                <Camera className="h-4 w-4" />
+                              </div>
                             )}
+                            <input 
+                              type="file" 
+                              ref={fileInputRef} 
+                              onChange={handleImageChange} 
+                              className="hidden" 
+                              accept="image/png, image/jpeg" 
+                            />
                           </div>
-                          <div>
-                            <Label htmlFor="email">Email Address</Label>
-                            <p className="text-sm text-gray-500 p-2">{user.email}</p>
-                          </div>
-                          <div>
-                            <Label htmlFor="address">Address</Label>
-                             {isEditing ? (
-                              <Input id="address" value={address} onChange={(e) => setAddress(e.target.value)} />
-                            ) : (
-                              <p className="text-sm font-medium p-2">{address}</p>
-                            )}
-                          </div>
-                           <div>
-                            <Label htmlFor="phone">Phone Number</Label>
-                             {isEditing ? (
-                              <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                            ) : (
-                              <p className="text-sm font-medium p-2">{phone}</p>
-                            )}
+
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-grow w-full">
+                              <div>
+                                <Label htmlFor="displayName">Full Name</Label>
+                                {isEditing ? (
+                                  <Input id="displayName" value={displayName} onChange={(e) => setDisplayName(e.target.value)} disabled={isSaving} />
+                                ) : (
+                                  <p className="text-sm font-medium p-2">{displayName}</p>
+                                )}
+                              </div>
+                              <div>
+                                <Label htmlFor="email">Email Address</Label>
+                                <p className="text-sm text-gray-500 p-2">{user.email}</p>
+                              </div>
                           </div>
                        </div>
                     </CardContent>
                 </Card>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <Card className="p-4">
-                        <CardHeader className="p-0 mb-2">
-                           <CardTitle className="text-base flex items-center gap-2"><CreditCard className="w-5 h-5 text-primary"/> Payment Methods</CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-0">
-                          <p className="text-sm text-gray-500">You have not saved any payment methods.</p>
-                          <Button variant="link" className="p-0 h-auto text-primary mt-2">Add a Payment Method</Button>
-                        </CardContent>
-                    </Card>
-                     <Card className="p-4">
-                        <CardHeader className="p-0 mb-2">
-                           <CardTitle className="text-base flex items-center gap-2"><Store className="w-5 h-5 text-primary"/> Followed Sellers</CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-0">
-                           <p className="text-sm text-gray-500">You are not following any sellers yet.</p>
-                        </CardContent>
-                    </Card>
-                </div>
-                
+
+                 <Card>
+                    <CardHeader>
+                         <CardTitle>Shipping Information</CardTitle>
+                         <CardDescription>Edit your default shipping address.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <Label htmlFor="address">Address</Label>
+                                {isEditing ? (
+                                <Input id="address" value={address} onChange={(e) => setAddress(e.target.value)} disabled={isSaving} />
+                                ) : (
+                                <p className="text-sm font-medium p-2">{address}</p>
+                                )}
+                            </div>
+                            <div>
+                                <Label htmlFor="phone">Phone Number</Label>
+                                {isEditing ? (
+                                <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} disabled={isSaving} />
+                                ) : (
+                                <p className="text-sm font-medium p-2">{phone}</p>
+                                )}
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+
                 <div className="bg-white p-4 rounded-md shadow-sm">
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-lg font-semibold">Recently Viewed</h2>
-                         <Link href="#" className="flex items-center text-sm font-semibold text-primary">
+                         <Link href="/account/recently-viewed" className="flex items-center text-sm font-semibold text-primary">
                             See All <ChevronRight className="w-4 h-4 ml-1" />
                         </Link>
                     </div>

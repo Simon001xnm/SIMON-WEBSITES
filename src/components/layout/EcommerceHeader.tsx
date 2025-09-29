@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   ChevronDown,
   Search,
@@ -38,6 +39,10 @@ export function EcommerceHeader() {
     router.push('/login');
   };
 
+  const getInitials = (name: string | null | undefined) => {
+    return name?.split(' ').map(n => n[0]).join('').toUpperCase() || 'S';
+  }
+
   return (
     <>
       <div className="bg-primary text-primary-foreground py-1 px-4 flex justify-center items-center text-xs sm:text-sm">
@@ -62,11 +67,16 @@ export function EcommerceHeader() {
             </div>
             <Button className="ml-2 bg-primary hover:bg-primary/90">Search</Button>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="hidden md:flex items-center gap-1">
-                  <User className="h-5 w-5" />
+                <Button variant="ghost" className="hidden md:flex items-center gap-2">
+                  {user ? (
+                    <Avatar className="h-7 w-7">
+                        <AvatarImage src={user.photoURL || ''} alt={user.displayName || ''} />
+                        <AvatarFallback className="text-xs">{getInitials(user.displayName)}</AvatarFallback>
+                    </Avatar>
+                  ) : <User className="h-5 w-5" /> }
                   <span>{user ? 'Account' : 'Login'}</span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
@@ -105,7 +115,7 @@ export function EcommerceHeader() {
             <Button variant="ghost" className="flex items-center gap-1 relative" asChild>
               <Link href="/cart">
                 <ShoppingCart className="h-5 w-5" />
-                <span>Cart</span>
+                <span className="hidden sm:inline">Cart</span>
                 {itemCount > 0 && (
                   <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0 rounded-full bg-accent text-accent-foreground">
                     {itemCount}
@@ -115,19 +125,35 @@ export function EcommerceHeader() {
             </Button>
              {/* Login/Account button for mobile */}
              <div className="md:hidden">
-              {user ? (
-                 <Button variant="ghost" size="icon" asChild>
-                  <Link href="/account">
-                    <User className="h-5 w-5" />
-                  </Link>
-                </Button>
-              ) : (
-                <Button variant="ghost" size="icon" asChild>
-                  <Link href="/login">
-                    <LogIn className="h-5 w-5" />
-                  </Link>
-                </Button>
-              )}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                     <Button variant="ghost" size="icon">
+                        {user ? (
+                           <Avatar className="h-7 w-7">
+                              <AvatarImage src={user.photoURL || ''} alt={user.displayName || ''} />
+                              <AvatarFallback className="text-xs">{getInitials(user.displayName)}</AvatarFallback>
+                           </Avatar>
+                        ) : <User className="h-5 w-5" />}
+                     </Button>
+                  </DropdownMenuTrigger>
+                   <DropdownMenuContent align="end" className="w-56">
+                    {user ? (
+                      <>
+                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem asChild><Link href="/account">Profile</Link></DropdownMenuItem>
+                        <DropdownMenuItem asChild><Link href="/account/orders">Orders</Link></DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
+                      </>
+                    ) : (
+                      <>
+                        <DropdownMenuItem asChild><Link href="/login">Login</Link></DropdownMenuItem>
+                        <DropdownMenuItem asChild><Link href="/signup">Sign Up</Link></DropdownMenuItem>
+                      </>
+                    )}
+                  </DropdownMenuContent>
+                </DropdownMenu>
             </div>
           </div>
         </div>

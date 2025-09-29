@@ -76,7 +76,13 @@ const nextConfig: NextConfig = {
         hostname: 'royaltech.co.ke',
         port: '',
         pathname: '/**',
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
