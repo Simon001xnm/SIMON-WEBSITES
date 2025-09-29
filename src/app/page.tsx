@@ -86,48 +86,45 @@ export default function JumiaClonePage() {
             <MegaMenu category={activeCategory} />
             
             <div className="flex-grow space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="md:col-span-2 bg-white rounded-md shadow overflow-hidden relative group">
-                      <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" width={800} height={400} alt="Hero banner" className="w-full h-full object-cover"/>
+              {/* Adjusted Grid for compact view */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[240px] md:h-[300px]">
+                  {/* Main Hero Banner with reduced height */}
+                  <div className="md:col-span-2 bg-white rounded-md shadow overflow-hidden relative group h-full">
+                      <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" layout="fill" objectFit="cover" alt="Hero banner" className="w-full h-full"/>
                       <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
-                          <h2 className="text-2xl md:text-4xl font-extrabold text-white drop-shadow-lg leading-tight">Laptops For Hire Available</h2>
-                          <p className="text-white/90 mt-2 text-sm md:text-base max-w-md">Daily, weekly, & monthly rental plans for businesses, events, and corporate needs.</p>
-                          <Button asChild className="mt-4 bg-accent hover:bg-accent/90 text-accent-foreground text-base md:text-lg py-3 px-6 h-auto">
+                          <h2 className="text-xl md:text-3xl font-extrabold text-white drop-shadow-lg leading-tight">Laptops For Hire Available</h2>
+                          <p className="text-white/90 mt-2 text-xs md:text-sm max-w-md">Daily, weekly, & monthly rental plans for businesses, events, and corporate needs.</p>
+                          <Button asChild className="mt-3 bg-accent hover:bg-accent/90 text-accent-foreground text-sm md:text-base py-2 px-4 h-auto">
                               <a href={`tel:${contactPhone}`}>
-                                  <Phone className="mr-2 h-5 w-5"/>
+                                  <Phone className="mr-2 h-4 w-4"/>
                                   Call to Inquire
                               </a>
                           </Button>
                       </div>
                   </div>
-                  <div className="space-y-4">
-                      <div className="bg-white p-3 rounded-md shadow text-sm">
-                          <div className="flex items-center gap-2 mb-2">
+                  {/* Side panels with reduced height */}
+                  <div className="flex flex-col gap-4 h-full">
+                      <div className="bg-white p-3 rounded-md shadow text-sm flex-grow flex flex-col justify-center">
+                          <div className="flex items-center gap-2 mb-1">
                               <HelpCircle className="w-5 h-5 text-primary"/>
                               <h3 className="font-semibold">HELP CENTER</h3>
                           </div>
                           <p className="text-xs text-gray-500">Guide to Customer Care</p>
                       </div>
-                       <div className="bg-white p-3 rounded-md shadow text-sm">
-                          <div className="flex items-center gap-2 mb-2">
+                       <div className="bg-white p-3 rounded-md shadow text-sm flex-grow flex flex-col justify-center">
+                          <div className="flex items-center gap-2 mb-1">
                               <Store className="w-5 h-5 text-primary"/>
                               <h3 className="font-semibold">SELL ON SIMON STYLES</h3>
                           </div>
                           <p className="text-xs text-gray-500">Millions Of Visitors</p>
                       </div>
-                      <div className="bg-white rounded-md shadow overflow-hidden relative group">
-                           <Image src="/OURTEAM.jpg" data-ai-hint="our team" width={400} height={200} alt="Our Team" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
-                           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
-                              <h3 className="text-lg font-bold text-white">Our Team</h3>
+                      <div className="bg-white rounded-md shadow overflow-hidden relative group h-full flex-grow">
+                           <Image src="/OURTEAM.jpg" data-ai-hint="our team" layout="fill" objectFit="cover" alt="Our Team" className="w-full h-full transition-transform duration-300 group-hover:scale-105"/>
+                           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-2">
+                              <h3 className="text-md font-bold text-white">Our Team</h3>
                               <p className="text-xs text-white/90 mt-1">Dedicated professionals to serve you.</p>
                           </div>
                       </div>
-                      <Link href="/laptops" className="bg-white rounded-md shadow overflow-hidden relative group block">
-                           <Image src="/Simon CEO.jpg" data-ai-hint="person portrait" width={400} height={200} alt="Simon Styles CEO" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
-                           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
-                              <h3 className="text-xl font-bold text-white uppercase tracking-wider">Shop Now</h3>
-                          </div>
-                      </Link>
                   </div>
               </div>
 
