@@ -35,7 +35,7 @@ export const MOCK_LAPTOPS: Laptop[] = [
     brand: 'HP',
     price: 85000,
     originalPrice: 92000,
-    imageUrl: '/Hp830G7.jpg',
+    imageUrl: '/Hp830g7.jpg',
     dataAiHint: 'hp elitebook silver',
     shortDescription: 'Core i5 10th Gen, 8GB, 256GB SSD, Touchscreen',
     specs: [
