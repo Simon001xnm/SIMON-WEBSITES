@@ -94,9 +94,9 @@ export default function JumiaClonePage() {
             
             <div className="flex-grow space-y-4">
               {/* Adjusted Grid for compact view */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-4 h-[200px] md:h-[280px]">
-                  {/* Main Hero Banner with reduced height */}
-                  <div className="bg-white rounded-md shadow overflow-hidden relative group h-full">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-4">
+                  {/* Main Hero Banner */}
+                  <div className="bg-white rounded-md shadow overflow-hidden relative group h-[200px] md:h-[280px]">
                       <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" layout="fill" objectFit="cover" alt="Hero banner" className="w-full h-full"/>
                       <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
                           <h2 className="text-xl md:text-3xl font-extrabold text-white drop-shadow-lg leading-tight">Laptops For Hire Available</h2>
@@ -109,16 +109,16 @@ export default function JumiaClonePage() {
                           </Button>
                       </div>
                   </div>
-                  {/* Side panels with reduced height */}
-                  <div className="hidden md:flex flex-col gap-4 h-full">
-                       <div className="bg-white p-3 rounded-md shadow text-sm flex-grow flex flex-col justify-center">
+                  {/* Side panels */}
+                  <div className="flex flex-col gap-4">
+                       <div className="bg-white p-3 rounded-md shadow text-sm flex-grow flex flex-col justify-center h-[96px] md:h-auto">
                           <div className="flex items-center gap-2 mb-1">
                               <Store className="w-5 h-5 text-primary"/>
                               <h3 className="font-semibold">SELL ON SIMON STYLES</h3>
                           </div>
                           <p className="text-xs text-gray-500">Millions Of Visitors</p>
                       </div>
-                      <div className="bg-white rounded-md shadow overflow-hidden relative group h-full flex-grow">
+                      <div className="bg-white rounded-md shadow overflow-hidden relative group h-[120px] md:h-full flex-grow">
                            <Image src="/OURTEAM.jpg" data-ai-hint="our team" layout="fill" objectFit="cover" alt="Our Team" className="w-full h-full transition-transform duration-300 group-hover:scale-105"/>
                            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-2">
                               <h3 className="text-lg font-bold text-white">Our Team</h3>
