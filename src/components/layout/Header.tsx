@@ -14,19 +14,10 @@ export function Header() {
              <Image 
                 src="/logo.jpg"
                 alt="Simon Styles Logo"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 className="rounded-full"
             />
-            <div className="flex flex-col">
-              <span className="text-lg sm:text-xl md:text-2xl font-bold text-primary leading-tight">
-                Simon<span className="tracking-tight">Styles</span>
-              </span>
-              <div className="text-xs sm:text-sm font-medium text-primary/90 leading-snug -mt-0.5 sm:-mt-1">
-                <div>Technology</div>
-                <div>Limited</div>
-              </div>
-            </div>
           </Link>
           <nav className="flex items-center gap-1 sm:gap-2"> {/* Reduced gap slightly to accommodate new link */}
             <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
