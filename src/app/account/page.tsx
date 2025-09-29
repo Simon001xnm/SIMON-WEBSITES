@@ -2,6 +2,9 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useAuth } from '@/hooks/use-auth';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
@@ -18,7 +21,6 @@ import {
   Ticket,
   Store,
   History,
-  Settings,
   CreditCard,
   BookUser,
   MailCheck,
@@ -26,6 +28,7 @@ import {
   LogOut,
   ChevronRight,
   Pencil,
+  Loader2,
 } from 'lucide-react';
 
 const sidebarNavItems = [
@@ -48,6 +51,30 @@ const accountManagementItems = [
 
 
 export default function AccountPage() {
+  const { user, loading, logout } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    // If not loading and no user, redirect to login
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
+
+  // Display a loading state while checking for user authentication
+  if (loading || !user) {
+    return (
+      <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  const handleLogout = async () => {
+    await logout();
+    router.push('/login');
+  };
+  
   return (
     <div className="bg-gray-100 min-h-screen">
       <EcommerceHeader />
@@ -96,10 +123,10 @@ export default function AccountPage() {
                 <Separator className="my-4" />
                 <ul>
                     <li>
-                        <Link href="#" className="flex items-center gap-3 p-3 rounded text-sm font-medium text-primary hover:bg-primary/10 transition-colors">
+                        <button onClick={handleLogout} className="flex items-center w-full gap-3 p-3 rounded text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors">
                             <LogOut className="w-5 h-5" />
                             <span>Logout</span>
-                        </Link>
+                        </button>
                     </li>
                 </ul>
               </nav>
@@ -113,8 +140,8 @@ export default function AccountPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Card className="p-4">
                         <h2 className="font-semibold border-b pb-2 mb-2">ACCOUNT DETAILS</h2>
-                        <p className="text-sm font-bold">Simon Wanjiru</p>
-                        <p className="text-sm text-gray-500">simonwanjiru224@gmail.com</p>
+                        <p className="text-sm font-bold">{user.displayName || 'No Name Set'}</p>
+                        <p className="text-sm text-gray-500">{user.email}</p>
                     </Card>
                      <Card className="p-4">
                         <div className="flex justify-between items-center border-b pb-2 mb-2">

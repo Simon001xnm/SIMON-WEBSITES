@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -11,15 +12,31 @@ import {
   User,
   HelpCircle,
   ShoppingCart,
-  CodeXml,
+  LogOut,
+  LogIn
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { Badge } from '@/components/ui/badge';
-
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { useRouter } from 'next/navigation';
 
 export function EcommerceHeader() {
   const { cart } = useCart();
+  const { user, logout } = useAuth();
+  const router = useRouter();
   const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+  
+  const handleLogout = async () => {
+    await logout();
+    router.push('/login');
+  };
 
   return (
     <>
@@ -46,13 +63,40 @@ export function EcommerceHeader() {
             <Button className="ml-2 bg-primary hover:bg-primary/90">Search</Button>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="hidden md:flex items-center gap-1" asChild>
-              <Link href="/account">
-                <User className="h-5 w-5" />
-                <span>Account</span>
-                <ChevronDown className="h-4 w-4" />
-              </Link>
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="hidden md:flex items-center gap-1">
+                  <User className="h-5 w-5" />
+                  <span>{user ? 'Account' : 'Login'}</span>
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                {user ? (
+                  <>
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link href="/account"><User className="mr-2 h-4 w-4" />Profile</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleLogout}>
+                      <LogOut className="mr-2 h-4 w-4" />
+                      Logout
+                    </DropdownMenuItem>
+                  </>
+                ) : (
+                  <>
+                    <DropdownMenuItem asChild>
+                      <Link href="/login"><LogIn className="mr-2 h-4 w-4" />Login</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/signup">Sign Up</Link>
+                    </DropdownMenuItem>
+                  </>
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button variant="ghost" className="hidden md:flex items-center gap-1">
               <HelpCircle className="h-5 w-5" />
               <span>Help</span>
@@ -69,6 +113,22 @@ export function EcommerceHeader() {
                 )}
               </Link>
             </Button>
+             {/* Login/Account button for mobile */}
+             <div className="md:hidden">
+              {user ? (
+                 <Button variant="ghost" size="icon" asChild>
+                  <Link href="/account">
+                    <User className="h-5 w-5" />
+                  </Link>
+                </Button>
+              ) : (
+                <Button variant="ghost" size="icon" asChild>
+                  <Link href="/login">
+                    <LogIn className="h-5 w-5" />
+                  </Link>
+                </Button>
+              )}
+            </div>
           </div>
         </div>
       </header>
