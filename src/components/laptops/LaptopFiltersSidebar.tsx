@@ -13,7 +13,7 @@ const filterCategories = [
   },
   {
     title: "Category",
-    options: ["All Categories", "Laptops", "Monitors", "Keyboards", "Mice"],
+    options: ["All Categories", "Laptops", "Monitors"],
     placeholder: "All Categories",
   },
 ];
