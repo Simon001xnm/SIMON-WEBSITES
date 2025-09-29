@@ -30,6 +30,31 @@ export interface Laptop {
 
 export const MOCK_LAPTOPS: Laptop[] = [
   {
+    id: 'laptop-28',
+    name: 'HP EliteBook 1030 G3 x360, i7 8th Gen, 16GB RAM, 256GB SSD, Touchscreen',
+    brand: 'HP',
+    price: 43000,
+    imageUrl: '/WhatsApp Image 2025-09-26 at 16.13.44_82edf468.jpg',
+    dataAiHint: 'hp elitebook x360',
+    shortDescription: 'Core i7 8th Gen, 16GB, 256GB SSD, x360 Touchscreen',
+    specs: [
+      { key: 'Processor', value: 'Intel Core i7-8550U (8th Gen)' },
+      { key: 'RAM', value: '16GB DDR4' },
+      { key: 'Storage', value: '256GB NVMe SSD' },
+      { key: 'Display', value: '13.3" FHD IPS x360 Touchscreen' },
+      { key: 'Features', value: 'Backlit Keyboard, Bang & Olufsen Audio' },
+    ],
+    stock: 8,
+    badgeText: 'HOT DEAL',
+    badgeVariant: 'hotdeal',
+    promotionalText: '1 Year Warranty',
+    processorType: 'Core i7',
+    screenSize: '13.3"',
+    storageType: '256GB SSD',
+    graphicsType: 'Integrated Intel UHD 620',
+    operatingSystem: 'Windows 10 Pro',
+  },
+  {
     id: 'laptop-26',
     name: 'HP EliteBook 830 G7, i5 10th Gen, 8GB RAM, 256GB SSD, Touchscreen',
     brand: 'HP',
@@ -79,31 +104,6 @@ export const MOCK_LAPTOPS: Laptop[] = [
     storageType: '256GB SSD',
     graphicsType: 'Integrated Intel HD 520',
     operatingSystem: 'Windows 10 Pro',
-  },
-  {
-    id: 'laptop-3',
-    name: 'Lenovo IdeaPad 3-14 Celeron, 4GB Ram, 1TB',
-    brand: 'Lenovo',
-    price: 29999,
-    originalPrice: 33000,
-    imageUrl: 'https://smartbuy.co.ke/wp-content/uploads/2021/07/Lenovo-IdeaPad-3-14-celeron-3-300x300.jpg',
-    dataAiHint: 'lenovo ideapad',
-    shortDescription: 'Celeron, 4GB Ram, 1TB',
-    specs: [
-      { key: 'Processor', value: 'Intel Celeron' },
-      { key: 'RAM', value: '4GB DDR4' },
-      { key: 'Storage', value: '1TB HDD' },
-      { key: 'Display', value: '14" HD' },
-    ],
-    stock: 10,
-    badgeText: 'SALE',
-    badgeVariant: 'hotdeal',
-    promotionalText: '1 Year Warranty',
-    processorType: 'Celeron',
-    screenSize: '14"',
-    storageType: '1TB HDD',
-    graphicsType: 'Integrated',
-    operatingSystem: 'Windows 11'
   },
   {
     id: 'laptop-4',
@@ -635,6 +635,8 @@ export const MOCK_LAPTOPS: Laptop[] = [
     operatingSystem: 'Windows 11'
   },
 ];
+
+    
 
     
 
