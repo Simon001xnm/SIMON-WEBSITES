@@ -104,19 +104,6 @@ export default function JumiaClonePage() {
                   </div>
               </div>
 
-              <div className="bg-accent text-accent-foreground p-3 rounded-md shadow flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Flame className="w-6 h-6" />
-                  <h2 className="text-lg font-bold">Flash Sales | Live Now</h2>
-                </div>
-                <div className="flex items-center gap-4">
-                   <p className="text-sm">Time Left: 08h : 33m : 01s</p>
-                   <Link href="#" className="flex items-center text-sm font-semibold">
-                      See All <ChevronRight className="w-4 h-4 ml-1" />
-                   </Link>
-                </div>
-              </div>
-
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2">
                   {MOCK_LAPTOPS.slice(0, 15).map(laptop => (
                       <LaptopCard key={laptop.id} laptop={laptop} />
