@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Search, Filter, LayoutGrid } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { LaptopStockStatus } from '@/components/laptops/LaptopStockStatus';
 
 
 export default function LaptopsPage() {
@@ -69,6 +70,7 @@ export default function LaptopsPage() {
             {/* Filters Sidebar (Desktop) */}
             <div className="hidden md:block md:col-span-1">
               <LaptopFiltersSidebar />
+              <LaptopStockStatus />
             </div>
 
             {/* Product Grid */}
