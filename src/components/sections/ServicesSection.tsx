@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -17,8 +16,8 @@ export function ServicesSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1 bg-card p-4 sm:p-6">
                     <CardHeader className="p-2 sm:p-4">
-                    <div className="mx-auto bg-primary/10 p-3 sm:p-4 rounded-full w-fit mb-3 sm:mb-4 border border-primary/20">
-                        <Code className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
+                    <div className="mx-auto bg-purple-100/60 p-3 sm:p-4 rounded-full w-fit mb-3 sm:mb-4 border border-purple-200/80">
+                        <Code className="h-8 w-8 sm:h-10 sm:w-10 text-purple-600" />
                     </div>
                     <CardTitle className="text-lg sm:text-xl font-semibold">Custom Web Development</CardTitle>
                     </CardHeader>
@@ -30,8 +29,8 @@ export function ServicesSection() {
                 </Card>
                     <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1 bg-card p-4 sm:p-6">
                     <CardHeader className="p-2 sm:p-4">
-                    <div className="mx-auto bg-primary/10 p-3 sm:p-4 rounded-full w-fit mb-3 sm:mb-4 border border-primary/20">
-                        <Laptop className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
+                    <div className="mx-auto bg-purple-100/60 p-3 sm:p-4 rounded-full w-fit mb-3 sm:mb-4 border border-purple-200/80">
+                        <Laptop className="h-8 w-8 sm:h-10 sm:w-10 text-purple-600" />
                     </div>
                     <CardTitle className="text-lg sm:text-xl font-semibold">E-commerce Solutions</CardTitle>
                     </CardHeader>
@@ -44,14 +43,14 @@ export function ServicesSection() {
             </div>
           </div>
           <div className="order-1 md:order-2 text-center md:text-left">
-            <Code className="h-10 w-10 sm:h-12 sm:w-12 text-accent mx-auto md:mx-0 mb-3 sm:mb-4" />
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary mb-3 sm:mb-4">
+            <Code className="h-10 w-10 sm:h-12 sm:w-12 text-purple-600 mx-auto md:mx-0 mb-3 sm:mb-4" />
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-purple-800 mb-3 sm:mb-4">
               Software Development Services
             </h2>
             <p className="text-md sm:text-lg text-muted-foreground max-w-2xl md:max-w-3xl mx-auto md:mx-0">
               From stunning websites to complex web applications, our team delivers high-quality, scalable, and secure software solutions to elevate your business.
             </p>
-            <Button asChild size="lg" className="group text-md sm:text-lg py-3 px-6 sm:py-4 sm:px-8 mt-6">
+            <Button asChild size="lg" className="group text-md sm:text-lg py-3 px-6 sm:py-4 sm:px-8 mt-6 bg-purple-600 hover:bg-purple-700 text-white">
               <Link href="/services">
                 View Services & Pricing <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
