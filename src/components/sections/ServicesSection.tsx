@@ -14,7 +14,7 @@ export function ServicesSection() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="order-2 md:order-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1 bg-card p-4 sm:p-6">
                     <CardHeader className="p-2 sm:p-4">
                     <div className="mx-auto bg-purple-100/60 p-3 sm:p-4 rounded-full w-fit mb-3 sm:mb-4 border border-purple-200/80">
