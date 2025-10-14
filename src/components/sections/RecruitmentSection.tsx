@@ -1,4 +1,5 @@
 
+
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
 import { ArrowRight, Briefcase, Laptop, Building, Headset } from 'lucide-react';
@@ -50,7 +51,7 @@ export function RecruitmentSection() {
                     Equip your team with the best technology. We offer flexible laptop rental plans and bulk purchasing options tailored for corporate clients, startups, and events.
                 </p>
                  <Button asChild size="lg" className="group text-md sm:text-lg py-3 px-6 sm:py-4 sm:px-8 mt-6 bg-purple-600 hover:bg-purple-700 text-white">
-                    <Link href="/#contact">
+                    <Link href="/contact">
                         Inquire Now <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Link>
                 </Button>

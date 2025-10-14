@@ -165,7 +165,7 @@ export default function ServicesPage() {
                   </CardContent>
                   <CardFooter>
                     <Button asChild className="w-full" variant={tier.popular ? 'default' : 'outline'}>
-                      <Link href="/#contact">{tier.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                      <Link href="/contact">{tier.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
                     </Button>
                   </CardFooter>
                 </Card>
