@@ -36,7 +36,7 @@ const services = [
     icon: Cloud,
     title: "Web Application Development",
     description: "Complex, data-driven web applications to streamline your business processes and deliver value to your users.",
-    features:- [
+    features: [
       "Custom Business Logic",
       "Database Integration",
       "User Authentication & Authorization",

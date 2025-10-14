@@ -14,7 +14,8 @@ import {
   HelpCircle,
   ShoppingCart,
   LogOut,
-  LogIn
+  LogIn,
+  Briefcase,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { Badge } from '@/components/ui/badge';
@@ -68,6 +69,12 @@ export function EcommerceHeader() {
             <Button className="ml-2 bg-primary hover:bg-primary/90">Search</Button>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
+             <Button variant="ghost" className="hidden md:flex items-center gap-1" asChild>
+                <Link href="/services">
+                    <Briefcase className="h-5 w-5" />
+                    <span>Services</span>
+                </Link>
+            </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="hidden md:flex items-center gap-2">
@@ -143,6 +150,7 @@ export function EcommerceHeader() {
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild><Link href="/account">Profile</Link></DropdownMenuItem>
                         <DropdownMenuItem asChild><Link href="/account/orders">Orders</Link></DropdownMenuItem>
+                         <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
                       </>
@@ -150,6 +158,7 @@ export function EcommerceHeader() {
                       <>
                         <DropdownMenuItem asChild><Link href="/login">Login</Link></DropdownMenuItem>
                         <DropdownMenuItem asChild><Link href="/signup">Sign Up</Link></DropdownMenuItem>
+                        <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
                       </>
                     )}
                   </DropdownMenuContent>
