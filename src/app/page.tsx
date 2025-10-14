@@ -4,12 +4,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  Flame,
-  ChevronRight,
   Phone,
-  Gift,
-  Store,
-  HelpCircle,
   Menu,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -19,6 +14,9 @@ import { MEGA_MENU_CATEGORIES } from '@/lib/category-data';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { ServicesSection } from '@/components/sections/ServicesSection';
+import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
+import { CategoriesSection } from '@/components/sections/CategoriesSection';
 
 
 export default function JumiaClonePage() {
@@ -94,12 +92,18 @@ export default function JumiaClonePage() {
                   </div>
                   {/* Side panels */}
                   <div className="flex flex-col gap-4">
-                       <div className="bg-white p-3 rounded-md shadow text-sm flex-grow flex flex-col justify-center h-[96px] md:h-auto">
+                       <div className="bg-white p-3 rounded-md shadow text-sm flex flex-col justify-center h-[96px] md:h-auto">
                           <div className="flex items-center gap-2 mb-1">
-                              <Store className="w-5 h-5 text-primary"/>
+                              <Image 
+                                src="/logo.jpg"
+                                alt="Simon Styles Logo"
+                                width={24}
+                                height={24}
+                                className="rounded-full"
+                            />
                               <h3 className="font-semibold">SELL ON SIMON STYLES</h3>
                           </div>
-                          <p className="text-xs text-gray-500">Millions Of Visitors</p>
+                          <p className="text-xs text-gray-500">Reach millions of visitors and grow your business.</p>
                       </div>
                       <div className="bg-white rounded-md shadow overflow-hidden relative group h-[120px] md:h-full flex-grow">
                            <Image src="/OURTEAM.jpg" data-ai-hint="our team" layout="fill" objectFit="cover" alt="Our Team" className="w-full h-full transition-transform duration-300 group-hover:scale-105"/>
@@ -117,6 +121,13 @@ export default function JumiaClonePage() {
                   ))}
               </div>
             </div>
+          </div>
+          
+          {/* Main sections for services */}
+          <div className="mt-12 space-y-16">
+            <CategoriesSection />
+            <ServicesSection />
+            <RecruitmentSection />
           </div>
         </main>
 
