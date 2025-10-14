@@ -77,16 +77,6 @@ export default function LaptopDetailPage({ params }: LaptopDetailPageProps) {
   const whatsappMessage = `Hello, I'm interested in the ${laptop.name} (ID: ${laptop.id}). Price: ${formattedPrice}. More info: ${window.location.href}`;
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
-  let badgeClass = '';
-  if (laptop.badgeText) {
-    switch (laptop.badgeVariant) {
-      case 'new': badgeClass = 'bg-blue-500 text-white'; break;
-      case 'hotdeal': badgeClass = 'bg-orange-500 text-white'; break;
-      case 'destructive': badgeClass = 'bg-red-600 text-white'; break;
-      default: badgeClass = 'bg-secondary text-secondary-foreground';
-    }
-  }
-
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <EcommerceHeader />
@@ -114,7 +104,7 @@ export default function LaptopDetailPage({ params }: LaptopDetailPageProps) {
                 priority // Prioritize loading main product image
               />
                {laptop.badgeText && (
-                <Badge className={cn("absolute top-4 left-4 z-10", badgeClass)}>
+                <Badge variant={laptop.badgeVariant} className={cn("absolute top-4 left-4 z-10")}>
                   {laptop.badgeText}
                 </Badge>
               )}

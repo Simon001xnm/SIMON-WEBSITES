@@ -16,8 +16,8 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
-        new: "border-transparent bg-blue-500 text-primary-foreground hover:bg-blue-500/80", // Was using --badge-new-bg which is orange
-        hotdeal: "border-transparent bg-orange-500 text-primary-foreground hover:bg-orange-500/80", // Was using --badge-hotdeal-bg
+        new: "border-transparent bg-blue-500 text-white hover:bg-blue-500/80",
+        hotdeal: "border-transparent bg-orange-500 text-white hover:bg-orange-500/80",
       },
     },
     defaultVariants: {

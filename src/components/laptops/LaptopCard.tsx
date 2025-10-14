@@ -44,21 +44,6 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
   const formattedPrice = new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(laptop.price);
   const formattedOriginalPrice = laptop.originalPrice ? new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(laptop.originalPrice) : null;
 
-  let badgeClass = '';
-  switch (laptop.badgeVariant) {
-    case 'new':
-      badgeClass = 'bg-blue-500 text-white';
-      break;
-    case 'hotdeal':
-      badgeClass = 'bg-orange-500 text-white';
-      break;
-    case 'destructive': // for SOLD OUT
-      badgeClass = 'bg-red-600 text-white';
-      break;
-    default:
-      badgeClass = 'bg-secondary text-secondary-foreground';
-  }
-
   const handleOrderViaWhatsApp = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!user) {
       e.preventDefault();
@@ -87,10 +72,8 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
       <div className="relative p-1">
         {laptop.badgeText && (
           <Badge
-            className={cn(
-              "absolute top-1.5 left-1.5 z-10 text-xs px-1.5 py-0.5 rounded-sm",
-              badgeClass
-            )}
+            variant={laptop.badgeVariant}
+            className="absolute top-1.5 left-1.5 z-10 text-xs px-1.5 py-0.5 rounded-sm"
           >
             {laptop.badgeText}
           </Badge>
@@ -122,7 +105,7 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
 
         <div className="mt-auto">
            <div className="flex items-baseline gap-1 mb-1">
-            <p className="text-sm font-bold text-primary">
+            <p className="text-sm font-bold text-accent">
               {formattedPrice}
             </p>
             {formattedOriginalPrice && laptop.price < laptop.originalPrice && (
