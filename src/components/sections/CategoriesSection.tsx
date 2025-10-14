@@ -10,7 +10,7 @@ import { ArrowRight, ShoppingBag } from 'lucide-react';
 
 export function CategoriesSection() {
   return (
-    <section id="categories" className="py-12 md:py-20 bg-gradient-to-b from-background via-secondary/20 to-background">
+    <section id="categories" className="py-10 md:py-16 bg-gradient-to-b from-background via-secondary/20 to-background">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
            <div className="text-center md:text-left">

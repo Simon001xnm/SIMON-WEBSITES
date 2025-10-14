@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -9,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-12 md:py-20 bg-secondary/30">
+    <section id="services" className="py-10 md:py-16 bg-secondary/30">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="order-2 md:order-1">
