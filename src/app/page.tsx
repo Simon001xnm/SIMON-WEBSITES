@@ -124,7 +124,7 @@ export default function JumiaClonePage() {
           </div>
           
           {/* Main sections for services */}
-          <div className="mt-12 space-y-12">
+          <div className="mt-8 space-y-4">
             <CategoriesSection />
             <ServicesSection />
             <RecruitmentSection />
