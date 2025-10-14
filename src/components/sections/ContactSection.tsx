@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, Linkedin, Github } from 'lucide-react';
@@ -6,7 +7,7 @@ import Link from 'next/link';
 export function ContactSection() {
   const contactEmail = "simonwanjiru224@gmail.com";
   const contactPhone = "07586 73616";
-  const linkedInUrl = "https://www.linkedin.com/in/simon-styles-technologies-644a00257/";
+  const linkedInUrl = "https://www.linkedin.com/in/simon-styles-technologies-limited-tech-company-644a00257/";
   const githubUrl = "https://github.com/Symoh242";
 
 
