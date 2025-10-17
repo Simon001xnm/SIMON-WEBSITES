@@ -1,3 +1,4 @@
+
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
@@ -5,6 +6,7 @@ import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { MOCK_PROJECTS } from '@/lib/project-data';
 import { ProjectShowcaseAITool } from '@/components/ai/ProjectShowcaseAITool';
 import { Separator } from '@/components/ui/separator';
+import Image from 'next/image';
 
 export default function ProjectsPage() {
   return (
@@ -12,13 +14,24 @@ export default function ProjectsPage() {
       <EcommerceHeader />
       <main className="py-12 md:py-20">
         <Container>
-          <div className="text-center mb-12 md:mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">
-              Our Portfolio
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              A selection of projects that showcase our skills and dedication to quality.
-            </p>
+          <div className="relative h-64 md:h-80 w-full mb-12 md:mb-16 rounded-xl overflow-hidden shadow-lg">
+            <Image 
+              src="/banners.jpg"
+              alt="Projects Banner"
+              layout="fill"
+              objectFit="cover"
+              data-ai-hint="tech collage"
+            />
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+              <div className="text-center text-white p-4">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+                  Our Portfolio
+                </h1>
+                <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
+                  A selection of projects that showcase our skills and dedication to quality.
+                </p>
+              </div>
+            </div>
           </div>
           
           <ProjectGrid projects={MOCK_PROJECTS} />
