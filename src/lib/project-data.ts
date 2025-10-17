@@ -1,3 +1,4 @@
+
 import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
@@ -43,6 +44,17 @@ export const MOCK_PROJECTS: Project[] = [
     dataAiHint: 'developer portfolio',
     techStack: ['Next.js', 'Vercel', 'React', 'Tailwind CSS'],
     liveUrl: 'https://simon-websites.vercel.app/',
+    projectType: 'Web',
+  },
+  {
+    id: 'proj-5',
+    title: 'Lee Gifts and Flowers',
+    description: 'A beautiful e-commerce website for a premier gift and flower shop, focusing on a great user shopping experience.',
+    longDescription: 'Developed a charming and user-friendly e-commerce website for Lee Gifts and Flowers. The site features an elegant design, easy product browsing, a secure checkout process, and is fully optimized for mobile devices to help customers find the perfect gift anytime, anywhere.',
+    image: 'https://picsum.photos/seed/leegifts/600/400',
+    dataAiHint: 'flower shop',
+    techStack: ['E-commerce', 'JavaScript', 'PHP', 'Online Payments'],
+    liveUrl: 'https://leegiftsandflowers.co.ke/',
     projectType: 'Web',
   },
 ];
