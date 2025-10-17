@@ -1,0 +1,48 @@
+import type { Project } from "@/components/projects/types";
+
+export const MOCK_PROJECTS: Project[] = [
+  {
+    id: 'proj-1',
+    title: 'Simon Styles E-commerce Platform',
+    description: 'A full-featured e-commerce site for a fashion retailer, built with Next.js and Firebase.',
+    longDescription: 'Developed a comprehensive e-commerce platform for Simon Styles, a growing fashion brand. The platform includes product catalogs, a shopping cart, secure checkout with Stripe, and a user account system. The frontend was built with Next.js and ShadCN UI for a responsive and modern user experience. Firebase was used for the backend, including Firestore for the database and Firebase Authentication for user management.',
+    image: 'https://picsum.photos/seed/proj1/600/400',
+    dataAiHint: 'online store',
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase', 'ShadCN UI', 'Stripe'],
+    liveUrl: 'https://simon-styles.com',
+    repoUrl: 'https://github.com/Symoh242/simon-styles',
+    projectType: 'Web',
+  },
+  {
+    id: 'proj-2',
+    title: 'Tech Gadget Review Mobile App',
+    description: 'A cross-platform mobile app for tech enthusiasts to read and write gadget reviews.',
+    longDescription: 'Created a mobile application for reviewing the latest tech gadgets. Built with React Native, the app provides a seamless experience on both iOS and Android. Features include user authentication, a rating system, the ability to upload photos, and a searchable database of products. The backend is powered by a custom Node.js API with a PostgreSQL database.',
+    image: 'https://picsum.photos/seed/proj2/600/400',
+    dataAiHint: 'mobile application',
+    techStack: ['React Native', 'TypeScript', 'Node.js', 'PostgreSQL', 'Expo'],
+    projectType: 'Mobile',
+  },
+  {
+    id: 'proj-3',
+    title: 'Inventory Management System',
+    description: 'A custom ERP system for a local warehouse to track inventory and manage orders.',
+    longDescription: 'Designed and implemented a web-based inventory management system to replace a legacy spreadsheet-based process. The system provides real-time tracking of stock levels, automates order processing, and generates reports for business intelligence. The frontend is built with React and the backend uses Django with a REST framework.',
+    image: 'https://picsum.photos/seed/proj3/600/400',
+    dataAiHint: 'dashboard inventory',
+    techStack: ['React', 'Python', 'Django', 'PostgreSQL', 'Docker'],
+    repoUrl: 'https://github.com/Symoh242/inventory-system',
+    projectType: 'Systems',
+  },
+   {
+    id: 'proj-4',
+    title: 'Corporate Website for Law Firm',
+    description: 'A professional and elegant website for a top-tier law firm, focusing on brand and expertise.',
+    longDescription: 'Developed a responsive and accessible corporate website for a law firm. The site was built using Astro for high performance and includes a content management system (CMS) for easy updates by the firm\'s staff. Key features include lawyer profiles, practice area descriptions, and a blog for legal insights.',
+    image: 'https://picsum.photos/seed/proj4/600/400',
+    dataAiHint: 'professional website',
+    techStack: ['Astro', 'Tailwind CSS', 'Sanity.io', 'TypeScript'],
+    liveUrl: 'https://example-lawfirm.com',
+    projectType: 'Web',
+  },
+];
