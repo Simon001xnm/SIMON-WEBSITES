@@ -25,10 +25,10 @@ export default function ProjectsPage() {
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
               <div className="text-center text-white p-4">
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-                  Our Portfolio
+                  Software & Systems
                 </h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
-                  A selection of projects that showcase our skills and dedication to quality.
+                  A selection of our available and sold software projects.
                 </p>
               </div>
             </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { Project, ProjectType } from './types';
+import type { Project, SoftwareStatus } from './types';
 import { ProjectCard } from './ProjectCard';
 import { ProjectFilters } from './ProjectFilters';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -11,15 +11,15 @@ interface ProjectGridProps {
 }
 
 export function ProjectGrid({ projects }: ProjectGridProps) {
-  const [selectedType, setSelectedType] = useState<ProjectType>('All');
+  const [selectedStatus, setSelectedStatus] = useState<SoftwareStatus | 'All'>('All');
 
-  const filteredProjects = selectedType === 'All'
+  const filteredProjects = selectedStatus === 'All'
     ? projects
-    : projects.filter((project) => project.projectType === selectedType);
+    : projects.filter((project) => project.status === selectedStatus);
 
   return (
     <div>
-      <ProjectFilters selectedType={selectedType} onFilterChange={setSelectedType} />
+      <ProjectFilters selectedStatus={selectedStatus} onFilterChange={setSelectedStatus} />
       {filteredProjects.length > 0 ? (
         <motion.div
           layout

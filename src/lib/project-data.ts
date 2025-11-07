@@ -12,6 +12,7 @@ export const MOCK_PROJECTS: Project[] = [
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'E-commerce'],
     liveUrl: 'https://primeinktechnologies.co.ke/',
     projectType: 'Web',
+    status: 'Sold',
   },
   {
     id: 'proj-2',
@@ -23,6 +24,7 @@ export const MOCK_PROJECTS: Project[] = [
     techStack: ['Shopify', 'Liquid', 'JavaScript', 'Custom CSS'],
     liveUrl: 'https://beedeee.co.ke/',
     projectType: 'Web',
+    status: 'Sold',
   },
   {
     id: 'proj-3',
@@ -34,6 +36,7 @@ export const MOCK_PROJECTS: Project[] = [
     techStack: ['WordPress', 'PHP', 'Elementor', 'Custom Theme'],
     liveUrl: 'https://www.mateshtechnologies.co.ke/',
     projectType: 'Web',
+    status: 'Sold',
   },
    {
     id: 'proj-4',
@@ -45,6 +48,8 @@ export const MOCK_PROJECTS: Project[] = [
     techStack: ['Next.js', 'Vercel', 'React', 'Tailwind CSS'],
     liveUrl: 'https://simon-websites.vercel.app/',
     projectType: 'Web',
+    status: 'Available',
+    price: 35000,
   },
   {
     id: 'proj-5',
@@ -56,5 +61,6 @@ export const MOCK_PROJECTS: Project[] = [
     techStack: ['E-commerce', 'JavaScript', 'PHP', 'Online Payments'],
     liveUrl: 'https://leegiftsandflowers.co.ke/',
     projectType: 'Web',
+    status: 'Sold',
   },
 ];
