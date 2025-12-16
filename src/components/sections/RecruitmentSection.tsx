@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
 import { ArrowRight, Briefcase, Laptop, Building, Headset } from 'lucide-react';
@@ -31,7 +32,7 @@ export function RecruitmentSection() {
                     Corporate &amp; Business Solutions
                 </h2>
                 
-                <div className="mt-8 space-y-6">
+                <div className="mt-8 space-y-4">
                   {corporateServices.map((service, index) => {
                     const Icon = service.icon;
                     return (
@@ -61,7 +62,7 @@ export function RecruitmentSection() {
                 <div className="absolute inset-0 bg-purple-100/60 rounded-2xl rotate-6 transform"></div>
                 <div className="absolute inset-0 p-4">
                 <Image
-                    src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=2070&auto=format&fit=crop"
                     alt="Black professionals in a meeting"
                     layout="fill"
                     objectFit="cover"

@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -30,7 +31,7 @@ export function ServicesSection() {
             <div className="absolute inset-0 bg-purple-100/60 rounded-2xl -rotate-6 transform"></div>
             <div className="absolute inset-0 p-4">
               <Image
-                src="https://images.unsplash.com/photo-1593720219276-0b1eacd0aef4?q=80&w=2062&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?q=80&w=1935&auto=format&fit=crop"
                 alt="Developer working on code"
                 layout="fill"
                 objectFit="cover"
@@ -47,7 +48,7 @@ export function ServicesSection() {
               Software Development Services
             </h2>
             
-            <div className="mt-8 space-y-6">
+            <div className="mt-8 space-y-4">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
