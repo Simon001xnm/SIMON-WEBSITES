@@ -15,7 +15,6 @@ import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
-import { CategoriesSection } from '@/components/sections/CategoriesSection';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
 
 
@@ -125,7 +124,6 @@ export default function JumiaClonePage() {
           
           {/* Main sections for services */}
           <div className="mt-8 space-y-4">
-            <CategoriesSection />
             <ServicesSection />
             <RecruitmentSection />
             <ClientsAndReachSection />
