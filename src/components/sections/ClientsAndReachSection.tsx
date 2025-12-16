@@ -49,7 +49,7 @@ export function ClientsAndReachSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="relative w-full aspect-square lg:aspect-[4/3]">
               <Image
-                src="https://picsum.photos/seed/africamap/600/500"
+                src="/Africa-1.png"
                 alt="Map of Africa"
                 layout="fill"
                 objectFit="contain"
