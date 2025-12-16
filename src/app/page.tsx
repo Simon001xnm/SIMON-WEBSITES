@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -17,6 +16,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
 import { CategoriesSection } from '@/components/sections/CategoriesSection';
+import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
 
 
 export default function JumiaClonePage() {
@@ -128,6 +128,7 @@ export default function JumiaClonePage() {
             <CategoriesSection />
             <ServicesSection />
             <RecruitmentSection />
+            <ClientsAndReachSection />
           </div>
         </main>
 
