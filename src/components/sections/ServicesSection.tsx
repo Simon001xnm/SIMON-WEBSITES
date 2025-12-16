@@ -23,19 +23,19 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-10 md:py-16 bg-background overflow-x-hidden">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           
           {/* Image Column */}
           <div className="relative h-80 md:h-[450px] w-full">
             <div className="absolute inset-0 bg-purple-100/60 rounded-2xl -rotate-6 transform"></div>
             <div className="absolute inset-0 p-4">
               <Image
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
-                alt="Data-driven insights"
+                src="https://images.unsplash.com/photo-1593720219276-0b1eacd0aef4?q=80&w=2062&auto=format&fit=crop"
+                alt="Developer working on code"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-2xl shadow-xl"
-                data-ai-hint="people coding"
+                data-ai-hint="black developer coding"
               />
             </div>
           </div>
@@ -47,7 +47,7 @@ export function ServicesSection() {
               Software Development Services
             </h2>
             
-            <div className="mt-8 space-y-4">
+            <div className="mt-8 space-y-6">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (

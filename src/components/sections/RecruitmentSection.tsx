@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
 import { ArrowRight, Briefcase, Laptop, Building, Headset } from 'lucide-react';
@@ -23,7 +22,7 @@ export function RecruitmentSection() {
   return (
     <section id="corporate-services" className="py-10 md:py-16 bg-background overflow-x-hidden">
       <Container>
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             
             {/* Content Column */}
             <div className="order-2 md:order-1 md:pr-8">
@@ -32,7 +31,7 @@ export function RecruitmentSection() {
                     Corporate &amp; Business Solutions
                 </h2>
                 
-                <div className="mt-8 space-y-4">
+                <div className="mt-8 space-y-6">
                   {corporateServices.map((service, index) => {
                     const Icon = service.icon;
                     return (
@@ -62,12 +61,12 @@ export function RecruitmentSection() {
                 <div className="absolute inset-0 bg-purple-100/60 rounded-2xl rotate-6 transform"></div>
                 <div className="absolute inset-0 p-4">
                 <Image
-                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2232&auto=format&fit=crop"
-                    alt="Team collaboration"
+                    src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop"
+                    alt="Black professionals in a meeting"
                     layout="fill"
                     objectFit="cover"
                     className="rounded-2xl shadow-xl"
-                    data-ai-hint="team meeting"
+                    data-ai-hint="black professionals meeting"
                 />
                 </div>
             </div>
