@@ -27,33 +27,33 @@ export function ServicesSection() {
           
           {/* Image Column */}
           <div className="relative h-80 md:h-[450px] w-full">
-            <div className="absolute inset-0 bg-[#3B4A6A] rounded-2xl -rotate-6 transform"></div>
+            <div className="absolute inset-0 bg-purple-100/60 rounded-2xl -rotate-6 transform"></div>
             <div className="absolute inset-0 p-4">
               <Image
-                src="https://images.unsplash.com/photo-1551288049-bebda4e28f81?q=80&w=2070&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
                 alt="Data-driven insights"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-2xl shadow-xl"
-                data-ai-hint="data insights"
+                data-ai-hint="people coding"
               />
             </div>
           </div>
           
           {/* Content Column */}
           <div className="md:pl-8">
-            <h3 className="text-base font-semibold uppercase text-primary tracking-wider">Our Business Goal</h3>
+            <h3 className="text-base font-semibold uppercase text-purple-600 tracking-wider">Our Business Goal</h3>
             <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-foreground sm:text-4xl">
               Software Development Services
             </h2>
             
-            <div className="mt-8 space-y-8">
+            <div className="mt-8 space-y-4">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
-                  <div key={index} className="flex gap-6 items-start">
+                  <div key={index} className="flex gap-4 items-start">
                     <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center h-16 w-16 rounded-lg bg-[#3B4A6A] text-white shadow-md">
+                      <div className="flex items-center justify-center h-16 w-16 rounded-lg bg-purple-100/60 text-purple-700 shadow-md">
                         <Icon className="h-8 w-8" />
                       </div>
                     </div>
@@ -65,7 +65,7 @@ export function ServicesSection() {
                 );
               })}
             </div>
-             <Button asChild size="lg" className="group mt-8 text-base">
+             <Button asChild size="lg" className="group mt-8 text-base bg-purple-600 hover:bg-purple-700">
               <Link href="/services">
                 View All Services <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
