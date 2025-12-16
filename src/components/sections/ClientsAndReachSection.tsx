@@ -50,8 +50,8 @@ export function ClientsAndReachSection() {
           <h3 className="text-xl font-semibold text-muted-foreground">Trusted by many clients across Africa</h3>
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 items-center">
             {clients.map((client) => (
-              <div key={client.name} className="p-4 bg-white rounded-lg shadow-sm border flex items-center justify-center aspect-[2/1]">
-                 <div className="relative w-full h-12">
+              <div key={client.name} className="p-4 bg-white rounded-lg shadow-sm border flex items-center justify-center aspect-[3/2]">
+                 <div className="relative w-full h-20">
                     <Image src={client.logoUrl} alt={`${client.name} logo`} layout="fill" objectFit="contain" data-ai-hint={client.dataAiHint} />
                  </div>
               </div>
