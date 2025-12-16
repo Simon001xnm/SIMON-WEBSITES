@@ -8,9 +8,9 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const clients = [
-    { name: 'Elizabeth Glaser Pediatric AIDS Foundation', logoUrl: 'https://picsum.photos/seed/egpaf-logo/200/100', dataAiHint: 'egpaf logo' },
-    { name: 'Evidence Action', logoUrl: 'https://picsum.photos/seed/evidence-action-logo/200/100', dataAiHint: 'evidence action logo' },
-    { name: 'EXIM Bank', logoUrl: 'https://picsum.photos/seed/exim-logo/200/100', dataAiHint: 'exim bank logo' },
+    { name: 'Metocus', logoUrl: '/cropped-rsz_metocuslogo2023-removebg-preview_1.png', dataAiHint: 'metocus logo' },
+    { name: 'Client 2', logoUrl: '/download.png', dataAiHint: 'client logo' },
+    { name: 'Client 3', logoUrl: '/images.webp', dataAiHint: 'client logo' },
     { name: 'Equity Bank', logoUrl: 'https://picsum.photos/seed/equity-logo/200/100', dataAiHint: 'equity bank logo' },
     { name: 'Co-operative Bank', logoUrl: 'https://picsum.photos/seed/coop-logo/200/100', dataAiHint: 'coop bank logo' },
 ];
@@ -34,7 +34,7 @@ export function ClientsAndReachSection() {
                 data-ai-hint="africa map green"
               />
             </div>
-            <div className="relative w-full h-64 md:h-80">
+            <div className="relative w-full h-auto min-h-[200px] md:min-h-[320px]">
               <Image
                 src="/COUNTRY.png"
                 alt="Countries we serve"
