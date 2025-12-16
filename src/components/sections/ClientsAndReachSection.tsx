@@ -7,29 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-const countries = [
-  { name: 'Burkina Faso', flagUrl: 'https://picsum.photos/seed/bf-flag/32/32' },
-  { name: 'Cameroon', flagUrl: 'https://picsum.photos/seed/cm-flag/32/32' },
-  { name: 'Eswatini', flagUrl: 'https://picsum.photos/seed/sz-flag/32/32' },
-  { name: 'Ethiopia', flagUrl: 'https://picsum.photos/seed/et-flag/32/32' },
-  { name: 'Ghana', flagUrl: 'https://picsum.photos/seed/gh-flag/32/32' },
-  { name: 'Kenya', flagUrl: 'https://picsum.photos/seed/ke-flag/32/32' },
-  { name: 'Lesotho', flagUrl: 'https://picsum.photos/seed/ls-flag/32/32' },
-  { name: 'Mauritius', flagUrl: 'https://picsum.photos/seed/mu-flag/32/32' },
-  { name: 'Malawi', flagUrl: 'https://picsum.photos/seed/mw-flag/32/32' },
-  { name: 'Mali', flagUrl: 'https://picsum.photos/seed/ml-flag/32/32' },
-  { name: 'Mozambique', flagUrl: 'https://picsum.photos/seed/mz-flag/32/32' },
-  { name: 'Nigeria', flagUrl: 'https://picsum.photos/seed/ng-flag/32/32' },
-  { name: 'DRC', flagUrl: 'https://picsum.photos/seed/cd-flag/32/32' },
-  { name: 'Rwanda', flagUrl: 'https://picsum.photos/seed/rw-flag/32/32' },
-  { name: 'South Africa', flagUrl: 'https://picsum.photos/seed/za-flag/32/32' },
-  { name: 'South Sudan', flagUrl: 'https://picsum.photos/seed/ss-flag/32/32' },
-  { name: 'Tanzania', flagUrl: 'https://picsum.photos/seed/tz-flag/32/32' },
-  { name: 'Uganda', flagUrl: 'https://picsum.photos/seed/ug-flag/32/32' },
-  { name: 'Zambia', flagUrl: 'https://picsum.photos/seed/zm-flag/32/32' },
-  { name: 'Zimbabwe', flagUrl: 'https://picsum.photos/seed/zw-flag/32/32' },
-];
-
 const clients = [
     { name: 'Elizabeth Glaser Pediatric AIDS Foundation', logoUrl: 'https://picsum.photos/seed/egpaf-logo/200/100', dataAiHint: 'egpaf logo' },
     { name: 'Evidence Action', logoUrl: 'https://picsum.photos/seed/evidence-action-logo/200/100', dataAiHint: 'evidence action logo' },
@@ -57,15 +34,14 @@ export function ClientsAndReachSection() {
                 data-ai-hint="africa map green"
               />
             </div>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-              {countries.map((country) => (
-                <div key={country.name} className="flex items-center gap-3">
-                  <div className="relative h-8 w-8 rounded-full overflow-hidden shadow">
-                    <Image src={country.flagUrl} alt={`${country.name} flag`} layout="fill" objectFit="cover" data-ai-hint={`${country.name} flag`} />
-                  </div>
-                  <span className="text-sm font-medium text-muted-foreground">{country.name}</span>
-                </div>
-              ))}
+            <div className="relative w-full aspect-square lg:aspect-[4/3]">
+              <Image
+                src="/COUNTRY.png"
+                alt="Countries we serve"
+                layout="fill"
+                objectFit="contain"
+                data-ai-hint="african country flags"
+              />
             </div>
           </div>
         </div>
