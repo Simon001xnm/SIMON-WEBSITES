@@ -6,13 +6,7 @@ import { Container } from '@/components/layout/Container';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-
-const clients = [
-    { name: 'Metocus', logoUrl: '/cropped-rsz_metocuslogo2023-removebg-preview_1.png', dataAiHint: 'metocus logo' },
-    { name: 'Client 2', logoUrl: '/download.png', dataAiHint: 'client logo' },
-    { name: 'Client 3', logoUrl: '/images.webp', dataAiHint: 'client logo' },
-];
-
+import { ClientMarquee } from './ClientMarquee';
 
 export function ClientsAndReachSection() {
   return (
@@ -45,16 +39,8 @@ export function ClientsAndReachSection() {
         </div>
         
         <div className="mt-12 text-center">
-          <h3 className="text-xl font-semibold text-muted-foreground">Trusted by many clients across Africa</h3>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 items-center">
-            {clients.map((client) => (
-              <div key={client.name} className="p-4 bg-white rounded-lg shadow-sm border flex items-center justify-center aspect-video">
-                 <div className="relative w-full h-24">
-                    <Image src={client.logoUrl} alt={`${client.name} logo`} layout="fill" objectFit="contain" data-ai-hint={client.dataAiHint} />
-                 </div>
-              </div>
-            ))}
-          </div>
+          <h3 className="text-xl font-semibold text-muted-foreground mb-6">Trusted by many clients across Africa</h3>
+          <ClientMarquee />
            <Button asChild size="lg" className="group mt-10 bg-green-600 hover:bg-green-700 text-base">
             <Link href="/contact">
               Meet All Our Clients <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

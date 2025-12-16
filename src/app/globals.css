@@ -81,3 +81,19 @@ body {
     font-feature-settings: "rlig" 1, "calt" 1; /* Enables common ligatures and contextual alternates */
   }
 }
+
+@layer utilities {
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee var(--duration, 30s) linear infinite;
+    --gap: 1rem;
+  }
+}
