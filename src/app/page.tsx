@@ -16,6 +16,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
+import { SymohAssistant } from '@/components/sections/SymohAssistant';
 
 
 export default function JumiaClonePage() {
@@ -127,6 +128,7 @@ export default function JumiaClonePage() {
             <ServicesSection />
             <RecruitmentSection />
             <ClientsAndReachSection />
+            <SymohAssistant />
           </div>
         </main>
 
