@@ -11,8 +11,6 @@ const clients = [
     { name: 'Metocus', logoUrl: '/cropped-rsz_metocuslogo2023-removebg-preview_1.png', dataAiHint: 'metocus logo' },
     { name: 'Client 2', logoUrl: '/download.png', dataAiHint: 'client logo' },
     { name: 'Client 3', logoUrl: '/images.webp', dataAiHint: 'client logo' },
-    { name: 'Equity Bank', logoUrl: 'https://picsum.photos/seed/equity-logo/200/100', dataAiHint: 'equity bank logo' },
-    { name: 'Co-operative Bank', logoUrl: 'https://picsum.photos/seed/coop-logo/200/100', dataAiHint: 'coop bank logo' },
 ];
 
 
@@ -48,10 +46,10 @@ export function ClientsAndReachSection() {
         
         <div className="mt-12 text-center">
           <h3 className="text-xl font-semibold text-muted-foreground">Trusted by many clients across Africa</h3>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 items-center">
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 items-center">
             {clients.map((client) => (
-              <div key={client.name} className="p-4 bg-white rounded-lg shadow-sm border flex items-center justify-center aspect-[3/2]">
-                 <div className="relative w-full h-20">
+              <div key={client.name} className="p-4 bg-white rounded-lg shadow-sm border flex items-center justify-center aspect-video">
+                 <div className="relative w-full h-24">
                     <Image src={client.logoUrl} alt={`${client.name} logo`} layout="fill" objectFit="contain" data-ai-hint={client.dataAiHint} />
                  </div>
               </div>
