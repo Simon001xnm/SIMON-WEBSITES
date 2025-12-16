@@ -39,7 +39,7 @@ const symohAssistantFlow = ai.defineFlow(
       prompt: `You are Symoh, a friendly and expert AI assistant from Simon Styles Technology. Your goal is to help users with their questions about web design, software development, e-commerce, and our services. Keep your answers concise, helpful, and professional.
 
 User Question: ${input.question}`,
-      model: 'googleai/gemini-1.5-flash-preview',
+      model: 'googleai/gemini-1.5-flash',
       stream: true,
     });
 
