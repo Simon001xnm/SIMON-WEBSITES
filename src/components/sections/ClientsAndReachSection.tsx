@@ -34,7 +34,7 @@ export function ClientsAndReachSection() {
                 data-ai-hint="africa map green"
               />
             </div>
-            <div className="relative w-full aspect-square lg:aspect-[4/3]">
+            <div className="relative w-full h-64 md:h-80">
               <Image
                 src="/COUNTRY.png"
                 alt="Countries we serve"
