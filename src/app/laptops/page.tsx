@@ -1,8 +1,8 @@
 
 'use client';
 
-import React from 'react';
-import { useSearchParams } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
@@ -12,17 +12,51 @@ import { LaptopFiltersSidebar } from '@/components/laptops/LaptopFiltersSidebar'
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Search, Filter, LayoutGrid } from 'lucide-react';
+import { Search, Filter, LayoutGrid, X } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { LaptopStockStatus } from '@/components/laptops/LaptopStockStatus';
 
 function LaptopsPageContent() {
   const searchParams = useSearchParams();
-  const brand = searchParams.get('brand');
+  const router = useRouter();
+  
+  const brandQuery = searchParams.get('brand');
+  const searchQuery = searchParams.get('q');
+  
+  const [searchTerm, setSearchTerm] = useState(searchQuery || '');
 
-  const filteredLaptops = brand
-    ? MOCK_LAPTOPS.filter(laptop => laptop.brand.toLowerCase() === brand.toLowerCase())
-    : MOCK_LAPTOPS;
+  const filteredLaptops = MOCK_LAPTOPS.filter(laptop => {
+    const brandMatch = brandQuery ? laptop.brand.toLowerCase() === brandQuery.toLowerCase() : true;
+    const searchMatch = searchQuery 
+      ? laptop.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        laptop.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        laptop.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
+      : true;
+    return brandMatch && searchMatch;
+  });
+
+  const handleSearch = () => {
+    const params = new URLSearchParams(searchParams);
+    if (searchTerm) {
+      params.set('q', searchTerm);
+    } else {
+      params.delete('q');
+    }
+    router.push(`/laptops?${params.toString()}`);
+  };
+
+  const handleClearSearch = () => {
+    setSearchTerm('');
+    const params = new URLSearchParams(searchParams);
+    params.delete('q');
+    router.push(`/laptops?${params.toString()}`);
+  };
+
+  const pageTitle = () => {
+    if (searchQuery) return `Search results for "${searchQuery}"`;
+    if (brandQuery) return `${brandQuery} Laptops`;
+    return 'All Laptops';
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -38,8 +72,21 @@ function LaptopsPageContent() {
                     type="search"
                     placeholder="Search for Products..."
                     className="pl-10 h-10 text-sm"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                   />
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  {searchTerm && (
+                    <Button 
+                      variant="ghost" 
+                      size="icon" 
+                      className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7"
+                      onClick={handleClearSearch}
+                    >
+                      <X className="h-4 w-4 text-muted-foreground" />
+                    </Button>
+                  )}
                 </div>
                 <Select defaultValue="all-categories">
                   <SelectTrigger className="w-full md:w-[200px] h-10 text-sm">
@@ -53,7 +100,7 @@ function LaptopsPageContent() {
                     {/* Add more categories as needed */}
                   </SelectContent>
                 </Select>
-                <Button className="h-10 w-full md:w-auto text-sm">
+                <Button className="h-10 w-full md:w-auto text-sm" onClick={handleSearch}>
                   <Search className="h-4 w-4 md:hidden" />
                   <span className="hidden md:inline">Search</span>
                 </Button>
@@ -88,7 +135,7 @@ function LaptopsPageContent() {
               <div className="flex justify-between items-center mb-4">
                 <h1 className="text-xl font-semibold text-primary flex items-center">
                   <LayoutGrid className="mr-2 h-5 w-5" />
-                  {brand ? `${brand} Laptops` : 'All Laptops'}
+                  {pageTitle()}
                 </h1>
                 {/* Placeholder for sorting dropdown */}
                 <Select defaultValue="featured">
@@ -112,7 +159,7 @@ function LaptopsPageContent() {
                 </div>
               ) : (
                 <p className="text-center text-muted-foreground text-lg py-10">
-                  No {brand} laptops available at the moment. Please check back soon!
+                  No products found for your search. Please try a different term.
                 </p>
               )}
               {/* Placeholder for Pagination */}

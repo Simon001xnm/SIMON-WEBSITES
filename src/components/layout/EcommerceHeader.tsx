@@ -1,7 +1,9 @@
+
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import React, { useState } from 'react';
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -33,11 +35,18 @@ export function EcommerceHeader() {
   const { cart } = useCart();
   const { user, logout } = useAuth();
   const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState('');
   const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
   
   const handleLogout = async () => {
     await logout();
     router.push('/login');
+  };
+
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      router.push(`/laptops?q=${encodeURIComponent(searchTerm.trim())}`);
+    }
   };
 
   const getInitials = (name: string | null | undefined) => {
@@ -64,9 +73,15 @@ export function EcommerceHeader() {
           <div className="flex-grow max-w-2xl hidden sm:flex items-center">
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <Input placeholder="Search products, brands and categories" className="pl-10 bg-gray-100 border-gray-300 focus:ring-primary focus:border-primary" />
+              <Input 
+                placeholder="Search products, brands and categories" 
+                className="pl-10 bg-gray-100 border-gray-300 focus:ring-primary focus:border-primary" 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+              />
             </div>
-            <Button className="ml-2 bg-primary hover:bg-primary/90">Search</Button>
+            <Button className="ml-2 bg-primary hover:bg-primary/90" onClick={handleSearch}>Search</Button>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
              <Button variant="ghost" className="hidden md:flex items-center gap-1" asChild>
