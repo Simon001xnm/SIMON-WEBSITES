@@ -21,8 +21,9 @@ export function ClientsAndReachSection() {
               <Image
                 src="/AFRICA.png"
                 alt="Map of Africa"
-                layout="fill"
-                objectFit="contain"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-contain"
                 data-ai-hint="africa map green"
               />
             </div>
@@ -30,8 +31,9 @@ export function ClientsAndReachSection() {
               <Image
                 src="/COUNTRY.png"
                 alt="Countries we serve"
-                layout="fill"
-                objectFit="contain"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-contain"
                 data-ai-hint="african country flags"
               />
             </div>

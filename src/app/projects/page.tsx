@@ -18,8 +18,9 @@ export default function ProjectsPage() {
             <Image 
               src="/banners.jpg"
               alt="Projects Banner"
-              layout="fill"
-              objectFit="cover"
+              fill
+              sizes="100vw"
+              className="object-cover"
               data-ai-hint="tech collage"
             />
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">

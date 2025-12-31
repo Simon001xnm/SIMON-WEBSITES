@@ -79,7 +79,7 @@ export default function JumiaClonePage() {
               <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-4">
                   {/* Main Hero Banner */}
                   <div className="bg-white rounded-md shadow overflow-hidden relative group h-[200px] md:h-[280px]">
-                      <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" layout="fill" objectFit="cover" alt="Hero banner" className="w-full h-full"/>
+                      <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Hero banner" className="w-full h-full object-cover"/>
                       <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
                           <h2 className="text-xl md:text-3xl font-extrabold text-white drop-shadow-lg leading-tight">Laptops For Hire Available</h2>
                           <p className="text-white/90 mt-2 text-xs md:text-sm max-w-md">Daily, weekly, & monthly rental plans for businesses, events, and corporate needs.</p>
@@ -107,7 +107,7 @@ export default function JumiaClonePage() {
                           <p className="text-xs text-gray-500">Reach millions of visitors and grow your business.</p>
                       </div>
                       <div className="bg-white rounded-md shadow overflow-hidden relative group h-[120px] md:h-full flex-grow">
-                           <Image src="/OURTEAM.jpg" data-ai-hint="our team" layout="fill" objectFit="cover" alt="Our Team" className="w-full h-full transition-transform duration-300 group-hover:scale-105"/>
+                           <Image src="/OURTEAM.jpg" data-ai-hint="our team" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Our Team" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
                            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-2">
                               <h3 className="text-lg font-bold text-white">Our Team</h3>
                               <p className="text-sm text-white/90 mt-1">Dedicated professionals to serve you.</p>

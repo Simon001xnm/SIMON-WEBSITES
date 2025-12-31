@@ -33,9 +33,9 @@ export function ServicesSection() {
               <Image
                 src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?q=80&w=1935&auto=format&fit=crop"
                 alt="Developer working on code"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-2xl shadow-xl"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover rounded-2xl shadow-xl"
                 data-ai-hint="black developer coding"
               />
             </div>

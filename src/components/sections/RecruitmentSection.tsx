@@ -64,9 +64,9 @@ export function RecruitmentSection() {
                 <Image
                     src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=2070&auto=format&fit=crop"
                     alt="Black professionals in a meeting"
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-2xl shadow-xl"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover rounded-2xl shadow-xl"
                     data-ai-hint="black professionals meeting"
                 />
                 </div>

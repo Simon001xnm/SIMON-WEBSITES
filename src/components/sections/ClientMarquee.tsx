@@ -18,9 +18,9 @@ export function ClientMarquee() {
               <Image
                 src={client.logoUrl}
                 alt={client.name}
-                layout="fill"
-                objectFit="contain"
-                className="p-2"
+                fill
+                sizes="160px"
+                className="object-contain p-2"
               />
             </div>
           </div>
