@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github, ShoppingCart } from 'lucide-react';
+import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 
 interface ProjectCardProps {
   project: Project;
@@ -17,6 +18,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const formattedPrice = project.price
     ? new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(project.price)
     : null;
+    
+  const discountedPrice = project.price ? project.price * 0.8 : 0;
+  const formattedDiscountedPrice = new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(discountedPrice);
+
+  const whatsappMessage = `Hello, I'd like to purchase the '${project.title}' software. The listed price is ${formattedPrice}, and with the 20% discount, the price is ${formattedDiscountedPrice}.`;
+  const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <Card className="flex flex-col overflow-hidden h-full transition-all duration-300 ease-in-out group shadow-md hover:shadow-xl">
@@ -40,8 +47,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
              {isAvailable && (
                 <Button asChild size="sm">
-                    <Link href="/contact">
-                    <ShoppingCart className="mr-2 h-4 w-4" /> Buy Now
+                    <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                        <ShoppingCart className="mr-2 h-4 w-4" /> Buy Now
                     </Link>
                 </Button>
             )}
