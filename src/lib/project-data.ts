@@ -28,7 +28,7 @@ export const MOCK_PROJECTS: Project[] = [
   },
    {
     id: 'proj-4',
-    title: 'Personal Portfolio Website',
+    title: 'Simon Styles Company Website',
     description: 'A personal portfolio site to showcase software development projects and skills.',
     longDescription: 'A clean, fast, and responsive personal portfolio website built to showcase a collection of software development projects. The site is designed to highlight technical skills and professional experience, featuring a project gallery, about me section, and contact form. Built with modern web technologies for optimal performance and user experience.',
     image: '/Screenshot 2026-01-01 092730.png',
