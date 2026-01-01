@@ -67,7 +67,7 @@ const services = [
     icon: Cloud,
     title: "Cloud Computing Services",
     price: "KES 45,000",
-    priceNote: "Labor + Subscription",
+    priceNote: "Labor Only + Subscription Costs",
     description: "Leverage the power of the cloud with our expert setup, migration, and management services.",
     features: [
       "AWS, Google Cloud, Azure",
