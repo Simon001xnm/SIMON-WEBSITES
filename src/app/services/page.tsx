@@ -12,6 +12,7 @@ import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 
 const services = [
   {
+    id: "website-development",
     icon: Code,
     title: "Website Development",
     price: "KES 30,000",
@@ -25,6 +26,7 @@ const services = [
     ],
   },
   {
+    id: "software-development",
     icon: Bot,
     title: "Software Development",
     price: "KES 60,000",
@@ -38,6 +40,7 @@ const services = [
     ],
   },
   {
+    id: "app-development",
     icon: ShoppingCart,
     title: "App Development",
     price: "KES 140,000",
@@ -51,6 +54,7 @@ const services = [
     ],
   },
   {
+    id: "social-media-management",
     icon: Megaphone,
     title: "Social Media Management",
     price: "KES 4,000",
@@ -64,6 +68,7 @@ const services = [
     ],
   },
   {
+    id: "cloud-computing",
     icon: Cloud,
     title: "Cloud Computing Services",
     price: "KES 45,000",
@@ -77,6 +82,7 @@ const services = [
     ],
   },
   {
+    id: "ethical-hacking",
     icon: Shield,
     title: "Ethical Hacking Services",
     price: "KES 80,000",
@@ -90,6 +96,7 @@ const services = [
     ],
   },
    {
+    id: "vulnerability-fixing",
     icon: Wrench,
     title: "Vulnerability Fixing",
     price: "Custom Quote",
@@ -151,7 +158,7 @@ export default function ServicesPage() {
               {services.map((service) => {
                 const Icon = service.icon;
                 return (
-                  <Card key={service.title} className="flex flex-col transform hover:-translate-y-1 transition-transform duration-300 shadow-md hover:shadow-xl border-t-4 border-primary/20">
+                  <Card key={service.title} id={service.id} className="flex flex-col transform hover:-translate-y-1 transition-transform duration-300 shadow-md hover:shadow-xl border-t-4 border-primary/20 scroll-mt-24">
                     <CardHeader className="items-center text-center p-6">
                       <div className="p-4 bg-primary/10 rounded-full w-fit mb-4 border border-primary/20">
                         <Icon className="h-10 w-10 text-primary" />
