@@ -136,7 +136,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: 'why-professional-website-is-best-investment',
     title: 'Why a Professional Website is Your Best Investment in Kenya',
     excerpt: 'A professional website builds credibility, attracts customers 24/7, and provides a powerful marketing channel. Learn why investing in professional web development in Kenya is essential for growth and how we deliver exceptional results.',
-    imageUrl: 'https://images.unsplash.com/photo-1559028012-7104bdae19b3?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/simonweb.jpg',
     keywords: [
       'professional website Kenya', 'web development Nairobi', 'cost of a website in Kenya', 'e-commerce website development Kenya', 'small business website Kenya',
       'benefits of a website', 'online presence Kenya', 'digital marketing Nairobi', 'affordable web design Kenya', 'hire web developer Nairobi',
@@ -286,5 +286,7 @@ export const BLOG_POSTS: BlogPost[] = [
     `,
   },
 ];
+
+    
 
     
