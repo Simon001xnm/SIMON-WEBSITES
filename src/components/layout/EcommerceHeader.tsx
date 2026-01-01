@@ -17,7 +17,8 @@ import {
   LogOut,
   LogIn,
   Briefcase,
-  LayoutGrid, // New Icon
+  LayoutGrid,
+  FileText, // Added icon for Blog
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { Badge } from '@/components/ui/badge';
@@ -94,6 +95,12 @@ export function EcommerceHeader() {
                 <Link href="/services">
                     <Briefcase className="h-5 w-5" />
                     <span>Services</span>
+                </Link>
+            </Button>
+            <Button variant="ghost" className="hidden md:flex items-center gap-1" asChild>
+                <Link href="/blog">
+                    <FileText className="h-5 w-5" />
+                    <span>Blog</span>
                 </Link>
             </Button>
             <DropdownMenu>
@@ -173,6 +180,7 @@ export function EcommerceHeader() {
                         <DropdownMenuItem asChild><Link href="/account/orders">Orders</Link></DropdownMenuItem>
                          <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
                          <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
+                         <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
                       </>
@@ -182,6 +190,7 @@ export function EcommerceHeader() {
                         <DropdownMenuItem asChild><Link href="/signup">Sign Up</Link></DropdownMenuItem>
                         <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
                         <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
+                        <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
                       </>
                     )}
                   </DropdownMenuContent>
