@@ -3,18 +3,6 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
-    id: 'proj-1',
-    title: 'Prime Ink Technologies',
-    description: 'A professional corporate website for a leading IT solutions provider in Kenya, showcasing their products and services.',
-    longDescription: 'Developed a clean and professional corporate website for Prime Ink Technologies. The site effectively showcases their extensive range of IT services, including hardware sales, software solutions, and network infrastructure. It is designed for easy navigation, allowing potential clients to quickly find information and get in touch.',
-    image: '/primeink.jpg',
-    dataAiHint: 'corporate website',
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'E-commerce'],
-    liveUrl: 'https://primeinktechnologies.co.ke/',
-    projectType: 'Web',
-    status: 'Sold',
-  },
-  {
     id: 'proj-2',
     title: 'Beedeee',
     description: 'A vibrant and engaging e-commerce website for a fashion and lifestyle brand.',
