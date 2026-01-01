@@ -31,7 +31,7 @@ export const MOCK_PROJECTS: Project[] = [
     title: 'Matesh Technologies',
     description: 'A modern and informative website for a tech company specializing in software and hardware solutions.',
     longDescription: 'Designed and implemented a sleek, modern website for Matesh Technologies. The platform clearly communicates their expertise in both software and hardware, featuring sections for services, products, and company information. The goal was to create a strong online presence that builds trust and generates leads.',
-    image: '/matesh.jpg',
+    image: '/Screenshot 2026-01-01 091103.png',
     dataAiHint: 'tech company',
     techStack: ['WordPress', 'PHP', 'Elementor', 'Custom Theme'],
     liveUrl: 'https://www.mateshtechnologies.co.ke/',
