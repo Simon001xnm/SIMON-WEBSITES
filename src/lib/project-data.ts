@@ -37,7 +37,7 @@ export const MOCK_PROJECTS: Project[] = [
     liveUrl: 'https://simon-websites.vercel.app/',
     projectType: 'Web',
     status: 'Available',
-    price: 35000,
+    price: 30000,
   },
   {
     id: 'proj-5',
@@ -73,7 +73,7 @@ export const MOCK_PROJECTS: Project[] = [
     techStack: ['React', 'Node.js', 'Express', 'MongoDB'],
     projectType: 'Systems',
     status: 'Available',
-    price: 120000,
+    price: 60000,
   },
   {
     id: 'proj-7',
@@ -97,7 +97,7 @@ export const MOCK_PROJECTS: Project[] = [
     techStack: ['C#', '.NET', 'SQL Server', 'WPF'],
     projectType: 'Systems',
     status: 'Available',
-    price: 150000,
+    price: 60000,
   },
   {
     id: 'proj-9',
@@ -131,7 +131,7 @@ export const MOCK_PROJECTS: Project[] = [
     techStack: ['React Native', 'Firebase', 'Stripe API'],
     projectType: 'Mobile',
     status: 'Available',
-    price: 95000,
+    price: 140000,
   },
   {
     id: 'proj-12',
@@ -154,6 +154,6 @@ export const MOCK_PROJECTS: Project[] = [
     techStack: ['Ruby on Rails', 'Heroku', 'PostgreSQL', 'JavaScript'],
     projectType: 'Web',
     status: 'Available',
-    price: 180000,
+    price: 30000,
   }
 ];
