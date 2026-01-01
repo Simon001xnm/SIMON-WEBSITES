@@ -5,7 +5,7 @@ import type { Project } from './types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Github, ShoppingCart } from 'lucide-react';
+import { ExternalLink, Github, ShoppingCart, Lock } from 'lucide-react';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 
 interface ProjectCardProps {
@@ -14,6 +14,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const isAvailable = project.status === 'Available';
+  const isSystem = project.projectType === 'Systems';
 
   const formattedPrice = project.price
     ? new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(project.price)
@@ -37,8 +38,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className="object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-105"
             data-ai-hint={project.dataAiHint || "project image"}
           />
-          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-            {project.liveUrl && (
+          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 p-4">
+            {isSystem ? (
+               <Button variant="secondary" size="sm" disabled>
+                    <Lock className="mr-2 h-4 w-4" /> Confidential System
+                </Button>
+            ) : project.liveUrl && (
                 <Button asChild variant="secondary" size="sm">
                     <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4" /> See Live
