@@ -27,7 +27,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <Card className="flex flex-col overflow-hidden h-full transition-all duration-300 ease-in-out group shadow-md hover:shadow-xl">
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <div className="aspect-video relative overflow-hidden rounded-t-md">
           <Image
             src={project.image}
@@ -54,7 +54,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
           </div>
           {!isAvailable && (
-             <Badge variant="destructive" className="absolute top-2 right-2 z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300">SOLD</Badge>
+             <div className="absolute top-0 right-0 h-16 w-16">
+                <div className="absolute transform rotate-45 bg-destructive text-destructive-foreground text-center font-semibold py-1 right-[-34px] top-[32px] w-[170px] shadow-lg">
+                    SOLD
+                </div>
+            </div>
           )}
         </div>
       </div>
