@@ -64,6 +64,18 @@ export const MOCK_PROJECTS: Project[] = [
     status: 'Sold',
   },
   {
+    id: 'proj-14',
+    title: 'Ilorie Consult Limited',
+    description: 'A professional website for a consultancy firm specializing in company registrations and KRA services.',
+    longDescription: 'Developed a professional website for Ilorie Consult Limited, a firm specializing in company registrations, KRA consultations, and other BRS services. The site is designed to provide clear information to clients and establish a strong professional online presence.',
+    image: '/Screenshot 2026-01-01 091301.png',
+    dataAiHint: 'consulting website',
+    techStack: ['React', 'Next.js', 'Tailwind CSS', 'Vercel'],
+    liveUrl: 'https://ilorieconsult.com/',
+    projectType: 'Web',
+    status: 'Sold',
+  },
+  {
     id: 'proj-6',
     title: 'Inventory Management System',
     description: 'A comprehensive system for tracking stock levels, orders, sales, and deliveries for a small business.',
