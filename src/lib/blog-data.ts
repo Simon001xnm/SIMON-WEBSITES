@@ -52,7 +52,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'how-to-choose-the-best-laptop-kenya',
-    title: 'How to Choose the Best Laptop in Kenya (2024 Guide)',
+    title: 'How to Choose the Best Laptop in Kenya (2026 GUIDE)',
     excerpt: 'Your complete guide to buying the best laptops in Kenya. Compare HP, Dell, Apple, and Lenovo for students, professionals, and gamers in Nairobi and across the country.',
     imageUrl: 'https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?q=80&w=2070&auto=format&fit=crop',
     keywords: [
@@ -66,7 +66,7 @@ export const BLOG_POSTS: BlogPost[] = [
         'SSD laptops Kenya', '8GB RAM laptops Nairobi', '16GB RAM laptops Kenya', 'touchscreen laptops Kenya',
         'convertible laptops Nairobi', 'lightweight laptops Kenya', 'laptops on offer Kenya', 'Jumia laptops Kenya',
         'Kilimall laptops', 'best laptop brands in Kenya', 'student laptop deals Nairobi', 'work from home laptops Kenya',
-        'laptop warranty Kenya', 'tech stores Nairobi', 'computer hardware Kenya', 'latest laptops 2024 Kenya',
+        'laptop warranty Kenya', 'tech stores Nairobi', 'computer hardware Kenya', 'latest laptops 2026 Kenya',
         'Asus laptops Kenya', 'Acer laptops Nairobi', 'Microsoft Surface Kenya', 'Samsung laptops Kenya'
     ],
     contentHTML: `
