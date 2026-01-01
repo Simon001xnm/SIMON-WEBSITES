@@ -44,7 +44,7 @@ export const MOCK_PROJECTS: Project[] = [
     title: 'Lee Gifts and Flowers',
     description: 'A beautiful e-commerce website for a premier gift and flower shop, focusing on a great user shopping experience.',
     longDescription: 'Developed a charming and user-friendly e-commerce website for Lee Gifts and Flowers. The site features an elegant design, easy product browsing, a secure checkout process, and is fully optimized for mobile devices to help customers find the perfect gift anytime, anywhere.',
-    image: 'https://picsum.photos/seed/leegifts/600/400',
+    image: '/Screenshot 2026-01-01 091910.png',
     dataAiHint: 'flower shop',
     techStack: ['E-commerce', 'JavaScript', 'PHP', 'Online Payments'],
     liveUrl: 'https://leegiftsandflowers.co.ke/',
