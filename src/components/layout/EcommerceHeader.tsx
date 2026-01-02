@@ -178,9 +178,10 @@ export function EcommerceHeader() {
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild><Link href="/account">Profile</Link></DropdownMenuItem>
                         <DropdownMenuItem asChild><Link href="/account/orders">Orders</Link></DropdownMenuItem>
-                         <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
-                         <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
-                         <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
+                        <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
+                        <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
                       </>
@@ -188,6 +189,7 @@ export function EcommerceHeader() {
                       <>
                         <DropdownMenuItem asChild><Link href="/login">Login</Link></DropdownMenuItem>
                         <DropdownMenuItem asChild><Link href="/signup">Sign Up</Link></DropdownMenuItem>
+                        <DropdownMenuSeparator />
                         <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
                         <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
                         <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
