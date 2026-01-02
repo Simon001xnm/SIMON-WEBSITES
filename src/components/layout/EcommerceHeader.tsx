@@ -19,6 +19,7 @@ import {
   Briefcase,
   LayoutGrid,
   FileText, // Added icon for Blog
+  Menu,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { Badge } from '@/components/ui/badge';
@@ -147,6 +148,42 @@ export function EcommerceHeader() {
               <span>Help</span>
               <ChevronDown className="h-4 w-4" />
             </Button>
+            
+            <div className="md:hidden">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  {user ? (
+                    <>
+                      <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem asChild><Link href="/account">Profile</Link></DropdownMenuItem>
+                      <DropdownMenuItem asChild><Link href="/account/orders">Orders</Link></DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
+                      <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
+                      <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
+                    </>
+                  ) : (
+                    <>
+                      <DropdownMenuItem asChild><Link href="/login">Login</Link></DropdownMenuItem>
+                      <DropdownMenuItem asChild><Link href="/signup">Sign Up</Link></DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
+                      <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
+                      <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
+                    </>
+                  )}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+
             <Button variant="ghost" className="flex items-center gap-1 relative" asChild>
               <Link href="/cart">
                 <ShoppingCart className="h-5 w-5" />
@@ -158,46 +195,6 @@ export function EcommerceHeader() {
                 )}
               </Link>
             </Button>
-             {/* Login/Account button for mobile */}
-             <div className="md:hidden">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                     <Button variant="ghost" size="icon">
-                        {user ? (
-                           <Avatar className="h-7 w-7">
-                              <AvatarImage src={user.photoURL || ''} alt={user.displayName || ''} />
-                              <AvatarFallback className="text-xs">{getInitials(user.displayName)}</AvatarFallback>
-                           </Avatar>
-                        ) : <User className="h-5 w-5" />}
-                     </Button>
-                  </DropdownMenuTrigger>
-                   <DropdownMenuContent align="end" className="w-56">
-                    {user ? (
-                      <>
-                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem asChild><Link href="/account">Profile</Link></DropdownMenuItem>
-                        <DropdownMenuItem asChild><Link href="/account/orders">Orders</Link></DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
-                        <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
-                        <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
-                      </>
-                    ) : (
-                      <>
-                        <DropdownMenuItem asChild><Link href="/login">Login</Link></DropdownMenuItem>
-                        <DropdownMenuItem asChild><Link href="/signup">Sign Up</Link></DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
-                        <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
-                        <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
-                      </>
-                    )}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-            </div>
           </div>
         </div>
       </header>
