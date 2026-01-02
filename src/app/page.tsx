@@ -17,7 +17,6 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
-import { FloatingAssistant } from '@/components/layout/FloatingAssistant';
 
 
 export default function JumiaClonePage() {
@@ -132,7 +131,6 @@ export default function JumiaClonePage() {
           </div>
         </main>
         
-        <FloatingAssistant />
         <EcommerceFooter />
       </div>
     </div>

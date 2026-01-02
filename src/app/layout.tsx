@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/next";
 import { CartProvider } from '@/context/CartContext';
 import { AuthProvider } from '@/context/AuthContext';
+import { FloatingAssistant } from '@/components/layout/FloatingAssistant';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -54,6 +55,7 @@ export default function RootLayout({
           <CartProvider>
             {children}
             <Toaster />
+            <FloatingAssistant />
           </CartProvider>
         </AuthProvider>
         <Analytics />

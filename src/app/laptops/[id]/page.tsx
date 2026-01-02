@@ -15,7 +15,6 @@ import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table';
 import { Separator } from '@/components/ui/separator';
 import { ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { FloatingSocialButtons } from '@/components/layout/FloatingSocialButtons';
 import { useAuth } from '@/hooks/use-auth';
 import { useToast } from '@/hooks/use-toast';
 import { useEffect, useState } from 'react';
@@ -168,7 +167,6 @@ export default function LaptopDetailPage({ params }: LaptopDetailPageProps) {
           </div>
         </Container>
       </main>
-      <FloatingSocialButtons />
       <EcommerceFooter />
     </div>
   );
