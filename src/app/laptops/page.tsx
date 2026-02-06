@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -13,7 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Search, Filter, LayoutGrid, X } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { LaptopStockStatus } from '@/components/laptops/LaptopStockStatus';
 
 function LaptopsPageContent() {
@@ -112,6 +111,9 @@ function LaptopsPageContent() {
                         </Button>
                       </SheetTrigger>
                       <SheetContent side="left" className="w-[300px] sm:w-[340px] p-0">
+                        <SheetHeader className="sr-only">
+                          <SheetTitle>Filter Options</SheetTitle>
+                        </SheetHeader>
                         <LaptopFiltersSidebar />
                       </SheetContent>
                     </Sheet>

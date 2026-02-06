@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -13,7 +12,7 @@ import { LaptopCard } from '@/components/laptops/LaptopCard';
 import { MEGA_MENU_CATEGORIES } from '@/lib/category-data';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
@@ -60,6 +59,9 @@ export default function JumiaClonePage() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="w-[300px] p-0">
+                <SheetHeader className="sr-only">
+                  <SheetTitle>Product Categories</SheetTitle>
+                </SheetHeader>
                 <div className="p-4">
                   <CategorySidebar />
                 </div>
