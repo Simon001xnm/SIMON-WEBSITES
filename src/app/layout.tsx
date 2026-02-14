@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import { Roboto } from 'next/font/google';
-import Script from 'next/script'; // Import the Script component
+import Script from 'next/script';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/next";
@@ -19,6 +19,16 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: 'Simon Styles | Leading Website Designer in Kenya & East Africa',
   description: 'The premier choice for world-class web design, custom software, and digital solutions. Simon Styles Technology is the leading digital agency serving Nairobi and the wider East African region.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/logo.jpg', type: 'image/jpeg' },
+    ],
+    shortcut: ['/favicon.ico'],
+    apple: [
+      { url: '/logo.jpg' },
+    ],
+  },
   verification: {
     google: 'iL8hUbqCiIxBbr8PF-HLXDFor0u8O9b3DwYHjzKu7LE',
   },
@@ -32,6 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${roboto.variable}`}>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/logo.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/logo.jpg" />
         {/* Google tag (gtag.js) */}
         <Script
           strategy="afterInteractive"
