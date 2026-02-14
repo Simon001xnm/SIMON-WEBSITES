@@ -61,10 +61,10 @@ function LaptopsPageContent() {
     <div className="flex flex-col min-h-screen bg-background">
       <EcommerceHeader />
       <main className="flex-grow">
-        {/* Search and Category Section - Made Sticky */}
-        <div className="sticky top-[56px] sm:top-[76px] z-40 bg-background shadow-md py-1"> {/* Adjusted top values and added py-1 for some spacing if needed */}
-          <Container className="py-3 md:py-4"> {/* Reduced py slightly to compensate for wrapper padding */}
-            <div className="p-3 bg-card border rounded-lg shadow-sm"> {/* Reduced internal padding slightly */}
+        {/* Search and Category Section - Sticky below the full header */}
+        <div className="sticky top-[112px] z-40 bg-background shadow-md py-1">
+          <Container className="py-3 md:py-4">
+            <div className="p-3 bg-card border rounded-lg shadow-sm">
               <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4">
                 <div className="relative flex-grow w-full md:max-w-md lg:max-w-lg">
                   <Input
@@ -96,7 +96,6 @@ function LaptopsPageContent() {
                     <SelectItem value="laptops">Laptops</SelectItem>
                     <SelectItem value="desktops">Desktops</SelectItem>
                     <SelectItem value="accessories">Accessories</SelectItem>
-                    {/* Add more categories as needed */}
                   </SelectContent>
                 </Select>
                 <Button className="h-10 w-full md:w-auto text-sm" onClick={handleSearch}>
@@ -123,23 +122,19 @@ function LaptopsPageContent() {
           </Container>
         </div>
 
-        {/* Main Content Area: Filters + Product Grid */}
         <Container className="py-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8 items-start">
-            {/* Filters Sidebar (Desktop) */}
             <div className="hidden md:block md:col-span-1">
               <LaptopFiltersSidebar />
               <LaptopStockStatus />
             </div>
 
-            {/* Product Grid */}
             <div className="md:col-span-3">
               <div className="flex justify-between items-center mb-4">
                 <h1 className="text-xl font-semibold text-primary flex items-center">
                   <LayoutGrid className="mr-2 h-5 w-5" />
                   {pageTitle()}
                 </h1>
-                {/* Placeholder for sorting dropdown */}
                 <Select defaultValue="featured">
                   <SelectTrigger className="w-[180px] h-9 text-xs">
                     <SelectValue placeholder="Sort by: Featured" />
@@ -164,7 +159,6 @@ function LaptopsPageContent() {
                   No products found for your search. Please try a different term.
                 </p>
               )}
-              {/* Placeholder for Pagination */}
               <div className="mt-8 flex justify-center">
                 <Button variant="outline">Load More</Button>
               </div>
