@@ -5,10 +5,10 @@ export const MOCK_PROJECTS: Project[] = [
   {
     id: 'proj-1',
     title: 'Mpoa Wangu',
-    description: 'A comprehensive real estate platform connecting property owners with potential tenants and buyers.',
-    longDescription: 'Designed and developed a robust real estate marketplace for Mpoa Wangu. The platform allows users to browse property listings with high-quality images, detailed descriptions, and direct contact options. It features a modern, mobile-friendly interface optimized for the Kenyan real estate market.',
+    description: 'A vibrant and user-friendly e-commerce platform for a premier flower and gift shop in Kenya.',
+    longDescription: 'Designed and developed a stunning e-commerce experience for Mpoa Wangu. The platform allows customers to browse beautiful floral arrangements, select custom gifts, and place orders with ease. It features a mobile-first design, secure checkout, and a seamless interface tailored for the Kenyan flower market.',
     image: '/Screenshot 2026-02-14 053148.png',
-    dataAiHint: 'real estate platform',
+    dataAiHint: 'flower shop ecommerce',
     techStack: ['Next.js', 'React', 'Tailwind CSS', 'Firebase', 'M-Pesa API'],
     liveUrl: 'https://mpoawangu.co.ke/',
     projectType: 'Web',
