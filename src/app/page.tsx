@@ -15,6 +15,7 @@ import {
   MessageCircle,
   TrendingUp,
   CreditCard,
+  Info,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
@@ -92,8 +93,8 @@ export default function SmallBizLandingPage() {
               </motion.div>
 
               <motion.div 
-                initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, type: "spring" }}
                 className="relative"
               >
@@ -181,6 +182,9 @@ export default function SmallBizLandingPage() {
           <Container>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-black mb-4">Simple Packages. <br/> <span className="text-primary">No Hidden Costs.</span></h2>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-bold text-xs uppercase tracking-widest mt-2 mb-4">
+                <Info className="w-4 h-4" /> 50% Deposit to Start, Balance on Handover
+              </div>
               <p className="text-muted-foreground">Pick a plan that fits your business stage.</p>
             </div>
 

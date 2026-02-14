@@ -157,6 +157,10 @@ const faqs = [
     a: "A professional 5-page startup site typically takes 7-14 business days from design approval to launch."
   },
   {
+    q: "What are your payment terms?",
+    a: "We work with a 50% down payment to initiate the project and secure your slot. The remaining 50% is settled after the project is fully completed and handed over to you."
+  },
+  {
     q: "Do you offer maintenance after launch?",
     a: "Yes, we provide ongoing support, security updates, and performance monitoring for all our systems."
   },
@@ -257,8 +261,8 @@ export default function ServicesPage() {
               <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="hidden lg:block">
                 <div className="p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-center gap-6">
                   <div className="text-right">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">Total Satisfaction</p>
-                    <p className="text-2xl font-black">100% SUCCESS</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">Payment Policy</p>
+                    <p className="text-2xl font-black">50% DEPOSIT</p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
                     <CheckCircle2 className="w-6 h-6 text-white" />
