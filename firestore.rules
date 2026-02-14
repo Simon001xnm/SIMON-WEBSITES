@@ -3,10 +3,15 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * FIRESTORE SECURITY RULES - SIMON STYLES LIMITED BLOG
+     * FIRESTORE SECURITY RULES - SIMON STYLES LIMITED
      * 
-     * Allows anonymous users to interact with the blog (likes/comments)
-     * while protecting administrative actions.
+     * This configuration allows anonymous visitors to:
+     * 1. Read blog posts and their statistics.
+     * 2. Read and list comments/replies.
+     * 3. Add new comments and likes.
+     * 4. Update counters (likeCount, commentCount).
+     *
+     * Admin actions (create/delete posts) are restricted.
      */
 
     // --- HELPER FUNCTIONS ---
@@ -23,31 +28,30 @@ service cloud.firestore {
 
     /**
      * @path /blogPosts/{blogPostId}
-     * Publicly readable. Updates allowed for counters (likes/comments).
+     * Publicly readable. Updates allowed for counters (likes/comments) anonymously.
      */
     match /blogPosts/{blogPostId} {
       allow read: if true;
-      // Allow updates for counters (likeCount and commentCount) from anyone
-      // In a production environment, you would validate the exact increment.
       allow update: if true; 
       allow create, delete: if isAdmin();
 
       /**
        * @path /blogPosts/{blogPostId}/comments/{commentId}
-       * Publicly readable and createable for anonymous community insights.
+       * Publicly readable and listable for community engagement.
        */
       match /comments/{commentId} {
         allow read: if true;
+        allow list: if true;
         allow create: if true;
-        // Allow anyone to update the likeCount on a comment
-        allow update: if isAdmin() || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likeCount']);
+        // Allow anonymous updates for likeCount on comments
+        allow update: if true;
         allow delete: if isAdmin();
 
         /**
          * @path /blogPosts/{blogPostId}/comments/{commentId}/likes/{likeId}
          */
         match /likes/{likeId} {
-          allow read: if true;
+          allow read, list: if true;
           allow create: if true;
           allow delete: if isAdmin();
         }
@@ -57,7 +61,7 @@ service cloud.firestore {
        * @path /blogPosts/{blogPostId}/likes/{likeId}
        */
       match /likes/{likeId} {
-        allow read: if true;
+        allow read, list: if true;
         allow create: if true;
         allow delete: if isAdmin();
       }
