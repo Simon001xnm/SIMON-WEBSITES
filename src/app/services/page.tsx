@@ -327,8 +327,8 @@ export default function ServicesPage() {
         <section className="py-32 bg-gray-50 overflow-hidden">
           <Container>
             <div className="text-center mb-24">
-              <motion.h2 {...fadeIn} className="text-4xl md:text-6xl font-black tracking-tighter text-black mb-6">Our Leading <span className="text-primary italic">Workflow.</span></motion.h2>
-              <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-xl text-gray-500 max-w-2xl mx-auto font-medium">We've refined a process that ensures elite quality and absolute clarity at every stage.</motion.p>
+              <motion.h2 {...fadeIn} className="text-4xl md:text-6xl font-black tracking-tighter text-black mb-6">Our Strategic <span className="text-primary italic">Workflow.</span></motion.h2>
+              <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-xl text-gray-500 max-w-2xl mx-auto font-medium">We've refined a process that ensures quality, speed, and absolute clarity at every stage of development.</motion.p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">

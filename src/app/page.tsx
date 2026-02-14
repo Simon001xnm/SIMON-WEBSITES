@@ -24,7 +24,7 @@ import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
 import { TeamSection } from '@/components/sections/TeamSection';
 import { motion } from 'framer-motion';
-import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
+import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER } from '@/lib/constants';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -96,7 +96,7 @@ export default function SmallBizLandingPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, type: "spring" }}
-                className="relative"
+                className="relative block"
               >
                 <div className="relative aspect-[4/3] w-full max-w-[550px] mx-auto group">
                   <div className="absolute -inset-4 bg-primary/20 rounded-[3rem] blur-2xl group-hover:bg-primary/30 transition-all duration-500"></div>
@@ -106,6 +106,7 @@ export default function SmallBizLandingPage() {
                       alt="Leading Digital Agency Kenya" 
                       fill
                       className="object-cover"
+                      priority
                     />
                     {/* Floating elements hidden on mobile */}
                     <motion.div 

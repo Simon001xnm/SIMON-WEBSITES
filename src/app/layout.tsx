@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: 'The premier choice for world-class web design, custom software, and digital solutions. Simon Styles Technology is the leading digital agency serving Nairobi and the wider East African region.',
   icons: {
     icon: [
-      { url: '/favicon.ico' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/logo.jpg', type: 'image/jpeg' },
     ],
     shortcut: ['/favicon.ico'],

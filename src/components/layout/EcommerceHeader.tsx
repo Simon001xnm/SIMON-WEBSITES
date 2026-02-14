@@ -38,12 +38,12 @@ export function EcommerceHeader() {
   }
 
   return (
-    <div className="sticky top-0 z-50 w-full">
+    <div className="sticky top-0 z-50 w-full shadow-md">
       <div className="bg-primary text-primary-foreground py-2.5 px-4 flex justify-center items-center text-[10px] sm:text-xs font-black uppercase tracking-[0.3em]">
         <Sparkles className="w-3 h-3 mr-2 animate-pulse" />
         <p>Leading Website Designer in Kenya & East Africa • Engineered in Nairobi</p>
       </div>
-      <header className="bg-white/80 backdrop-blur-2xl py-5 px-4 shadow-sm border-b">
+      <header className="bg-white/80 backdrop-blur-2xl py-5 px-4 border-b">
         <div className="flex items-center justify-between gap-4 max-w-screen-2xl mx-auto">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link href="/" className="flex items-center gap-3 group">
