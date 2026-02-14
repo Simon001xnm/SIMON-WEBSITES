@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -41,7 +40,7 @@ const services = [
     title: "Web Engineering",
     price: "20,000",
     priceNote: "Starting From",
-    description: "High-performance, custom-built web architectures designed to dominate your market. Not just websites, but digital assets.",
+    description: "High-performance, custom-built web architectures from East Africa's top-rated designer. Not just websites, but digital assets.",
     features: [
       "Next.js & React Native Performance",
       "Free 1 Year Hosting & Domain",
@@ -72,7 +71,7 @@ const services = [
     title: "Mobile Innovation",
     price: "140,000",
     priceNote: "Starting From",
-    description: "Native-feel cross-platform mobile apps that provide seamless experiences across both iOS and Android platforms.",
+    description: "Native-feel cross-platform mobile apps providing seamless experiences across Kenya and the global market.",
     features: [
       "iOS & Android Universal Deployment",
       "Push Notification Systems",
@@ -154,7 +153,7 @@ const steps = [
 const faqs = [
   {
     q: "How long does a standard website take?",
-    a: "A professional 5-page startup site typically takes 7-14 business days from design approval to launch."
+    a: "As the region's leading team, we balance speed with perfection. A professional 5-page startup site typically takes 7-14 business days from design approval to launch."
   },
   {
     q: "What are your payment terms?",
@@ -189,7 +188,7 @@ const fadeIn = {
 
 export default function ServicesPage() {
   const generateWhatsAppLink = (serviceTitle: string, price: string) => {
-    const message = `Hello! I'm interested in the "${serviceTitle}" service (KES ${price}). Can we discuss my project requirements?`;
+    const message = `Hello! I'm interested in the "${serviceTitle}" service (KES ${price}). Can we discuss my requirements?`;
     return `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
@@ -211,7 +210,7 @@ export default function ServicesPage() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
               >
                 <Zap className="w-4 h-4 text-primary" />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">Expertise at scale</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">East Africa's Leading Digital Partner</span>
               </motion.div>
               
               <motion.h1 
@@ -220,8 +219,8 @@ export default function ServicesPage() {
                 transition={{ delay: 0.1 }}
                 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-10"
               >
-                Engineering <br/>
-                <span className="text-primary italic underline decoration-primary/20">Digital Alpha.</span>
+                Leading the <br/>
+                <span className="text-primary italic underline decoration-primary/20">Digital Era.</span>
               </motion.h1>
               
               <motion.p 
@@ -230,7 +229,7 @@ export default function ServicesPage() {
                 transition={{ delay: 0.2 }}
                 className="text-xl md:text-2xl text-white/60 max-w-2xl leading-relaxed font-medium mb-12"
               >
-                We don't build generic solutions. We craft high-performance systems that give African enterprises a global competitive advantage.
+                We are the top-rated agency for web design and custom systems in East Africa. Our engineering excellence gives your enterprise a definitive global advantage.
               </motion.p>
 
               <motion.div 
@@ -240,7 +239,7 @@ export default function ServicesPage() {
                 className="flex flex-col sm:flex-row gap-6"
               >
                 <Button asChild size="lg" className="h-16 px-10 text-lg rounded-2xl bg-primary hover:bg-primary/90 font-black uppercase tracking-widest shadow-2xl shadow-primary/20 transition-all hover:scale-105">
-                  <Link href="#services-grid">View Expertise</Link>
+                  <Link href="#services-grid">View Our Expertise</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="h-16 px-10 text-lg rounded-2xl border-white/10 hover:bg-white/5 font-black uppercase tracking-widest transition-all">
                   <Link href="/contact">Free Consultation</Link>
@@ -255,8 +254,8 @@ export default function ServicesPage() {
           <Container>
             <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-24">
               <motion.div {...fadeIn} className="max-w-2xl">
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6">World-class solutions, <br/><span className="text-primary italic">engineered locally.</span></h2>
-                <p className="text-xl text-gray-500 font-medium">All our services include expert consultation, dedicated project management, and a focus on long-term scalability.</p>
+                <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6">The best solutions, <br/><span className="text-primary italic">engineered by leaders.</span></h2>
+                <p className="text-xl text-gray-500 font-medium">As East Africa's premier design firm, we provide the elite technical infrastructure your brand deserves.</p>
               </motion.div>
               <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="hidden lg:block">
                 <div className="p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-center gap-6">
@@ -308,7 +307,7 @@ export default function ServicesPage() {
 
                       <Button asChild className="w-full h-14 rounded-2xl bg-gray-950 hover:bg-primary text-white font-black uppercase tracking-widest text-[10px] transition-all">
                         <a href={generateWhatsAppLink(service.title, service.price)} target="_blank" rel="noopener noreferrer">
-                          <WhatsAppIcon /> Inquire via WhatsApp
+                          <WhatsAppIcon /> Secure Your Spot
                         </a>
                       </Button>
                     </div>
@@ -323,12 +322,11 @@ export default function ServicesPage() {
         <section className="py-32 bg-gray-50 overflow-hidden">
           <Container>
             <div className="text-center mb-24">
-              <motion.h2 {...fadeIn} className="text-4xl md:text-6xl font-black tracking-tighter text-black mb-6">Our Strategic <span className="text-primary italic">Workflow.</span></motion.h2>
-              <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-xl text-gray-500 max-w-2xl mx-auto font-medium">We've refined a process that ensures quality, speed, and absolute clarity at every stage of development.</motion.p>
+              <motion.h2 {...fadeIn} className="text-4xl md:text-6xl font-black tracking-tighter text-black mb-6">Our Leading <span className="text-primary italic">Workflow.</span></motion.h2>
+              <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-xl text-gray-500 max-w-2xl mx-auto font-medium">We've refined a process that ensures elite quality and absolute clarity at every stage.</motion.p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-              {/* Connector line for desktop */}
               <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-1/2 z-0"></div>
               
               {steps.map((step, i) => (
@@ -359,10 +357,10 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
               <div>
                 <motion.h2 {...fadeIn} className="text-4xl md:text-6xl font-black tracking-tighter text-black mb-8 leading-[0.9]">Common <br/><span className="text-primary italic">Queries.</span></motion.h2>
-                <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-xl text-gray-500 font-medium mb-12">Transparency is one of our core values. If you have more questions, our team is always ready to jump on a call.</motion.p>
+                <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-xl text-gray-500 font-medium mb-12">Transparency is why we are the leaders. If you have more questions, our team is always ready.</motion.p>
                 
                 <Button asChild size="lg" variant="outline" className="h-16 px-10 rounded-2xl border-gray-200 hover:bg-gray-50 font-black uppercase tracking-widest text-[10px]">
-                  <Link href="/contact">Talk to an Engineer <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                  <Link href="/contact">Talk to a Lead Engineer <ArrowRight className="ml-2 w-4 h-4" /></Link>
                 </Button>
               </div>
 
@@ -391,15 +389,15 @@ export default function ServicesPage() {
               className="p-16 md:p-24 rounded-[4rem] bg-gray-950 text-white text-center relative overflow-hidden shadow-2xl"
             >
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-purple-500/10 pointer-events-none"></div>
-              <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-8 relative z-10">Ready to outpace <br/>your <span className="text-primary italic">competitors?</span></h2>
-              <p className="text-xl text-white/60 mb-12 max-w-xl mx-auto font-medium relative z-10">Stop settling for mediocre technology. Let's build the future of your brand today.</p>
+              <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-8 relative z-10">Outpace <br/>your <span className="text-primary italic">competition.</span></h2>
+              <p className="text-xl text-white/60 mb-12 max-w-xl mx-auto font-medium relative z-10">Work with the leading agency in the region. Let's build your future today.</p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
                 <Button asChild size="lg" className="h-16 px-12 text-lg rounded-2xl bg-white text-primary hover:bg-gray-100 font-black uppercase tracking-widest shadow-xl transition-all hover:scale-105">
-                  <Link href={`https://wa.me/${WHATSAPP_ORDER_NUMBER}`}>Inquire Now</Link>
+                  <Link href={`https://wa.me/${WHATSAPP_ORDER_NUMBER}`}>Partner with Us</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="h-16 px-12 text-lg rounded-2xl border-white/10 hover:bg-white/5 font-black uppercase tracking-widest transition-all">
-                  <Link href="/projects">See Portfolio</Link>
+                  <Link href="/projects">See Our Track Record</Link>
                 </Button>
               </div>
             </motion.div>

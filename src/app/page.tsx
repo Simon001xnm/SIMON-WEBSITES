@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -56,17 +55,17 @@ export default function SmallBizLandingPage() {
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border-2 border-primary/10 neo-shadow mb-6">
                   <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-600">The #1 Choice for Kenyan Businesses</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-600">The #1 Website Designer in East Africa</span>
                 </div>
                 
                 <h1 className="text-5xl md:text-7xl font-black tracking-tight text-gray-900 leading-[1.1] mb-6">
-                  Get Your <br/>
-                  <span className="text-primary underline decoration-primary/20 decoration-8 underline-offset-4">Business Online</span> <br/>
-                  Faster.
+                  Kenya's Leading <br/>
+                  <span className="text-primary underline decoration-primary/20 decoration-8 underline-offset-4">Digital Agency</span> <br/>
+                  for Success.
                 </h1>
                 
                 <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
-                  We build simple, powerful, and affordable websites that help you sell more and reach more customers in Nairobi and beyond.
+                  We are the premier choice for world-class web engineering and custom software. Join the 100+ businesses dominating the East African market with Simon Styles.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -76,7 +75,7 @@ export default function SmallBizLandingPage() {
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg rounded-2xl border-2 border-primary/10 hover:bg-white neo-shadow-hover transition-all font-bold">
-                    <Link href="/projects">See Our Work</Link>
+                    <Link href="/projects">See Our Portfolio</Link>
                   </Button>
                 </div>
 
@@ -88,7 +87,7 @@ export default function SmallBizLandingPage() {
                       </div>
                     ))}
                   </div>
-                  <p className="text-sm font-bold text-gray-600">Trusted by 100+ Businesses</p>
+                  <p className="text-sm font-bold text-gray-600">Dominating the East African Tech Scene</p>
                 </div>
               </motion.div>
 
@@ -103,11 +102,11 @@ export default function SmallBizLandingPage() {
                   <div className="relative h-full w-full bg-white rounded-[2.5rem] overflow-hidden border-4 border-white neo-shadow">
                     <Image 
                       src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" 
-                      alt="Modern Dashboard" 
+                      alt="Leading Digital Agency Kenya" 
                       fill
                       className="object-cover"
                     />
-                    {/* Floating Element 1 - Hidden on mobile to prevent overflow */}
+                    {/* Floating elements hidden on mobile */}
                     <motion.div 
                       animate={{ y: [0, -10, 0] }}
                       transition={{ duration: 4, repeat: Infinity }}
@@ -115,14 +114,13 @@ export default function SmallBizLandingPage() {
                     >
                       <TrendingUp className="w-8 h-8 text-primary" />
                     </motion.div>
-                    {/* Floating Element 2 - Hidden on mobile to prevent overflow */}
                     <motion.div 
                       animate={{ y: [0, 10, 0] }}
                       transition={{ duration: 5, repeat: Infinity }}
                       className="absolute bottom-10 -right-10 glass-card p-4 rounded-2xl neo-shadow flex items-center gap-3 hidden lg:flex"
                     >
                       <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                      <span className="text-xs font-bold">New Sale Received!</span>
+                      <span className="text-xs font-bold">Project Handover Complete!</span>
                     </motion.div>
                   </div>
                 </div>
@@ -135,28 +133,28 @@ export default function SmallBizLandingPage() {
         <section className="py-24 bg-white">
           <Container>
             <div className="text-center mb-16">
-              <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-black mb-4">Everything You Need <br/> <span className="text-primary italic">To Succeed.</span></motion.h2>
-              <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-muted-foreground text-lg max-w-xl mx-auto">We don't just build sites; we build tools that work for your business in the real world.</motion.p>
+              <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-black mb-4">Why the Region's Leaders <br/> <span className="text-primary italic">Choose Simon Styles.</span></motion.h2>
+              <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-muted-foreground text-lg max-w-xl mx-auto">We provide the technical backbone for the fastest-growing enterprises in East Africa.</motion.p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
                   icon: MessageCircle,
-                  title: "WhatsApp Ready",
-                  desc: "Connect your site directly to your WhatsApp Business for instant customer chats.",
+                  title: "Regional Reach",
+                  desc: "Providing local expertise with global standards across Kenya, Uganda, Tanzania, and Rwanda.",
                   color: "bg-green-100 text-green-600"
                 },
                 {
                   icon: CreditCard,
-                  title: "M-Pesa Ready",
-                  desc: `Pay securely via M-Pesa Till ${MPESA_TILL_NUMBER} (${MPESA_TILL_NAME}). We also build custom Daraja API integrations.`,
+                  title: "M-Pesa Integrated",
+                  desc: `Seamless local payments via M-Pesa Till ${MPESA_TILL_NUMBER}. We are Daraja API specialists.`,
                   color: "bg-blue-100 text-blue-600"
                 },
                 {
                   icon: Zap,
-                  title: "Super Fast Loading",
-                  desc: "No more slow websites. Our pages load in under 2 seconds even on slow mobile data.",
+                  title: "Award-Winning UX",
+                  desc: "We build the most intuitive and visually stunning interfaces in the East African market.",
                   color: "bg-yellow-100 text-yellow-600"
                 }
               ].map((item, i) => (
@@ -177,35 +175,35 @@ export default function SmallBizLandingPage() {
           </Container>
         </section>
 
-        {/* Pricing Packages - High Value for Small Biz */}
+        {/* Pricing Packages */}
         <section className="py-24 bg-gray-50 border-y border-gray-100">
           <Container>
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-black mb-4">Simple Packages. <br/> <span className="text-primary">No Hidden Costs.</span></h2>
+              <h2 className="text-3xl md:text-5xl font-black mb-4">Leading Solutions. <br/><span className="text-primary">Transparent Pricing.</span></h2>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-bold text-xs uppercase tracking-widest mt-2 mb-4">
                 <Info className="w-4 h-4" /> 50% Deposit to Start, Balance on Handover
               </div>
-              <p className="text-muted-foreground">Pick a plan that fits your business stage.</p>
+              <p className="text-muted-foreground">Premium quality tailored for the African business landscape.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Startup Site",
+                  title: "Startup Power",
                   price: "20,000",
                   features: ["5 Custom Pages", "Mobile Responsive", "Free Domain (1 Year)", "Free Hosting (1 Year)", "WhatsApp Button", "Basic SEO"],
                   cta: "Get Started",
                   popular: false
                 },
                 {
-                  title: "Business Pro",
+                  title: "Enterprise Elite",
                   price: "60,000",
                   features: ["Unlimited Pages", "Product Gallery", "M-Pesa Integration", "Blog Section", "Google Maps Setup"],
-                  cta: "Most Popular",
+                  cta: "Market Leader Choice",
                   popular: true
                 },
                 {
-                  title: "Custom System",
+                  title: "Global Custom",
                   price: "120,000+",
                   features: ["Custom Software", "Inventory Mgmt", "Client Portals", "Advanced APIs", "Maintenance Support"],
                   cta: "Custom Quote",
@@ -256,13 +254,13 @@ export default function SmallBizLandingPage() {
             <div className="p-12 md:p-20 rounded-[3rem] bg-primary text-white text-center relative overflow-hidden neo-shadow">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
               <motion.div {...fadeIn}>
-                <h2 className="text-4xl md:text-6xl font-black mb-8">Ready to grow your Biashara?</h2>
-                <p className="text-xl mb-12 opacity-90 max-w-xl mx-auto">Don't let your competitors take your customers. Build your professional online presence today.</p>
+                <h2 className="text-4xl md:text-6xl font-black mb-8">Ready to lead your industry?</h2>
+                <p className="text-xl mb-12 opacity-90 max-w-xl mx-auto">Work with the leading website designer in East Africa. Build your legacy today.</p>
                 <div className="flex flex-col items-center gap-6">
                   <Button asChild size="lg" variant="secondary" className="h-16 px-12 text-xl rounded-2xl bg-white text-primary hover:bg-gray-100 font-black neo-shadow transition-all">
-                    <Link href={whatsappLink} target="_blank">Chat with us on WhatsApp</Link>
+                    <Link href={whatsappLink} target="_blank">Chat with East Africa's Best</Link>
                   </Button>
-                  <p className="text-sm font-black uppercase tracking-widest text-white/60">Pay via M-Pesa Till: {MPESA_TILL_NUMBER}</p>
+                  <p className="text-sm font-black uppercase tracking-widest text-white/60">Pay securely via M-Pesa Till: {MPESA_TILL_NUMBER}</p>
                 </div>
               </motion.div>
             </div>

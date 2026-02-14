@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from './Container';
@@ -17,7 +16,7 @@ export function EcommerceFooter() {
   const contactEmail = "simonwanjiru224@gmail.com";
   const contactPhone = "+254758673616";
   const address = "Nairobi, Kenya";
-  const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent("Hello! I'm interested in starting a project.")}`;
+  const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent("Hello! I'm interested in starting a project with East Africa's leading agency.")}`;
 
   const footerLinks = {
     company: [
@@ -58,7 +57,7 @@ export function EcommerceFooter() {
                 <span className="text-3xl font-black text-white tracking-tighter">SIMON<span className="text-primary">STYLES</span></span>
               </Link>
               <p className="text-sm leading-relaxed max-w-xs font-medium">
-                Engineering world-class digital ecosystems for forward-thinking African enterprises and global startups.
+                The leading website designer in Kenya and East Africa. Engineering world-class digital ecosystems for forward-thinking enterprises.
               </p>
               <div className="flex gap-5">
                 <Link href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary/20 hover:text-primary transition-all"><Twitter size={20} /></Link>
@@ -113,7 +112,7 @@ export function EcommerceFooter() {
               target="_blank"
               className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:scale-105 transition-all shadow-xl shadow-primary/20"
             >
-              <WhatsAppIcon /> Chat With Us
+              <WhatsAppIcon /> Work with the Leader
             </Link>
           </div>
         </div>
@@ -121,7 +120,7 @@ export function EcommerceFooter() {
         <Separator className="mb-10 bg-white/5" />
         
         <div className="flex flex-col sm:flex-row justify-between items-center text-[10px] font-black uppercase tracking-widest opacity-40 text-center sm:text-left gap-6">
-          <p>&copy; {currentYear} Simon Styles Technology Limited. Engineered in Nairobi.</p>
+          <p>&copy; {currentYear} Simon Styles Technology Limited. East Africa's Leading Agency.</p>
           <div className="flex gap-8">
             {footerLinks.legal.map(link => (
               <Link key={link.name} href={link.href} className="hover:underline">{link.name}</Link>

@@ -1,4 +1,3 @@
-
 import type {Metadata} from 'next';
 import { Roboto } from 'next/font/google';
 import Script from 'next/script'; // Import the Script component
@@ -18,8 +17,8 @@ const roboto = Roboto({
 
 
 export const metadata: Metadata = {
-  title: 'Simon Styles Technology | Laptops & Tech Solutions',
-  description: 'Your one-stop shop for high-quality laptops, computer accessories, and expert tech solutions in Kenya.',
+  title: 'Simon Styles | Leading Website Designer in Kenya & East Africa',
+  description: 'The premier choice for world-class web design, custom software, and digital solutions. Simon Styles Technology is the leading digital agency serving Nairobi and the wider East African region.',
   verification: {
     google: 'iL8hUbqCiIxBbr8PF-HLXDFor0u8O9b3DwYHjzKu7LE',
   },
