@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -19,6 +20,7 @@ import { Container } from '@/components/layout/Container';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
+import { TeamSection } from '@/components/sections/TeamSection';
 import { motion } from 'framer-motion';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 
@@ -238,6 +240,8 @@ export default function SmallBizLandingPage() {
             </div>
           </Container>
         </section>
+
+        <TeamSection />
 
         <ClientsAndReachSection />
 

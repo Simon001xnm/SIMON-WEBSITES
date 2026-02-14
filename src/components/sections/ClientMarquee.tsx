@@ -8,7 +8,6 @@ const clients = [
     { name: 'Mpoa Wangu Flowers Shop', logoUrl: '/mpoawangu.png' },
     { name: 'Social Media Manager AI Agent', logoUrl: '/ROBO.png' },
     { name: 'Simon Styles Technologies', logoUrl: '/logo (2).webp' },
-    { name: 'Matesh Technologies Limited', logoUrl: '/matesh.jpg' },
     { name: 'Beedee Shoe Shop', logoUrl: '/beedee.webp' },
 ];
 
