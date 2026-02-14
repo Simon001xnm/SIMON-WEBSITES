@@ -14,6 +14,7 @@ import {
   MousePointer2,
   MessageCircle,
   TrendingUp,
+  CreditCard,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
@@ -22,7 +23,7 @@ import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
 import { TeamSection } from '@/components/sections/TeamSection';
 import { motion } from 'framer-motion';
-import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
+import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -146,9 +147,9 @@ export default function SmallBizLandingPage() {
                   color: "bg-green-100 text-green-600"
                 },
                 {
-                  icon: MousePointer2,
-                  title: "M-Pesa Integration",
-                  desc: "Let your customers pay you via M-Pesa instantly with our secure Daraja API setups.",
+                  icon: CreditCard,
+                  title: "M-Pesa Ready",
+                  desc: `Pay securely via M-Pesa Till ${MPESA_TILL_NUMBER} (${MPESA_TILL_NAME}). We also build custom Daraja API integrations.`,
                   color: "bg-blue-100 text-blue-600"
                 },
                 {
@@ -253,9 +254,12 @@ export default function SmallBizLandingPage() {
               <motion.div {...fadeIn}>
                 <h2 className="text-4xl md:text-6xl font-black mb-8">Ready to grow your Biashara?</h2>
                 <p className="text-xl mb-12 opacity-90 max-w-xl mx-auto">Don't let your competitors take your customers. Build your professional online presence today.</p>
-                <Button asChild size="lg" variant="secondary" className="h-16 px-12 text-xl rounded-2xl bg-white text-primary hover:bg-gray-100 font-black neo-shadow transition-all">
-                  <Link href={whatsappLink} target="_blank">Chat with us on WhatsApp</Link>
-                </Button>
+                <div className="flex flex-col items-center gap-6">
+                  <Button asChild size="lg" variant="secondary" className="h-16 px-12 text-xl rounded-2xl bg-white text-primary hover:bg-gray-100 font-black neo-shadow transition-all">
+                    <Link href={whatsappLink} target="_blank">Chat with us on WhatsApp</Link>
+                  </Button>
+                  <p className="text-sm font-black uppercase tracking-widest text-white/60">Pay via M-Pesa Till: {MPESA_TILL_NUMBER}</p>
+                </div>
               </motion.div>
             </div>
           </Container>

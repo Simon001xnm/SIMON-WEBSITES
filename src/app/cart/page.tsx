@@ -14,8 +14,8 @@ import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Trash2, Plus, Minus, ChevronLeft, ShoppingCart } from 'lucide-react';
-import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
+import { Trash2, Plus, Minus, ChevronLeft, ShoppingCart, CreditCard } from 'lucide-react';
+import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
 
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, cartTotal } = useCart();
@@ -55,7 +55,7 @@ export default function CartPage() {
     const itemsText = cart.map(item => 
       `${item.name} (Qty: ${item.quantity}) - KES ${new Intl.NumberFormat('en-KE').format(item.price * item.quantity)}`
     ).join('\n');
-    const message = `Hello, I'd like to place an order for the following items:\n\n${itemsText}\n\nTotal: ${formattedCartTotal}\n\nPlease let me know the next steps.`;
+    const message = `Hello, I'd like to place an order for the following items:\n\n${itemsText}\n\nTotal: ${formattedCartTotal}\n\nPlease let me know the next steps. I'll pay via M-Pesa Till ${MPESA_TILL_NUMBER}.`;
     return encodeURIComponent(message);
   };
   
@@ -140,7 +140,7 @@ export default function CartPage() {
                   </Button>
               </div>
 
-              <div className="lg:col-span-1 sticky top-28">
+              <div className="lg:col-span-1 space-y-6 sticky top-28">
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-xl">Order Summary</CardTitle>
@@ -169,6 +169,30 @@ export default function CartPage() {
                         Proceed to Checkout via WhatsApp
                       </a>
                     </Button>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-green-50 border-green-200">
+                  <CardContent className="pt-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-2 bg-green-600 rounded-lg text-white">
+                        <CreditCard className="h-5 w-5" />
+                      </div>
+                      <h3 className="font-bold text-green-900">Payment Information</h3>
+                    </div>
+                    <div className="space-y-2 text-sm text-green-800">
+                      <div className="flex justify-between">
+                        <span className="font-medium">M-Pesa Till:</span>
+                        <span className="font-bold">{MPESA_TILL_NUMBER}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-medium">Till Name:</span>
+                        <span className="font-bold">{MPESA_TILL_NAME}</span>
+                      </div>
+                      <p className="text-[10px] mt-4 opacity-70 italic text-center">
+                        Please pay after confirming your order via WhatsApp.
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
               </div>

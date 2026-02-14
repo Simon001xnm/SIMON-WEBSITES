@@ -1,9 +1,10 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from './Container';
 import { Separator } from '@/components/ui/separator';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from 'lucide-react';
-import { WHATSAPP_ORDER_NUMBER, INSTAGRAM_PROFILE_URL } from '@/lib/constants';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, CreditCard } from 'lucide-react';
+import { WHATSAPP_ORDER_NUMBER, INSTAGRAM_PROFILE_URL, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
 
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -87,6 +88,13 @@ export function EcommerceFooter() {
           <div className="space-y-8">
             <h4 className="font-black text-white mb-8 uppercase tracking-[0.2em] text-[10px]">Connect</h4>
             <div className="space-y-5 text-sm font-bold">
+              <div className="flex items-center gap-4 group cursor-default">
+                <div className="p-2 bg-green-500/10 rounded-lg group-hover:bg-green-500/20 transition-colors"><CreditCard size={18} className="text-green-500" /></div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] uppercase text-gray-500 font-black tracking-widest">M-Pesa Till</span>
+                  <span className="text-white">{MPESA_TILL_NUMBER} - {MPESA_TILL_NAME}</span>
+                </div>
+              </div>
               <a href={`mailto:${contactEmail}`} className="flex items-center gap-4 hover:text-white transition-colors">
                 <div className="p-2 bg-primary/10 rounded-lg"><Mail size={18} className="text-primary" /></div>
                 <span>{contactEmail}</span>
