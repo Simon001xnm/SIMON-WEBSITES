@@ -72,7 +72,7 @@ export default function SmallBizLandingPage() {
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg rounded-2xl border-2 border-primary/10 hover:bg-white neo-shadow-hover transition-all font-bold">
-                    <Link href="/services">See Our Work</Link>
+                    <Link href="/projects">See Our Work</Link>
                   </Button>
                 </div>
 
