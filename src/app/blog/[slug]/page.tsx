@@ -1,4 +1,3 @@
-
 'use client';
 
 import { notFound, useParams } from 'next/navigation';
@@ -6,15 +5,12 @@ import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, Share2, Clock, User, Bookmark } from 'lucide-react';
+import { ChevronLeft, Clock, User } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BLOG_POSTS } from '@/lib/blog-data';
 import { Badge } from '@/components/ui/badge';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { BlogInteractions } from '@/components/blog/BlogInteractions';
-import { useDoc, useMemoFirebase, useFirestore } from '@/firebase';
-import { doc } from 'firebase/firestore';
 
 export default function BlogPostPage() {
   const params = useParams();
@@ -26,14 +22,6 @@ export default function BlogPostPage() {
     damping: 30,
     restDelta: 0.001
   });
-
-  const firestore = useFirestore();
-  const blogStatsRef = useMemoFirebase(() => {
-    if (!firestore || !slug) return null;
-    return doc(firestore, 'blogPosts', slug);
-  }, [firestore, slug]);
-
-  const { data: stats } = useDoc(blogStatsRef);
 
   if (!post) {
     notFound();
@@ -130,15 +118,6 @@ export default function BlogPostPage() {
                 </div>
               </div>
             </article>
-
-            {/* Interaction Section */}
-            <section className="mt-24">
-              <BlogInteractions 
-                blogPostId={slug} 
-                initialLikes={stats?.likeCount || 0}
-                initialComments={stats?.commentCount || 0}
-              />
-            </section>
           </div>
         </Container>
       </main>
