@@ -9,7 +9,7 @@ service cloud.firestore {
      * 1. Read blog posts and their statistics.
      * 2. Read and list comments/replies.
      * 3. Add new comments and likes.
-     * 4. Update counters (likeCount, commentCount).
+     * 4. Update counters (likeCount, commentCount) and existing comments.
      *
      * Admin actions (create/delete posts) are restricted.
      */
@@ -28,7 +28,7 @@ service cloud.firestore {
 
     /**
      * @path /blogPosts/{blogPostId}
-     * Publicly readable. Updates allowed for counters (likes/comments) anonymously.
+     * Publicly readable. Updates allowed for counters (likes/comments).
      */
     match /blogPosts/{blogPostId} {
       allow read: if true;
@@ -40,10 +40,11 @@ service cloud.firestore {
        * Publicly readable and listable for community engagement.
        */
       match /comments/{commentId} {
-        allow read: if true;
-        allow list: if true;
+        // Explicitly allow both 'get' and 'list' via 'read'
+        allow read, list: if true;
+        // Allow anonymous users to post comments
         allow create: if true;
-        // Allow anonymous updates for likeCount on comments
+        // Allow anonymous updates (e.g., incrementing comment likeCount)
         allow update: if true;
         allow delete: if isAdmin();
 
@@ -51,8 +52,7 @@ service cloud.firestore {
          * @path /blogPosts/{blogPostId}/comments/{commentId}/likes/{likeId}
          */
         match /likes/{likeId} {
-          allow read, list: if true;
-          allow create: if true;
+          allow read, list, create: if true;
           allow delete: if isAdmin();
         }
       }
@@ -61,8 +61,7 @@ service cloud.firestore {
        * @path /blogPosts/{blogPostId}/likes/{likeId}
        */
       match /likes/{likeId} {
-        allow read, list: if true;
-        allow create: if true;
+        allow read, list, create: if true;
         allow delete: if isAdmin();
       }
     }
