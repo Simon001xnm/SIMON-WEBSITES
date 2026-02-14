@@ -150,7 +150,7 @@ export default function SmallBizLandingPage() {
                 {
                   icon: CreditCard,
                   title: "M-Pesa Integrated",
-                  desc: `Seamless local payments via M-Pesa Till ${MPESA_TILL_NUMBER}. We are Daraja API specialists.`,
+                  desc: "We are Daraja API specialists, providing your customers with seamless local payment solutions.",
                   color: "bg-blue-100 text-blue-600"
                 },
                 {
