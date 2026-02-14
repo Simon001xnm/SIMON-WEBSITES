@@ -11,8 +11,6 @@ import { Container } from '@/components/layout/Container';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { MOCK_LAPTOPS } from '@/lib/laptop-data';
-import { LaptopCard } from '@/components/laptops/LaptopCard';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
@@ -21,15 +19,8 @@ import {
     User,
     Package,
     Inbox,
-    MessageSquare,
-    Ticket,
-    Store,
-    History,
-    CreditCard,
     BookUser,
-    MailCheck,
     LogOut,
-    ChevronRight,
     Loader2,
     ShieldCheck,
     Heart,
@@ -38,13 +29,10 @@ import {
 } from 'lucide-react';
 
 const sidebarNavItems = [
-    { title: 'My Simon Styles Account', icon: User, href: '/account', active: true },
-    { title: 'Orders', icon: Package, href: '/account/orders' },
+    { title: 'My Account', icon: User, href: '/account', active: true },
+    { title: 'My Projects', icon: Package, href: '/projects' },
     { title: 'Inbox', icon: Inbox, href: '/account/inbox' },
-    { title: 'Pending Reviews', icon: MessageSquare, href: '/account/reviews' },
-    { title: 'Vouchers', icon: Ticket, href: '/account/vouchers' },
-    { title: 'Saved Items', icon: Heart, href: '/account/saved-items'},
-    { title: 'Recently Viewed', icon: History, href: '/account/recently-viewed' },
+    { title: 'Wishlist', icon: Heart, href: '/account/saved-items'},
 ];
 
 const accountManagementItems = [
@@ -65,7 +53,7 @@ export default function AccountPage() {
   
   // State for form fields
   const [displayName, setDisplayName] = useState('');
-  const [address, setAddress] = useState('Nairobi CBD, Nairobi');
+  const [address, setAddress] = useState('Nairobi, Kenya');
   const [phone, setPhone] = useState('+254-758673616');
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const [previewImageUrl, setPreviewImageUrl] = useState<string | null>(null);
@@ -251,13 +239,13 @@ export default function AccountPage() {
 
                  <Card>
                     <CardHeader>
-                         <CardTitle>Shipping Information</CardTitle>
-                         <CardDescription>Edit your default shipping address.</CardDescription>
+                         <CardTitle>Business Information</CardTitle>
+                         <CardDescription>Details for your project collaborations.</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <Label htmlFor="address">Address</Label>
+                                <Label htmlFor="address">Location</Label>
                                 {isEditing ? (
                                 <Input id="address" value={address} onChange={(e) => setAddress(e.target.value)} disabled={isSaving} />
                                 ) : (
@@ -275,20 +263,6 @@ export default function AccountPage() {
                         </div>
                     </CardContent>
                 </Card>
-
-                <div className="bg-white p-4 rounded-md shadow-sm">
-                    <div className="flex justify-between items-center mb-4">
-                        <h2 className="text-lg font-semibold">Recently Viewed</h2>
-                         <Link href="/account/recently-viewed" className="flex items-center text-sm font-semibold text-primary">
-                            See All <ChevronRight className="w-4 h-4 ml-1" />
-                        </Link>
-                    </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-4">
-                        {MOCK_LAPTOPS.slice(10, 15).map(laptop => (
-                            <LaptopCard key={laptop.id} laptop={laptop} />
-                        ))}
-                    </div>
-                </div>
             </div>
           </div>
         </Container>

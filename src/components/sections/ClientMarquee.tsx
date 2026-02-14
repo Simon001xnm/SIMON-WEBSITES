@@ -6,7 +6,6 @@ const clients = [
     { name: 'Ilorie Consult Limited', logoUrl: '/ilorie_consult_limited-removebg-preview.jpg' },
     { name: 'Lee Gifts and Flowers Limited', logoUrl: '/leegifts.jpg' },
     { name: 'Mpoa Wangu Flowers Shop', logoUrl: '/mpoawangu.png' },
-    { name: 'Prime Ink Technologies', logoUrl: '/primeink.jpg' },
     { name: 'Social Media Manager AI Agent', logoUrl: '/ROBO.png' },
     { name: 'Simon Styles Technologies', logoUrl: '/logo (2).webp' },
 ];
