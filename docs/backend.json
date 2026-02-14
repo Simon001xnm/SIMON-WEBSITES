@@ -1,0 +1,247 @@
+{
+  "entities": {
+    "BlogPost": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "BlogPost",
+      "type": "object",
+      "description": "Represents a blog post published by Simon Styles Limited, featuring rich content and media to create a beautiful and stunning showcase.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the BlogPost entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The main title of the blog post."
+        },
+        "slug": {
+          "type": "string",
+          "description": "A URL-friendly, unique slug for the blog post, used in its public URL."
+        },
+        "summary": {
+          "type": "string",
+          "description": "A brief summary or excerpt of the blog post content, ideal for previews."
+        },
+        "content": {
+          "type": "string",
+          "description": "The full body content of the blog post, supporting rich text or HTML for a visually appealing presentation."
+        },
+        "featuredImageUrl": {
+          "type": "string",
+          "description": "URL to the primary image or banner associated with the blog post for visual appeal.",
+          "format": "uri"
+        },
+        "publishDate": {
+          "type": "string",
+          "description": "The date and time when the blog post was officially published.",
+          "format": "date-time"
+        },
+        "authorName": {
+          "type": "string",
+          "description": "The name of the author of the blog post, typically 'Simon Styles' for this portfolio."
+        },
+        "tags": {
+          "type": "array",
+          "description": "A list of tags or categories that describe the blog post's content.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "viewCount": {
+          "type": "number",
+          "description": "The total number of times the blog post has been viewed."
+        },
+        "likeCount": {
+          "type": "number",
+          "description": "The aggregate count of likes received by this blog post. (Derived from Like entities)"
+        },
+        "commentCount": {
+          "type": "number",
+          "description": "The aggregate count of comments on this blog post. (Derived from Comment entities)"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "slug",
+        "content",
+        "publishDate",
+        "authorName"
+      ]
+    },
+    "Comment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Comment",
+      "type": "object",
+      "description": "Represents a user-submitted comment on a blog post or a reply to another comment, allowing anonymous interaction.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Comment entity."
+        },
+        "blogPostId": {
+          "type": "string",
+          "description": "Reference to the BlogPost this comment belongs to. (Relationship: BlogPost 1:N Comment)"
+        },
+        "parentId": {
+          "type": "string",
+          "description": "Optional reference to a parent Comment if this comment is a reply. Null for top-level comments. (Relationship: Comment 1:N Comment)"
+        },
+        "authorName": {
+          "type": "string",
+          "description": "The name provided by the commenter, which can be anonymous if no account is used."
+        },
+        "authorEmail": {
+          "type": "string",
+          "description": "Optional email address of the commenter, not used for authentication but potentially for avatar services.",
+          "format": "email"
+        },
+        "content": {
+          "type": "string",
+          "description": "The text content of the comment."
+        },
+        "commentDate": {
+          "type": "string",
+          "description": "The date and time when the comment was posted.",
+          "format": "date-time"
+        },
+        "isApproved": {
+          "type": "boolean",
+          "description": "Indicates whether the comment has been approved for public display (e.g., by a moderator)."
+        },
+        "likeCount": {
+          "type": "number",
+          "description": "The aggregate count of likes received by this comment. (Derived from Like entities)"
+        }
+      },
+      "required": [
+        "id",
+        "blogPostId",
+        "authorName",
+        "content",
+        "commentDate"
+      ]
+    },
+    "Like": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Like",
+      "type": "object",
+      "description": "Records a 'like' action performed by a user on a blog post or a comment, supporting anonymous interactions without an account.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Like entity."
+        },
+        "targetId": {
+          "type": "string",
+          "description": "The ID of the entity (BlogPost or Comment) that was liked."
+        },
+        "targetType": {
+          "type": "string",
+          "description": "The type of entity that was liked (e.g., 'BlogPost', 'Comment')."
+        },
+        "anonymousLikerIdentifier": {
+          "type": "string",
+          "description": "A non-personally identifiable identifier for the user who performed the like (e.g., a hashed IP address, session ID, or unique cookie ID) to prevent duplicate likes from the same anonymous source per item."
+        },
+        "likeDate": {
+          "type": "string",
+          "description": "The date and time when the like was recorded.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "targetId",
+        "targetType",
+        "anonymousLikerIdentifier",
+        "likeDate"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/blogPosts/{blogPostId}",
+        "definition": {
+          "entityName": "BlogPost",
+          "schema": {
+            "$ref": "#/backend/entities/BlogPost"
+          },
+          "description": "Represents a public blog post by Simon Styles Limited. Read access for all users. Write, update, and delete access are restricted to administrators. Includes denormalized 'likeCount' and 'commentCount' for aggregate statistics."
+        }
+      },
+      {
+        "path": "/blogPosts/{blogPostId}/comments/{commentId}",
+        "definition": {
+          "entityName": "Comment",
+          "schema": {
+            "$ref": "#/backend/entities/Comment"
+          },
+          "description": "Represents a comment on a specific blog post. Read access is allowed only for approved comments (controlled by 'isApproved' field). Write access is allowed for anyone (anonymous or authenticated). Update/delete access for comments is restricted to administrators. The 'blogPostId' is part of the path for authorization independence. Includes denormalized 'likeCount' for aggregate statistics.",
+          "params": [
+            {
+              "name": "blogPostId",
+              "description": "The unique identifier of the parent blog post."
+            },
+            {
+              "name": "commentId",
+              "description": "The unique identifier of the comment."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/blogPosts/{blogPostId}/likes/{likeId}",
+        "definition": {
+          "entityName": "Like",
+          "schema": {
+            "$ref": "#/backend/entities/Like"
+          },
+          "description": "Represents a 'like' on a blog post. Write access is allowed for anyone (anonymous or authenticated), with the 'anonymousLikerIdentifier' used to prevent duplicate likes per blog post. Read access is for all (though typically only aggregate counts are displayed). The 'blogPostId' is part of the path for authorization independence.",
+          "params": [
+            {
+              "name": "blogPostId",
+              "description": "The unique identifier of the blog post being liked."
+            },
+            {
+              "name": "likeId",
+              "description": "The unique identifier of the like."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/blogPosts/{blogPostId}/comments/{commentId}/likes/{likeId}",
+        "definition": {
+          "entityName": "Like",
+          "schema": {
+            "$ref": "#/backend/entities/Like"
+          },
+          "description": "Represents a 'like' on a specific comment within a blog post. Write access is allowed for anyone (anonymous or authenticated), with the 'anonymousLikerIdentifier' used to prevent duplicate likes per comment. Read access is for all. The 'blogPostId' and 'commentId' are part of the path for authorization independence.",
+          "params": [
+            {
+              "name": "blogPostId",
+              "description": "The unique identifier of the parent blog post."
+            },
+            {
+              "name": "commentId",
+              "description": "The unique identifier of the parent comment being liked."
+            },
+            {
+              "name": "likeId",
+              "description": "The unique identifier of the like."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to be secure, scalable, and easily debuggable, adhering strictly to the core design principles and strategy mandates. \n\n**Authorization Independence:**\n1.  **Blog Posts:** Blog posts are public and accessible to all users for reading. Write, update, and delete operations are restricted to internal administrators. Since blog posts are system-managed, there's no need for denormalized user-specific authorization fields on the `BlogPost` document itself for public access. Admin authorization would typically rely on a separate global role collection (e.g., `/roles_admin/{uid}`), making the `BlogPost` document independent of complex, hierarchical `get()` operations for its own access control.\n2.  **Comments:** Comments are stored in a subcollection under their respective blog posts (`/blogPosts/{blogPostId}/comments/{commentId}`). The `blogPostId` is implicitly available from the path wildcards (`{blogPostId}`), removing any need to `get()` the parent `BlogPost` document for authorization context. Comments also include `isApproved` to control public visibility, allowing anonymous users to post comments (requiring `request.auth.uid == null`) which are then subject to moderation by administrators. The `parentId` field for replies further maintains this independence within the comment hierarchy.\n3.  **Likes:** Likes are structured as subcollections for both blog posts (`/blogPosts/{blogPostId}/likes/{likeId}`) and comments (`/blogPosts/{blogPostId}/comments/{commentId}/likes/{likeId}`). This design makes the `blogPostId` and `commentId` (where applicable) directly available in the path parameters, eliminating the need for `get()` calls. The `anonymousLikerIdentifier` in the `Like` document is crucial for authorization independence, allowing rules to verify that an anonymous or authenticated user has not liked the same item multiple times without needing to perform complex lookups or `get()` calls on user profiles.\n\n**QAPs (Rules are not Filters):**\n1.  **`/blogPosts/{blogPostId}`:** All documents in this collection share a homogeneous security posture: public read. This allows for efficient and secure `list` operations without additional filtering in security rules, as all documents retrieved are intended for public consumption.\n2.  **`/blogPosts/{blogPostId}/comments/{commentId}`:** This collection supports listing approved comments. Security rules will enforce `resource.data.isApproved == true` for read requests from non-admin users. This allows client applications to query for all comments on a blog post and apply a `where('isApproved', '==', true)` filter, knowing that the rules will also enforce this, preventing unauthorized access to unapproved comments. The structural segregation ensures that all comments within a specific blog post can be efficiently retrieved and filtered.\n3.  **`/blogPosts/{blogPostId}/likes/{likeId}` and `/blogPosts/{blogPostId}/comments/{commentId}/likes/{likeId}`:** These subcollections allow for efficient querying of likes related to a specific blog post or comment. While individual likes are not typically listed, the aggregate `likeCount` is denormalized on `BlogPost` and `Comment` entities for display purposes. Security rules will prevent duplicate likes from the same `anonymousLikerIdentifier` for a given target, ensuring data integrity without filtering in queries, thus supporting QAPs.\n\nOverall, the structure leverages path-based ownership for nested resources, denormalizes critical authorization context (via path segments or explicit fields like `blogPostId`), and segregates data by security posture to simplify Firestore security rules and improve query performance for both anonymous and authenticated interactions."
+  }
+}

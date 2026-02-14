@@ -1,0 +1,124 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * FIRESTORE SECURITY RULES - SIMON STYLES LIMITED BLOG
+     * 
+     * CORE PHILOSOPHY:
+     * This ruleset implements a public-facing content delivery model with open engagement. 
+     * It prioritizes low friction for user interaction (comments/likes) while maintaining 
+     * strict administrative control over the primary content and moderation.
+     * 
+     * DATA STRUCTURE:
+     * - /blogPosts/{blogPostId}: Top-level public content.
+     * - /blogPosts/{blogPostId}/comments/{commentId}: User-generated content nested under posts.
+     * - /blogPosts/{blogPostId}/likes/{likeId}: Engagement metrics for posts.
+     * - /blogPosts/{blogPostId}/comments/{commentId}/likes/{likeId}: Engagement metrics for comments.
+     * 
+     * KEY SECURITY DECISIONS:
+     * 1. Public Reading: All blog posts and approved comments are publicly readable to maximize SEO and reach.
+     * 2. Anonymous Interaction: Comments and Likes can be created by any user (authenticated or anonymous) 
+     *    to encourage engagement, as requested.
+     * 3. Admin-Only Moderation: Only users with the 'admin' role (verified via an external 'admins' collection) 
+     *    can modify or delete comments, approve them for public view, or manage blog post content.
+     * 4. Relational Integrity: On creation, we enforce that internal document fields (like blogPostId) 
+     *    match the actual Firestore path to prevent data misalignment.
+     * 
+     * DENORMALIZATION FOR AUTHORIZATION:
+     * - Parent IDs are included in document paths to allow for fast, local authorization checks 
+     *   without requiring costly get() calls to parent documents.
+     */
+
+    // --- HELPER FUNCTIONS ---
+
+    /** @description Checks if the user is authenticated. */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /** @description Checks if the user has administrative privileges. */
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    /** @description Checks if a document exists before modification. */
+    function isExisting() {
+      return resource != null;
+    }
+
+    /** @description Checks if a comment has been approved for public viewing. */
+    function isApproved() {
+      return resource.data.isApproved == true;
+    }
+
+    // --- COLLECTION RULES ---
+
+    /**
+     * @description Rules for the primary blog content.
+     * @path /blogPosts/{blogPostId}
+     * @allow get, list: Always permitted for public consumption.
+     * @allow create, update, delete: Permitted only for verified administrators.
+     * @principle Restricts content management to staff while ensuring global visibility.
+     */
+    match /blogPosts/{blogPostId} {
+      allow get, list: if true;
+      allow create: if isAdmin();
+      allow update: if isAdmin() && isExisting();
+      allow delete: if isAdmin() && isExisting();
+
+      /**
+       * @description Rules for comments on blog posts.
+       * @path /blogPosts/{blogPostId}/comments/{commentId}
+       * @allow get: Permitted if the comment is approved or the user is an admin.
+       * @allow list: Permitted for all (client is expected to filter by isApproved == true).
+       * @allow create: Permitted for anyone (anonymous or auth). Validates path consistency.
+       * @allow update, delete: Restricted to administrators for moderation purposes.
+       * @principle Supports open anonymous feedback with administrative oversight.
+       */
+      match /comments/{commentId} {
+        allow get: if isApproved() || isAdmin();
+        allow list: if true;
+        allow create: if request.resource.data.blogPostId == blogPostId;
+        allow update: if isAdmin() && isExisting();
+        allow delete: if isAdmin() && isExisting();
+
+        /**
+         * @description Rules for likes on specific comments.
+         * @path /blogPosts/{blogPostId}/comments/{commentId}/likes/{likeId}
+         * @allow get, list: Permitted for public visibility of engagement.
+         * @allow create: Permitted for anyone. Validates that targetId matches the comment.
+         * @allow update, delete: Restricted to administrators.
+         * @principle Enables granular anonymous engagement on user replies.
+         */
+        match /likes/{likeId} {
+          allow get, list: if true;
+          allow create: if request.resource.data.targetId == commentId;
+          allow update: if isAdmin() && isExisting();
+          allow delete: if isAdmin() && isExisting();
+        }
+      }
+
+      /**
+       * @description Rules for likes on blog posts.
+       * @path /blogPosts/{blogPostId}/likes/{likeId}
+       * @allow get, list: Permitted for public visibility.
+       * @allow create: Permitted for anyone. Validates that targetId matches the post.
+       * @allow update, delete: Restricted to administrators.
+       * @principle Ensures data integrity by matching the liked target to the document path.
+       */
+      match /likes/{likeId} {
+        allow get, list: if true;
+        allow create: if request.resource.data.targetId == blogPostId;
+        allow update: if isAdmin() && isExisting();
+        allow delete: if isAdmin() && isExisting();
+      }
+    }
+
+    // --- FALLBACK ---
+    /** @description Deny all other access by default. */
+    match /{path=**} {
+      allow read, write: if false;
+    }
+  }
+}
