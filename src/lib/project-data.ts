@@ -3,6 +3,18 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
+    id: 'proj-1',
+    title: 'Mpoa Wangu',
+    description: 'A comprehensive real estate platform connecting property owners with potential tenants and buyers.',
+    longDescription: 'Designed and developed a robust real estate marketplace for Mpoa Wangu. The platform allows users to browse property listings with high-quality images, detailed descriptions, and direct contact options. It features a modern, mobile-friendly interface optimized for the Kenyan real estate market.',
+    image: '/Screenshot 2026-02-14 053148.png',
+    dataAiHint: 'real estate platform',
+    techStack: ['Next.js', 'React', 'Tailwind CSS', 'Firebase', 'M-Pesa API'],
+    liveUrl: 'https://mpoawangu.co.ke/',
+    projectType: 'Web',
+    status: 'Sold',
+  },
+  {
     id: 'proj-2',
     title: 'Beedeee',
     description: 'A vibrant and engaging e-commerce website for a fashion and lifestyle brand.',
