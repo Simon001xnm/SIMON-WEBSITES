@@ -95,7 +95,7 @@ export default function SmallBizLandingPage() {
                 initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                 transition={{ duration: 1, type: "spring" }}
-                className="relative hidden lg:block"
+                className="relative"
               >
                 <div className="relative aspect-[4/3] w-full max-w-[550px] mx-auto group">
                   <div className="absolute -inset-4 bg-primary/20 rounded-[3rem] blur-2xl group-hover:bg-primary/30 transition-all duration-500"></div>
@@ -106,19 +106,19 @@ export default function SmallBizLandingPage() {
                       fill
                       className="object-cover"
                     />
-                    {/* Floating Element 1 */}
+                    {/* Floating Element 1 - Hidden on mobile to prevent overflow */}
                     <motion.div 
                       animate={{ y: [0, -10, 0] }}
                       transition={{ duration: 4, repeat: Infinity }}
-                      className="absolute top-10 -left-10 glass-card p-4 rounded-2xl neo-shadow"
+                      className="absolute top-10 -left-10 glass-card p-4 rounded-2xl neo-shadow hidden lg:block"
                     >
                       <TrendingUp className="w-8 h-8 text-primary" />
                     </motion.div>
-                    {/* Floating Element 2 */}
+                    {/* Floating Element 2 - Hidden on mobile to prevent overflow */}
                     <motion.div 
                       animate={{ y: [0, 10, 0] }}
                       transition={{ duration: 5, repeat: Infinity }}
-                      className="absolute bottom-10 -right-10 glass-card p-4 rounded-2xl neo-shadow flex items-center gap-3"
+                      className="absolute bottom-10 -right-10 glass-card p-4 rounded-2xl neo-shadow flex items-center gap-3 hidden lg:flex"
                     >
                       <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
                       <span className="text-xs font-bold">New Sale Received!</span>
