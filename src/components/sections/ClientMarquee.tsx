@@ -23,7 +23,7 @@ export function ClientMarquee() {
                 alt={client.name}
                 fill
                 sizes="180px"
-                className="object-contain p-2 grayscale group-hover/logo:grayscale-0 transition-all duration-500"
+                className="object-contain p-2 transition-all duration-500"
               />
             </div>
           </div>
