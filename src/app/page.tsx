@@ -185,8 +185,8 @@ export default function SmallBizLandingPage() {
               {[
                 {
                   title: "Startup Site",
-                  price: "30,000",
-                  features: ["5 Custom Pages", "Mobile Responsive", "Contact Form", "WhatsApp Button", "Basic SEO"],
+                  price: "20,000",
+                  features: ["5 Custom Pages", "Mobile Responsive", "Free Domain (1 Year)", "Free Hosting (1 Year)", "WhatsApp Button", "Basic SEO"],
                   cta: "Get Started",
                   popular: false
                 },

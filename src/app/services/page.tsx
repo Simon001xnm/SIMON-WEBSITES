@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -15,11 +14,12 @@ const services = [
     id: "website-development",
     icon: Code,
     title: "Website Development",
-    price: "KES 30,000",
+    price: "KES 20,000",
     priceNote: "Starting From",
     description: "Beautiful, responsive websites tailored to your brand. Perfect for portfolios, blogs, and corporate sites.",
     features: [
       "Custom, Modern Design",
+      "Free 1 Year Hosting & Domain",
       "Mobile-First & Responsive",
       "Content Management System (CMS)",
       "Basic SEO Foundation",
