@@ -1,6 +1,7 @@
 
+'use client';
+
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
 
 const clients = [
     { name: 'Ilorie Consult Limited', logoUrl: '/ilorie_consult_limited-removebg-preview.jpg' },
@@ -30,8 +31,8 @@ export function ClientMarquee() {
         ))}
       </div>
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
-        <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-secondary/30 to-transparent"></div>
-        <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-secondary/30 to-transparent"></div>
+        <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-background to-transparent"></div>
+        <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-background to-transparent"></div>
       </div>
     </div>
   );

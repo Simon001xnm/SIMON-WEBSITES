@@ -18,13 +18,14 @@ export function TeamSection() {
             className="relative h-[400px] md:h-[500px] w-full"
           >
             <div className="absolute -inset-4 bg-primary/10 rounded-[3rem] -rotate-3"></div>
-            <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-gray-50">
+            <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
               <Image 
                 src={placeholders.team.url} 
                 alt="Simon Styles Team" 
                 fill
                 className="object-cover"
                 data-ai-hint={placeholders.team.hint}
+                priority
               />
             </div>
           </motion.div>
@@ -35,14 +36,14 @@ export function TeamSection() {
             viewport={{ once: true }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 mb-6">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Behind the Code</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">The A-Team</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
               Driven by Passion, <br/>
               <span className="text-primary italic">Engineered for Success.</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed font-medium">
-              We are a team of dedicated designers, developers, and strategists committed to helping Kenyan businesses thrive in the digital age. Our diverse expertise allows us to tackle complex problems and deliver elegant solutions that scale.
+              We are a team of dedicated designers, developers, and strategists committed to helping Kenyan businesses thrive in the digital age. Our diverse expertise allows us to tackle complex problems and deliver elegant solutions that scale effortlessly.
             </p>
             <div className="grid grid-cols-2 gap-8">
               <div className="p-6 rounded-2xl bg-gray-50 border-2 border-gray-100">

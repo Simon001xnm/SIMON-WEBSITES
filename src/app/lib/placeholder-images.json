@@ -1,9 +1,9 @@
 
 {
   "team": {
-    "url": "/team.jpg",
+    "url": "https://picsum.photos/seed/simon-team/1200/800",
     "w": 1200,
     "h": 800,
-    "hint": "simon styles team"
+    "hint": "professional tech team"
   }
 }
