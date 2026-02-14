@@ -1,4 +1,3 @@
-
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
@@ -12,45 +11,59 @@ export default function ProjectsPage() {
   return (
     <div className="bg-background min-h-screen">
       <EcommerceHeader />
-      <main className="py-12 md:py-20">
-        <Container>
-          <div className="relative h-64 md:h-80 w-full mb-12 md:mb-16 rounded-xl overflow-hidden shadow-lg">
+      <main className="pb-20">
+        {/* Stunning Hero Section */}
+        <section className="relative h-[40vh] md:h-[50vh] w-full flex items-center justify-center overflow-hidden mb-16">
+          <div className="absolute inset-0 z-0">
             <Image 
-              src="/banners.jpg"
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
               alt="Projects Banner"
               fill
-              sizes="100vw"
-              className="object-cover"
-              data-ai-hint="tech collage"
+              className="object-cover brightness-[0.3]"
+              priority
             />
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-              <div className="text-center text-white p-4">
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-                  Software & Systems
-                </h1>
-                <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
-                  A selection of our available and sold software projects.
-                </p>
-              </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
+          </div>
+          
+          <Container className="relative z-10 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-md">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Our Track Record</span>
+            </div>
+            <h1 className="text-4xl md:text-7xl font-black tracking-tight text-white mb-6">
+              Engineering <span className="text-primary italic">Digital Success.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-medium">
+              Explore our portfolio of bespoke software, elegant websites, and high-performance systems delivered across Africa.
+            </p>
+          </Container>
+        </section>
+
+        <Container>
+          <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Our Portfolio</h2>
+              <p className="text-muted-foreground font-medium mt-2">Filter by availability or project type.</p>
             </div>
           </div>
           
           <ProjectGrid projects={MOCK_PROJECTS} />
 
-          <Separator className="my-16 md:my-24" />
+          <Separator className="my-24 opacity-50" />
 
-          <div className="mt-16 md:mt-24 max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto">
              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
-                    Create Your Own Project Showcase
+                <div className="inline-block p-3 bg-accent/10 rounded-2xl mb-4">
+                  <h3 className="text-xs font-black uppercase tracking-[0.2em] text-accent">AI-Powered Tools</h3>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 mb-4">
+                    Generate Your Showcase
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Use our AI tool to generate a professional showcase description for your own projects.
+                    Are you a developer? Use our proprietary AI tool to create stunning, professional descriptions for your own projects.
                 </p>
             </div>
             <ProjectShowcaseAITool />
           </div>
-
         </Container>
       </main>
       <EcommerceFooter />

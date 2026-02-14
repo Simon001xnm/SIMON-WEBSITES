@@ -2,7 +2,7 @@
 
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { SoftwareStatus } from './types';
-import { Globe, Smartphone, Server, LayoutGrid, CheckCircle, Package } from 'lucide-react';
+import { LayoutGrid, CheckCircle, Lock } from 'lucide-react';
 
 interface ProjectFiltersProps {
   selectedStatus: SoftwareStatus | 'All';
@@ -16,7 +16,7 @@ const StatusIcon = ({ status }: { status: SoftwareStatus | 'All' }) => {
     case 'Available':
       return <CheckCircle className="mr-2 h-4 w-4" />;
     case 'Sold':
-      return <Package className="mr-2 h-4 w-4" />;
+      return <Lock className="mr-2 h-4 w-4" />;
     case 'All':
       return <LayoutGrid className="mr-2 h-4 w-4" />;
     default:
@@ -27,15 +27,25 @@ const StatusIcon = ({ status }: { status: SoftwareStatus | 'All' }) => {
 
 export function ProjectFilters({ selectedStatus, onFilterChange }: ProjectFiltersProps) {
   return (
-    <Tabs value={selectedStatus} onValueChange={(value) => onFilterChange(value as SoftwareStatus | 'All')} className="mb-8 flex justify-center">
-      <TabsList className="grid w-full max-w-md grid-cols-3">
-        {STATUS_FILTERS.map((status) => (
-          <TabsTrigger key={status} value={status}>
-            <StatusIcon status={status} />
-            {status}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-    </Tabs>
+    <div className="flex justify-center mb-16">
+      <Tabs 
+        value={selectedStatus} 
+        onValueChange={(value) => onFilterChange(value as SoftwareStatus | 'All')} 
+        className="w-full max-w-xl"
+      >
+        <TabsList className="grid w-full grid-cols-3 h-14 p-1.5 bg-gray-100 rounded-[1.5rem]">
+          {STATUS_FILTERS.map((status) => (
+            <TabsTrigger 
+              key={status} 
+              value={status}
+              className="rounded-[1rem] data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-lg font-black uppercase tracking-widest text-[10px]"
+            >
+              <StatusIcon status={status} />
+              {status}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs>
+    </div>
   );
 }
