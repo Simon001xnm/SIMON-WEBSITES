@@ -1,63 +1,125 @@
 
+'use client';
+
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ChevronLeft } from 'lucide-react';
+import { ArrowRight, Sparkles, MessageCircle, Heart } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BLOG_POSTS } from '@/lib/blog-data';
+import { motion } from 'framer-motion';
 
 export default function BlogPage() {
+  const featuredPost = BLOG_POSTS[0];
+  const remainingPosts = BLOG_POSTS.slice(1);
+
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-[#fafafa] min-h-screen">
       <EcommerceHeader />
-      <main className="py-12 md:py-20">
+      <main className="py-12 md:py-24">
         <Container>
-          <div className="text-center mb-12 md:mb-16">
-             <Button asChild variant="outline" size="sm" className="mb-6">
-                <Link href="/">
-                    <ChevronLeft className="mr-2 h-4 w-4" />
-                    Back to Home
-                </Link>
-            </Button>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">
-              Simon Styles Tech Blog
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Insights, guides, and news from the world of technology in Kenya and beyond.
-            </p>
+          {/* Header */}
+          <div className="max-w-3xl mb-16 md:mb-24">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 mb-6"
+            >
+              <Sparkles className="w-3 h-3 text-primary" />
+              <span className="text-[10px] font-black uppercase tracking-widest text-primary">The Knowledge Base</span>
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 leading-[0.9] mb-8"
+            >
+              Insights from the <br/>
+              <span className="text-primary italic">Digital Frontier.</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-muted-foreground font-medium leading-relaxed"
+            >
+              We share our expertise on web engineering, software systems, and digital strategy to help you navigate the future of technology in Africa.
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {BLOG_POSTS.map((post) => (
-              <Card key={post.slug} className="flex flex-col overflow-hidden group">
-                <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
-                    <div className="relative aspect-video">
-                        <Image
-                            src={post.imageUrl}
-                            alt={post.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                    </div>
+          {/* Featured Post */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3 }}
+            className="mb-20"
+          >
+            <Link href={`/blog/${featuredPost.slug}`} className="group block relative aspect-[21/9] w-full overflow-hidden rounded-[2.5rem] shadow-2xl bg-gray-200">
+              <Image
+                src={featuredPost.imageUrl}
+                alt={featuredPost.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full md:w-2/3">
+                <div className="flex gap-4 mb-4">
+                   <span className="text-[10px] font-black uppercase tracking-widest text-white/60 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">Featured Story</span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-4 group-hover:text-primary transition-colors">
+                  {featuredPost.title}
+                </h2>
+                <p className="text-white/80 text-lg font-medium line-clamp-2 mb-6">
+                  {featuredPost.excerpt}
+                </p>
+                <div className="flex items-center gap-2 text-white font-black uppercase tracking-widest text-[10px]">
+                  Read Full Insight <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            {remainingPosts.map((post, i) => (
+              <motion.article 
+                key={post.slug}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group"
+              >
+                <Link href={`/blog/${post.slug}`} className="block mb-8 relative aspect-video overflow-hidden rounded-[2rem] shadow-xl bg-gray-100">
+                  <Image
+                    src={post.imageUrl}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </Link>
-                 <CardHeader>
-                    <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors">
-                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                    </CardTitle>
-                    <CardDescription className="text-sm pt-2">{post.excerpt}</CardDescription>
-                </CardHeader>
-                <CardFooter className="mt-auto">
-                    <Button asChild variant="link" className="p-0">
-                        <Link href={`/blog/${post.slug}`}>
-                            Read More <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                    </Button>
-                </CardFooter>
-              </Card>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-gray-400">
+                    <span>Engineering</span>
+                    <span className="w-1 h-1 rounded-full bg-gray-200"></span>
+                    <span>5 Min Read</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-primary transition-colors leading-tight">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h3>
+                  <p className="text-muted-foreground font-medium line-clamp-3 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                  <Button asChild variant="link" className="p-0 h-auto font-black uppercase tracking-widest text-[10px] group-hover:translate-x-2 transition-transform">
+                    <Link href={`/blog/${post.slug}`}>
+                      Dive Deeper <ArrowRight className="ml-2 w-4 h-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </motion.article>
             ))}
           </div>
         </Container>
