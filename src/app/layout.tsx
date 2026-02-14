@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { CartProvider } from '@/context/CartContext';
 import { AuthProvider } from '@/context/AuthContext';
 import { FloatingAssistant } from '@/components/layout/FloatingAssistant';
+import { FirebaseClientProvider } from '@/firebase';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -51,13 +52,15 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans antialiased overflow-x-hidden`}>
-        <AuthProvider>
-          <CartProvider>
-            {children}
-            <Toaster />
-            <FloatingAssistant />
-          </CartProvider>
-        </AuthProvider>
+        <FirebaseClientProvider>
+          <AuthProvider>
+            <CartProvider>
+              {children}
+              <Toaster />
+              <FloatingAssistant />
+            </CartProvider>
+          </AuthProvider>
+        </FirebaseClientProvider>
         <Analytics />
       </body>
     </html>
