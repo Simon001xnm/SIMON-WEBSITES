@@ -36,7 +36,7 @@ export default function SmallBizLandingPage() {
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'm interested in a website for my business.`;
 
   return (
-    <div className="bg-background min-h-screen overflow-x-hidden selection:bg-primary/30">
+    <div className="bg-background min-h-screen selection:bg-primary/30">
       <EcommerceHeader />
 
       <main>
