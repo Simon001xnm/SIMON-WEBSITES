@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -14,7 +13,7 @@ import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Trash2, Plus, Minus, ChevronLeft, ShoppingCart, CreditCard } from 'lucide-react';
+import { Trash2, Plus, Minus, ChevronLeft, ShoppingCart, CreditCard, AlertTriangle } from 'lucide-react';
 import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
 
 export default function CartPage() {
@@ -55,7 +54,7 @@ export default function CartPage() {
     const itemsText = cart.map(item => 
       `${item.name} (Qty: ${item.quantity}) - KES ${new Intl.NumberFormat('en-KE').format(item.price * item.quantity)}`
     ).join('\n');
-    const message = `Hello, I'd like to place an order for the following items:\n\n${itemsText}\n\nTotal: ${formattedCartTotal}\n\nPlease let me know the next steps. I'll pay via M-Pesa Till ${MPESA_TILL_NUMBER}.`;
+    const message = `Hello, I'd like to consult on and place an order for the following items:\n\n${itemsText}\n\nTotal: ${formattedCartTotal}\n\nI want to confirm the designs and package details before paying.`;
     return encodeURIComponent(message);
   };
   
@@ -141,6 +140,20 @@ export default function CartPage() {
               </div>
 
               <div className="lg:col-span-1 space-y-6 sticky top-28">
+                <Card className="border-orange-200 bg-orange-50">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="h-5 w-5 text-orange-600 shrink-0 mt-0.5" />
+                      <div className="space-y-1">
+                        <p className="font-black text-xs text-orange-900 uppercase tracking-widest">Consultation Required</p>
+                        <p className="text-[10px] text-orange-800 leading-relaxed font-medium">
+                          Please do not pay before consulting with us. Confirm your design preferences and ensure you've selected the best package for your needs.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-xl">Order Summary</CardTitle>
@@ -166,7 +179,7 @@ export default function CartPage() {
                         rel="noopener noreferrer"
                         onClick={handleCheckout}
                       >
-                        Proceed to Checkout via WhatsApp
+                        Consult & Checkout via WhatsApp
                       </a>
                     </Button>
                   </CardContent>
@@ -190,7 +203,7 @@ export default function CartPage() {
                         <span className="font-bold">{MPESA_TILL_NAME}</span>
                       </div>
                       <p className="text-[10px] mt-4 opacity-70 italic text-center">
-                        Please pay after confirming your order via WhatsApp.
+                        Please pay ONLY after confirming your design and package via WhatsApp.
                       </p>
                     </div>
                   </CardContent>

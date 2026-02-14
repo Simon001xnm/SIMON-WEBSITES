@@ -15,6 +15,7 @@ import {
   TrendingUp,
   CreditCard,
   Info,
+  AlertTriangle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
@@ -180,10 +181,15 @@ export default function SmallBizLandingPage() {
           <Container>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-black mb-4">Leading Solutions. <br/><span className="text-primary">Transparent Pricing.</span></h2>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-bold text-xs uppercase tracking-widest mt-2 mb-4">
-                <Info className="w-4 h-4" /> 50% Deposit to Start, Balance on Handover
+              <div className="flex flex-col items-center gap-3">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-bold text-xs uppercase tracking-widest mt-2">
+                  <Info className="w-4 h-4" /> 50% Deposit to Start, Balance on Handover
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-black text-[10px] uppercase tracking-widest">
+                  <AlertTriangle className="w-3 h-3" /> Consult first: Don't pay before design confirmation
+                </div>
               </div>
-              <p className="text-muted-foreground">Premium quality tailored for the African business landscape.</p>
+              <p className="text-muted-foreground mt-6">Premium quality tailored for the African business landscape.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -192,14 +198,14 @@ export default function SmallBizLandingPage() {
                   title: "Startup Power",
                   price: "20,000",
                   features: ["5 Custom Pages", "Mobile Responsive", "Free Domain (1 Year)", "Free Hosting (1 Year)", "WhatsApp Button", "Basic SEO"],
-                  cta: "Get Started",
+                  cta: "Inquire Now",
                   popular: false
                 },
                 {
                   title: "Enterprise Elite",
                   price: "60,000",
                   features: ["Unlimited Pages", "Product Gallery", "M-Pesa Integration", "Blog Section", "Google Maps Setup"],
-                  cta: "Market Leader Choice",
+                  cta: "Consult Expert",
                   popular: true
                 },
                 {
@@ -255,12 +261,15 @@ export default function SmallBizLandingPage() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
               <motion.div {...fadeIn}>
                 <h2 className="text-4xl md:text-6xl font-black mb-8">Ready to lead your industry?</h2>
-                <p className="text-xl mb-12 opacity-90 max-w-xl mx-auto">Work with the leading website designer in East Africa. Build your legacy today.</p>
+                <p className="text-xl mb-12 opacity-90 max-w-xl mx-auto">Work with the leading website designer in East Africa. Consult with us today to find your perfect fit.</p>
                 <div className="flex flex-col items-center gap-6">
                   <Button asChild size="lg" variant="secondary" className="h-16 px-12 text-xl rounded-2xl bg-white text-primary hover:bg-gray-100 font-black neo-shadow transition-all">
                     <Link href={whatsappLink} target="_blank">Chat with East Africa's Best</Link>
                   </Button>
-                  <p className="text-sm font-black uppercase tracking-widest text-white/60">Pay securely via M-Pesa Till: {MPESA_TILL_NUMBER}</p>
+                  <div className="space-y-2">
+                    <p className="text-sm font-black uppercase tracking-widest text-white/60">Pay securely via M-Pesa Till: {MPESA_TILL_NUMBER}</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-white/40">Confirm Design & Package via WhatsApp before paying</p>
+                  </div>
                 </div>
               </motion.div>
             </div>

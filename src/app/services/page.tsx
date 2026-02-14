@@ -23,7 +23,8 @@ import {
   Layers,
   Search,
   CheckCircle2,
-  Phone
+  Phone,
+  AlertTriangle
 } from 'lucide-react';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 import {
@@ -157,7 +158,7 @@ const faqs = [
   },
   {
     q: "What are your payment terms?",
-    a: "We work with a 50% down payment to initiate the project and secure your slot. The remaining 50% is settled after the project is fully completed and handed over to you."
+    a: "We work with a 50% down payment to initiate the project and secure your slot. The remaining 50% is settled after the project is fully completed and handed over to you. IMPORTANT: Please consult with us to determine your exact design and package needs before sending any payment."
   },
   {
     q: "Do you offer maintenance after launch?",
@@ -188,7 +189,7 @@ const fadeIn = {
 
 export default function ServicesPage() {
   const generateWhatsAppLink = (serviceTitle: string, price: string) => {
-    const message = `Hello! I'm interested in the "${serviceTitle}" service (KES ${price}). Can we discuss my requirements?`;
+    const message = `Hello! I'm interested in the "${serviceTitle}" service (KES ${price}). I'd like to consult on the best package for my needs before proceeding.`;
     return `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
@@ -258,13 +259,16 @@ export default function ServicesPage() {
                 <p className="text-xl text-gray-500 font-medium">As East Africa's premier design firm, we provide the elite technical infrastructure your brand deserves.</p>
               </motion.div>
               <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="hidden lg:block">
-                <div className="p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-center gap-6">
+                <div className="p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-center gap-6 relative">
                   <div className="text-right">
                     <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">Payment Policy</p>
                     <p className="text-2xl font-black">50% DEPOSIT</p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
                     <CheckCircle2 className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="absolute -top-4 -left-4 bg-orange-500 text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest flex items-center gap-1 shadow-lg">
+                    <AlertTriangle className="w-3 h-3" /> Consultation First
                   </div>
                 </div>
               </motion.div>
@@ -307,9 +311,10 @@ export default function ServicesPage() {
 
                       <Button asChild className="w-full h-14 rounded-2xl bg-gray-950 hover:bg-primary text-white font-black uppercase tracking-widest text-[10px] transition-all">
                         <a href={generateWhatsAppLink(service.title, service.price)} target="_blank" rel="noopener noreferrer">
-                          <WhatsAppIcon /> Secure Your Spot
+                          <WhatsAppIcon /> Start Consulting
                         </a>
                       </Button>
+                      <p className="text-[8px] text-center mt-4 text-gray-400 font-bold uppercase tracking-widest">Select your design before paying</p>
                     </div>
                   </motion.div>
                 );
