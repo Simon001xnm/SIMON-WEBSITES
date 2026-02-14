@@ -27,9 +27,9 @@ export function EcommerceFooter() {
       { name: 'Contact', href: '/contact' },
     ],
     expertise: [
-      { name: 'Web Development', href: '/services#website-development' },
-      { name: 'System Architecture', href: '/services#software-development' },
-      { name: 'Mobile App Dev', href: '/services#app-development' },
+      { name: 'Web Engineering', href: '/services#website-development' },
+      { name: 'Software Systems', href: '/services#software-development' },
+      { name: 'Mobile Innovation', href: '/services#app-development' },
       { name: 'Cloud Solutions', href: '/services#cloud-computing' },
       { name: 'Cyber Security', href: '/services#ethical-hacking' },
     ],
@@ -41,33 +41,34 @@ export function EcommerceFooter() {
   };
 
   return (
-    <footer className="bg-gray-950 text-gray-400 pt-20 pb-10">
+    <footer className="bg-gray-950 text-gray-400 pt-24 pb-12">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="md:col-span-2 lg:col-span-1 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+          <div className="md:col-span-2 lg:col-span-1 space-y-8">
               <Link href="/" className="flex items-center gap-3">
-                <Image 
-                    src="/logo.jpg"
-                    alt="Simon Styles Logo"
-                    width={48}
-                    height={48}
-                    className="rounded-full grayscale"
-                />
-                <span className="text-2xl font-black text-white tracking-tighter">SIMON<span className="text-primary">STYLES</span></span>
+                <div className="relative w-12 h-12 overflow-hidden rounded-2xl grayscale">
+                  <Image 
+                      src="/logo.jpg"
+                      alt="Simon Styles Logo"
+                      fill
+                      className="object-cover"
+                  />
+                </div>
+                <span className="text-3xl font-black text-white tracking-tighter">SIMON<span className="text-primary">STYLES</span></span>
               </Link>
-              <p className="text-sm leading-relaxed max-w-xs">
-                Empowering African businesses through world-class software engineering and innovative digital strategies.
+              <p className="text-sm leading-relaxed max-w-xs font-medium">
+                Engineering world-class digital ecosystems for forward-thinking African enterprises and global startups.
               </p>
-              <div className="flex gap-4">
-                <Link href="#" className="p-2 bg-white/5 rounded-full hover:bg-primary/20 hover:text-primary transition-all"><Twitter size={18} /></Link>
-                <Link href="#" className="p-2 bg-white/5 rounded-full hover:bg-primary/20 hover:text-primary transition-all"><Linkedin size={18} /></Link>
-                <Link href={INSTAGRAM_PROFILE_URL} className="p-2 bg-white/5 rounded-full hover:bg-primary/20 hover:text-primary transition-all"><Instagram size={18} /></Link>
+              <div className="flex gap-5">
+                <Link href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary/20 hover:text-primary transition-all"><Twitter size={20} /></Link>
+                <Link href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary/20 hover:text-primary transition-all"><Linkedin size={20} /></Link>
+                <Link href={INSTAGRAM_PROFILE_URL} className="p-3 bg-white/5 rounded-2xl hover:bg-primary/20 hover:text-primary transition-all"><Instagram size={20} /></Link>
               </div>
           </div>
 
           <div>
-            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Our Services</h4>
-            <ul className="space-y-4 text-sm">
+            <h4 className="font-black text-white mb-8 uppercase tracking-[0.2em] text-[10px]">Expertise</h4>
+            <ul className="space-y-5 text-sm font-bold">
               {footerLinks.expertise.map(link => (
                 <li key={link.name}><Link href={link.href} className="hover:text-primary transition-colors">{link.name}</Link></li>
               ))}
@@ -75,45 +76,45 @@ export function EcommerceFooter() {
           </div>
           
           <div>
-            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Company</h4>
-            <ul className="space-y-4 text-sm">
+            <h4 className="font-black text-white mb-8 uppercase tracking-[0.2em] text-[10px]">Agency</h4>
+            <ul className="space-y-5 text-sm font-bold">
               {footerLinks.company.map(link => (
                 <li key={link.name}><Link href={link.href} className="hover:text-primary transition-colors">{link.name}</Link></li>
               ))}
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Get In Touch</h4>
-            <div className="space-y-4 text-sm">
-              <a href={`mailto:${contactEmail}`} className="flex items-center gap-3 hover:text-white transition-colors">
-                <Mail size={16} className="text-primary" />
+          <div className="space-y-8">
+            <h4 className="font-black text-white mb-8 uppercase tracking-[0.2em] text-[10px]">Connect</h4>
+            <div className="space-y-5 text-sm font-bold">
+              <a href={`mailto:${contactEmail}`} className="flex items-center gap-4 hover:text-white transition-colors">
+                <div className="p-2 bg-primary/10 rounded-lg"><Mail size={18} className="text-primary" /></div>
                 <span>{contactEmail}</span>
               </a>
-              <a href={`tel:${contactPhone}`} className="flex items-center gap-3 hover:text-white transition-colors">
-                <Phone size={16} className="text-primary" />
+              <a href={`tel:${contactPhone}`} className="flex items-center gap-4 hover:text-white transition-colors">
+                <div className="p-2 bg-primary/10 rounded-lg"><Phone size={18} className="text-primary" /></div>
                 <span>{contactPhone}</span>
               </a>
-              <div className="flex items-start gap-3">
-                <MapPin size={16} className="text-primary mt-1" />
-                <span>{address}</span>
+              <div className="flex items-start gap-4">
+                <div className="p-2 bg-primary/10 rounded-lg mt-1"><MapPin size={18} className="text-primary" /></div>
+                <span className="leading-relaxed">{address}</span>
               </div>
             </div>
             <Link 
               href={whatsappLink}
               target="_blank"
-              className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-lg font-bold hover:bg-primary hover:text-white transition-all text-sm"
+              className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:scale-105 transition-all shadow-xl shadow-primary/20"
             >
               <WhatsAppIcon /> Chat With Us
             </Link>
           </div>
         </div>
         
-        <Separator className="mb-8 bg-white/5" />
+        <Separator className="mb-10 bg-white/5" />
         
-        <div className="flex flex-col sm:flex-row justify-between items-center text-xs opacity-60 text-center sm:text-left gap-4">
-          <p>&copy; {currentYear} Simon Styles Technology Limited. All Rights Reserved.</p>
-          <div className="flex gap-6">
+        <div className="flex flex-col sm:flex-row justify-between items-center text-[10px] font-black uppercase tracking-widest opacity-40 text-center sm:text-left gap-6">
+          <p>&copy; {currentYear} Simon Styles Technology Limited. Engineered in Nairobi.</p>
+          <div className="flex gap-8">
             {footerLinks.legal.map(link => (
               <Link key={link.name} href={link.href} className="hover:underline">{link.name}</Link>
             ))}
