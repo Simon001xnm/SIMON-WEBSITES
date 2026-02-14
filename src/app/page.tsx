@@ -6,130 +6,120 @@ import {
   ArrowRight,
   Code,
   Smartphone,
-  Globe,
+  CheckCircle2,
   Zap,
-  Rocket,
+  Layout,
   Sparkles,
-  Layers,
-  Activity,
+  MousePointer2,
+  MessageCircle,
+  TrendingUp,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
-import { motion, useScroll } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 
-export default function AgencyLandingPage() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 }
+};
 
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6, ease: "easeOut" }
-  };
-
-  const staggerContainer = {
-    initial: {},
-    whileInView: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
+export default function SmallBizLandingPage() {
+  const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'm interested in a website for my business.`;
 
   return (
-    <div ref={containerRef} className="bg-background min-h-screen selection:bg-primary/30 overflow-x-hidden">
+    <div className="bg-background min-h-screen overflow-x-hidden selection:bg-primary/30">
       <EcommerceHeader />
 
       <main>
-        {/* Animated Hero Section - Scaled Down */}
-        <section className="relative pt-16 pb-12 md:pt-28 md:pb-24 overflow-hidden">
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl animate-pulse-slow -z-10 translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/10 rounded-full blur-3xl animate-pulse-slow -z-10 -translate-x-1/2 translate-y-1/2"></div>
+        {/* Playful Hero Section */}
+        <section className="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+          {/* Animated Background Blobs */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -z-10 -translate-x-1/3 translate-y-1/3"></div>
           
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
               <motion.div 
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "circOut" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6"
-                >
-                  <Sparkles className="w-3.5 h-3.5 fill-primary" />
-                  Elevating Digital Experiences
-                </motion.div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border-2 border-primary/10 neo-shadow mb-6">
+                  <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-600">The #1 Choice for Kenyan Businesses</span>
+                </div>
                 
-                <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-foreground leading-[0.95] mb-6">
-                  We Build <br/>
-                  <motion.span 
-                    initial={{ color: "var(--foreground)" }}
-                    animate={{ color: "hsl(var(--primary))" }}
-                    transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-                    className="italic"
-                  >
-                    Excellence.
-                  </motion.span>
+                <h1 className="text-5xl md:text-7xl font-black tracking-tight text-gray-900 leading-[1.1] mb-6">
+                  Get Your <br/>
+                  <span className="text-primary underline decoration-primary/20 decoration-8 underline-offset-4">Business Online</span> <br/>
+                  Faster.
                 </h1>
                 
-                <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-md leading-relaxed font-medium">
-                  Simon Styles Technology transforms ambitious ideas into high-performance web ecosystems and enterprise software.
+                <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
+                  We build simple, powerful, and affordable websites that help you sell more and reach more customers in Nairobi and beyond.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full shadow-xl shadow-primary/20 bg-primary hover:bg-primary/90 transition-all font-black group">
-                      <Link href="/contact">
-                        Let's Talk <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
-                      </Link>
-                    </Button>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg rounded-full border-2 border-primary/10 hover:bg-secondary font-black">
-                      <Link href="/projects">View Projects</Link>
-                    </Button>
-                  </motion.div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <Button asChild size="lg" className="h-14 px-10 text-lg rounded-2xl bg-primary hover:bg-primary/90 neo-shadow-hover transition-all font-bold group">
+                    <Link href={whatsappLink} target="_blank">
+                      Start My Website <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg rounded-2xl border-2 border-primary/10 hover:bg-white neo-shadow-hover transition-all font-bold">
+                    <Link href="/services">See Our Work</Link>
+                  </Button>
+                </div>
+
+                <div className="mt-8 flex items-center gap-6 justify-center lg:justify-start">
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+                        <Image src={`https://picsum.photos/seed/${i + 10}/100/100`} alt="Client" width={40} height={40} />
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-sm font-bold text-gray-600">Trusted by 100+ Businesses</p>
                 </div>
               </motion.div>
 
               <motion.div 
-                initial={{ opacity: 0, rotateY: 30, scale: 0.9 }}
-                animate={{ opacity: 1, rotateY: 0, scale: 1 }}
-                transition={{ duration: 1.2, ease: "circOut" }}
+                initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ duration: 1, type: "spring" }}
                 className="relative hidden lg:block"
               >
-                <div className="relative aspect-square w-full max-w-[450px] mx-auto animate-float">
-                  <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-full blur-[80px] opacity-40 animate-pulse"></div>
-                  <div className="relative h-full w-full glass-card rounded-[3rem] overflow-hidden border-4 border-white/40 shadow-2xl group cursor-pointer">
+                <div className="relative aspect-[4/3] w-full max-w-[550px] mx-auto group">
+                  <div className="absolute -inset-4 bg-primary/20 rounded-[3rem] blur-2xl group-hover:bg-primary/30 transition-all duration-500"></div>
+                  <div className="relative h-full w-full bg-white rounded-[2.5rem] overflow-hidden border-4 border-white neo-shadow">
                     <Image 
-                      src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" 
-                      alt="Modern Tech Hardware" 
+                      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" 
+                      alt="Modern Dashboard" 
                       fill
-                      className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                      data-ai-hint="tech aesthetic"
+                      className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-50"></div>
-                    <div className="absolute bottom-10 left-10 text-white">
-                      <motion.div 
-                        initial={{ y: 15, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.8 }}
-                      >
-                        <p className="text-5xl font-black mb-1">#1</p>
-                        <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-90">Agency in Nairobi</p>
-                      </motion.div>
-                    </div>
+                    {/* Floating Element 1 */}
+                    <motion.div 
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 4, repeat: Infinity }}
+                      className="absolute top-10 -left-10 glass-card p-4 rounded-2xl neo-shadow"
+                    >
+                      <TrendingUp className="w-8 h-8 text-primary" />
+                    </motion.div>
+                    {/* Floating Element 2 */}
+                    <motion.div 
+                      animate={{ y: [0, 10, 0] }}
+                      transition={{ duration: 5, repeat: Infinity }}
+                      className="absolute bottom-10 -right-10 glass-card p-4 rounded-2xl neo-shadow flex items-center gap-3"
+                    >
+                      <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                      <span className="text-xs font-bold">New Sale Received!</span>
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
@@ -137,198 +127,135 @@ export default function AgencyLandingPage() {
           </Container>
         </section>
 
-        {/* Fun Stats Marquee - Tighter */}
-        <section className="bg-primary py-6 overflow-hidden">
-          <div className="flex animate-marquee gap-16 items-center">
-            {[...Array(10)].map((_, i) => (
-              <div key={i} className="flex items-center gap-3 text-white whitespace-nowrap">
-                <Zap className="w-5 h-5 fill-white" />
-                <span className="text-lg font-black uppercase tracking-tighter">Fast Performance</span>
-                <Globe className="w-5 h-5" />
-                <span className="text-lg font-black uppercase tracking-tighter">Global Standards</span>
-                <Code className="w-5 h-5" />
-                <span className="text-lg font-black uppercase tracking-tighter">Clean Code</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Specialized Services - Refined Grid */}
-        <section className="py-24 bg-white dark:bg-gray-950 relative overflow-hidden">
+        {/* The "Why Us" Grid */}
+        <section className="py-24 bg-white">
           <Container>
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-              <motion.div {...fadeIn} className="max-w-xl">
-                <h2 className="text-primary font-black uppercase tracking-[0.4em] mb-4 flex items-center gap-2 text-xs">
-                  <Activity className="w-4 h-4" /> Our Capabilities
-                </h2>
-                <h3 className="text-4xl md:text-5xl font-black tracking-tighter leading-tight">
-                  Expertise that <br/> <span className="text-primary italic">defies limits.</span>
-                </h3>
-              </motion.div>
-              <motion.p {...fadeIn} transition={{ delay: 0.2 }} className="text-base text-muted-foreground max-w-xs font-medium">
-                We don't just deliver products; we engineer competitive advantages through code.
-              </motion.p>
+            <div className="text-center mb-16">
+              <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-black mb-4">Everything You Need <br/> <span className="text-primary italic">To Succeed.</span></motion.h2>
+              <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-muted-foreground text-lg max-w-xl mx-auto">We don't just build sites; we build tools that work for your business in the real world.</motion.p>
             </div>
 
-            <motion.div 
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  icon: Globe,
-                  title: "Web Engineering",
-                  desc: "Ultra-fast Next.js platforms optimized for high traffic and maximum search visibility.",
-                  features: ["Core Web Vitals", "headless CMS", "React Expert"]
+                  icon: MessageCircle,
+                  title: "WhatsApp Ready",
+                  desc: "Connect your site directly to your WhatsApp Business for instant customer chats.",
+                  color: "bg-green-100 text-green-600"
                 },
                 {
-                  icon: Layers,
-                  title: "System Design",
-                  desc: "Complex backend architectures, ERPs, and CRMs that automate your heavy lifting.",
-                  features: ["Microservices", "Real-time Sync", "SQL/NoSQL"]
+                  icon: MousePointer2,
+                  title: "M-Pesa Integration",
+                  desc: "Let your customers pay you via M-Pesa instantly with our secure Daraja API setups.",
+                  color: "bg-blue-100 text-blue-600"
                 },
                 {
-                  icon: Smartphone,
-                  title: "Mobile Innovation",
-                  desc: "Cross-platform apps with native speed, buttery smooth animations, and push tech.",
-                  features: ["iOS & Android", "Biometrics", "Offline Mode"]
+                  icon: Zap,
+                  title: "Super Fast Loading",
+                  desc: "No more slow websites. Our pages load in under 2 seconds even on slow mobile data.",
+                  color: "bg-yellow-100 text-yellow-600"
                 }
-              ].map((service, i) => (
+              ].map((item, i) => (
                 <motion.div 
                   key={i}
-                  variants={fadeIn}
-                  whileHover={{ y: -8, scale: 1.01 }}
-                  className="group relative p-8 rounded-[2.5rem] bg-secondary/20 border-2 border-transparent hover:border-primary/20 hover:bg-white dark:hover:bg-gray-900 transition-all duration-500 hover:shadow-2xl"
+                  {...fadeIn}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-8 rounded-[2rem] bg-white border-2 border-gray-50 neo-shadow-hover transition-all"
                 >
-                  <div className="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-[10deg] transition-transform shadow-lg shadow-primary/10">
-                    <service.icon className="w-8 h-8" />
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${item.color}`}>
+                    <item.icon className="w-7 h-7" />
                   </div>
-                  <h4 className="text-2xl font-black mb-4 tracking-tight">{service.title}</h4>
-                  <p className="text-base text-muted-foreground leading-relaxed mb-8">
-                    {service.desc}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.features.map(f => (
-                      <li key={f} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-foreground/70">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <h3 className="text-xl font-black mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* Pricing Packages - High Value for Small Biz */}
+        <section className="py-24 bg-gray-50 border-y border-gray-100">
+          <Container>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-black mb-4">Simple Packages. <br/> <span className="text-primary">No Hidden Costs.</span></h2>
+              <p className="text-muted-foreground">Pick a plan that fits your business stage.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Startup Site",
+                  price: "30,000",
+                  features: ["5 Custom Pages", "Mobile Responsive", "Contact Form", "WhatsApp Button", "Basic SEO"],
+                  cta: "Get Started",
+                  popular: false
+                },
+                {
+                  title: "Business Pro",
+                  price: "60,000",
+                  features: ["Unlimited Pages", "Product Gallery", "M-Pesa Integration", "Blog Section", "Google Maps Setup"],
+                  cta: "Most Popular",
+                  popular: true
+                },
+                {
+                  title: "Custom System",
+                  price: "120,000+",
+                  features: ["Custom Software", "Inventory Mgmt", "Client Portals", "Advanced APIs", "Maintenance Support"],
+                  cta: "Custom Quote",
+                  popular: false
+                }
+              ].map((pkg, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className={`relative p-10 rounded-[2.5rem] bg-white border-2 transition-all ${pkg.popular ? 'border-primary neo-shadow' : 'border-gray-100'}`}
+                >
+                  {pkg.popular && (
+                    <div className="absolute top-0 right-10 -translate-y-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">
+                      Best Value
+                    </div>
+                  )}
+                  <h3 className="text-2xl font-black mb-2">{pkg.title}</h3>
+                  <div className="flex items-baseline gap-1 mb-8">
+                    <span className="text-sm font-bold text-gray-400 uppercase">KES</span>
+                    <span className="text-4xl font-black text-primary">{pkg.price}</span>
+                  </div>
+                  <ul className="space-y-4 mb-10">
+                    {pkg.features.map(f => (
+                      <li key={f} className="flex items-center gap-3 text-sm font-bold text-gray-600">
+                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
                         {f}
                       </li>
                     ))}
                   </ul>
+                  <Button asChild size="lg" variant={pkg.popular ? 'default' : 'outline'} className="w-full rounded-2xl font-bold h-14">
+                    <Link href={whatsappLink} target="_blank">{pkg.cta}</Link>
+                  </Button>
                 </motion.div>
               ))}
-            </motion.div>
-          </Container>
-        </section>
-
-        {/* The Journey - Refined Animated Process */}
-        <section className="py-24 bg-primary/[0.02] border-y border-primary/5">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <div className="absolute -top-12 -left-12 w-48 h-48 bg-primary/10 rounded-full blur-[80px]"></div>
-                <Image 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" 
-                  alt="Our Process" 
-                  width={600} 
-                  height={600} 
-                  className="rounded-[3rem] shadow-xl relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
-                  data-ai-hint="team workshop"
-                />
-                <motion.div 
-                  initial={{ x: 30, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="absolute -bottom-8 -right-8 glass-card p-8 rounded-[2rem] z-20 hidden md:block border-2 border-white shadow-xl"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="bg-primary p-4 rounded-full text-white animate-pulse">
-                      <Rocket className="w-8 h-8" />
-                    </div>
-                    <div>
-                      <p className="text-4xl font-black text-foreground">100%</p>
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Quality Guarantee</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-              
-              <div>
-                <motion.div {...fadeIn}>
-                  <h2 className="text-primary font-black uppercase tracking-[0.4em] mb-4 text-xs">Execution</h2>
-                  <h3 className="text-4xl md:text-5xl font-black tracking-tighter mb-10 leading-[0.95]">The Roadmap to <br/><span className="text-primary italic">Digital Mastery.</span></h3>
-                </motion.div>
-                
-                <div className="space-y-10">
-                  {[
-                    { step: "01", title: "Blueprint & Strategy", desc: "We map out your technical architecture and ROI goals before any code is typed." },
-                    { step: "02", title: "High-Fidelity Design", desc: "Pixel-perfect interfaces designed for engagement and brand conversion." },
-                    { step: "03", title: "Robust Engineering", desc: "Agile sprints with weekly demos ensuring total transparency and speed." },
-                    { step: "04", title: "Deploy & Scale", desc: "Zero-downtime launch followed by 24/7 maintenance and optimization." },
-                  ].map((item, i) => (
-                    <motion.div 
-                      key={i} 
-                      initial={{ opacity: 0, x: 15 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                      className="flex gap-8 group"
-                    >
-                      <span className="text-5xl font-black text-primary/10 group-hover:text-primary transition-colors duration-500 leading-none">{item.step}</span>
-                      <div>
-                        <h4 className="text-xl font-black mb-2 group-hover:text-primary transition-colors">{item.title}</h4>
-                        <p className="text-base text-muted-foreground leading-relaxed font-medium">{item.desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
             </div>
           </Container>
         </section>
 
-        {/* High Conversion CTA Section - Scaled Down Heading */}
-        <section className="py-28 relative overflow-hidden group">
-          <motion.div 
-            initial={{ scale: 1.05 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 1.5 }}
-            className="absolute inset-0 bg-primary skew-y-1 origin-right transition-transform duration-1000"
-          ></motion.div>
-          <Container className="relative z-10 text-center text-white">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-tight">Ready to <br className="hidden md:block"/> Start Building?</h2>
-              <p className="text-xl md:text-2xl opacity-90 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
-                Transform your business challenges into elegant software. We are ready when you are.
-              </p>
-              <div className="flex flex-wrap justify-center gap-6">
-                <motion.div whileHover={{ scale: 1.05, rotate: -1 }} whileTap={{ scale: 0.95 }}>
-                  <Button asChild size="lg" variant="secondary" className="h-16 px-12 text-xl rounded-full hover:shadow-2xl transition-all font-black bg-white text-primary">
-                    <Link href="/contact">Book A Session</Link>
-                  </Button>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05, rotate: 1 }} whileTap={{ scale: 0.95 }}>
-                  <Button asChild variant="outline" size="lg" className="h-16 px-12 text-xl rounded-full border-2 border-white text-white hover:bg-white hover:text-primary transition-all font-black">
-                    <Link href="tel:+254758673616">Call Us Direct</Link>
-                  </Button>
-                </motion.div>
-              </div>
-            </motion.div>
+        <ClientsAndReachSection />
+
+        {/* Final CTA */}
+        <section className="py-24">
+          <Container>
+            <div className="p-12 md:p-20 rounded-[3rem] bg-primary text-white text-center relative overflow-hidden neo-shadow">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+              <motion.div {...fadeIn}>
+                <h2 className="text-4xl md:text-6xl font-black mb-8">Ready to grow your Biashara?</h2>
+                <p className="text-xl mb-12 opacity-90 max-w-xl mx-auto">Don't let your competitors take your customers. Build your professional online presence today.</p>
+                <Button asChild size="lg" variant="secondary" className="h-16 px-12 text-xl rounded-2xl bg-white text-primary hover:bg-gray-100 font-black neo-shadow transition-all">
+                  <Link href={whatsappLink} target="_blank">Chat with us on WhatsApp</Link>
+                </Button>
+              </motion.div>
+            </div>
           </Container>
         </section>
-
-        <ClientsAndReachSection />
       </main>
       
       <EcommerceFooter />
