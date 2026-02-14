@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 const clients = [
-    { name: 'Ilorie Consult Limited', logoUrl: '/ilorieconsult.webp' },
+    { name: 'Ilorie Consult Limited', logoUrl: '/ilorie_consult_limited-removebg-preview.jpg' },
     { name: 'Lee Gifts and Flowers Limited', logoUrl: '/leegifts.jpg' },
     { name: 'Mpoa Wangu Flowers Shop', logoUrl: '/mpoawangu.png' },
     { name: 'Prime Ink Technologies', logoUrl: '/primeink.jpg' },
