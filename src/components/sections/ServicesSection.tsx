@@ -1,76 +1,79 @@
-
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
-import { ArrowRight, Code, ShoppingCart, Laptop } from 'lucide-react';
+import { ArrowRight, Code, Smartphone, LayoutPanelLeft } from 'lucide-react';
 
 const services = [
   {
     icon: Code,
-    title: "Custom Web Development",
-    description: "Tailored websites and web applications built to solve your unique business challenges. We deliver high-quality, scalable, and secure software solutions."
+    title: "Web Engineering",
+    description: "Beyond simple websites. We build enterprise-grade web applications, dashboards, and scalable SaaS platforms using modern stacks like Next.js and React."
   },
   {
-    icon: ShoppingCart,
-    title: "E-commerce Solutions",
-    description: "Powerful online stores designed to drive sales and grow your brand. We build robust solutions that convert visitors into customers."
+    icon: LayoutPanelLeft,
+    title: "System Architecture",
+    description: "Designing the backbone of your business. We develop custom ERP, CRM, and automation tools that streamline operations and eliminate bottlenecks."
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Experiences",
+    description: "Crafting native-feel mobile applications that users love. Our cross-platform expertise ensures high performance on both iOS and Android."
   }
 ]
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-10 md:py-16 bg-background overflow-x-hidden">
+    <section id="services" className="py-20 md:py-28 bg-white dark:bg-transparent">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          
-          {/* Image Column */}
-          <div className="relative h-80 md:h-[450px] w-full">
-            <div className="absolute inset-0 bg-purple-100/60 rounded-2xl -rotate-6 transform"></div>
-            <div className="absolute inset-0 p-4">
-              <Image
-                src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?q=80&w=1935&auto=format&fit=crop"
-                alt="Developer working on code"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover rounded-2xl shadow-xl"
-                data-ai-hint="black developer coding"
-              />
-            </div>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Content Column */}
-          <div className="md:pl-8">
-            <h3 className="text-base font-semibold uppercase text-purple-600 tracking-wider">Our Business Goal</h3>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Software Development Services
+          <div className="order-2 lg:order-1">
+            <h3 className="text-base font-bold uppercase text-primary tracking-[0.2em] mb-4">Our Specialization</h3>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-foreground mb-8">
+              We translate complex ideas into <span className="text-primary">elegant code.</span>
             </h2>
             
-            <div className="mt-8 space-y-4">
+            <div className="space-y-10">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
-                  <div key={index} className="flex gap-4 items-start">
+                  <div key={index} className="flex gap-6 group">
                     <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center h-16 w-16 rounded-lg bg-purple-100/60 text-purple-700 shadow-md">
-                        <Icon className="h-8 w-8" />
+                      <div className="flex items-center justify-center h-14 w-14 rounded-2xl bg-secondary text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                        <Icon className="h-7 w-7" />
                       </div>
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-foreground">{service.title}</h4>
-                      <p className="mt-1 text-muted-foreground">{service.description}</p>
+                      <h4 className="text-xl font-bold text-foreground mb-2">{service.title}</h4>
+                      <p className="text-muted-foreground leading-relaxed">{service.description}</p>
                     </div>
                   </div>
                 );
               })}
             </div>
-             <Button asChild size="lg" className="group mt-8 text-base bg-purple-600 hover:bg-purple-700">
+             <Button asChild size="lg" className="mt-12 h-14 px-8 rounded-full font-bold">
               <Link href="/services">
-                View All Services <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                Explore Detailed Services <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
+          </div>
+
+          {/* Image Column */}
+          <div className="order-1 lg:order-2 relative h-[400px] md:h-[600px] w-full">
+            <div className="absolute inset-0 bg-primary/5 rounded-[3rem] rotate-3 scale-105"></div>
+            <div className="absolute inset-0">
+              <Image
+                src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?q=80&w=1935&auto=format&fit=crop"
+                alt="Developer engineering high-quality software"
+                fill
+                className="object-cover rounded-[2.5rem] shadow-2xl"
+                data-ai-hint="software engineer coding"
+              />
+            </div>
           </div>
 
         </div>

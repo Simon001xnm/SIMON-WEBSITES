@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,66 +8,65 @@ body {
 
 @layer base {
   :root {
-    --background: 220 30% 98%; /* Light grey background */
-    --foreground: 220 15% 25%; /* Dark grayish blue for text */
+    --background: 210 40% 98%; /* Very light blue-gray background */
+    --foreground: 222 47% 11%; /* Deep navy for text */
 
-    --card: 0 0% 100%; /* White */
-    --card-foreground: 220 15% 25%; /* Dark grayish blue for card text */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 0 0% 100%; /* White */
-    --popover-foreground: 220 15% 25%; /* Dark grayish blue for popover text */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 34 100% 50%; /* Vibrant Orange/Gold */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 210 100% 50%; /* Vibrant Light Blue */
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 220 30% 96%; /* Very light blue-gray */
-    --secondary-foreground: 220 15% 35%; /* Darker grayish blue for secondary text */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 220 30% 92%; /* Light muted blue-gray */
-    --muted-foreground: 220 10% 45%; /* Medium muted blue-gray for less important text */
+    --muted: 210 40% 92%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 10 80% 55%; /* Vibrant Reddish-Orange for prices */
-    --accent-foreground: 0 0% 100%; /* White text for contrast on accent */
+    --accent: 199 89% 48%; /* Slightly different blue for accents */
+    --accent-foreground: 210 40% 98%;
     
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 90%; /* Light blue-gray border */
-    --input: 220 20% 94%; /* Light blue-gray input background */
-    --ring: 34 100% 55%; /* Vibrant Orange/Gold for focus rings */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {
-    /* Keeping dark theme as default, can be customized if needed */
-    --background: 220 15% 10%; /* Dark Navy Blue */
-    --foreground: 0 0% 98%; /* Light text */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 220 15% 12%; 
-    --card-foreground: 0 0% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 220 15% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 34 100% 60%; /* Lighter Orange/Gold for dark mode */
-    --primary-foreground: 0 0% 10%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 222 47% 11%;
 
-    --secondary: 220 15% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 15% 20%;
-    --muted-foreground: 220 10% 65%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 10 80% 60%; /* Slightly brighter reddish-orange for dark mode */
-    --accent-foreground: 0 0% 10%;
-    
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
 
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 34 100% 60%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 210 100% 50%;
   }
 }
 
@@ -78,7 +76,7 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1; /* Enables common ligatures and contextual alternates */
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 

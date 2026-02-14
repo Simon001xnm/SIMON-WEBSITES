@@ -3,138 +3,175 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  Phone,
-  Menu,
+  ArrowRight,
+  Code,
+  Smartphone,
+  Globe,
+  ShieldCheck,
+  CheckCircle2,
+  Zap,
+  Layers,
+  Users,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { MOCK_LAPTOPS } from '@/lib/laptop-data';
-import { LaptopCard } from '@/components/laptops/LaptopCard';
-import { MEGA_MENU_CATEGORIES } from '@/lib/category-data';
+import { Container } from '@/components/layout/Container';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { ServicesSection } from '@/components/sections/ServicesSection';
-import { RecruitmentSection } from '@/components/sections/RecruitmentSection';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
+import { motion } from 'framer-motion';
 
-
-export default function JumiaClonePage() {
-  const contactPhone = "0758673616";
-
-  const CategorySidebar = () => (
-    <aside className="bg-white p-4 rounded-md shadow h-fit sticky top-24">
-      <h3 className="text-md font-semibold mb-2 text-primary">Categories</h3>
-      <ul>
-        {MEGA_MENU_CATEGORIES.map((cat) => {
-          const Icon = cat.icon;
-          return (
-            <li key={cat.name}>
-              <Link href={cat.href} className="flex items-center gap-3 p-2 rounded hover:bg-gray-100 text-sm">
-                {typeof Icon === 'string' ? (
-                  <Image src={Icon} alt={`${cat.name} logo`} width={20} height={20} className="w-5 h-5 object-contain" />
-                ) : (
-                  <Icon className="w-5 h-5 text-gray-600" />
-                )}
-                <span>{cat.name}</span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </aside>
-  );
+export default function AgencyLandingPage() {
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
 
   return (
     <div className="bg-background min-h-screen">
-      <div className="relative z-10 max-w-screen-2xl mx-auto bg-background">
-        <EcommerceHeader />
+      <EcommerceHeader />
 
-        <main className="p-4">
-          <div className="lg:hidden mb-4">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" className="w-full">
-                  <Menu className="mr-2 h-4 w-4" />
-                  Shop by Category
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] p-0">
-                <SheetHeader className="sr-only">
-                  <SheetTitle>Product Categories</SheetTitle>
-                </SheetHeader>
-                <div className="p-4">
-                  <CategorySidebar />
+      <main>
+        {/* Hero Section */}
+        <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-background">
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <motion.div {...fadeIn}>
+                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
+                  Building <span className="text-primary">Digital Excellence</span> for the Modern Era.
+                </h1>
+                <p className="text-xl text-muted-foreground mb-10 max-w-lg leading-relaxed">
+                  Simon Styles Technology is a premier software agency in Nairobi, specializing in bespoke web development, mobile ecosystems, and high-performance systems.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full shadow-lg shadow-primary/20">
+                    <Link href="/contact">Start a Project</Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="h-14 px-8 text-lg rounded-full">
+                    <Link href="/projects">View Our Work</Link>
+                  </Button>
                 </div>
-              </SheetContent>
-            </Sheet>
-          </div>
-          <div
-            className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-4 relative"
-          >
-            <div className="hidden lg:block">
-              <CategorySidebar />
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative hidden lg:block"
+              >
+                <div className="relative aspect-square w-full max-w-[500px] mx-auto">
+                  <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+                  <Image 
+                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" 
+                    alt="Software Engineering Team" 
+                    fill
+                    className="object-cover rounded-2xl shadow-2xl border-8 border-white dark:border-gray-800"
+                  />
+                </div>
+              </motion.div>
             </div>
-            
-            <div className="flex-grow space-y-4">
-              {/* Adjusted Grid for compact view */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-4">
-                  {/* Main Hero Banner */}
-                  <div className="bg-white rounded-md shadow overflow-hidden relative group h-[200px] md:h-[280px]">
-                      <Image src="https://royaltech.co.ke/uploads/portfolio/GT-1.jpeg" data-ai-hint="tech banner" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Hero banner" className="w-full h-full object-cover"/>
-                      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
-                          <h2 className="text-xl md:text-3xl font-extrabold text-white drop-shadow-lg leading-tight">Laptops For Hire Available</h2>
-                          <p className="text-white/90 mt-2 text-xs md:text-sm max-w-md">Daily, weekly, & monthly rental plans for businesses, events, and corporate needs.</p>
-                          <Button asChild className="mt-3 bg-accent hover:bg-accent/90 text-accent-foreground text-sm md:text-base py-2 px-4 h-auto">
-                              <a href={`tel:${contactPhone}`}>
-                                  <Phone className="mr-2 h-4 w-4"/>
-                                  Call to Inquire
-                              </a>
-                          </Button>
-                      </div>
-                  </div>
-                  {/* Side panels */}
-                  <div className="flex flex-col gap-4">
-                       <div className="bg-white p-3 rounded-md shadow text-sm flex flex-col justify-center h-[96px] md:h-auto">
-                          <div className="flex items-center gap-2 mb-1">
-                              <Image 
-                                src="/logo.jpg"
-                                alt="Simon Styles Logo"
-                                width={24}
-                                height={24}
-                                className="rounded-full"
-                            />
-                              <h3 className="font-semibold">SELL ON SIMON STYLES</h3>
-                          </div>
-                          <p className="text-xs text-gray-500">Reach millions of visitors and grow your business.</p>
-                      </div>
-                      <div className="bg-white rounded-md shadow overflow-hidden relative group h-[120px] md:h-full flex-grow">
-                           <Image src="/OURTEAM.jpg" data-ai-hint="our team" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Our Team" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
-                           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-2">
-                              <h3 className="text-lg font-bold text-white">Our Team</h3>
-                              <p className="text-sm text-white/90 mt-1">Dedicated professionals to serve you.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+          </Container>
+        </section>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
-                  {MOCK_LAPTOPS.slice(0, 15).map(laptop => (
-                      <LaptopCard key={laptop.id} laptop={laptop} />
+        {/* Services Grid */}
+        <section className="py-24 bg-white dark:bg-gray-900/50">
+          <Container>
+            <div className="text-center mb-16">
+              <h2 className="text-base font-semibold text-primary uppercase tracking-widest mb-3">Our Expertise</h2>
+              <h3 className="text-3xl md:text-5xl font-bold text-foreground">Solutions that scale with you.</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Globe,
+                  title: "Web Development",
+                  desc: "Custom high-performance websites and PWAs designed for conversion and speed."
+                },
+                {
+                  icon: Smartphone,
+                  title: "Mobile Innovation",
+                  desc: "Seamless iOS and Android applications built with Flutter and React Native."
+                },
+                {
+                  icon: Code,
+                  title: "Enterprise Systems",
+                  desc: "Robust ERP, CRM, and Inventory systems tailored to your unique business logic."
+                }
+              ].map((service, i) => (
+                <motion.div 
+                  key={i}
+                  whileHover={{ y: -10 }}
+                  className="p-8 rounded-2xl bg-background border hover:border-primary/50 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                    <service.icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <h4 className="text-xl font-bold mb-3">{service.title}</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* Process Section */}
+        <section className="py-24 overflow-hidden">
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="relative">
+                <Image 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
+                  alt="Our Working Process" 
+                  width={600} 
+                  height={400} 
+                  className="rounded-3xl shadow-xl"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-primary p-8 rounded-3xl text-white shadow-2xl hidden md:block">
+                  <p className="text-4xl font-bold">100+</p>
+                  <p className="text-sm opacity-90">Projects Delivered</p>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-3xl md:text-4xl font-bold mb-8">How We Bring Your Vision to Life.</h3>
+                <div className="space-y-8">
+                  {[
+                    { step: "01", title: "Strategy & Discovery", desc: "We dive deep into your goals to define the roadmap." },
+                    { step: "02", title: "Design & UX", desc: "Crafting beautiful interfaces that prioritize user experience." },
+                    { step: "03", title: "Agile Development", desc: "Iterative building with constant feedback loops." },
+                    { step: "04", title: "Deployment & Support", desc: "Launching your product and scaling it for long-term success." },
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-6">
+                      <span className="text-4xl font-black text-primary/20">{item.step}</span>
+                      <div>
+                        <h4 className="text-lg font-bold mb-1">{item.title}</h4>
+                        <p className="text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </div>
                   ))}
+                </div>
               </div>
             </div>
-          </div>
-          
-          {/* Main sections for services */}
-          <div className="mt-8 space-y-4">
-            <ServicesSection />
-            <RecruitmentSection />
-            <ClientsAndReachSection />
-          </div>
-        </main>
-        
-        <EcommerceFooter />
-      </div>
+          </Container>
+        </section>
+
+        {/* Call to Action */}
+        <section className="py-24 bg-primary text-primary-foreground">
+          <Container className="text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">Let's build something <br className="hidden md:block"/> incredible together.</h2>
+            <p className="text-xl opacity-90 mb-12 max-w-2xl mx-auto">
+              Ready to transform your ideas into high-performance software? Our team is standing by to help you scale.
+            </p>
+            <Button asChild size="lg" variant="secondary" className="h-16 px-12 text-xl rounded-full hover:scale-105 transition-transform">
+              <Link href="/contact">Book a Free Consultation</Link>
+            </Button>
+          </Container>
+        </section>
+
+        <ClientsAndReachSection />
+      </main>
+      
+      <EcommerceFooter />
     </div>
   );
 }

@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -6,23 +5,18 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   ChevronDown,
-  Search,
   User,
-  HelpCircle,
-  ShoppingCart,
   LogOut,
   LogIn,
   Briefcase,
   LayoutGrid,
-  FileText, // Added icon for Blog
+  FileText,
   Menu,
+  PhoneCall,
 } from 'lucide-react';
-import { useCart } from '@/context/CartContext';
-import { Badge } from '@/components/ui/badge';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,23 +26,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useRouter } from 'next/navigation';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 export function EcommerceHeader() {
-  const { cart } = useCart();
   const { user, logout } = useAuth();
   const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState('');
-  const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
   
   const handleLogout = async () => {
     await logout();
     router.push('/login');
-  };
-
-  const handleSearch = () => {
-    if (searchTerm.trim()) {
-      router.push(`/laptops?q=${encodeURIComponent(searchTerm.trim())}`);
-    }
   };
 
   const getInitials = (name: string | null | undefined) => {
@@ -57,143 +43,107 @@ export function EcommerceHeader() {
 
   return (
     <>
-      <div className="bg-primary text-primary-foreground py-1 px-4 flex justify-center items-center text-xs sm:text-sm">
-        <p>Clearance Sale - Up to 70% off!</p>
+      <div className="bg-primary text-primary-foreground py-2 px-4 flex justify-center items-center text-xs font-medium tracking-wide">
+        <p>Now Accepting Custom Software Projects for Q2 2026</p>
       </div>
-      <header className="bg-white py-3 px-4 shadow-md sticky top-0 z-40">
-        <div className="flex items-center justify-between gap-4">
+      <header className="bg-white/80 backdrop-blur-md py-4 px-4 shadow-sm border-b sticky top-0 z-40">
+        <div className="flex items-center justify-between gap-4 max-w-screen-2xl mx-auto">
           <Link href="/" className="flex items-center gap-2">
             <Image 
                 src="/logo.jpg"
                 alt="Simon Styles Logo"
                 width={40}
                 height={40}
-                className="rounded-full"
+                className="rounded-full shadow-sm"
             />
-            <span className="text-2xl font-bold text-gray-800 hidden sm:inline">SIMON<span className="text-primary">STYLES</span></span>
+            <span className="text-2xl font-black text-gray-900 tracking-tight hidden sm:inline">
+              SIMON<span className="text-primary">STYLES</span>
+            </span>
           </Link>
-          <div className="flex-grow max-w-2xl hidden sm:flex items-center">
-            <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <Input 
-                placeholder="Search products, brands and categories" 
-                className="pl-10 bg-gray-100 border-gray-300 focus:ring-primary focus:border-primary" 
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-              />
-            </div>
-            <Button className="ml-2 bg-primary hover:bg-primary/90" onClick={handleSearch}>Search</Button>
-          </div>
-          <div className="flex items-center gap-2 sm:gap-4">
-             <Button variant="ghost" className="hidden md:flex items-center gap-1" asChild>
-                <Link href="/projects">
-                    <LayoutGrid className="h-5 w-5" />
-                    <span>Projects</span>
-                </Link>
+
+          <nav className="hidden lg:flex items-center gap-8">
+            <Link href="/services" className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">Services</Link>
+            <Link href="/projects" className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">Portfolio</Link>
+            <Link href="/blog" className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">Insights</Link>
+            <Link href="/contact" className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">Contact</Link>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" className="hidden sm:flex items-center gap-2" asChild>
+              <Link href="tel:+254758673616">
+                <PhoneCall className="h-4 w-4" />
+                <span className="font-semibold">+254 758 673616</span>
+              </Link>
             </Button>
-             <Button variant="ghost" className="hidden md:flex items-center gap-1" asChild>
-                <Link href="/services">
-                    <Briefcase className="h-5 w-5" />
-                    <span>Services</span>
-                </Link>
-            </Button>
-            <Button variant="ghost" className="hidden md:flex items-center gap-1" asChild>
-                <Link href="/blog">
-                    <FileText className="h-5 w-5" />
-                    <span>Blog</span>
-                </Link>
-            </Button>
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="hidden md:flex items-center gap-2">
+                <Button variant="outline" className="hidden sm:flex items-center gap-2 rounded-full border-2">
                   {user ? (
-                    <Avatar className="h-7 w-7">
+                    <Avatar className="h-6 w-6">
                         <AvatarImage src={user.photoURL || ''} alt={user.displayName || ''} />
-                        <AvatarFallback className="text-xs">{getInitials(user.displayName)}</AvatarFallback>
+                        <AvatarFallback className="text-[10px]">{getInitials(user.displayName)}</AvatarFallback>
                     </Avatar>
-                  ) : <User className="h-5 w-5" /> }
-                  <span>{user ? 'Account' : 'Login'}</span>
-                  <ChevronDown className="h-4 w-4" />
+                  ) : <User className="h-4 w-4" /> }
+                  <span className="font-semibold text-sm">{user ? 'Account' : 'Login'}</span>
+                  <ChevronDown className="h-3 w-3" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuContent align="end" className="w-56 mt-2 rounded-xl">
                 {user ? (
                   <>
-                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuLabel>Account Settings</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
-                      <Link href="/account"><User className="mr-2 h-4 w-4" />Profile</Link>
+                      <Link href="/account" className="cursor-pointer font-medium">Profile Details</Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={handleLogout}>
-                      <LogOut className="mr-2 h-4 w-4" />
+                    <DropdownMenuItem onClick={handleLogout} className="text-destructive cursor-pointer font-medium">
                       Logout
                     </DropdownMenuItem>
                   </>
                 ) : (
                   <>
                     <DropdownMenuItem asChild>
-                      <Link href="/login"><LogIn className="mr-2 h-4 w-4" />Login</Link>
+                      <Link href="/login" className="cursor-pointer font-medium">Sign In</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link href="/signup">Sign Up</Link>
+                      <Link href="/signup" className="cursor-pointer font-medium">Create Account</Link>
                     </DropdownMenuItem>
                   </>
                 )}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="ghost" className="hidden md:flex items-center gap-1">
-              <HelpCircle className="h-5 w-5" />
-              <span>Help</span>
-              <ChevronDown className="h-4 w-4" />
-            </Button>
-            
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon">
+                  <Button variant="ghost" size="icon" className="rounded-full">
                     <Menu className="h-6 w-6" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuContent align="end" className="w-64 mt-2 p-2 rounded-2xl">
+                  <DropdownMenuItem asChild className="rounded-lg mb-1"><Link href="/" className="font-bold py-3 px-4">Home</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-lg mb-1"><Link href="/services" className="font-bold py-3 px-4">Services</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-lg mb-1"><Link href="/projects" className="font-bold py-3 px-4">Portfolio</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-lg mb-1"><Link href="/blog" className="font-bold py-3 px-4">Insights</Link></DropdownMenuItem>
+                  <DropdownMenuSeparator className="my-2" />
                   {user ? (
                     <>
-                      <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem asChild><Link href="/account">Profile</Link></DropdownMenuItem>
-                      <DropdownMenuItem asChild><Link href="/account/orders">Orders</Link></DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
-                      <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
-                      <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
+                      <DropdownMenuItem asChild className="rounded-lg"><Link href="/account" className="py-3 px-4 font-medium">Account</Link></DropdownMenuItem>
+                      <DropdownMenuItem onClick={handleLogout} className="text-destructive rounded-lg font-medium"><span className="py-3 px-4">Logout</span></DropdownMenuItem>
                     </>
                   ) : (
                     <>
-                      <DropdownMenuItem asChild><Link href="/login">Login</Link></DropdownMenuItem>
-                      <DropdownMenuItem asChild><Link href="/signup">Sign Up</Link></DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem asChild><Link href="/projects">Projects</Link></DropdownMenuItem>
-                      <DropdownMenuItem asChild><Link href="/services">Services</Link></DropdownMenuItem>
-                      <DropdownMenuItem asChild><Link href="/blog">Blog</Link></DropdownMenuItem>
+                      <DropdownMenuItem asChild className="rounded-lg"><Link href="/login" className="py-3 px-4 font-medium">Login</Link></DropdownMenuItem>
+                      <DropdownMenuItem asChild className="rounded-lg"><Link href="/signup" className="py-3 px-4 font-medium">Join Now</Link></DropdownMenuItem>
                     </>
                   )}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
 
-            <Button variant="ghost" className="flex items-center gap-1 relative" asChild>
-              <Link href="/cart">
-                <ShoppingCart className="h-5 w-5" />
-                <span className="hidden sm:inline">Cart</span>
-                {itemCount > 0 && (
-                  <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0 rounded-full bg-accent text-accent-foreground">
-                    {itemCount}
-                  </Badge>
-                )}
-              </Link>
+            <Button className="hidden sm:flex rounded-full bg-primary font-bold shadow-lg shadow-primary/20" asChild>
+              <Link href="/contact">Start Project</Link>
             </Button>
           </div>
         </div>
