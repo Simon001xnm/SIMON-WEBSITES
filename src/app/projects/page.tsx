@@ -3,8 +3,6 @@ import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { MOCK_PROJECTS } from '@/lib/project-data';
-import { ProjectShowcaseAITool } from '@/components/ai/ProjectShowcaseAITool';
-import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
 
 export default function ProjectsPage() {
@@ -47,23 +45,6 @@ export default function ProjectsPage() {
           </div>
           
           <ProjectGrid projects={MOCK_PROJECTS} />
-
-          <Separator className="my-24 opacity-50" />
-
-          <div className="max-w-4xl mx-auto">
-             <div className="text-center mb-12">
-                <div className="inline-block p-3 bg-accent/10 rounded-2xl mb-4">
-                  <h3 className="text-xs font-black uppercase tracking-[0.2em] text-accent">AI-Powered Tools</h3>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 mb-4">
-                    Generate Your Showcase
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Are you a developer? Use our proprietary AI tool to create stunning, professional descriptions for your own projects.
-                </p>
-            </div>
-            <ProjectShowcaseAITool />
-          </div>
         </Container>
       </main>
       <EcommerceFooter />
