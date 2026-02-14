@@ -5,13 +5,10 @@ service cloud.firestore {
     /**
      * FIRESTORE SECURITY RULES - SIMON STYLES LIMITED
      * 
-     * This configuration allows anonymous visitors to:
-     * 1. Read blog posts and their statistics.
-     * 2. Read and list comments/replies.
-     * 3. Add new comments and likes.
-     * 4. Update counters (likeCount, commentCount) and existing comments.
-     *
-     * Admin actions (create/delete posts) are restricted.
+     * ENFORCING LEAST PRIVILEGE:
+     * 1. Public can read blog posts and stock.
+     * 2. Only authenticated Admins can modify content.
+     * 3. Community features (likes/comments) are disabled at the rule level.
      */
 
     // --- HELPER FUNCTIONS ---
@@ -28,47 +25,39 @@ service cloud.firestore {
 
     /**
      * @path /blogPosts/{blogPostId}
-     * Publicly readable. Updates allowed for counters (likes/comments).
+     * Publicly readable. Updates restricted to Admins.
      */
     match /blogPosts/{blogPostId} {
       allow read: if true;
-      allow update: if true; 
-      allow create, delete: if isAdmin();
+      allow write: if isAdmin();
 
-      /**
-       * @path /blogPosts/{blogPostId}/comments/{commentId}
-       * Publicly readable and listable for community engagement.
-       */
+      // Interactions disabled
       match /comments/{commentId} {
-        // Explicitly allow both 'get' and 'list' via 'read'
-        allow read, list: if true;
-        // Allow anonymous users to post comments
-        allow create: if true;
-        // Allow anonymous updates (e.g., incrementing comment likeCount)
-        allow update: if true;
-        allow delete: if isAdmin();
-
-        /**
-         * @path /blogPosts/{blogPostId}/comments/{commentId}/likes/{likeId}
-         */
-        match /likes/{likeId} {
-          allow read, list, create: if true;
-          allow delete: if isAdmin();
-        }
+        allow read: if true;
+        allow write: if isAdmin();
       }
-
-      /**
-       * @path /blogPosts/{blogPostId}/likes/{likeId}
-       */
+      
       match /likes/{likeId} {
-        allow read, list, create: if true;
-        allow delete: if isAdmin();
+        allow read: if true;
+        allow write: if isAdmin();
       }
     }
 
-    // Admin collection for verification
+    /**
+     * @path /Laptops Available/{stockId}
+     * Live stock status collection.
+     */
+    match /Laptops Available/{stockId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    /**
+     * @path /admins/{userId}
+     * Admin verification collection. Secured against public get.
+     */
     match /admins/{userId} {
-      allow get: if true;
+      allow get: if isAdmin();
     }
 
     // --- FALLBACK ---
