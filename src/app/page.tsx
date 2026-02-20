@@ -16,6 +16,7 @@ import {
   CreditCard,
   Info,
   AlertTriangle,
+  Wallet,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
@@ -142,15 +143,15 @@ export default function SmallBizLandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  icon: MessageCircle,
-                  title: "Regional Reach",
-                  desc: "Providing local expertise with global standards across Kenya, Uganda, Tanzania, and Rwanda.",
-                  color: "bg-green-100 text-green-600"
+                  icon: Wallet,
+                  title: "M-Pesa Engineering",
+                  desc: "We are official Daraja API specialists, providing your customers with seamless local payment automation.",
+                  color: "bg-emerald-100 text-emerald-600"
                 },
                 {
                   icon: CreditCard,
-                  title: "M-Pesa Integrated",
-                  desc: "We are Daraja API specialists, providing your customers with seamless local payment solutions.",
+                  title: "Fintech Integration",
+                  desc: "Real-time STK Push, C2B Paybill synchronization, and automated B2C payout systems built for scale.",
                   color: "bg-blue-100 text-blue-600"
                 },
                 {
@@ -196,23 +197,23 @@ export default function SmallBizLandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Startup Power",
-                  price: "20,000",
-                  features: ["5 Custom Pages", "Mobile Responsive", "Free Domain (1 Year)", "Free Hosting (1 Year)", "WhatsApp Button", "Basic SEO"],
-                  cta: "Inquire Now",
+                  title: "STK Push Pro",
+                  price: "15,000",
+                  features: ["M-Pesa STK Prompt", "Callback Integration", "Email Alerts", "Sandbox to Live Setup", "1-Year Support", "Fast 3-Day Delivery"],
+                  cta: "Get Started",
                   popular: false
                 },
                 {
-                  title: "Enterprise Elite",
+                  title: "Enterprise Web",
                   price: "60,000",
-                  features: ["Unlimited Pages", "Product Gallery", "M-Pesa Integration", "Blog Section", "Google Maps Setup"],
+                  features: ["Unlimited Pages", "M-Pesa STK Push", "Product Gallery", "Blog Section", "Google Maps Setup", "Free Domain/Hosting"],
                   cta: "Consult Expert",
                   popular: true
                 },
                 {
-                  title: "Global Custom",
+                  title: "Fintech Custom",
                   price: "120,000+",
-                  features: ["Custom Software", "Inventory Mgmt", "Client Portals", "Advanced APIs", "Maintenance Support"],
+                  features: ["Custom B2C Payouts", "Full Daraja Suite", "Inventory Mgmt", "Advanced APIs", "Maintenance Support", "Banking-Level Security"],
                   cta: "Custom Quote",
                   popular: false
                 }
@@ -243,7 +244,7 @@ export default function SmallBizLandingPage() {
                     ))}
                   </ul>
                   <Button asChild size="lg" variant={pkg.popular ? 'default' : 'outline'} className="w-full rounded-2xl font-bold h-14">
-                    <Link href={whatsappLink} target="_blank">{pkg.cta}</Link>
+                    <Link href={`https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(`Hello! I'm interested in the "${pkg.title}" package.`)}`} target="_blank">{pkg.cta}</Link>
                   </Button>
                 </motion.div>
               ))}

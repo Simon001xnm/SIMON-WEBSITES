@@ -24,7 +24,10 @@ import {
   Search,
   CheckCircle2,
   Phone,
-  AlertTriangle
+  AlertTriangle,
+  CreditCard,
+  Wallet,
+  ArrowUpRight
 } from 'lucide-react';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 import {
@@ -35,6 +38,22 @@ import {
 } from "@/components/ui/accordion";
 
 const services = [
+  {
+    id: "mpesa-integration",
+    icon: Wallet,
+    title: "M-Pesa Engineering",
+    price: "15,000",
+    priceNote: "STK Push / C2B",
+    description: "Official Daraja API specialists. We automate your revenue collection with STK Push, Paybill sync, and B2C payouts.",
+    features: [
+      "Lipa Na M-Pesa STK Push",
+      "Paybill/Till C2B Integration",
+      "Real-time Payment Callbacks",
+      "B2C Automated Payouts",
+      "Sandbox to Live Migration",
+    ],
+    accent: "from-green-500 to-emerald-600"
+  },
   {
     id: "website-development",
     icon: Code,
@@ -111,21 +130,33 @@ const services = [
     ],
     accent: "from-emerald-500 to-teal-600"
   },
+];
+
+const fintechPackages = [
   {
-    id: "social-media-management",
-    icon: Megaphone,
-    title: "Brand Management",
-    price: "4,000",
-    priceNote: "Per Month",
-    description: "Data-driven storytelling that builds communities and converts followers into brand evangelists.",
-    features: [
-      "High-Impact Content Strategy",
-      "Community Engagement Ops",
-      "Weekly Growth Reports",
-      "Targeted Ad Campaign Mgmt",
-    ],
-    accent: "from-orange-500 to-red-600"
+    title: "Instant STK Push",
+    price: "15,000",
+    desc: "Perfect for websites needing a 'Pay with M-Pesa' prompt directly on the user's phone.",
+    features: ["STK Push Implementation", "Callback Validation", "Email Notifications", "3-Day Delivery"]
   },
+  {
+    title: "C2B Enterprise",
+    price: "25,000",
+    desc: "Full integration for Paybill or Till numbers to sync payments with your internal database.",
+    features: ["Paybill/Till Auto-Sync", "Transaction Reconciliation", "Admin Dashboard", "7-Day Delivery"]
+  },
+  {
+    title: "B2C Payout Suite",
+    price: "45,000",
+    desc: "Automate payouts from your business to your customers or vendors instantly.",
+    features: ["Automated Disbursements", "Bulk Payment Support", "Security Audit", "API Documentation"]
+  },
+  {
+    title: "Full Fintech Suite",
+    price: "100,000",
+    desc: "A comprehensive financial system including all Daraja APIs and reporting modules.",
+    features: ["All APIs Included", "Custom Reporting", "Priority Support", "Scalable Infrastructure"]
+  }
 ];
 
 const steps = [
@@ -166,7 +197,7 @@ const faqs = [
   },
   {
     q: "Can you integrate M-Pesa payments?",
-    a: "Absolutely. We are experts in Daraja API integrations for real-time customer payments."
+    a: "Absolutely. We are experts in Daraja API integrations for real-time customer payments. We offer STK Push, C2B (Paybill/Till), and B2C solutions tailored to your business needs."
   },
   {
     q: "Is the first year of hosting really free?",
@@ -201,7 +232,7 @@ export default function ServicesPage() {
         {/* Cinematic Hero */}
         <section className="relative pt-32 pb-24 md:pt-48 md:pb-40 overflow-hidden">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[150px] -z-10 translate-x-1/2 -translate-y-1/2 opacity-50"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[150px] -z-10 -translate-x-1/2 translate-y-1/2 opacity-50"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[150px] -z-10 -translate-x-1/2 translate-y-1/2 opacity-50"></div>
           
           <Container>
             <div className="max-w-4xl">
@@ -210,8 +241,8 @@ export default function ServicesPage() {
                 animate={{ opacity: 1, x: 0 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
               >
-                <Zap className="w-4 h-4 text-primary" />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">East Africa's Leading Digital Partner</span>
+                <CreditCard className="w-4 h-4 text-emerald-500" />
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">Official Daraja API Specialists</span>
               </motion.div>
               
               <motion.h1 
@@ -220,8 +251,8 @@ export default function ServicesPage() {
                 transition={{ delay: 0.1 }}
                 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-10"
               >
-                Leading the <br/>
-                <span className="text-primary italic underline decoration-primary/20">Digital Era.</span>
+                Seamless <br/>
+                <span className="text-emerald-500 italic underline decoration-emerald-500/20">M-Pesa Automation.</span>
               </motion.h1>
               
               <motion.p 
@@ -230,7 +261,7 @@ export default function ServicesPage() {
                 transition={{ delay: 0.2 }}
                 className="text-xl md:text-2xl text-white/60 max-w-2xl leading-relaxed font-medium mb-12"
               >
-                We are the top-rated agency for web design and custom systems in East Africa. Our engineering excellence gives your enterprise a definitive global advantage.
+                We bridge the gap between your business and Safaricom's Daraja API. Collect payments, reconcile accounts, and automate payouts with surgical precision.
               </motion.p>
 
               <motion.div 
@@ -239,8 +270,8 @@ export default function ServicesPage() {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-6"
               >
-                <Button asChild size="lg" className="h-16 px-10 text-lg rounded-2xl bg-primary hover:bg-primary/90 font-black uppercase tracking-widest shadow-2xl shadow-primary/20 transition-all hover:scale-105">
-                  <Link href="#services-grid">View Our Expertise</Link>
+                <Button asChild size="lg" className="h-16 px-10 text-lg rounded-2xl bg-emerald-600 hover:bg-emerald-700 font-black uppercase tracking-widest shadow-2xl shadow-emerald-500/20 transition-all hover:scale-105">
+                  <Link href="#fintech-suites">View Fintech Packages</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="h-16 px-10 text-lg rounded-2xl border-white/10 hover:bg-white/5 font-black uppercase tracking-widest transition-all">
                   <Link href="/contact">Free Consultation</Link>
@@ -250,18 +281,53 @@ export default function ServicesPage() {
           </Container>
         </section>
 
+        {/* Exclusive Fintech Suites */}
+        <section id="fintech-suites" className="py-32 bg-emerald-950/20 border-y border-white/5">
+          <Container>
+            <div className="text-center mb-20">
+              <motion.h2 {...fadeIn} className="text-4xl md:text-6xl font-black tracking-tighter mb-6">The Daraja <span className="text-emerald-500">Excellence Suite.</span></motion.h2>
+              <p className="text-xl text-white/60 max-w-2xl mx-auto font-medium">Expert-led integration for businesses ready to dominate the local digital economy.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {fintechPackages.map((pkg, i) => (
+                <motion.div 
+                  key={pkg.title}
+                  {...fadeIn}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-[2rem] flex flex-col hover:border-emerald-500/50 transition-all group"
+                >
+                  <h3 className="text-xl font-black mb-2 text-white">{pkg.title}</h3>
+                  <p className="text-xs text-white/40 mb-6 font-bold uppercase tracking-widest">Starting KES {pkg.price}</p>
+                  <p className="text-sm text-white/60 mb-8 flex-grow">{pkg.desc}</p>
+                  <ul className="space-y-3 mb-10">
+                    {pkg.features.map(f => (
+                      <li key={f} className="flex items-center gap-2 text-[10px] font-bold text-white/80 uppercase tracking-tight">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-500" /> {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button asChild variant="outline" className="w-full rounded-xl border-white/10 group-hover:bg-emerald-600 group-hover:border-emerald-600 group-hover:text-white transition-all">
+                    <Link href={`https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(`Hello, I'm interested in the M-Pesa "${pkg.title}" package.`)}`}>Inquire Package</Link>
+                  </Button>
+                </motion.div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
         {/* Services Grid */}
         <section id="services-grid" className="py-32 bg-white text-black rounded-t-[4rem]">
           <Container>
             <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-24">
               <motion.div {...fadeIn} className="max-w-2xl">
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6">The best solutions, <br/><span className="text-primary italic">engineered by leaders.</span></h2>
+                <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6">World-Class Solutions, <br/><span className="text-primary italic">engineered by leaders.</span></h2>
                 <p className="text-xl text-gray-500 font-medium">As East Africa's premier design firm, we provide the elite technical infrastructure your brand deserves.</p>
               </motion.div>
               <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="hidden lg:block">
-                <div className="p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-center gap-6 relative">
+                <div className="p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-center gap-6 relative shadow-xl">
                   <div className="text-right">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">Payment Policy</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">Regional Specialist</p>
                     <p className="text-2xl font-black">50% DEPOSIT</p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
