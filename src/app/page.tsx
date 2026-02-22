@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script';
 import {
   ArrowRight,
   Code,
@@ -17,6 +18,7 @@ import {
   Info,
   AlertTriangle,
   Wallet,
+  Shield,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
@@ -40,6 +42,24 @@ export default function SmallBizLandingPage() {
   return (
     <div className="bg-background min-h-screen selection:bg-primary/30">
       <EcommerceHeader />
+
+      <Script
+        src="https://www.paypal.com/sdk/js?client-id=fba&components=hosted-buttons"
+        strategy="afterInteractive"
+        onReady={() => {
+          // @ts-ignore
+          if (window.paypal && window.paypal.HostedButtons) {
+            // @ts-ignore
+            const container = document.querySelector("#paypal-container-ZG36SA5K8RCEA");
+            if (container && container.innerHTML === "") {
+              // @ts-ignore
+              window.paypal.HostedButtons({
+                hostedButtonId: "ZG36SA5K8RCEA",
+              }).render("#paypal-container-ZG36SA5K8RCEA");
+            }
+          }
+        }}
+      />
 
       <main>
         {/* Playful Hero Section */}
@@ -255,6 +275,69 @@ export default function SmallBizLandingPage() {
         <TeamSection />
 
         <ClientsAndReachSection />
+
+        {/* Investor Section */}
+        <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <motion.div {...fadeIn}>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
+                  <TrendingUp className="w-4 h-4 text-primary" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-primary">Equity Opportunity</span>
+                </div>
+                <h2 className="text-4xl md:text-6xl font-black mb-6 leading-[1.1]">
+                  Invest in the <br/>
+                  <span className="text-primary italic">Future of Tech.</span>
+                </h2>
+                <p className="text-xl text-gray-400 mb-10 leading-relaxed font-medium">
+                  We are expanding our digital footprint across East Africa. Be part of our growth story by purchasing equity shares directly through our secure investor portal.
+                </p>
+                <div className="space-y-4">
+                  {[
+                    "Direct Ownership in Simon Styles Technology",
+                    "Quarterly Dividend Opportunities",
+                    "Voting Rights on Major Strategic Shifts",
+                    "Exclusive Access to Private Tech Launches"
+                  ].map(item => (
+                    <div key={item} className="flex items-center gap-3">
+                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
+                        <CheckCircle2 className="w-3 h-3 text-primary" />
+                      </div>
+                      <span className="text-sm font-bold text-gray-300">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                className="bg-white p-10 md:p-16 rounded-[3.5rem] shadow-2xl relative"
+              >
+                <div className="text-center mb-10">
+                  <h3 className="text-3xl font-black text-gray-900 mb-2">Purchase Shares</h3>
+                  <p className="text-sm text-gray-500 font-bold uppercase tracking-widest">Select your equity package below</p>
+                </div>
+                
+                {/* PayPal Container */}
+                <div className="flex justify-center min-h-[100px]">
+                  <div id="paypal-container-ZG36SA5K8RCEA" className="w-full max-w-sm"></div>
+                </div>
+
+                <div className="mt-10 pt-8 border-t border-gray-100 flex flex-col items-center gap-4">
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <Shield className="w-4 h-4" />
+                    <span className="text-[10px] font-black uppercase tracking-widest">Encrypted & Secure Transaction</span>
+                  </div>
+                  <p className="text-[9px] text-gray-400 text-center leading-relaxed">
+                    By purchasing shares, you agree to the terms of the Simon Styles Shareholder Agreement. Investments in tech carry risk; please consult with a financial advisor.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </Container>
+        </section>
 
         {/* Final CTA */}
         <section className="py-24">
