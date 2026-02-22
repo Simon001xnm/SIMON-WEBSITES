@@ -42,30 +42,37 @@ export default function SmallBizLandingPage() {
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'm interested in a website for my business.`;
 
   useEffect(() => {
+    let interval: NodeJS.Timeout;
+
     const renderPayPalButton = () => {
       // @ts-ignore
       if (window.paypal && window.paypal.HostedButtons) {
-        // @ts-ignore
         const container = document.querySelector("#paypal-container-ZG36SA5K8RCEA");
-        if (container && container.innerHTML === "") {
+        // We use a data attribute to prevent multiple renders if the effect re-runs
+        if (container && !container.hasAttribute('data-paypal-rendered')) {
+          // Clear the loading spinner before PayPal renders its button
+          container.innerHTML = "";
           // @ts-ignore
           window.paypal.HostedButtons({
             hostedButtonId: "ZG36SA5K8RCEA",
           }).render("#paypal-container-ZG36SA5K8RCEA");
+          container.setAttribute('data-paypal-rendered', 'true');
+          return true;
         }
       }
+      return false;
     };
 
     // Polling to wait for PayPal SDK to be globally available
-    const interval = setInterval(() => {
-      // @ts-ignore
-      if (window.paypal && window.paypal.HostedButtons) {
-        renderPayPalButton();
+    interval = setInterval(() => {
+      if (renderPayPalButton()) {
         clearInterval(interval);
       }
     }, 500);
 
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, []);
 
   return (
@@ -338,7 +345,7 @@ export default function SmallBizLandingPage() {
                 
                 {/* PayPal Container */}
                 <div className="flex flex-col items-center justify-center min-h-[150px] border-2 border-dashed border-gray-100 rounded-3xl p-6">
-                  <div id="paypal-container-ZG36SA5K8RCEA" className="w-full max-w-sm flex justify-center">
+                  <div id="paypal-container-ZG36SA5K8RCEA" className="w-full max-w-sm flex justify-center min-h-[60px]">
                     <div className="flex flex-col items-center gap-3 text-gray-400">
                       <Loader2 className="h-8 w-8 animate-spin" />
                       <p className="text-xs font-bold uppercase tracking-widest">Loading Secure Checkout...</p>
