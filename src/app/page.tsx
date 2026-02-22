@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
+import { useEffect } from 'react';
 import {
   ArrowRight,
   Code,
@@ -19,6 +20,7 @@ import {
   AlertTriangle,
   Wallet,
   Shield,
+  Loader2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
@@ -39,6 +41,33 @@ const fadeIn = {
 export default function SmallBizLandingPage() {
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'm interested in a website for my business.`;
 
+  useEffect(() => {
+    const renderPayPalButton = () => {
+      // @ts-ignore
+      if (window.paypal && window.paypal.HostedButtons) {
+        // @ts-ignore
+        const container = document.querySelector("#paypal-container-ZG36SA5K8RCEA");
+        if (container && container.innerHTML === "") {
+          // @ts-ignore
+          window.paypal.HostedButtons({
+            hostedButtonId: "ZG36SA5K8RCEA",
+          }).render("#paypal-container-ZG36SA5K8RCEA");
+        }
+      }
+    };
+
+    // Polling to wait for PayPal SDK to be globally available
+    const interval = setInterval(() => {
+      // @ts-ignore
+      if (window.paypal && window.paypal.HostedButtons) {
+        renderPayPalButton();
+        clearInterval(interval);
+      }
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-background min-h-screen selection:bg-primary/30">
       <EcommerceHeader />
@@ -46,19 +75,6 @@ export default function SmallBizLandingPage() {
       <Script
         src="https://www.paypal.com/sdk/js?client-id=fba&components=hosted-buttons"
         strategy="afterInteractive"
-        onReady={() => {
-          // @ts-ignore
-          if (window.paypal && window.paypal.HostedButtons) {
-            // @ts-ignore
-            const container = document.querySelector("#paypal-container-ZG36SA5K8RCEA");
-            if (container && container.innerHTML === "") {
-              // @ts-ignore
-              window.paypal.HostedButtons({
-                hostedButtonId: "ZG36SA5K8RCEA",
-              }).render("#paypal-container-ZG36SA5K8RCEA");
-            }
-          }
-        }}
       />
 
       <main>
@@ -321,8 +337,13 @@ export default function SmallBizLandingPage() {
                 </div>
                 
                 {/* PayPal Container */}
-                <div className="flex justify-center min-h-[100px]">
-                  <div id="paypal-container-ZG36SA5K8RCEA" className="w-full max-w-sm"></div>
+                <div className="flex flex-col items-center justify-center min-h-[150px] border-2 border-dashed border-gray-100 rounded-3xl p-6">
+                  <div id="paypal-container-ZG36SA5K8RCEA" className="w-full max-w-sm flex justify-center">
+                    <div className="flex flex-col items-center gap-3 text-gray-400">
+                      <Loader2 className="h-8 w-8 animate-spin" />
+                      <p className="text-xs font-bold uppercase tracking-widest">Loading Secure Checkout...</p>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-gray-100 flex flex-col items-center gap-4">
