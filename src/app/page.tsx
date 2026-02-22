@@ -2,8 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
-import { useEffect } from 'react';
 import {
   ArrowRight,
   Code,
@@ -20,7 +18,7 @@ import {
   AlertTriangle,
   Wallet,
   Shield,
-  Loader2,
+  ExternalLink,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
@@ -40,49 +38,11 @@ const fadeIn = {
 
 export default function SmallBizLandingPage() {
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'm interested in a website for my business.`;
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-
-    const renderPayPalButton = () => {
-      // @ts-ignore
-      if (window.paypal && window.paypal.HostedButtons) {
-        const container = document.querySelector("#paypal-container-ZG36SA5K8RCEA");
-        // We use a data attribute to prevent multiple renders if the effect re-runs
-        if (container && !container.hasAttribute('data-paypal-rendered')) {
-          // Clear the loading spinner before PayPal renders its button
-          container.innerHTML = "";
-          // @ts-ignore
-          window.paypal.HostedButtons({
-            hostedButtonId: "ZG36SA5K8RCEA",
-          }).render("#paypal-container-ZG36SA5K8RCEA");
-          container.setAttribute('data-paypal-rendered', 'true');
-          return true;
-        }
-      }
-      return false;
-    };
-
-    // Polling to wait for PayPal SDK to be globally available
-    interval = setInterval(() => {
-      if (renderPayPalButton()) {
-        clearInterval(interval);
-      }
-    }, 500);
-
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, []);
+  const paypalPaymentLink = "https://www.paypal.com/ncp/payment/ZG36SA5K8RCEA";
 
   return (
     <div className="bg-background min-h-screen selection:bg-primary/30">
       <EcommerceHeader />
-
-      <Script
-        src="https://www.paypal.com/sdk/js?client-id=fba&components=hosted-buttons"
-        strategy="afterInteractive"
-      />
 
       <main>
         {/* Playful Hero Section */}
@@ -343,14 +303,13 @@ export default function SmallBizLandingPage() {
                   <p className="text-sm text-gray-500 font-bold uppercase tracking-widest">Select your equity package below</p>
                 </div>
                 
-                {/* PayPal Container */}
+                {/* PayPal Link Button */}
                 <div className="flex flex-col items-center justify-center min-h-[150px] border-2 border-dashed border-gray-100 rounded-3xl p-6">
-                  <div id="paypal-container-ZG36SA5K8RCEA" className="w-full max-w-sm flex justify-center min-h-[60px]">
-                    <div className="flex flex-col items-center gap-3 text-gray-400">
-                      <Loader2 className="h-8 w-8 animate-spin" />
-                      <p className="text-xs font-bold uppercase tracking-widest">Loading Secure Checkout...</p>
-                    </div>
-                  </div>
+                  <Button asChild size="lg" className="w-full h-16 text-lg rounded-2xl bg-[#0070ba] hover:bg-[#003087] text-white font-black uppercase tracking-widest shadow-xl transition-all hover:scale-105">
+                    <Link href={paypalPaymentLink} target="_blank">
+                      Buy Equity via PayPal <ExternalLink className="ml-2 w-5 h-5" />
+                    </Link>
+                  </Button>
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-gray-100 flex flex-col items-center gap-4">
