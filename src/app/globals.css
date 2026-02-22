@@ -4,6 +4,7 @@
 
 body {
   font-family: var(--font-roboto), Arial, Helvetica, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @layer base {
@@ -94,11 +95,15 @@ body {
   }
 
   .neo-shadow {
-    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.05);
   }
 
   .neo-shadow-hover:hover {
-    box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.08);
     transform: translate(-2px, -2px);
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }

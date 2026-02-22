@@ -41,12 +41,12 @@ export function EcommerceFooter() {
   };
 
   return (
-    <footer className="bg-gray-950 text-gray-400 pt-24 pb-12">
+    <footer className="bg-gray-950 text-gray-400 pt-16 md:pt-24 pb-8 md:pb-12 px-4 md:px-0">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-          <div className="md:col-span-2 lg:col-span-1 space-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16 md:mb-20">
+          <div className="sm:col-span-2 lg:col-span-1 space-y-6 md:space-y-8">
               <Link href="/" className="flex items-center gap-3">
-                <div className="relative w-12 h-12 overflow-hidden rounded-2xl grayscale">
+                <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-xl md:rounded-2xl grayscale brightness-125">
                   <Image 
                       src="/logo.jpg"
                       alt="Simon Styles Logo"
@@ -54,74 +54,74 @@ export function EcommerceFooter() {
                       className="object-cover"
                   />
                 </div>
-                <span className="text-3xl font-black text-white tracking-tighter">SIMON<span className="text-primary">STYLES</span></span>
+                <span className="text-2xl md:text-3xl font-black text-white tracking-tighter">SIMON<span className="text-primary">STYLES</span></span>
               </Link>
-              <p className="text-sm leading-relaxed max-w-xs font-medium">
+              <p className="text-sm leading-relaxed max-w-xs font-medium text-gray-500">
                 The leading website designer in Kenya and East Africa. Engineering world-class digital ecosystems for forward-thinking enterprises.
               </p>
-              <div className="flex gap-5">
-                <Link href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary/20 hover:text-primary transition-all"><Twitter size={20} /></Link>
-                <Link href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary/20 hover:text-primary transition-all"><Linkedin size={20} /></Link>
-                <Link href={INSTAGRAM_PROFILE_URL} className="p-3 bg-white/5 rounded-2xl hover:bg-primary/20 hover:text-primary transition-all"><Instagram size={20} /></Link>
+              <div className="flex gap-4">
+                <Link href="#" className="p-2.5 bg-white/5 rounded-xl hover:bg-primary/20 hover:text-primary transition-all shadow-sm"><Twitter size={18} /></Link>
+                <Link href="#" className="p-2.5 bg-white/5 rounded-xl hover:bg-primary/20 hover:text-primary transition-all shadow-sm"><Linkedin size={18} /></Link>
+                <Link href={INSTAGRAM_PROFILE_URL} className="p-2.5 bg-white/5 rounded-xl hover:bg-primary/20 hover:text-primary transition-all shadow-sm"><Instagram size={18} /></Link>
               </div>
           </div>
 
-          <div>
-            <h4 className="font-black text-white mb-8 uppercase tracking-[0.2em] text-[10px]">Expertise</h4>
-            <ul className="space-y-5 text-sm font-bold">
+          <div className="hidden sm:block">
+            <h4 className="font-black text-white mb-6 md:mb-8 uppercase tracking-[0.2em] text-[10px]">Expertise</h4>
+            <ul className="space-y-4 md:space-y-5 text-sm font-bold">
               {footerLinks.expertise.map(link => (
-                <li key={link.name}><Link href={link.href} className="hover:text-primary transition-colors">{link.name}</Link></li>
+                <li key={link.name}><Link href={link.href} className="hover:text-primary transition-colors block">{link.name}</Link></li>
               ))}
             </ul>
           </div>
           
-          <div>
-            <h4 className="font-black text-white mb-8 uppercase tracking-[0.2em] text-[10px]">Agency</h4>
-            <ul className="space-y-5 text-sm font-bold">
+          <div className="hidden sm:block">
+            <h4 className="font-black text-white mb-6 md:mb-8 uppercase tracking-[0.2em] text-[10px]">Agency</h4>
+            <ul className="space-y-4 md:space-y-5 text-sm font-bold">
               {footerLinks.company.map(link => (
-                <li key={link.name}><Link href={link.href} className="hover:text-primary transition-colors">{link.name}</Link></li>
+                <li key={link.name}><Link href={link.href} className="hover:text-primary transition-colors block">{link.name}</Link></li>
               ))}
             </ul>
           </div>
 
-          <div className="space-y-8">
-            <h4 className="font-black text-white mb-8 uppercase tracking-[0.2em] text-[10px]">Connect</h4>
-            <div className="space-y-5 text-sm font-bold">
+          <div className="space-y-6 md:space-y-8">
+            <h4 className="font-black text-white mb-6 md:mb-8 uppercase tracking-[0.2em] text-[10px]">Connect</h4>
+            <div className="space-y-4 md:space-y-5 text-sm font-bold">
               <div className="flex items-center gap-4 group cursor-default">
-                <div className="p-2 bg-green-500/10 rounded-lg group-hover:bg-green-500/20 transition-colors"><CreditCard size={18} className="text-green-500" /></div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] uppercase text-gray-500 font-black tracking-widest">M-Pesa Till</span>
-                  <span className="text-white">{MPESA_TILL_NUMBER} - {MPESA_TILL_NAME}</span>
+                <div className="p-2 bg-green-500/10 rounded-lg group-hover:bg-green-500/20 transition-colors shrink-0"><CreditCard size={18} className="text-green-500" /></div>
+                <div className="flex flex-col min-w-0">
+                  <span className="text-[9px] md:text-[10px] uppercase text-gray-500 font-black tracking-widest">M-Pesa Till</span>
+                  <span className="text-white truncate">{MPESA_TILL_NUMBER} - {MPESA_TILL_NAME}</span>
                 </div>
               </div>
               <a href={`mailto:${contactEmail}`} className="flex items-center gap-4 hover:text-white transition-colors">
-                <div className="p-2 bg-primary/10 rounded-lg"><Mail size={18} className="text-primary" /></div>
-                <span>{contactEmail}</span>
+                <div className="p-2 bg-primary/10 rounded-lg shrink-0"><Mail size={18} className="text-primary" /></div>
+                <span className="truncate">{contactEmail}</span>
               </a>
               <a href={`tel:${contactPhone}`} className="flex items-center gap-4 hover:text-white transition-colors">
-                <div className="p-2 bg-primary/10 rounded-lg"><Phone size={18} className="text-primary" /></div>
+                <div className="p-2 bg-primary/10 rounded-lg shrink-0"><Phone size={18} className="text-primary" /></div>
                 <span>{contactPhone}</span>
               </a>
               <div className="flex items-start gap-4">
-                <div className="p-2 bg-primary/10 rounded-lg mt-1"><MapPin size={18} className="text-primary" /></div>
+                <div className="p-2 bg-primary/10 rounded-lg mt-1 shrink-0"><MapPin size={18} className="text-primary" /></div>
                 <span className="leading-relaxed">{address}</span>
               </div>
             </div>
             <Link 
               href={whatsappLink}
               target="_blank"
-              className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:scale-105 transition-all shadow-xl shadow-primary/20"
+              className="inline-flex items-center justify-center gap-3 bg-primary text-white w-full py-4 rounded-xl md:rounded-full font-black uppercase tracking-widest text-[10px] hover:scale-[1.02] transition-all shadow-xl shadow-primary/20"
             >
               <WhatsAppIcon /> Work with the Leader
             </Link>
           </div>
         </div>
         
-        <Separator className="mb-10 bg-white/5" />
+        <Separator className="mb-8 md:mb-10 bg-white/5" />
         
-        <div className="flex flex-col sm:flex-row justify-between items-center text-[10px] font-black uppercase tracking-widest opacity-40 text-center sm:text-left gap-6">
-          <p>&copy; {currentYear} Simon Styles Technology Limited. East Africa's Leading Agency.</p>
-          <div className="flex gap-8">
+        <div className="flex flex-col sm:flex-row justify-between items-center text-[9px] md:text-[10px] font-black uppercase tracking-widest opacity-40 text-center sm:text-left gap-6">
+          <p className="max-w-xs md:max-w-none leading-relaxed">&copy; {currentYear} Simon Styles Technology Limited. East Africa's Leading Agency.</p>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
             {footerLinks.legal.map(link => (
               <Link key={link.name} href={link.href} className="hover:underline">{link.name}</Link>
             ))}

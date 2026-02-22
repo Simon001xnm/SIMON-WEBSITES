@@ -2,32 +2,25 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { Button } from '@/components/ui/button';
 import { 
-  Check, 
-  ChevronLeft, 
   Code, 
   Smartphone, 
   Cloud, 
-  Megaphone, 
   Shield, 
-  Wrench, 
   Bot, 
   ArrowRight,
   Zap,
   Layers,
   Search,
   CheckCircle2,
-  Phone,
   AlertTriangle,
   CreditCard,
   Wallet,
-  ArrowUpRight
 } from 'lucide-react';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 import {
@@ -225,41 +218,41 @@ export default function ServicesPage() {
   };
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen text-white selection:bg-primary/30">
+    <div className="bg-[#0a0a0a] min-h-screen text-white selection:bg-primary/30 overflow-x-hidden">
       <EcommerceHeader />
       
       <main>
         {/* Cinematic Hero */}
-        <section className="relative pt-32 pb-24 md:pt-48 md:pb-40 overflow-hidden">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[150px] -z-10 translate-x-1/2 -translate-y-1/2 opacity-50"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[150px] -z-10 -translate-x-1/2 translate-y-1/2 opacity-50"></div>
+        <section className="relative pt-24 pb-16 md:pt-48 md:pb-40 overflow-hidden">
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] md:w-[800px] md:h-[800px] bg-primary/10 rounded-full blur-[100px] md:blur-[150px] -z-10 translate-x-1/2 -translate-y-1/2 opacity-50"></div>
+          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-emerald-500/5 rounded-full blur-[100px] md:blur-[150px] -z-10 -translate-x-1/2 translate-y-1/2 opacity-50"></div>
           
           <Container>
-            <div className="max-w-4xl">
+            <div className="max-w-4xl mx-auto lg:mx-0 text-center lg:text-left">
               <motion.div 
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
               >
                 <CreditCard className="w-4 h-4 text-emerald-500" />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">Official Daraja API Specialists</span>
+                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-white/60">Official Daraja API Specialists</span>
               </motion.div>
               
               <motion.h1 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-10"
+                className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-[0.95] mb-8 md:mb-10"
               >
                 Seamless <br/>
-                <span className="text-emerald-500 italic underline decoration-emerald-500/20">M-Pesa Automation.</span>
+                <span className="text-emerald-500 italic underline decoration-emerald-500/20 underline-offset-8">M-Pesa Automation.</span>
               </motion.h1>
               
               <motion.p 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl md:text-2xl text-white/60 max-w-2xl leading-relaxed font-medium mb-12"
+                className="text-lg md:text-2xl text-white/60 max-w-2xl leading-relaxed font-medium mb-10 md:mb-12 mx-auto lg:mx-0"
               >
                 We bridge the gap between your business and Safaricom's Daraja API. Collect payments, reconcile accounts, and automate payouts with surgical precision.
               </motion.p>
@@ -268,12 +261,12 @@ export default function ServicesPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-6"
+                className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center lg:justify-start px-4 sm:px-0"
               >
-                <Button asChild size="lg" className="h-16 px-10 text-lg rounded-2xl bg-emerald-600 hover:bg-emerald-700 font-black uppercase tracking-widest shadow-2xl shadow-emerald-500/20 transition-all hover:scale-105">
+                <Button asChild size="lg" className="h-16 px-8 md:px-10 text-base md:text-lg rounded-2xl bg-emerald-600 hover:bg-emerald-700 font-black uppercase tracking-widest shadow-2xl shadow-emerald-500/20 transition-all hover:scale-[1.02] w-full sm:w-auto">
                   <Link href="#fintech-suites">View Fintech Packages</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="h-16 px-10 text-lg rounded-2xl border-white/10 hover:bg-white/5 font-black uppercase tracking-widest transition-all">
+                <Button asChild variant="outline" size="lg" className="h-16 px-8 md:px-10 text-base md:text-lg rounded-2xl border-white/10 hover:bg-white/5 font-black uppercase tracking-widest transition-all w-full sm:w-auto">
                   <Link href="/contact">Free Consultation</Link>
                 </Button>
               </motion.div>
@@ -282,14 +275,14 @@ export default function ServicesPage() {
         </section>
 
         {/* Exclusive Fintech Suites */}
-        <section id="fintech-suites" className="py-32 bg-emerald-950/20 border-y border-white/5">
+        <section id="fintech-suites" className="py-20 md:py-32 bg-emerald-950/20 border-y border-white/5">
           <Container>
-            <div className="text-center mb-20">
-              <motion.h2 {...fadeIn} className="text-4xl md:text-6xl font-black tracking-tighter mb-6">The Daraja <span className="text-emerald-500">Excellence Suite.</span></motion.h2>
-              <p className="text-xl text-white/60 max-w-2xl mx-auto font-medium">Expert-led integration for businesses ready to dominate the local digital economy.</p>
+            <div className="text-center mb-16 md:mb-20">
+              <motion.h2 {...fadeIn} className="text-3xl md:text-6xl font-black tracking-tighter mb-6">The Daraja <span className="text-emerald-500">Excellence Suite.</span></motion.h2>
+              <p className="text-base md:text-xl text-white/60 max-w-2xl mx-auto font-medium">Expert-led integration for businesses ready to dominate the local digital economy.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {fintechPackages.map((pkg, i) => (
                 <motion.div 
                   key={pkg.title}
@@ -298,16 +291,16 @@ export default function ServicesPage() {
                   className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-[2rem] flex flex-col hover:border-emerald-500/50 transition-all group"
                 >
                   <h3 className="text-xl font-black mb-2 text-white">{pkg.title}</h3>
-                  <p className="text-xs text-white/40 mb-6 font-bold uppercase tracking-widest">Starting KES {pkg.price}</p>
-                  <p className="text-sm text-white/60 mb-8 flex-grow">{pkg.desc}</p>
+                  <p className="text-[10px] text-white/40 mb-6 font-bold uppercase tracking-widest">Starting KES {pkg.price}</p>
+                  <p className="text-sm text-white/60 mb-8 flex-grow leading-relaxed">{pkg.desc}</p>
                   <ul className="space-y-3 mb-10">
                     {pkg.features.map(f => (
                       <li key={f} className="flex items-center gap-2 text-[10px] font-bold text-white/80 uppercase tracking-tight">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-500" /> {f}
+                        <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" /> {f}
                       </li>
                     ))}
                   </ul>
-                  <Button asChild variant="outline" className="w-full rounded-xl border-white/10 group-hover:bg-emerald-600 group-hover:border-emerald-600 group-hover:text-white transition-all">
+                  <Button asChild variant="outline" className="w-full h-12 rounded-xl border-white/10 group-hover:bg-emerald-600 group-hover:border-emerald-600 group-hover:text-white transition-all text-[10px] font-black uppercase tracking-widest">
                     <Link href={`https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(`Hello, I'm interested in the M-Pesa "${pkg.title}" package.`)}`}>Inquire Package</Link>
                   </Button>
                 </motion.div>
@@ -317,12 +310,12 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section id="services-grid" className="py-32 bg-white text-black rounded-t-[4rem]">
+        <section id="services-grid" className="py-20 md:py-32 bg-white text-black rounded-t-[3rem] md:rounded-t-[4rem]">
           <Container>
-            <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-24">
+            <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-10 mb-16 md:mb-24 text-center lg:text-left">
               <motion.div {...fadeIn} className="max-w-2xl">
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6">World-Class Solutions, <br/><span className="text-primary italic">engineered by leaders.</span></h2>
-                <p className="text-xl text-gray-500 font-medium">As East Africa's premier design firm, we provide the elite technical infrastructure your brand deserves.</p>
+                <h2 className="text-3xl md:text-6xl font-black tracking-tighter mb-6">World-Class Solutions, <br/><span className="text-primary italic">engineered by leaders.</span></h2>
+                <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed">As East Africa's premier design firm, we provide the elite technical infrastructure your brand deserves.</p>
               </motion.div>
               <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="hidden lg:block">
                 <div className="p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-center gap-6 relative shadow-xl">
@@ -330,7 +323,7 @@ export default function ServicesPage() {
                     <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">Regional Specialist</p>
                     <p className="text-2xl font-black">50% DEPOSIT</p>
                   </div>
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
                     <CheckCircle2 className="w-6 h-6 text-white" />
                   </div>
                   <div className="absolute -top-4 -left-4 bg-orange-500 text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest flex items-center gap-1 shadow-lg">
@@ -340,7 +333,7 @@ export default function ServicesPage() {
               </motion.div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {services.map((service, i) => {
                 const Icon = service.icon;
                 return (
@@ -348,34 +341,34 @@ export default function ServicesPage() {
                     key={service.title}
                     {...fadeIn}
                     transition={{ delay: i * 0.1 }}
-                    className="group relative p-1 rounded-[2.5rem] bg-gradient-to-br from-gray-50 to-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                    className="group relative p-1 rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-gray-50 to-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col"
                   >
                     <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.accent} opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl`}></div>
                     
-                    <div className="p-10 flex flex-col h-full">
-                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 bg-gradient-to-br ${service.accent} shadow-lg shadow-gray-200 group-hover:scale-110 transition-transform duration-500`}>
-                        <Icon className="w-8 h-8 text-white" />
+                    <div className="p-8 md:p-10 flex flex-col h-full">
+                      <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mb-8 bg-gradient-to-br ${service.accent} shadow-lg shadow-gray-200 group-hover:scale-110 transition-transform duration-500`}>
+                        <Icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                       </div>
                       
                       <h3 className="text-2xl font-black mb-4 group-hover:text-primary transition-colors">{service.title}</h3>
                       
                       <div className="mb-6">
-                        <p className="text-sm text-gray-400 font-bold uppercase tracking-widest mb-1">{service.priceNote}</p>
-                        <p className="text-4xl font-black text-accent">KES {service.price}</p>
+                        <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-1">{service.priceNote}</p>
+                        <p className="text-3xl md:text-4xl font-black text-accent">KES {service.price}</p>
                       </div>
 
-                      <p className="text-gray-500 font-medium leading-relaxed mb-8 flex-grow">{service.description}</p>
+                      <p className="text-gray-500 font-medium leading-relaxed mb-8 flex-grow text-sm md:text-base">{service.description}</p>
                       
                       <ul className="space-y-4 mb-10">
                         {service.features.map(f => (
-                          <li key={f} className="flex items-center gap-3 text-sm font-bold text-gray-700">
-                            <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                          <li key={f} className="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700">
+                            <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
                             {f}
                           </li>
                         ))}
                       </ul>
 
-                      <Button asChild className="w-full h-14 rounded-2xl bg-gray-950 hover:bg-primary text-white font-black uppercase tracking-widest text-[10px] transition-all">
+                      <Button asChild className="w-full h-14 rounded-2xl bg-gray-950 hover:bg-primary text-white font-black uppercase tracking-widest text-[10px] transition-all shadow-lg">
                         <a href={generateWhatsAppLink(service.title, service.price)} target="_blank" rel="noopener noreferrer">
                           <WhatsAppIcon /> Start Consulting
                         </a>
@@ -390,14 +383,14 @@ export default function ServicesPage() {
         </section>
 
         {/* Strategic Workflow */}
-        <section className="py-32 bg-gray-50 overflow-hidden">
+        <section className="py-20 md:py-32 bg-gray-50 overflow-hidden">
           <Container>
-            <div className="text-center mb-24">
-              <motion.h2 {...fadeIn} className="text-4xl md:text-6xl font-black tracking-tighter text-black mb-6">Our Strategic <span className="text-primary italic">Workflow.</span></motion.h2>
-              <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-xl text-gray-500 max-w-2xl mx-auto font-medium">We've refined a process that ensures quality, speed, and absolute clarity at every stage of development.</motion.p>
+            <div className="text-center mb-16 md:mb-24">
+              <motion.h2 {...fadeIn} className="text-3xl md:text-6xl font-black tracking-tighter text-black mb-6">Our Strategic <span className="text-primary italic">Workflow.</span></motion.h2>
+              <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium px-4">We've refined a process that ensures quality, speed, and absolute clarity at every stage.</motion.p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative">
               <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-1/2 z-0"></div>
               
               {steps.map((step, i) => (
@@ -405,15 +398,15 @@ export default function ServicesPage() {
                   key={step.title}
                   {...fadeIn}
                   transition={{ delay: i * 0.1 }}
-                  className="relative z-10 bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-xl text-center group hover:bg-primary transition-colors duration-500"
+                  className="relative z-10 bg-white p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-gray-100 shadow-xl text-center group hover:bg-primary transition-colors duration-500"
                 >
-                  <div className="w-20 h-20 rounded-full bg-gray-50 flex items-center justify-center mx-auto mb-8 shadow-inner group-hover:bg-white/20 transition-colors">
-                    <step.icon className="w-10 h-10 text-primary group-hover:text-white transition-colors" />
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-50 flex items-center justify-center mx-auto mb-8 shadow-inner group-hover:bg-white/20 transition-colors">
+                    <step.icon className="w-8 h-8 md:w-10 md:h-10 text-primary group-hover:text-white transition-colors" />
                   </div>
-                  <h4 className="text-xl font-black text-black group-hover:text-white mb-4 uppercase tracking-tighter">{step.title}</h4>
+                  <h4 className="text-lg md:text-xl font-black text-black group-hover:text-white mb-4 uppercase tracking-tighter">{step.title}</h4>
                   <p className="text-sm text-gray-500 group-hover:text-white/80 font-medium leading-relaxed">{step.desc}</p>
                   
-                  <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-white border border-gray-100 shadow-lg flex items-center justify-center font-black text-primary text-xl">
+                  <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-gray-100 shadow-lg flex items-center justify-center font-black text-primary text-lg md:text-xl">
                     0{i + 1}
                   </div>
                 </motion.div>
@@ -423,24 +416,24 @@ export default function ServicesPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-32 bg-white">
+        <section className="py-20 md:py-32 bg-white">
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-              <div>
-                <motion.h2 {...fadeIn} className="text-4xl md:text-6xl font-black tracking-tighter text-black mb-8 leading-[0.9]">Common <br/><span className="text-primary italic">Queries.</span></motion.h2>
-                <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-xl text-gray-500 font-medium mb-12">Transparency is why we are the leaders. If you have more questions, our team is always ready.</motion.p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+              <div className="text-center lg:text-left">
+                <motion.h2 {...fadeIn} className="text-3xl md:text-6xl font-black tracking-tighter text-black mb-8 leading-[0.9]">Common <br/><span className="text-primary italic">Queries.</span></motion.h2>
+                <motion.p {...fadeIn} transition={{ delay: 0.1 }} className="text-lg md:text-xl text-gray-500 font-medium mb-10 md:mb-12">Transparency is why we are the leaders. If you have more questions, our team is always ready.</motion.p>
                 
-                <Button asChild size="lg" variant="outline" className="h-16 px-10 rounded-2xl border-gray-200 hover:bg-gray-50 font-black uppercase tracking-widest text-[10px]">
+                <Button asChild size="lg" variant="outline" className="h-16 px-10 rounded-2xl border-gray-200 hover:bg-gray-50 font-black uppercase tracking-widest text-[10px] w-full sm:w-auto">
                   <Link href="/contact">Talk to a Lead Engineer <ArrowRight className="ml-2 w-4 h-4" /></Link>
                 </Button>
               </div>
 
-              <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
+              <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="w-full">
                 <Accordion type="single" collapsible className="w-full space-y-4">
                   {faqs.map((faq, i) => (
-                    <AccordionItem key={i} value={`item-${i}`} className="border rounded-[1.5rem] px-8 py-2 bg-gray-50 border-gray-100 hover:border-primary/20 transition-colors">
-                      <AccordionTrigger className="text-lg font-black text-black hover:no-underline text-left">{faq.q}</AccordionTrigger>
-                      <AccordionContent className="text-gray-500 font-medium text-base leading-relaxed pb-6">
+                    <AccordionItem key={i} value={`item-${i}`} className="border rounded-[1.5rem] px-6 md:px-8 py-2 bg-gray-50 border-gray-100 hover:border-primary/20 transition-colors overflow-hidden">
+                      <AccordionTrigger className="text-base md:text-lg font-black text-black hover:no-underline text-left leading-tight py-4">{faq.q}</AccordionTrigger>
+                      <AccordionContent className="text-gray-500 font-medium text-sm md:text-base leading-relaxed pb-6">
                         {faq.a}
                       </AccordionContent>
                     </AccordionItem>
@@ -452,22 +445,22 @@ export default function ServicesPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <Container>
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className="p-16 md:p-24 rounded-[4rem] bg-gray-950 text-white text-center relative overflow-hidden shadow-2xl"
+              className="p-10 md:p-24 rounded-[3rem] md:rounded-[4rem] bg-gray-950 text-white text-center relative overflow-hidden shadow-2xl"
             >
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-purple-500/10 pointer-events-none"></div>
-              <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-8 relative z-10">Outpace <br/>your <span className="text-primary italic">competition.</span></h2>
-              <p className="text-xl text-white/60 mb-12 max-w-xl mx-auto font-medium relative z-10">Work with the leading agency in the region. Let's build your future today.</p>
+              <h2 className="text-3xl sm:text-4xl md:text-7xl font-black tracking-tighter mb-8 relative z-10">Outpace <br/>your <span className="text-primary italic">competition.</span></h2>
+              <p className="text-lg md:text-xl text-white/60 mb-10 md:mb-12 max-w-xl mx-auto font-medium relative z-10">Work with the leading agency in the region. Let's build your future today.</p>
               
-              <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
-                <Button asChild size="lg" className="h-16 px-12 text-lg rounded-2xl bg-white text-primary hover:bg-gray-100 font-black uppercase tracking-widest shadow-xl transition-all hover:scale-105">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 relative z-10">
+                <Button asChild size="lg" className="h-16 px-10 md:px-12 text-base md:text-lg rounded-2xl bg-white text-primary hover:bg-gray-100 font-black uppercase tracking-widest shadow-xl transition-all hover:scale-[1.02] w-full sm:w-auto">
                   <Link href={`https://wa.me/${WHATSAPP_ORDER_NUMBER}`}>Partner with Us</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="h-16 px-12 text-lg rounded-2xl border-white/10 hover:bg-white/5 font-black uppercase tracking-widest transition-all">
+                <Button asChild variant="outline" size="lg" className="h-16 px-10 md:px-12 text-base md:text-lg rounded-2xl border-white/10 hover:bg-white/5 font-black uppercase tracking-widest transition-all w-full sm:w-auto">
                   <Link href="/projects">See Our Track Record</Link>
                 </Button>
               </div>
