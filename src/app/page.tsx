@@ -27,7 +27,7 @@ import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
 import { TeamSection } from '@/components/sections/TeamSection';
 import { motion } from 'framer-motion';
-import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER } from '@/lib/constants';
+import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -310,6 +310,23 @@ export default function SmallBizLandingPage() {
                       Buy Equity via PayPal <ExternalLink className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
+                </div>
+
+                {/* M-Pesa Alternative */}
+                <div className="mt-6 p-6 border-2 border-dashed border-emerald-100 rounded-3xl bg-emerald-50/50">
+                  <p className="text-center text-[10px] font-black uppercase tracking-widest text-emerald-600 mb-4">Alternative: Pay via M-Pesa</p>
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-emerald-600 rounded-lg text-white">
+                        <Smartphone className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-gray-500 uppercase">Buy Goods Till</p>
+                        <p className="text-2xl font-black text-emerald-700 leading-none">{MPESA_TILL_NUMBER}</p>
+                      </div>
+                    </div>
+                    <p className="text-[10px] font-bold text-emerald-600/60 uppercase tracking-tight mt-1">Till Name: {MPESA_TILL_NAME}</p>
+                  </div>
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-gray-100 flex flex-col items-center gap-4">
