@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -303,18 +304,19 @@ export default function SmallBizLandingPage() {
                   <p className="text-sm text-gray-500 font-bold uppercase tracking-widest">Select your equity package below</p>
                 </div>
                 
-                {/* PayPal Link Button */}
-                <div className="flex flex-col items-center justify-center min-h-[150px] border-2 border-dashed border-gray-100 rounded-3xl p-6">
+                {/* PayPal Link Button - Mode 1 */}
+                <div className="flex flex-col items-center justify-center min-h-[140px] border-2 border-dashed border-gray-100 rounded-3xl p-6 mb-6">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4">Mode 1: Global Payment via PayPal</p>
                   <Button asChild size="lg" className="w-full h-16 text-lg rounded-2xl bg-[#0070ba] hover:bg-[#003087] text-white font-black uppercase tracking-widest shadow-xl transition-all hover:scale-105">
                     <Link href={paypalPaymentLink} target="_blank">
-                      Buy Equity via PayPal <ExternalLink className="ml-2 w-5 h-5" />
+                      Buy via PayPal <ExternalLink className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
                 </div>
 
-                {/* M-Pesa Alternative */}
-                <div className="mt-6 p-6 border-2 border-dashed border-emerald-100 rounded-3xl bg-emerald-50/50">
-                  <p className="text-center text-[10px] font-black uppercase tracking-widest text-emerald-600 mb-4">Alternative: Pay via M-Pesa</p>
+                {/* M-Pesa Alternative - Mode 2 */}
+                <div className="p-6 border-2 border-dashed border-emerald-100 rounded-3xl bg-emerald-50/50">
+                  <p className="text-center text-[10px] font-black uppercase tracking-widest text-emerald-600 mb-4">Mode 2: Local Payment via M-Pesa</p>
                   <div className="flex flex-col items-center gap-2">
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-emerald-600 rounded-lg text-white">
