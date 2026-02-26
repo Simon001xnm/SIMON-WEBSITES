@@ -261,7 +261,7 @@ export default function SmallBizLandingPage() {
         <ClientsAndReachSection />
 
         {/* Investor Section */}
-        <section className="py-16 md:py-24 bg-gray-900 text-white relative overflow-hidden">
+        <section id="investor" className="py-16 md:py-24 bg-gray-900 text-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">

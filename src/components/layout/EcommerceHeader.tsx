@@ -12,6 +12,7 @@ import {
   Menu,
   PhoneCall,
   Sparkles,
+  TrendingUp,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -62,10 +63,10 @@ export function EcommerceHeader() {
           </motion.div>
 
           <nav className="hidden lg:flex items-center gap-10 xl:gap-12">
-            {['Services', 'Portfolio', 'Insights', 'Contact'].map((item) => (
+            {['Services', 'Portfolio', 'Insights', 'Invest', 'Contact'].map((item) => (
               <Link 
                 key={item}
-                href={item === 'Portfolio' ? '/projects' : item === 'Insights' ? '/blog' : `/${item.toLowerCase()}`} 
+                href={item === 'Portfolio' ? '/projects' : item === 'Insights' ? '/blog' : item === 'Invest' ? '/#investor' : `/${item.toLowerCase()}`} 
                 className="text-xs font-black uppercase tracking-[0.2em] text-gray-500 hover:text-primary transition-colors relative group"
               >
                 {item}
@@ -115,6 +116,12 @@ export function EcommerceHeader() {
                     <DropdownMenuItem asChild className="rounded-xl md:rounded-2xl mt-1">
                       <Link href="/signup" className="cursor-pointer font-black px-5 py-4 text-sm text-primary block">New Client? Join Us</Link>
                     </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild className="rounded-xl md:rounded-2xl mt-1 bg-primary/5">
+                      <Link href="/#investor" className="cursor-pointer font-black px-5 py-4 text-xs uppercase tracking-widest text-primary flex items-center gap-2">
+                        <TrendingUp className="w-3 h-3" /> Equity Portal
+                      </Link>
+                    </DropdownMenuItem>
                   </>
                 )}
               </DropdownMenuContent>
@@ -131,6 +138,7 @@ export function EcommerceHeader() {
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Home</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/services" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Services</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/projects" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Portfolio</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/#investor" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block text-primary flex items-center gap-2"><TrendingUp className="w-3 h-3" /> Invest in Us</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/blog" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Insights</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/contact" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Contact</Link></DropdownMenuItem>
                   <DropdownMenuSeparator className="my-2" />

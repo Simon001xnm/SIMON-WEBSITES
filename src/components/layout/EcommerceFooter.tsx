@@ -23,6 +23,7 @@ export function EcommerceFooter() {
       { name: 'About Us', href: '/#about' },
       { name: 'Our Work', href: '/projects' },
       { name: 'Services', href: '/services' },
+      { name: 'Invest in Us', href: '/#investor' },
       { name: 'Blog', href: '/blog' },
       { name: 'Contact', href: '/contact' },
     ],
