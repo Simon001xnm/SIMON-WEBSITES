@@ -11,14 +11,21 @@ export function GoogleReviewsBadge() {
         dangerouslySetInnerHTML={{
           __html: `
             window.renderBadge = function() {
+              // Ensure we don't duplicate the badge container
+              if (document.getElementById('google-reviews-container')) return;
+
               var ratingBadgeContainer = document.createElement("div");
+              ratingBadgeContainer.id = 'google-reviews-container';
               document.body.appendChild(ratingBadgeContainer);
-              window.gapi.load('ratingbadge', function() {
-                window.gapi.ratingbadge.render(ratingBadgeContainer, {
-                  "merchant_id": 5532241116,
-                  "position": "BOTTOM_LEFT"
+              
+              if (window.gapi) {
+                window.gapi.load('ratingbadge', function() {
+                  window.gapi.ratingbadge.render(ratingBadgeContainer, {
+                    "merchant_id": 5532241116,
+                    "position": "BOTTOM_LEFT"
+                  });
                 });
-              });
+              }
             }
           `,
         }}

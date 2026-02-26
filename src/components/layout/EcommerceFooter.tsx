@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from './Container';
 import { Separator } from '@/components/ui/separator';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, CreditCard } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, CreditCard, Star } from 'lucide-react';
 import { WHATSAPP_ORDER_NUMBER, INSTAGRAM_PROFILE_URL, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
 
 const WhatsAppIcon = () => (
@@ -60,6 +60,15 @@ export function EcommerceFooter() {
               <p className="text-sm leading-relaxed max-w-xs font-medium text-gray-500">
                 The leading website designer in Kenya and East Africa. Engineering world-class digital ecosystems for forward-thinking enterprises.
               </p>
+              
+              {/* Google Review Trust Marker */}
+              <div className="inline-flex items-center gap-2 p-3 bg-white/5 rounded-2xl border border-white/10">
+                <div className="flex text-yellow-500">
+                  {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={12} fill="currentColor" />)}
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-white">Google Verified</span>
+              </div>
+
               <div className="flex gap-4">
                 <Link href="#" className="p-2.5 bg-white/5 rounded-xl hover:bg-primary/20 hover:text-primary transition-all shadow-sm"><Twitter size={18} /></Link>
                 <Link href="#" className="p-2.5 bg-white/5 rounded-xl hover:bg-primary/20 hover:text-primary transition-all shadow-sm"><Linkedin size={18} /></Link>

@@ -5,7 +5,7 @@ import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle2, Sparkles } from 'lucide-react';
+import { CheckCircle2, Sparkles, MessageSquare } from 'lucide-react';
 import { useAuth } from '@/hooks/use-auth';
 import Script from 'next/script';
 
@@ -63,20 +63,31 @@ export default function OrderSuccessPage() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 mb-6">
-              Order <span className="text-primary italic">Confirmed.</span>
+              Project <span className="text-primary italic">Queued.</span>
             </h1>
             
-            <Card className="border-2 border-gray-100 shadow-2xl rounded-[2.5rem] p-8 md:p-12">
+            <Card className="border-2 border-gray-100 shadow-2xl rounded-[2.5rem] p-8 md:p-12 bg-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4">
+                <Sparkles className="text-primary/20 w-12 h-12" />
+              </div>
               <CardHeader className="p-0 mb-6">
                 <CardTitle className="text-2xl font-black text-gray-900">Thank you for choosing the best.</CardTitle>
               </CardHeader>
-              <CardContent className="p-0 space-y-6">
+              <CardContent className="p-0 space-y-8">
                 <p className="text-lg text-gray-500 font-medium leading-relaxed">
-                  Your project has been successfully queued. Our lead engineer will contact you shortly to finalize the next steps of your digital transformation.
+                  Your digital transformation has officially begun. Our lead engineer will contact you shortly via WhatsApp to finalize the technical blueprints.
                 </p>
-                <div className="p-6 bg-primary/5 rounded-2xl border border-primary/10 inline-flex items-center gap-3">
-                  <Sparkles className="w-5 h-5 text-primary" />
-                  <span className="text-xs font-black uppercase tracking-widest text-primary">A Google Review prompt will appear shortly</span>
+                
+                <div className="p-8 bg-blue-50 rounded-3xl border-2 border-blue-100 flex flex-col items-center gap-4 text-blue-900">
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
+                    <MessageSquare className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="font-black uppercase tracking-widest text-xs">Action Required</p>
+                    <p className="text-sm font-bold opacity-80">
+                      A Google Customer Review popup will appear on your screen shortly. Please select "Yes" to help us maintain our elite ranking.
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>
