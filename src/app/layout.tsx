@@ -8,6 +8,7 @@ import { CartProvider } from '@/context/CartContext';
 import { AuthProvider } from '@/context/AuthContext';
 import { FloatingAssistant } from '@/components/layout/FloatingAssistant';
 import { FirebaseClientProvider } from '@/firebase';
+import { GoogleReviewsBadge } from '@/components/layout/GoogleReviewsBadge';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -70,6 +71,7 @@ export default function RootLayout({
               {children}
               <Toaster />
               <FloatingAssistant />
+              <GoogleReviewsBadge />
             </CartProvider>
           </AuthProvider>
         </FirebaseClientProvider>
