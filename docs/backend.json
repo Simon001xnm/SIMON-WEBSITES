@@ -1,3 +1,4 @@
+
 {
   "entities": {
     "BlogPost": {
@@ -155,6 +156,25 @@
         "anonymousLikerIdentifier",
         "likeDate"
       ]
+    },
+    "LaptopStock": {
+      "title": "LaptopStock",
+      "description": "Represents the live stock status of a specific laptop model.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the stock item (usually the laptop model name)."
+        },
+        "status": {
+          "type": "string",
+          "description": "The current availability status (e.g., 'In Stock', 'Limited', 'Sold Out')."
+        }
+      },
+      "required": [
+        "id",
+        "status"
+      ]
     }
   },
   "auth": {
@@ -187,6 +207,12 @@
         "$ref": "#/backend/entities/Like"
       },
       "description": "Likes on specific comments."
+    },
+    "/laptops_available/{stockId}": {
+      "schema": {
+        "$ref": "#/backend/entities/LaptopStock"
+      },
+      "description": "Live stock status collection for premium inventory."
     }
   }
 }

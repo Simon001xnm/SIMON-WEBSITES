@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -10,9 +11,10 @@ export function LaptopStockStatus() {
   const firestore = useFirestore();
 
   // Memoize query for performance and to avoid infinite loops
+  // Renamed collection to laptops_available to avoid rule issues with spaces
   const stockQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    return collection(firestore, 'Laptops Available');
+    return collection(firestore, 'laptops_available');
   }, [firestore]);
 
   const { data: stockStatus, isLoading, error } = useCollection(stockQuery);
@@ -35,7 +37,7 @@ export function LaptopStockStatus() {
         {error && (
           <div className="flex items-center gap-2 text-destructive py-4">
             <AlertCircle className="h-4 w-4" />
-            <p className="text-[10px] font-black uppercase">Permission Denied or Connection Error</p>
+            <p className="text-[10px] font-black uppercase">Sync Error: Verify Permissions</p>
           </div>
         )}
 

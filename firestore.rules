@@ -1,3 +1,4 @@
+
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -6,9 +7,9 @@ service cloud.firestore {
      * FIRESTORE SECURITY RULES - SIMON STYLES LIMITED
      * 
      * ENFORCING LEAST PRIVILEGE:
-     * 1. Public can read blog posts and stock.
+     * 1. Public can read blog posts and stock status.
      * 2. Only authenticated Admins can modify content.
-     * 3. Community features (likes/comments) are disabled at the rule level.
+     * 3. Community features (likes/comments) are enabled for anonymous users.
      */
 
     // --- HELPER FUNCTIONS ---
@@ -31,23 +32,24 @@ service cloud.firestore {
       allow read: if true;
       allow write: if isAdmin();
 
-      // Interactions disabled
       match /comments/{commentId} {
         allow read: if true;
-        allow write: if isAdmin();
+        allow create: if true;
+        allow update, delete: if isAdmin();
       }
       
       match /likes/{likeId} {
         allow read: if true;
-        allow write: if isAdmin();
+        allow create: if true;
+        allow update, delete: if isAdmin();
       }
     }
 
     /**
-     * @path /Laptops Available/{stockId}
+     * @path /laptops_available/{stockId}
      * Live stock status collection.
      */
-    match /Laptops Available/{stockId} {
+    match /laptops_available/{stockId} {
       allow read: if true;
       allow write: if isAdmin();
     }

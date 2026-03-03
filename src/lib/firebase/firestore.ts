@@ -1,7 +1,7 @@
 
 'use server';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { app } from '@/lib/firebase/config'; // Assuming you have a config file
+import { app } from '@/lib/firebase/config'; 
 
 const db = getFirestore(app);
 
@@ -12,9 +12,10 @@ export interface StockStatus {
 
 export async function getLaptopAvailability(): Promise<StockStatus[]> {
     try {
-        const querySnapshot = await getDocs(collection(db, "Laptops Available"));
+        // Updated to laptops_available to maintain consistency
+        const querySnapshot = await getDocs(collection(db, "laptops_available"));
         if (querySnapshot.empty) {
-            console.log('No documents found in "Laptops Available" collection.');
+            console.log('No documents found in "laptops_available" collection.');
             return [];
         }
         const stockStatus: StockStatus[] = [];
@@ -24,7 +25,6 @@ export async function getLaptopAvailability(): Promise<StockStatus[]> {
         return stockStatus;
     } catch (error) {
         console.error("Error fetching from Firestore: ", error);
-        // In a real app, you might want to handle this error more gracefully
         throw new Error("Could not fetch laptop availability from Firestore.");
     }
 }
