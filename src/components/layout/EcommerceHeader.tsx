@@ -13,6 +13,7 @@ import {
   PhoneCall,
   Sparkles,
   TrendingUp,
+  Laptop,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -63,7 +64,7 @@ export function EcommerceHeader() {
           </motion.div>
 
           <nav className="hidden lg:flex items-center gap-10 xl:gap-12">
-            {['Services', 'Portfolio', 'Insights', 'Invest', 'Contact'].map((item) => (
+            {['Laptops', 'Services', 'Portfolio', 'Insights', 'Invest', 'Contact'].map((item) => (
               <Link 
                 key={item}
                 href={item === 'Portfolio' ? '/projects' : item === 'Insights' ? '/blog' : item === 'Invest' ? '/#investor' : `/${item.toLowerCase()}`} 
@@ -136,6 +137,7 @@ export function EcommerceHeader() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-[calc(100vw-2rem)] max-w-sm mt-4 p-3 rounded-[2rem] border-2 shadow-2xl overflow-y-auto max-h-[80vh]">
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Home</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/laptops" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block text-primary flex items-center gap-2"><Laptop className="w-3 h-3" /> Buy Laptops</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/services" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Services</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/projects" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Portfolio</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/#investor" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block text-primary flex items-center gap-2"><TrendingUp className="w-3 h-3" /> Invest in Us</Link></DropdownMenuItem>

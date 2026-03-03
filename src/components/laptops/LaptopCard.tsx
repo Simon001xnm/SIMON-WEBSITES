@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -8,13 +7,12 @@ import type { Laptop } from '@/lib/laptop-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ShoppingCart } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants'; // Import the WhatsApp number
+import { ShoppingCart, ArrowUpRight } from 'lucide-react';
+import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/hooks/use-auth';
 import { useToast } from '@/hooks/use-toast';
-
+import { motion } from 'framer-motion';
 
 // Inline SVG for WhatsApp icon
 const WhatsAppIcon = () => (
@@ -68,83 +66,92 @@ export function LaptopCard({ laptop }: LaptopCardProps) {
   };
 
   return (
-    <Card className="flex flex-col overflow-hidden h-full transition-all duration-300 ease-in-out hover:shadow-lg group border rounded-md">
-      <div className="relative p-1">
-        {laptop.badgeText && (
-          <Badge
-            variant={laptop.badgeVariant}
-            className="absolute top-1.5 left-1.5 z-10 text-xs px-1.5 py-0.5 rounded-sm"
-          >
-            {laptop.badgeText}
-          </Badge>
-        )}
-        <Link href={`/laptops/${laptop.id}`} className="block aspect-square relative overflow-hidden">
-          <Image
-            src={laptop.imageUrl}
-            alt={laptop.name}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-contain transition-transform duration-300 group-hover:scale-105 p-1"
-            data-ai-hint={laptop.dataAiHint || "laptop image"}
-          />
-        </Link>
-      </div>
-
-      <CardContent className="p-2 flex-grow flex flex-col justify-between">
-        <div>
-          <p className="text-xs text-muted-foreground mb-0.5">{laptop.brand}</p>
-          <Link href={`/laptops/${laptop.id}`} className="hover:text-primary">
-            <h3 className="text-xs font-medium leading-tight mb-1 min-h-[1.5rem] group-hover:underline">
-              {laptop.name}
-            </h3>
-          </Link>
-          {laptop.promotionalText && (
-            <p className="text-[11px] text-green-600 mb-1">{laptop.promotionalText}</p>
+    <motion.div whileHover={{ y: -8 }} transition={{ type: 'spring', stiffness: 300 }}>
+      <Card className="flex flex-col overflow-hidden h-full border-2 border-gray-50 shadow-xl hover:shadow-2xl rounded-[2rem] group bg-white transition-shadow duration-500">
+        <div className="relative p-2">
+          {laptop.badgeText && (
+            <Badge
+              variant={laptop.badgeVariant}
+              className="absolute top-4 left-4 z-10 text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg border-2 border-white"
+            >
+              {laptop.badgeText}
+            </Badge>
           )}
+          <Link href={`/laptops/${laptop.id}`} className="block aspect-square relative overflow-hidden rounded-[1.5rem] bg-gray-50">
+            <Image
+              src={laptop.imageUrl}
+              alt={laptop.name}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-contain transition-transform duration-700 group-hover:scale-110 p-6"
+              data-ai-hint={laptop.dataAiHint || "laptop image"}
+              priority={laptop.id === 'laptop-32' || laptop.id === 'laptop-31'} // Load first few laptops with priority
+            />
+            {/* Hover Reveal */}
+            <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center transform scale-50 group-hover:scale-100 transition-transform duration-500">
+                <ArrowUpRight className="h-6 w-6 text-primary" />
+              </div>
+            </div>
+          </Link>
         </div>
 
-        <div className="mt-auto">
-           <div className="flex items-baseline gap-1 mb-1">
-            <p className="text-sm font-bold text-accent">
-              {formattedPrice}
-            </p>
-            {formattedOriginalPrice && laptop.price < laptop.originalPrice && (
-              <p className="text-[11px] text-muted-foreground line-through">
-                {formattedOriginalPrice}
-              </p>
+        <CardContent className="p-6 flex-grow flex flex-col justify-between">
+          <div className="space-y-2 mb-6">
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">{laptop.brand}</p>
+            <Link href={`/laptops/${laptop.id}`} className="hover:text-primary transition-colors">
+              <h3 className="text-lg font-black leading-tight text-gray-900 group-hover:underline decoration-primary decoration-2 underline-offset-4">
+                {laptop.name}
+              </h3>
+            </Link>
+            <p className="text-xs font-medium text-gray-500 line-clamp-2">{laptop.shortDescription}</p>
+            {laptop.promotionalText && (
+              <p className="text-[10px] font-black text-green-600 bg-green-50 inline-block px-2 py-0.5 rounded-md uppercase tracking-wider">{laptop.promotionalText}</p>
             )}
           </div>
-          
-          <div className="flex flex-col gap-1">
-            <Button 
-              size="sm"
-              className="w-full h-7 text-xs rounded-md"
-              onClick={handleAddToCart}
-              disabled={laptop.stock === 0}
-            >
-              <ShoppingCart className="w-3 h-3 mr-1.5"/>
-              {laptop.stock === 0 ? 'Sold Out' : 'Add to Cart'}
-            </Button>
-            <Button
-              asChild
-              size="sm"
-              variant="outline"
-              className="w-full h-7 text-xs bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:text-green-800 rounded-md"
-            >
-              <a 
-                href={whatsappLink} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                onClick={handleOrderViaWhatsApp}
-              >
-                <WhatsAppIcon />
-                Order
-              </a>
-            </Button>
-          </div>
 
-        </div>
-      </CardContent>
-    </Card>
+          <div className="mt-auto space-y-4">
+             <div className="flex items-baseline gap-2">
+              <p className="text-2xl font-black text-accent tracking-tighter">
+                {formattedPrice}
+              </p>
+              {formattedOriginalPrice && laptop.price < laptop.originalPrice && (
+                <p className="text-sm font-bold text-gray-300 line-through">
+                  {formattedOriginalPrice}
+                </p>
+              )}
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2">
+              <Button 
+                size="sm"
+                className="h-12 rounded-xl bg-gray-900 hover:bg-primary font-black uppercase tracking-widest text-[9px] shadow-sm transition-all"
+                onClick={handleAddToCart}
+                disabled={laptop.stock === 0}
+              >
+                <ShoppingCart className="w-3.5 h-3.5 mr-2"/>
+                {laptop.stock === 0 ? 'Sold' : 'Cart'}
+              </Button>
+              <Button
+                asChild
+                size="sm"
+                variant="outline"
+                className="h-12 rounded-xl border-2 border-emerald-100 bg-emerald-50 text-emerald-700 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 font-black uppercase tracking-widest text-[9px] transition-all"
+              >
+                <a 
+                  href={whatsappLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={handleOrderViaWhatsApp}
+                >
+                  <WhatsAppIcon />
+                  Direct Order
+                </a>
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }
