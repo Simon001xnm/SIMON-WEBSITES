@@ -17,7 +17,7 @@ import { ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/use-auth';
 import { useToast } from '@/hooks/use-toast';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, use } from 'react';
 
 // Inline SVG for WhatsApp icon
 const WhatsAppIcon = () => (
@@ -34,15 +34,15 @@ const WhatsAppIcon = () => (
 );
 
 interface LaptopDetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default function LaptopDetailPage({ params }: LaptopDetailPageProps) {
+  const { id } = use(params);
   const [laptop, setLaptop] = useState<Laptop | null>(null);
   const { user } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
-  const id = params.id;
 
   useEffect(() => {
     const foundLaptop = MOCK_LAPTOPS.find((l) => l.id === id);
@@ -54,7 +54,6 @@ export default function LaptopDetailPage({ params }: LaptopDetailPageProps) {
   }, [id]);
 
   if (!laptop) {
-    // You can return a loading spinner here if you want
     return null;
   }
   
