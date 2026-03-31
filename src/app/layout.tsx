@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${roboto.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${roboto.variable} scroll-smooth`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/logo.jpg" type="image/jpeg" />
@@ -64,11 +64,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`font-sans antialiased overflow-x-hidden`}>
+      <body className={`font-sans antialiased overflow-x-hidden selection:bg-primary/30`}>
         <FirebaseClientProvider>
           <AuthProvider>
             <CartProvider>
-              {children}
+              <div className="flex flex-col min-h-screen">
+                {children}
+              </div>
               <Toaster />
               <FloatingAssistant />
               <GoogleReviewsBadge />
