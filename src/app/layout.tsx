@@ -64,7 +64,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`font-sans antialiased overflow-x-hidden selection:bg-primary/30`}>
+      <body className={`font-sans antialiased selection:bg-primary/30`}>
         <FirebaseClientProvider>
           <AuthProvider>
             <CartProvider>
