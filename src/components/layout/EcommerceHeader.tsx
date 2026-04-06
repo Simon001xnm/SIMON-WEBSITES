@@ -14,6 +14,7 @@ import {
   Sparkles,
   TrendingUp,
   Laptop,
+  Terminal,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -112,14 +113,27 @@ export function EcommerceHeader() {
           </motion.div>
 
           <nav className="hidden lg:flex items-center gap-6 xl:gap-10">
-            {['Laptops', 'Services', 'Portfolio', 'Insights', 'Invest', 'Contact'].map((item) => (
+            {['Free ERP', 'Laptops', 'Services', 'Portfolio', 'Insights', 'Invest', 'Contact'].map((item) => (
               <Link 
                 key={item}
-                href={item === 'Portfolio' ? '/projects' : item === 'Insights' ? '/blog' : item === 'Invest' ? '/#investor' : `/${item.toLowerCase()}`} 
-                className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 hover:text-primary transition-all relative group py-2"
+                href={
+                  item === 'Free ERP' ? 'https://royal-tech-computers-limited-7he6.vercel.app/login' :
+                  item === 'Portfolio' ? '/projects' : 
+                  item === 'Insights' ? '/blog' : 
+                  item === 'Invest' ? '/#investor' : 
+                  `/${item.toLowerCase().replace(' ', '-')}`
+                } 
+                target={item === 'Free ERP' ? '_blank' : undefined}
+                className={cn(
+                  "text-[10px] font-black uppercase tracking-[0.2em] transition-all relative group py-2",
+                  item === 'Free ERP' ? "text-green-600 hover:text-green-700" : "text-gray-500 hover:text-primary"
+                )}
               >
                 {item}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className={cn(
+                  "absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
+                  item === 'Free ERP' ? "bg-green-500" : "bg-primary"
+                )}></span>
               </Link>
             ))}
           </nav>
@@ -185,6 +199,7 @@ export function EcommerceHeader() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-[calc(100vw-2rem)] max-w-sm mt-4 p-3 rounded-[2rem] border-2 shadow-2xl bg-white/95 backdrop-blur-lg overflow-y-auto max-h-[80vh]">
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Home</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-2xl mb-1 bg-green-50"><Link href="https://royal-tech-computers-limited-7he6.vercel.app/login" target="_blank" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block text-green-600 flex items-center gap-2"><Terminal className="w-3 h-3" /> Free ERP System</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/laptops" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block text-primary flex items-center gap-2"><Laptop className="w-3 h-3" /> Shop Laptops</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/services" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Services</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-2xl mb-1"><Link href="/projects" className="font-black uppercase tracking-[0.2em] py-4 px-6 text-[10px] block">Portfolio</Link></DropdownMenuItem>

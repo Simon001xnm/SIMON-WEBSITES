@@ -26,6 +26,7 @@ import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { ClientsAndReachSection } from '@/components/sections/ClientsAndReachSection';
 import { TeamSection } from '@/components/sections/TeamSection';
+import { FreeERPSection } from '@/components/sections/FreeERPSection';
 import { motion } from 'framer-motion';
 import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
 
@@ -152,6 +153,9 @@ export default function SmallBizLandingPage() {
             </div>
           </Container>
         </section>
+
+        {/* Professional Free ERP Section */}
+        <FreeERPSection />
 
         {/* The "Why Us" Grid */}
         <section className="py-24 md:py-40 bg-white">

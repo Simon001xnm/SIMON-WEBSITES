@@ -2,8 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from './Container';
 import { Separator } from '@/components/ui/separator';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, CreditCard, Star } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, CreditCard, Star, Terminal } from 'lucide-react';
 import { WHATSAPP_ORDER_NUMBER, INSTAGRAM_PROFILE_URL, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
+import { cn } from '@/lib/utils';
 
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -28,10 +29,10 @@ export function EcommerceFooter() {
       { name: 'Contact', href: '/contact' },
     ],
     expertise: [
+      { name: 'Free ERP System', href: 'https://royal-tech-computers-limited-7he6.vercel.app/login' },
       { name: 'Web Engineering', href: '/services#website-development' },
       { name: 'Software Systems', href: '/services#software-development' },
       { name: 'Mobile Innovation', href: '/services#app-development' },
-      { name: 'Cloud Solutions', href: '/services#cloud-computing' },
       { name: 'Cyber Security', href: '/services#ethical-hacking' },
     ],
     legal: [
@@ -61,6 +62,15 @@ export function EcommerceFooter() {
                 The leading website designer in Kenya and East Africa. Engineering world-class digital ecosystems for forward-thinking enterprises.
               </p>
               
+              {/* Free ERP Shoutout */}
+              <div className="p-4 bg-green-500/5 rounded-2xl border border-green-500/10">
+                <div className="flex items-center gap-3 mb-2">
+                  <Terminal className="w-4 h-4 text-green-500" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-white">Free Lifetime POS</span>
+                </div>
+                <p className="text-[10px] text-gray-500 font-medium">Empowering small businesses with world-class tech for free.</p>
+              </div>
+
               {/* Google Review Trust Marker */}
               <div className="inline-flex items-center gap-2 p-3 bg-white/5 rounded-2xl border border-white/10">
                 <div className="flex text-yellow-500">
@@ -80,7 +90,18 @@ export function EcommerceFooter() {
             <h4 className="font-black text-white mb-6 md:mb-8 uppercase tracking-[0.2em] text-[10px]">Expertise</h4>
             <ul className="space-y-4 md:space-y-5 text-sm font-bold">
               {footerLinks.expertise.map(link => (
-                <li key={link.name}><Link href={link.href} className="hover:text-primary transition-colors block">{link.name}</Link></li>
+                <li key={link.name}>
+                  <Link 
+                    href={link.href} 
+                    target={link.name === 'Free ERP System' ? '_blank' : undefined}
+                    className={cn(
+                      "hover:text-primary transition-colors block",
+                      link.name === 'Free ERP System' && "text-green-500 hover:text-green-400"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
