@@ -8,25 +8,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const detailedFeatures = [
-  { 
-    icon: Zap, 
-    title: "Instant Point of Sale", 
-    text: "Process transactions in seconds with an intuitive, lightning-fast POS interface designed for high-traffic shops." 
+  {
+    icon: Zap,
+    title: "Instant Point of Sale",
+    text: "Process transactions in seconds with an intuitive, lightning-fast POS interface designed for high-traffic shops."
   },
-  { 
-    icon: Database, 
-    title: "Inventory Master", 
-    text: "Automated stock tracking with low-stock alerts, category management, and detailed product history." 
+  {
+    icon: Database,
+    title: "Inventory Master",
+    text: "Automated stock tracking with low-stock alerts, category management, and detailed product history."
   },
-  { 
-    icon: BarChart3, 
-    title: "Powerful Analytics", 
-    text: "Generate daily, weekly, and monthly sales reports to understand your profit margins and growth trends." 
+  {
+    icon: BarChart3,
+    title: "Powerful Analytics",
+    text: "Generate daily, weekly, and monthly sales reports to understand your profit margins and growth trends."
   },
-  { 
-    icon: ShieldCheck, 
-    title: "Secure Cloud Core", 
-    text: "Your data is encrypted and backed up daily on secure cloud servers, accessible only by you from anywhere." 
+  {
+    icon: ShieldCheck,
+    title: "Secure Cloud Core",
+    text: "Your data is encrypted and backed up daily on secure cloud servers, accessible only by you from anywhere."
   },
 ];
 
@@ -43,7 +43,7 @@ export function FreeERPSection() {
 
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -54,12 +54,12 @@ export function FreeERPSection() {
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-green-600">Free for Lifetime • Official Release</span>
               </div>
-              
+
               <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-gray-900 leading-[0.95]">
                 Enterprise Grade <br/>
                 <span className="text-primary italic">POS & ERP Suite.</span>
               </h2>
-              
+
               <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed max-w-xl">
                 We are revolutionizing local commerce by providing world-class management tools to every Kenyan business—<span className="text-gray-900 font-black">completely free of charge.</span> No subscriptions, no hidden fees, just pure growth.
               </p>
@@ -67,7 +67,7 @@ export function FreeERPSection() {
 
             <div className="grid grid-cols-1 gap-6">
               {detailedFeatures.map((f, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +98,7 @@ export function FreeERPSection() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -106,17 +106,17 @@ export function FreeERPSection() {
           >
             {/* Background Glow */}
             <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-[3.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-            
+
             <Link href={erpLink} target="_blank" className="block relative">
               <div className="relative aspect-[4/3] w-full rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl bg-gray-100 group-hover:scale-[1.02] transition-transform duration-700 ease-out">
-                <Image 
-                  src="/2026-04-06 171856.png" 
+                <Image
+                  src="/softwarefree.png"
                   alt="Professional ERP Suite Dashboard"
                   fill
                   className="object-cover object-top"
                   priority
                 />
-                
+
                 {/* Interactive Overlay */}
                 <div className="absolute inset-0 bg-gray-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                   <div className="bg-white/90 backdrop-blur-md px-8 py-4 rounded-2xl shadow-2xl transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500">
