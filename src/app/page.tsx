@@ -60,7 +60,7 @@ export default function DirectLandingPage() {
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Kenya's Elite Tech Partner</span>
               </div>
               <h1 className="text-5xl md:text-8xl font-black tracking-tight text-primary leading-[0.9] mb-8">
-                Laptops. <br/>
+                Laptops for Hire. <br/>
                 Web Design. <br/>
                 <span className="text-accent italic">Sorted.</span>
               </h1>
