@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -54,7 +53,7 @@ export default function AccountPage() {
   // State for form fields
   const [displayName, setDisplayName] = useState('');
   const [address, setAddress] = useState('Nairobi, Kenya');
-  const [phone, setPhone] = useState('+254-758673616');
+  const [phone, setPhone] = useState('0758673616');
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const [previewImageUrl, setPreviewImageUrl] = useState<string | null>(null);
 

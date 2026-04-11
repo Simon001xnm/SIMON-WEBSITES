@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -314,7 +313,7 @@ export default function ServicesPage() {
             <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-xl mx-auto font-medium">Build a website that works as hard as you do. Schedule your discovery session today.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild variant="secondary" size="lg" className="h-16 px-12 text-lg rounded-2xl font-black uppercase tracking-widest text-primary">
-                <Link href={`tel:+254758673616`}>Call Lead Engineer</Link>
+                <Link href={`tel:0758673616`}>Call Lead Engineer</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-16 px-12 text-lg rounded-2xl border-white/10 hover:bg-white/5 font-black uppercase tracking-widest">
                 <Link href={`mailto:simonwanjiru224@gmail.com`}>Email Us</Link>

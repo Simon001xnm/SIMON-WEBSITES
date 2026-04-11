@@ -97,9 +97,9 @@ export function EcommerceHeader() {
 
           <div className="flex items-center gap-3">
             <Button variant="ghost" className="hidden sm:flex items-center gap-2 rounded-full hover:bg-primary/5 h-10 px-5" asChild>
-              <Link href="tel:+254758673616">
+              <Link href="tel:0758673616">
                 <PhoneCall className="h-4 w-4 text-accent" />
-                <span className="font-black text-xs uppercase tracking-widest text-primary">+254 758 673616</span>
+                <span className="font-black text-xs uppercase tracking-widest text-primary">0758673616</span>
               </Link>
             </Button>
 

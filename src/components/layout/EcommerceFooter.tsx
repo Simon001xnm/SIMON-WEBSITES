@@ -8,7 +8,7 @@ import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER } from '@/lib/constants';
 export function EcommerceFooter() {
   const currentYear = new Date().getFullYear();
   const contactEmail = "info@royaltech.co.ke";
-  const contactPhone = "0724 404935";
+  const contactPhone = "0758673616";
   const address = "Biashara Street, Revlon Professional Plaza, 2nd Floor";
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}`;
 
