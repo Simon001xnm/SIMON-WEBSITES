@@ -14,6 +14,7 @@ import {
   Laptop,
   Terminal,
   Zap,
+  Package,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -50,6 +51,7 @@ export function EcommerceHeader() {
     { name: 'Shop Laptops', href: '/laptops', icon: Laptop },
     { name: 'Hire & Lease', href: '/#hire', icon: Zap },
     { name: 'Web Design', href: '/#web-design', icon: Sparkles },
+    { name: 'Portfolio', href: '/projects', icon: Package },
     { name: 'Free ERP', href: 'https://businesshub.co.ke', icon: Terminal, external: true, accent: true },
   ];
 
