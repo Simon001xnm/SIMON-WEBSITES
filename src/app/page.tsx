@@ -42,18 +42,22 @@ export default function DirectLandingPage() {
       <EcommerceHeader />
 
       <main className="pt-24 md:pt-32">
-        {/* The Direct Hero */}
+        {/* The Strategic Hero */}
         <section className="py-16 md:py-28 text-center bg-gradient-to-b from-gray-50 to-white">
           <Container>
             <motion.div {...fadeIn}>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 mb-8">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Kenya's Elite Tech Partner</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Your Strategic Tech Partner</span>
               </div>
-              <h1 className="text-5xl md:text-9xl font-black tracking-tighter text-primary leading-[0.85] mb-12">
-                Laptops for Hire. <br/>
-                Web Design. <br/>
-                <span className="text-accent italic">Sorted.</span>
+              
+              <h1 className="text-3xl md:text-6xl font-black tracking-tighter text-primary leading-tight mb-8">
+                HOW CAN SIMON STYLES HELP YOU?
               </h1>
+              
+              <p className="text-lg md:text-2xl font-bold text-gray-800 leading-relaxed max-w-5xl mx-auto mb-12 px-4">
+                We help you grow your business exponentially. We assist startups, SMEs, and large enterprises in making critical business decisions. We do this by creating and maintaining the technology tools you need to win your market. We make business transactions efficient, reaching your clients easier, and making it simple to showcase your products and much more.
+              </p>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="h-16 px-12 text-lg rounded-2xl bg-primary hover:bg-primary/90 font-black uppercase tracking-widest shadow-xl">
                   <Link href="/laptops">Shop Now</Link>
