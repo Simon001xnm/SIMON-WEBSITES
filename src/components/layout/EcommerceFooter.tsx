@@ -1,14 +1,14 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from './Container';
 import { Separator } from '@/components/ui/separator';
 import { Mail, Phone, MapPin, Star } from 'lucide-react';
-import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER } from '@/lib/constants';
+import { WHATSAPP_ORDER_NUMBER, OFFICIAL_EMAIL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
 export function EcommerceFooter() {
   const currentYear = new Date().getFullYear();
-  const contactEmail = "info@royaltech.co.ke";
   const contactPhone = "0758673616";
   const address = "Biashara Street, Revlon Professional Plaza, 2nd Floor";
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}`;
@@ -68,6 +68,10 @@ export function EcommerceFooter() {
                 <Phone size={18} className="text-accent" />
                 <span>{contactPhone}</span>
               </div>
+              <div className="flex items-center gap-4">
+                <Mail size={18} className="text-accent" />
+                <span className="lowercase">{OFFICIAL_EMAIL}</span>
+              </div>
               <div className="flex items-start gap-4">
                 <MapPin size={18} className="text-accent" />
                 <span className="leading-tight">{address}</span>
@@ -87,9 +91,6 @@ export function EcommerceFooter() {
         
         <div className="flex flex-col sm:flex-row justify-between items-center text-[10px] font-black uppercase tracking-widest opacity-40 text-center sm:text-left gap-6">
           <p>&copy; {currentYear} Simon Styles Technology Limited. All Rights Reserved.</p>
-          <div className="flex gap-4">
-            <span>M-Pesa Till: {MPESA_TILL_NUMBER}</span>
-          </div>
         </div>
       </Container>
     </footer>

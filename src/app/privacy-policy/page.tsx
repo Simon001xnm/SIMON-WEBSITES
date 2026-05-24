@@ -1,3 +1,4 @@
+
 'use client';
 
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
@@ -5,6 +6,7 @@ import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Lock, Eye, FileText } from 'lucide-react';
+import { OFFICIAL_EMAIL } from '@/lib/constants';
 
 export default function PrivacyPolicyPage() {
   const lastUpdated = new Date().toLocaleDateString('en-KE', { month: 'long', year: 'numeric', day: 'numeric' });
@@ -76,7 +78,7 @@ export default function PrivacyPolicyPage() {
                 <div className="pt-12 border-t border-gray-100 text-center">
                   <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">
                     Questions about our privacy practices? <br/>
-                    <a href="mailto:simonwanjiru224@gmail.com" className="text-primary hover:underline">simonwanjiru224@gmail.com</a>
+                    <a href={`mailto:${OFFICIAL_EMAIL}`} className="text-primary hover:underline">{OFFICIAL_EMAIL}</a>
                   </p>
                 </div>
               </div>

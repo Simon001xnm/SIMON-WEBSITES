@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -13,8 +14,8 @@ import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { Container } from '@/components/layout/Container';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Trash2, Plus, Minus, ChevronLeft, ShoppingCart, CreditCard, AlertTriangle } from 'lucide-react';
-import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER, MPESA_TILL_NAME } from '@/lib/constants';
+import { Trash2, Plus, Minus, ChevronLeft, ShoppingCart, AlertTriangle } from 'lucide-react';
+import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, cartTotal } = useCart();
@@ -147,7 +148,7 @@ export default function CartPage() {
                       <div className="space-y-1">
                         <p className="font-black text-xs text-orange-900 uppercase tracking-widest">Consultation Required</p>
                         <p className="text-[10px] text-orange-800 leading-relaxed font-medium">
-                          Please do not pay before consulting with us. Confirm your design preferences and ensure you've selected the best package for your needs.
+                          Confirm your design preferences and package via WhatsApp before finalizing any order. Direct communication ensures you get exactly what you need.
                         </p>
                       </div>
                     </div>
@@ -165,7 +166,7 @@ export default function CartPage() {
                     </div>
                      <div className="flex justify-between text-muted-foreground">
                         <span>Shipping</span>
-                        <span className="text-primary">Calculated at next step</span>
+                        <span className="text-primary">Consult via WhatsApp</span>
                     </div>
                     <Separator />
                     <div className="flex justify-between font-bold text-lg">
@@ -182,30 +183,6 @@ export default function CartPage() {
                         Consult & Checkout via WhatsApp
                       </a>
                     </Button>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-green-50 border-green-200">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 bg-green-600 rounded-lg text-white">
-                        <CreditCard className="h-5 w-5" />
-                      </div>
-                      <h3 className="font-bold text-green-900">Payment Information</h3>
-                    </div>
-                    <div className="space-y-2 text-sm text-green-800">
-                      <div className="flex justify-between">
-                        <span className="font-medium">M-Pesa Till:</span>
-                        <span className="font-bold">{MPESA_TILL_NUMBER}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="font-medium">Till Name:</span>
-                        <span className="font-bold">{MPESA_TILL_NAME}</span>
-                      </div>
-                      <p className="text-[10px] mt-4 opacity-70 italic text-center">
-                        Please pay ONLY after confirming your design and package via WhatsApp.
-                      </p>
-                    </div>
                   </CardContent>
                 </Card>
               </div>

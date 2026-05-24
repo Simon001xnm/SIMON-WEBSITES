@@ -2,6 +2,7 @@
 'use server';
 
 import * as z from 'zod';
+import { OFFICIAL_EMAIL } from '@/lib/constants';
 
 const contactFormSchema = z.object({
   fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
@@ -12,17 +13,12 @@ const contactFormSchema = z.object({
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 
-const TARGET_EMAIL = "simonwanjiru224@gmail.com";
+const TARGET_EMAIL = OFFICIAL_EMAIL;
 
 export async function submitContactForm(data: ContactFormData) {
   try {
     const validatedData = contactFormSchema.parse(data);
 
-    // --- !!! IMPORTANT !!! ---
-    // This is a simulation. In a real application, you would integrate an email
-    // service provider (e.g., SendGrid, Mailgun, Resend) here to send the email.
-    // ---
-    
     console.log(`SIMULATING CONTACT FORM EMAIL SEND TO: ${TARGET_EMAIL}`);
     console.log('---');
     console.log('Received Contact Form Data:');

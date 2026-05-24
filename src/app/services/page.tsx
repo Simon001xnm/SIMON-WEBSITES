@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -16,7 +17,7 @@ import {
   Database,
   Wallet
 } from 'lucide-react';
-import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
+import { WHATSAPP_ORDER_NUMBER, OFFICIAL_EMAIL } from '@/lib/constants';
 
 const services = [
   {
@@ -173,7 +174,7 @@ export default function ServicesPage() {
                 <Link href={`tel:0758673616`}>Call Lead Engineer</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-16 px-12 text-lg rounded-2xl border-white/10 hover:bg-white/5 font-black uppercase tracking-widest">
-                <Link href={`mailto:simonwanjiru224@gmail.com`}>Email Us</Link>
+                <Link href={`mailto:${OFFICIAL_EMAIL}`}>Email Us</Link>
               </Button>
             </div>
           </Container>

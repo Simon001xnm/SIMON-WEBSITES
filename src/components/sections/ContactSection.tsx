@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Linkedin, Github } from 'lucide-react';
 import Link from 'next/link';
-import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
+import { WHATSAPP_ORDER_NUMBER, OFFICIAL_EMAIL } from '@/lib/constants';
 
 // Inline SVG for WhatsApp icon
 const WhatsAppIcon = () => (
@@ -20,7 +20,7 @@ const WhatsAppIcon = () => (
 );
 
 export function ContactSection() {
-  const contactEmail = "simonwanjiru224@gmail.com";
+  const contactEmail = OFFICIAL_EMAIL;
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'd like to discuss a project with you.`;
   const linkedInUrl = "https://www.linkedin.com/in/simon-styles-technologies-limited-tech-company-644a00257/";
   const githubUrl = "https://github.com/Symoh242";
