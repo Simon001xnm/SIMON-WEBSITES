@@ -4,6 +4,7 @@ import { Container } from './Container';
 import { Separator } from '@/components/ui/separator';
 import { Mail, Phone, MapPin, Star } from 'lucide-react';
 import { WHATSAPP_ORDER_NUMBER, MPESA_TILL_NUMBER } from '@/lib/constants';
+import { cn } from '@/lib/utils';
 
 export function EcommerceFooter() {
   const currentYear = new Date().getFullYear();
@@ -46,7 +47,7 @@ export function EcommerceFooter() {
               <li><Link href="/laptops" className="hover:text-accent transition-colors">Computer Sales</Link></li>
               <li><Link href="/#hire" className="hover:text-accent transition-colors">Laptops for Hire</Link></li>
               <li><Link href="/#web-design" className="hover:text-accent transition-colors">Web Development</Link></li>
-              <li><Link href="https://royal-tech-computers-limited-7he6.vercel.app/login" target="_blank" className="text-green-500 hover:text-green-400">Free ERP Software</Link></li>
+              <li><Link href="https://businesshub.co.ke" target="_blank" className="text-green-500 hover:text-green-400">Free ERP Software</Link></li>
             </ul>
           </div>
           

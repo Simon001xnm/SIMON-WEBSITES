@@ -31,7 +31,7 @@ const detailedFeatures = [
 ];
 
 export function FreeERPSection() {
-  const erpLink = "https://royal-tech-computers-limited-7he6.vercel.app/login";
+  const erpLink = "https://businesshub.co.ke";
 
   return (
     <section id="free-erp" className="py-24 md:py-40 bg-white relative overflow-hidden">
@@ -52,7 +52,7 @@ export function FreeERPSection() {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20">
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-green-600">Free for Lifetime • Official Release</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-green-600">FREE 1 MONTH ERP • BUSINESS HUB</span>
               </div>
 
               <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-gray-900 leading-[0.95]">
@@ -61,7 +61,7 @@ export function FreeERPSection() {
               </h2>
 
               <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed max-w-xl">
-                We are revolutionizing local commerce by providing world-class management tools to every Kenyan business—<span className="text-gray-900 font-black">completely free of charge.</span> No subscriptions, no hidden fees, just pure growth.
+                We are revolutionizing local commerce by providing world-class management tools to Kenyan businesses. Get started with our <span className="text-gray-900 font-black">Free 1 Month trial</span> on Business Hub.
               </p>
             </div>
 
@@ -131,7 +131,7 @@ export function FreeERPSection() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-900 text-lg font-black tracking-tight mb-1">Live Management Console</p>
-                        <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Simon Styles Technology • Open Beta</p>
+                        <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Simon Styles Technology • Business Hub</p>
                       </div>
                       <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg shadow-green-200">
                         <Zap className="w-5 h-5" />

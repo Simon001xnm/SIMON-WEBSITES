@@ -123,12 +123,12 @@ export default function DirectLandingPage() {
                   <div className="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center">
                     <Terminal className="w-8 h-8 text-green-500" />
                   </div>
-                  <span className="bg-green-500 text-black px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">Free Forever</span>
+                  <span className="bg-green-500 text-black px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">Free 1 Month</span>
                 </div>
-                <h3 className="text-3xl font-black mb-4">Free POS & ERP</h3>
-                <p className="text-gray-400 font-medium mb-8 leading-relaxed">Total inventory and sales management for your shop. $0 cost for Kenyan businesses.</p>
+                <h3 className="text-3xl font-black mb-4">Cloud ERP & POS</h3>
+                <p className="text-gray-400 font-medium mb-8 leading-relaxed">Total inventory and sales management for your shop. Get started with a free trial today.</p>
                 <Button asChild className="w-full h-14 rounded-xl font-black uppercase tracking-widest text-xs bg-green-600 hover:bg-green-700 text-white border-none">
-                  <Link href="https://royal-tech-computers-limited-7he6.vercel.app/login" target="_blank">Access System</Link>
+                  <Link href="https://businesshub.co.ke" target="_blank">Access System</Link>
                 </Button>
               </motion.div>
 
