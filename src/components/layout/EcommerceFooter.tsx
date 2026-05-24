@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from './Container';
@@ -30,7 +29,7 @@ export function EcommerceFooter() {
                 <span className="text-2xl font-black text-white tracking-tighter">SIMON<span className="text-accent">STYLES</span></span>
               </Link>
               <p className="text-sm leading-relaxed font-medium text-gray-500">
-                Kenya's premier Information Technology partner. Over 11 years of experience and 1000+ innovative achievements.
+                Kenya's premier Information Technology partner. Over 7 years of experience and 1000+ innovative achievements.
               </p>
               
               <div className="inline-flex items-center gap-2 p-3 bg-white/5 rounded-2xl border border-white/10">

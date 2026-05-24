@@ -12,6 +12,7 @@ import {
   ShieldCheck,
   Wallet,
   Terminal,
+  HelpCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/layout/Container';
@@ -19,6 +20,12 @@ import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { motion } from 'framer-motion';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -28,10 +35,33 @@ const fadeIn = {
 };
 
 const stats = [
-  { label: 'Glorious Years', value: '11+' },
+  { label: 'Glorious Years', value: '7+' },
   { label: 'Sales Completed', value: '3,330+' },
   { label: 'Laptops Leased', value: '8,500+' },
   { label: 'Happy Clients', value: '500+' },
+];
+
+const faqs = [
+  {
+    question: "Do you offer web design and software development in Kenya?",
+    answer: "Yes. Simon Styles is a premier web design and software development company based in Nairobi, Kenya. We specialize in building high-performance websites, custom mobile apps (Android/iOS), and complex business software solutions tailored for the East African market."
+  },
+  {
+    question: "Can you integrate M-Pesa payments into my website or app?",
+    answer: "Absolutely. We are experts in Daraja API integration. We can set up M-Pesa STK Push, C2B automated payments, and real-time transaction callbacks for any ecommerce platform or custom management system."
+  },
+  {
+    question: "How long does it take to develop a professional website?",
+    answer: "A standard professional corporate website typically takes 5–10 business days. Complex ecommerce platforms or custom software systems with deep business logic may take 3–6 weeks depending on requirements."
+  },
+  {
+    question: "Do you provide laptops for hire for corporate events?",
+    answer: "Yes, we are the leading provider of corporate laptop leasing in Kenya. We offer flexible rental plans for training, seminars, research projects, and remote teams with full technical support included."
+  },
+  {
+    question: "What makes Simon Styles the best tech partner in Nairobi?",
+    answer: "With 7+ years of experience and over 1,000 successful projects, we focus on ROI-driven technology. We don't just build tools; we create strategic assets that help you grow your business exponentially through efficient transactions and digital automation."
+  }
 ];
 
 export default function DirectLandingPage() {
@@ -47,10 +77,10 @@ export default function DirectLandingPage() {
           <Container>
             <motion.div {...fadeIn}>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 mb-8">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Your Strategic Tech Partner</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">7 Years of Strategic Engineering</span>
               </div>
               
-              <h1 className="text-3xl md:text-6xl font-black tracking-tighter text-primary leading-tight mb-8">
+              <h1 className="text-3xl md:text-6xl font-black tracking-tighter text-primary leading-tight mb-8 max-w-4xl mx-auto">
                 HOW CAN SIMON STYLES HELP YOU?
               </h1>
               
@@ -116,7 +146,7 @@ export default function DirectLandingPage() {
                   <Code className="w-8 h-8 text-cyan-600" />
                 </div>
                 <h3 className="text-3xl font-black text-primary mb-4">Web Engineering</h3>
-                <p className="text-gray-500 font-medium mb-8 leading-relaxed">High-speed websites and custom systems. M-Pesa integration and AI-driven workflows.</p>
+                <p className="text-gray-500 font-medium mb-8 leading-relaxed">High-speed websites and custom apps. M-Pesa integration and AI-driven workflows.</p>
                 <Button asChild className="w-full h-14 rounded-xl font-black uppercase tracking-widest text-xs" variant="outline">
                   <Link href={`https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=I need a professional website.`}>Get a Quote</Link>
                 </Button>
@@ -136,6 +166,36 @@ export default function DirectLandingPage() {
                 </Button>
               </motion.div>
 
+            </div>
+          </Container>
+        </section>
+
+        {/* FAQ / Q&A Section */}
+        <section className="py-24 bg-white">
+          <Container>
+            <div className="max-w-4xl mx-auto">
+              <motion.div {...fadeIn} className="text-center mb-16">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent mb-6">
+                  <HelpCircle className="w-3 h-3" />
+                  <span className="text-[10px] font-black uppercase tracking-widest">Common Inquiries</span>
+                </div>
+                <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-primary">Q&A: Tech <span className="italic">Simplified.</span></h2>
+              </motion.div>
+
+              <div className="space-y-4">
+                <Accordion type="single" collapsible className="w-full">
+                  {faqs.map((faq, index) => (
+                    <AccordionItem key={index} value={`item-${index}`} className="border-b-2 border-gray-50 py-2">
+                      <AccordionTrigger className="text-left text-lg font-black text-primary hover:no-underline hover:text-accent transition-colors">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-base text-gray-500 font-medium leading-relaxed pt-4 pb-6">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
             </div>
           </Container>
         </section>

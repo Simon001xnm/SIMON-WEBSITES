@@ -18,8 +18,9 @@ const roboto = Roboto({
 
 
 export const metadata: Metadata = {
-  title: 'Simon Styles | Leading Website Designer in Kenya & East Africa',
-  description: 'The premier choice for world-class web design, custom software, and digital solutions. Simon Styles Technology is the leading digital agency serving Nairobi and the wider East African region.',
+  title: 'Simon Styles | Best Web Design, App & Software Development Company in Kenya',
+  description: 'Simon Styles Technology is Kenya\'s leading provider of web engineering, mobile app development, and custom software systems. Expert M-Pesa integration, high-performance ecommerce, and corporate laptop leasing in Nairobi.',
+  keywords: 'web design kenya, website development nairobi, mobile app development kenya, software development company nairobi, custom erp systems kenya, m-pesa payment integration, ecommerce solutions kenya, best tech company nairobi, laptop hire services kenya, corporate laptop leasing, business management systems, digital transformation africa',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
