@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: 'iL8hUbqCiIxBbr8PF-HLXDFor0u8O9b3DwYHjzKu7LE',
+    google: 'zXRwvobv9w8fzWTzeoY3xeu8Dh_w-oIyFpSJjIECnFY',
   },
 };
 
