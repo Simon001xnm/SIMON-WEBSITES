@@ -50,7 +50,7 @@ export function EcommerceHeader() {
   const navLinks = [
     { name: 'Shop Laptops', href: '/laptops', icon: Laptop },
     { name: 'Hire & Lease', href: '/#hire', icon: Zap },
-    { name: 'Web Design', href: '/#web-design', icon: Sparkles },
+    { name: 'Services', href: '/services', icon: Sparkles },
     { name: 'Portfolio', href: '/projects', icon: Package },
     { name: 'Business Hub', href: 'https://businesshub.co.ke', icon: Terminal, external: true, accent: true },
   ];
