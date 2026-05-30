@@ -2,63 +2,51 @@
 'use client';
 
 import * as React from 'react';
-import { useFirestore, useCollection, useMemoFirebase } from '@/firebase';
-import { collection } from 'firebase/firestore';
+import { MOCK_LAPTOPS } from '@/lib/laptop-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, AlertCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export function LaptopStockStatus() {
-  const firestore = useFirestore();
-
-  // Memoize query for performance and to avoid infinite loops
-  // Renamed collection to laptops_available to avoid rule issues with spaces
-  const stockQuery = useMemoFirebase(() => {
-    if (!firestore) return null;
-    return collection(firestore, 'laptops_available');
-  }, [firestore]);
-
-  const { data: stockStatus, isLoading, error } = useCollection(stockQuery);
+  // Systematic arrangement by name for the "model arrangement" requested
+  const sortedLaptops = [...MOCK_LAPTOPS].sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <Card className="mt-6 bg-secondary/50 border-2 border-primary/5 shadow-sm">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-lg font-black uppercase tracking-tighter text-primary">
-          Live Inventory Status
+    <Card className="mt-6 bg-secondary/50 border-2 border-primary/5 shadow-sm overflow-hidden">
+      <CardHeader className="pb-3 bg-white/50 border-b">
+        <CardTitle className="text-sm font-black uppercase tracking-tighter text-primary flex items-center gap-2">
+          <CheckCircle className="w-4 h-4 text-green-600" />
+          Live Model Inventory
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        {isLoading && (
-          <div className="flex items-center gap-2 text-muted-foreground py-4">
-            <Loader2 className="h-4 w-4 animate-spin text-primary" />
-            <span className="text-xs font-bold uppercase tracking-widest">Syncing with Firestore...</span>
-          </div>
-        )}
-        
-        {error && (
-          <div className="flex items-center gap-2 text-destructive py-4">
-            <AlertCircle className="h-4 w-4" />
-            <p className="text-[10px] font-black uppercase">Sync Error: Verify Permissions</p>
-          </div>
-        )}
-
-        {!isLoading && !error && stockStatus && stockStatus.length > 0 && (
-          <ul className="space-y-3">
-            {stockStatus.map((item) => (
-              <li key={item.id} className="flex justify-between items-center border-b border-white/20 pb-2 last:border-0">
-                <span className="text-xs font-black text-gray-600 uppercase tracking-tight">{item.id}</span>
-                <span className="px-3 py-1 rounded-full bg-white text-primary text-[10px] font-black shadow-sm">
-                  {Object.values(item).find(val => typeof val === 'string' && val !== item.id) || 'In Stock'}
+      <CardContent className="p-0">
+        <ul className="divide-y divide-gray-100">
+          {sortedLaptops.map((laptop) => (
+            <li key={laptop.id} className="group transition-colors hover:bg-white">
+              <Link href={`/laptops/${laptop.id}`} className="flex flex-col p-4">
+                <span className="text-[10px] font-black text-primary/30 uppercase tracking-widest mb-1">
+                  {laptop.brand}
                 </span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {!isLoading && !error && (!stockStatus || stockStatus.length === 0) && (
-          <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest py-4">
-            No stock updates available at this time.
-          </p>
-        )}
+                <span className="text-xs font-bold text-gray-700 group-hover:text-primary transition-colors line-clamp-1">
+                  {laptop.name}
+                </span>
+                <div className="flex justify-between items-center mt-2">
+                   <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${laptop.stock > 0 ? 'text-accent bg-accent/5' : 'text-destructive bg-destructive/5'}`}>
+                     {laptop.stock > 0 ? 'Ready to Ship' : 'Out of Stock'}
+                   </span>
+                   <span className="text-[9px] font-bold text-gray-400">
+                     KES {new Intl.NumberFormat('en-KE').format(laptop.price)}
+                   </span>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="p-4 bg-primary/5 text-center border-t border-gray-100">
+            <p className="text-[8px] font-black text-primary/40 uppercase tracking-[0.2em]">
+                Updated Real-Time • Nairobi Lab
+            </p>
+        </div>
       </CardContent>
     </Card>
   );
