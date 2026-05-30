@@ -29,6 +29,31 @@ export interface Laptop {
 
 export const MOCK_LAPTOPS: Laptop[] = [
   {
+    id: 'laptop-33',
+    name: 'HP Elite Dragonfly G2, i5 8th Gen, 8GB RAM, 256GB SSD, Touchscreen',
+    brand: 'HP',
+    price: 42000,
+    imageUrl: '/655127723_1232182222395677_7374669763655244109_n.jpg',
+    dataAiHint: 'hp elite dragonfly g2',
+    shortDescription: 'Core i5 8th Gen, 8GB RAM, 256GB SSD, Touchscreen',
+    specs: [
+      { key: 'Processor', value: 'Intel Core i5 8th Generation' },
+      { key: 'RAM', value: '8GB DDR4' },
+      { key: 'Storage', value: '256GB NVMe SSD' },
+      { key: 'Display', value: '13.3" Full HD Touchscreen' },
+      { key: 'Features', value: 'Backlit Keyboard, Fingerprint Reader, USB Type-C' },
+    ],
+    stock: 5,
+    badgeText: 'PREMIUM',
+    badgeVariant: 'new',
+    promotionalText: 'Windows 11 Ready',
+    processorType: 'Core i5',
+    screenSize: '13.3"',
+    storageType: '256GB SSD',
+    graphicsType: 'Intel UHD Graphics',
+    operatingSystem: 'Windows 11',
+  },
+  {
     id: 'laptop-32',
     name: 'HP Zhan 66 Pro 14 G4, i7 11th Gen, 8GB RAM, 256GB SSD',
     brand: 'HP',
