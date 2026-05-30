@@ -64,7 +64,7 @@ function LaptopsPageContent() {
   return (
     <div className="flex flex-col min-h-screen bg-[#fafafa]">
       <EcommerceHeader />
-      <main className="flex-grow pt-20 md:pt-28">
+      <main className="flex-grow pt-[64px] md:pt-[88px]">
         {/* Attached Search Catalog Bar */}
         <div className="sticky top-[64px] md:top-[88px] z-40 bg-white/95 backdrop-blur-xl border-b border-gray-100 py-4 shadow-sm transition-all duration-500">
           <Container>
