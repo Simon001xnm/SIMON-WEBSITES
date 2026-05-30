@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useMemo } from 'react';
@@ -63,16 +64,16 @@ function LaptopsPageContent() {
   return (
     <div className="flex flex-col min-h-screen bg-[#fafafa]">
       <EcommerceHeader />
-      <main className="flex-grow">
-        {/* Optimized Search Bar */}
-        <div className="sticky top-[112px] z-40 bg-white/80 backdrop-blur-md border-b py-4">
+      <main className="flex-grow pt-20 md:pt-28">
+        {/* Attached Search Catalog Bar */}
+        <div className="sticky top-[64px] md:top-[88px] z-40 bg-white/95 backdrop-blur-xl border-b border-gray-100 py-4 shadow-sm transition-all duration-500">
           <Container>
             <div className="flex flex-col md:flex-row items-center gap-4">
               <div className="relative flex-grow w-full">
                 <Input
                   type="search"
                   placeholder="Search HP, Dell, MacBook..."
-                  className="pl-12 h-12 text-sm rounded-2xl bg-gray-50 border-gray-100 focus:bg-white transition-all shadow-sm"
+                  className="pl-12 h-12 text-sm rounded-2xl bg-gray-50 border-gray-100 focus:bg-white transition-all shadow-inner"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
