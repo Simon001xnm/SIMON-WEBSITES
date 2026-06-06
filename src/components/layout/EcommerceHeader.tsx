@@ -15,6 +15,7 @@ import {
   Terminal,
   Zap,
   Package,
+  Share2,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -51,6 +52,7 @@ export function EcommerceHeader() {
     { name: 'Shop Laptops', href: '/laptops', icon: Laptop },
     { name: 'Hire & Lease', href: '/#hire', icon: Zap },
     { name: 'Services', href: '/services', icon: Sparkles },
+    { name: 'Social Media', href: '/social-media-management', icon: Share2 },
     { name: 'Portfolio', href: '/projects', icon: Package },
     { name: 'Business Hub', href: 'https://businesshub.co.ke', icon: Terminal, external: true, accent: true },
   ];
@@ -81,7 +83,7 @@ export function EcommerceHeader() {
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden xl:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link 
                 key={link.name}
@@ -140,7 +142,7 @@ export function EcommerceHeader() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <div className="lg:hidden">
+            <div className="xl:hidden">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="icon" className="rounded-xl bg-primary/5 w-10 h-10">
