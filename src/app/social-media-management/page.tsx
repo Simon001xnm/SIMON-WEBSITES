@@ -26,7 +26,7 @@ const packages = [
   {
     title: "Small Business Package",
     price: "KSh 2,000",
-    period: "per week",
+    period: "per month",
     description: "Ideal for startups and local shops looking to establish a professional digital presence.",
     suitableFor: ["Small businesses", "Startups", "Local shops", "Individual brands"],
     services: [
@@ -43,7 +43,7 @@ const packages = [
   {
     title: "Standard Management",
     price: "KSh 3,000 – 4,000",
-    period: "per week",
+    period: "per month",
     description: "Advanced management for growing brands requiring more frequent engagement.",
     suitableFor: ["Growing businesses", "Service providers", "Schools & Institutions", "NGOs", "Personal brands"],
     services: [
@@ -62,7 +62,7 @@ const packages = [
   {
     title: "Premium Full-Time",
     price: "KSh 5,000 – 7,000+",
-    period: "per week",
+    period: "per month",
     description: "Comprehensive daily management and strategy for high-performance organizations.",
     suitableFor: ["E-commerce businesses", "Politicians & Public figures", "NGOs", "Large organizations", "Daily engagement brands"],
     services: [
