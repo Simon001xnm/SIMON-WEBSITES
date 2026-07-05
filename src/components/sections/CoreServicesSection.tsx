@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -133,26 +134,30 @@ export function CoreServicesSection() {
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #444 1px, transparent 0)', backgroundSize: '48px 48px' }}>
       </div>
 
-      <Container className="relative z-10">
-        {/* Header Banner - Refined Typography */}
-        <div className="max-w-3xl mx-auto mb-20 md:mb-24">
-            <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-r from-[#3b32e0] via-[#ff0099] to-[#3b32e0] p-10 md:p-14 rounded-[3rem] md:rounded-[6rem] shadow-[0_20px_80px_rgba(59,50,224,0.3)] text-center relative overflow-hidden"
-            >
-                {/* Decorative glow */}
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-                <div className="absolute bottom-0 left-0 w-80 h-80 bg-black/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
-                
-                <p className="text-[9px] font-black text-white/60 uppercase tracking-[0.4em] mb-3">Our Expertise</p>
-                <h2 className="text-3xl md:text-6xl font-black text-white tracking-tighter uppercase italic leading-[0.9]">
-                    Our Core <br className="md:hidden" /> Services
+      {/* End-to-End Banner Header */}
+      <div className="relative mb-20 md:mb-24 w-full">
+        <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="w-full bg-gradient-to-r from-[#3b32e0] via-[#ff0099] to-[#3b32e0] py-16 md:py-24 relative overflow-hidden flex flex-col items-center justify-center text-center"
+        >
+            {/* Decorative glows */}
+            <div className="absolute top-0 right-0 w-[40vw] h-full bg-white/5 rounded-full blur-[100px] translate-x-1/2 -rotate-12"></div>
+            <div className="absolute bottom-0 left-0 w-[40vw] h-full bg-black/10 rounded-full blur-[100px] -translate-x-1/2 rotate-12"></div>
+            
+            <div className="relative z-10 px-4">
+                <p className="text-[10px] md:text-xs font-black text-white/70 uppercase tracking-[0.5em] mb-4">
+                    Our Expertise
+                </p>
+                <h2 className="text-4xl md:text-8xl font-black text-white tracking-tighter uppercase italic leading-[0.85]">
+                    Our Core Services
                 </h2>
-            </motion.div>
-        </div>
+            </div>
+        </motion.div>
+      </div>
 
+      <Container className="relative z-10">
         {/* Services Grid with 3D Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
           {services.map((service, i) => (
