@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -8,8 +7,9 @@ import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { QuoteForm } from '@/components/sections/QuoteForm';
 import { PartnersSection } from '@/components/sections/PartnersSection';
+import { CoreServicesSection } from '@/components/sections/CoreServicesSection';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Phone, ArrowRight, Code, ShoppingCart, Building, Terminal, HelpCircle } from 'lucide-react';
+import { Phone, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 import {
@@ -64,7 +64,7 @@ export default function LandingPage() {
       <EcommerceHeader />
 
       <main className="pt-24 md:pt-32">
-        {/* New Agency-Style Hero Section */}
+        {/* Agency Hero Section */}
         <section className="py-12 md:py-20 lg:py-28 overflow-hidden">
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -130,61 +130,8 @@ export default function LandingPage() {
           </Container>
         </section>
 
-        {/* The 4 Core Pillars */}
-        <section className="py-24 bg-gray-50">
-          <Container>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              
-              <motion.div {...fadeIn} className="bg-white p-10 rounded-[2.5rem] shadow-xl group border-2 border-transparent hover:border-accent transition-all">
-                <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mb-8">
-                  <ShoppingCart className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-3xl font-black text-primary mb-4">Premium Sales</h3>
-                <p className="text-gray-500 font-medium mb-8 leading-relaxed">HP, Dell, and MacBooks. New and Certified Refurbished with full warranty.</p>
-                <Button asChild className="w-full h-14 rounded-xl font-black uppercase tracking-widest text-xs" variant="outline">
-                  <Link href="/laptops">View Inventory</Link>
-                </Button>
-              </motion.div>
-
-              <motion.div id="hire" {...fadeIn} className="bg-white p-10 rounded-[2.5rem] shadow-xl group border-2 border-transparent hover:border-accent transition-all">
-                <div className="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center mb-8">
-                  <Building className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-3xl font-black text-primary mb-4">Hire & Lease</h3>
-                <p className="text-gray-500 font-medium mb-8 leading-relaxed">Scale your team without upfront costs. Corporate rentals for seminars and remote work.</p>
-                <Button asChild className="w-full h-14 rounded-xl font-black uppercase tracking-widest text-xs" variant="outline">
-                  <Link href={whatsappLink}>Inquire Leasing</Link>
-                </Button>
-              </motion.div>
-
-              <motion.div id="web-design" {...fadeIn} className="bg-white p-10 rounded-[2.5rem] shadow-xl group border-2 border-transparent hover:border-accent transition-all">
-                <div className="w-16 h-16 rounded-2xl bg-cyan-50 flex items-center justify-center mb-8">
-                  <Code className="w-8 h-8 text-cyan-600" />
-                </div>
-                <h3 className="text-3xl font-black text-primary mb-4">Web Engineering</h3>
-                <p className="text-gray-500 font-medium mb-8 leading-relaxed">High-speed websites and custom apps. M-Pesa integration and AI-driven workflows.</p>
-                <Button asChild className="w-full h-14 rounded-xl font-black uppercase tracking-widest text-xs" variant="outline">
-                  <Link href={`https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=I need a professional website.`}>Get a Quote</Link>
-                </Button>
-              </motion.div>
-
-              <motion.div {...fadeIn} className="bg-primary p-10 rounded-[2.5rem] shadow-2xl text-white group border-2 border-transparent hover:border-green-500 transition-all">
-                <div className="flex justify-between items-start mb-8">
-                  <div className="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center">
-                    <Terminal className="w-8 h-8 text-green-500" />
-                  </div>
-                  <span className="bg-green-500 text-black px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">Integrated Payments</span>
-                </div>
-                <h3 className="text-3xl font-black mb-4">Business Hub ERP</h3>
-                <p className="text-gray-400 font-medium mb-8 leading-relaxed">Total management system with integrated M-Pesa & card payments. Get your 1 Month free trial today.</p>
-                <Button asChild className="w-full h-14 rounded-xl font-black uppercase tracking-widest text-xs bg-green-600 hover:bg-green-700 text-white border-none">
-                  <Link href="https://businesshub.co.ke" target="_blank">Access Business Hub</Link>
-                </Button>
-              </motion.div>
-
-            </div>
-          </Container>
-        </section>
+        {/* Animated Core Services Section - Replaces the 4 boxed pillars */}
+        <CoreServicesSection />
 
         {/* FAQ Section */}
         <section className="py-24 bg-white">
@@ -217,4 +164,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
