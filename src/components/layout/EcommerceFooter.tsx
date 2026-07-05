@@ -71,7 +71,7 @@ export function EcommerceFooter() {
               </div>
               <div className="flex items-center gap-4">
                 <Mail size={18} className="text-accent" />
-                <span className="lowercase">{OFFICIAL_EMAIL}</span>
+                <a href={`mailto:${OFFICIAL_EMAIL}`} className="lowercase hover:text-accent transition-colors">{OFFICIAL_EMAIL}</a>
               </div>
               <div className="flex items-start gap-4">
                 <MapPin size={18} className="text-accent" />

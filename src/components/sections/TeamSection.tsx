@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -21,7 +20,7 @@ export function TeamSection() {
             <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
               <Image 
                 src={placeholders.team.url} 
-                alt="Simon Styles Team" 
+                alt="SIMON STYLES Team" 
                 fill
                 className="object-cover"
                 data-ai-hint={placeholders.team.hint}

@@ -93,7 +93,7 @@ export default function OrderSuccessPage() {
             </Card>
             
             <p className="mt-12 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
-              Simon Styles Technology • Nairobi, Kenya
+              SIMON STYLES TECHNOLOGY • Nairobi, Kenya
             </p>
           </div>
         </Container>

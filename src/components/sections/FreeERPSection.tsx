@@ -131,7 +131,7 @@ export function FreeERPSection() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-900 text-lg font-black tracking-tight mb-1">Live Management Console</p>
-                        <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Simon Styles Technology • Business Hub</p>
+                        <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">SIMON STYLES TECHNOLOGY • Business Hub</p>
                       </div>
                       <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg shadow-green-200">
                         <Zap className="w-5 h-5" />

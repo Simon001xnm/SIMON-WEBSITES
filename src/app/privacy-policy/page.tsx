@@ -1,4 +1,3 @@
-
 'use client';
 
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
@@ -47,7 +46,7 @@ export default function PrivacyPolicyPage() {
                     <h2 className="text-2xl font-black text-gray-900 m-0">Information We Collect</h2>
                   </div>
                   <p className="text-gray-600 leading-relaxed font-medium">
-                    At Simon Styles Technology, we respect your privacy. We collect information that you provide directly to us when you fill out forms, request consultations, or purchase shares. This may include your name, email address, phone number, and any project-specific details you share.
+                    At SIMON STYLES TECHNOLOGY, we respect your privacy. We collect information that you provide directly to us when you fill out forms, request consultations, or purchase shares. This may include your name, email address, phone number, and any project-specific details you share.
                   </p>
                 </section>
 
