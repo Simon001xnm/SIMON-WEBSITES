@@ -1,24 +1,16 @@
+
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
-import {
-  ArrowRight,
-  Code,
-  ShoppingCart,
-  Building,
-  Zap,
-  Clock,
-  ShieldCheck,
-  Wallet,
-  Terminal,
-  HelpCircle,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Container } from '@/components/layout/Container';
 import { EcommerceHeader } from '@/components/layout/EcommerceHeader';
 import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
-import { motion } from 'framer-motion';
+import { QuoteForm } from '@/components/sections/QuoteForm';
+import { PartnersSection } from '@/components/sections/PartnersSection';
+import { Button } from '@/components/ui/button';
+import { MessageCircle, Phone, ArrowRight, Code, ShoppingCart, Building, Terminal, HelpCircle } from 'lucide-react';
+import Link from 'next/link';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 import {
   Accordion,
@@ -64,39 +56,63 @@ const faqs = [
   }
 ];
 
-export default function DirectLandingPage() {
-  const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'm interested in your services.`;
+export default function LandingPage() {
+  const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'd like to book a consultation for a project.`;
 
   return (
     <div className="bg-white min-h-screen selection:bg-accent/30">
       <EcommerceHeader />
 
       <main className="pt-24 md:pt-32">
-        {/* The Strategic Hero */}
-        <section className="py-16 md:py-28 text-center bg-gradient-to-b from-gray-50 to-white">
+        {/* New Agency-Style Hero Section */}
+        <section className="py-12 md:py-20 lg:py-28 overflow-hidden">
           <Container>
-            <motion.div {...fadeIn}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 mb-8">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">7 Years of Strategic Engineering</span>
-              </div>
-              
-              <h1 className="text-3xl md:text-6xl font-black tracking-tighter text-primary leading-tight mb-8 max-w-4xl mx-auto">
-                HOW CAN SIMON STYLES HELP YOU?
-              </h1>
-              
-              <p className="text-lg md:text-2xl font-bold text-gray-800 leading-relaxed max-w-5xl mx-auto mb-12 px-4">
-                We help you grow your business exponentially. We assist startups, SMEs, and large enterprises in making critical business decisions. We do this by creating and maintaining the technology tools you need to win your market. We make business transactions efficient, reaching your clients easier, and making it simple to showcase your products and much more.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              {/* Left Column: Messaging */}
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="space-y-8"
+              >
+                <div className="space-y-4">
+                  <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-primary leading-[0.95]">
+                    Your Trusted Partner <br/>
+                    for <span className="text-accent italic">Digital Success.</span>
+                  </h1>
+                  <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed max-w-xl">
+                    We work with ambitious brands to ideate, design & build high-performance business systems powered by beautifully designed and engineered softwares and technological solutions.
+                  </p>
+                </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="h-16 px-12 text-lg rounded-2xl bg-primary hover:bg-primary/90 font-black uppercase tracking-widest shadow-xl">
-                  <Link href="/laptops">Shop Now</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="h-16 px-12 text-lg rounded-2xl border-2 border-primary/10 font-black uppercase tracking-widest text-primary">
-                  <Link href={whatsappLink}>Chat With Us</Link>
-                </Button>
-              </div>
-            </motion.div>
+                <div className="flex flex-wrap gap-4">
+                  <Button asChild size="lg" className="h-14 px-8 rounded-xl bg-[#3b32e0] hover:bg-[#3229c7] text-white font-black uppercase tracking-widest text-[10px] shadow-xl">
+                    <Link href={whatsappLink}>
+                      Book a free Consultation
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="h-14 px-8 rounded-xl border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-black uppercase tracking-widest text-[10px] bg-[#ff7b54] hover:bg-[#ff6a3d] text-white border-none">
+                    <Link href="tel:0758673616" className="flex items-center gap-2">
+                      <Phone className="w-4 h-4" />
+                      Call us!
+                    </Link>
+                  </Button>
+                </div>
+
+                <PartnersSection />
+              </motion.div>
+
+              {/* Right Column: Quote Form */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative z-10"
+              >
+                <div className="absolute -inset-4 bg-accent/5 rounded-[2.5rem] blur-2xl -z-10"></div>
+                <QuoteForm />
+              </motion.div>
+            </div>
           </Container>
         </section>
 
@@ -170,15 +186,11 @@ export default function DirectLandingPage() {
           </Container>
         </section>
 
-        {/* FAQ / Q&A Section */}
+        {/* FAQ Section */}
         <section className="py-24 bg-white">
           <Container>
             <div className="max-w-4xl mx-auto">
               <motion.div {...fadeIn} className="text-center mb-16">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent mb-6">
-                  <HelpCircle className="w-3 h-3" />
-                  <span className="text-[10px] font-black uppercase tracking-widest">Common Inquiries</span>
-                </div>
                 <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-primary">Q&A: Tech <span className="italic">Simplified.</span></h2>
               </motion.div>
 
@@ -199,21 +211,10 @@ export default function DirectLandingPage() {
             </div>
           </Container>
         </section>
-
-        {/* Final Simple CTA */}
-        <section className="py-24 bg-primary text-white text-center relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent"></div>
-          <Container className="relative z-10">
-            <h2 className="text-4xl md:text-7xl font-black mb-8 tracking-tighter">Ready to evolve?</h2>
-            <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-xl mx-auto font-medium">Work with the leading IT firm in Kenya. High performance, zero boredom.</p>
-            <Button asChild variant="secondary" size="lg" className="h-16 px-12 text-xl rounded-2xl font-black uppercase tracking-widest text-primary">
-              <Link href={whatsappLink}>Start a Conversation</Link>
-            </Button>
-          </Container>
-        </section>
       </main>
       
       <EcommerceFooter />
     </div>
   );
 }
+
