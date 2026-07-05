@@ -18,18 +18,53 @@ const roboto = Roboto({
 
 
 export const metadata: Metadata = {
-  title: 'Simon Styles | Best Web Design, App & Software Development Company in Kenya',
-  description: 'Simon Styles Technology is Kenya\'s leading provider of web engineering, mobile app development, and custom software systems. Expert M-Pesa integration, high-performance ecommerce, and corporate laptop leasing in Nairobi.',
-  keywords: 'web design kenya, website development nairobi, mobile app development kenya, software development company nairobi, custom erp systems kenya, m-pesa payment integration, ecommerce solutions kenya, best tech company nairobi, laptop hire services kenya, corporate laptop leasing, business management systems, digital transformation africa',
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/logo.jpg', type: 'image/jpeg' },
+  metadataBase: new URL('https://simonstyles.co.ke'),
+  title: {
+    default: 'SIMON STYLES | Best Web Design & Software Development Company in Kenya',
+    template: '%s | SIMON STYLES'
+  },
+  description: 'SIMON STYLES TECHNOLOGY is Kenya\'s leading provider of web engineering, mobile app development, and custom software systems. Expert M-Pesa integration, high-performance ecommerce, and corporate laptop leasing in Nairobi.',
+  keywords: ['web design kenya', 'website development nairobi', 'mobile app development kenya', 'software development company nairobi', 'custom erp systems kenya', 'm-pesa payment integration', 'ecommerce solutions kenya', 'best tech company nairobi', 'laptop hire services kenya', 'corporate laptop leasing', 'business management systems', 'digital transformation africa'],
+  authors: [{ name: 'SIMON STYLES TECHNOLOGY' }],
+  creator: 'SIMON STYLES TECHNOLOGY',
+  publisher: 'SIMON STYLES TECHNOLOGY',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_KE',
+    url: 'https://simonstyles.co.ke',
+    siteName: 'SIMON STYLES TECHNOLOGY',
+    title: 'SIMON STYLES | Digital Success Engineered.',
+    description: 'Bespoke web engineering, software systems, and digital strategy for ambitious brands in Africa.',
+    images: [
+      {
+        url: '/logo.jpg',
+        width: 800,
+        height: 800,
+        alt: 'SIMON STYLES TECHNOLOGY Logo',
+      },
     ],
-    shortcut: ['/favicon.ico'],
-    apple: [
-      { url: '/logo.jpg' },
-    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SIMON STYLES | Digital Success Engineered.',
+    description: 'Kenya\'s premier software engineering and web design partner.',
+    images: ['/logo.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   verification: {
     google: 'zXRwvobv9w8fzWTzeoY3xeu8Dh_w-oIyFpSJjIECnFY',

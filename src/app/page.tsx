@@ -20,6 +20,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Script from 'next/script';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -61,8 +62,53 @@ const faqs = [
 export default function LandingPage() {
   const whatsappLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'd like to book a consultation for a project.`;
 
+  // Structured Data for Google (JSON-LD)
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "SIMON STYLES TECHNOLOGY",
+    "image": "https://simonstyles.co.ke/logo.jpg",
+    "@id": "https://simonstyles.co.ke",
+    "url": "https://simonstyles.co.ke",
+    "telephone": "+254758673616",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Biashara Street, Revlon Professional Plaza, 2nd Floor",
+      "addressLocality": "Nairobi",
+      "addressCountry": "KE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -1.2822,
+      "longitude": 36.8211
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/simon-styles-technologies-limited-tech-company-644a00257/",
+      "https://github.com/Symoh242"
+    ]
+  };
+
   return (
     <div className="bg-white min-h-screen selection:bg-accent/30">
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
       <EcommerceHeader />
 
       <main className="pt-24 md:pt-32">
