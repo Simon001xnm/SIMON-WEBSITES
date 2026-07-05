@@ -89,7 +89,8 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative flex flex-col group h-full cursor-pointer"
     >
-      <div className="relative aspect-[4/3] w-full rounded-[2.5rem] overflow-hidden bg-gray-900 shadow-2xl shadow-black/50 border border-white/5">
+      {/* Squared Card Container */}
+      <div className="relative aspect-[4/3] w-full rounded-none overflow-hidden bg-gray-900 shadow-2xl shadow-black/50 border border-white/5">
         <Image 
             src={service.image} 
             alt={service.title} 
@@ -99,12 +100,12 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60"></div>
         
-        {/* Floating Icon */}
+        {/* Squared Floating Icon */}
         <div 
             style={{ transform: "translateZ(60px)" }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
-            <div className={`w-16 h-16 rounded-full flex items-center justify-center bg-white shadow-2xl border-4 border-gray-100 transition-transform duration-500 group-hover:scale-110`}>
+            <div className={`w-16 h-16 rounded-none flex items-center justify-center bg-white shadow-2xl border-4 border-gray-100 transition-transform duration-500 group-hover:scale-110`}>
                 <service.icon className={`w-8 h-8 ${service.color}`} />
             </div>
         </div>
@@ -158,7 +159,7 @@ export function CoreServicesSection() {
       </div>
 
       <Container className="relative z-10">
-        {/* Services Grid with 3D Cards */}
+        {/* Services Grid with squared 3D Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
           {services.map((service, i) => (
             <ServiceCard key={i} service={service} index={i} />
