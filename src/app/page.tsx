@@ -150,7 +150,7 @@ export default function LandingPage() {
                   className="text-4xl md:text-6xl font-black tracking-tighter text-primary leading-[0.95]"
                 >
                   Digital Products <br/>
-                  <span className="text-accent italic">Engineered for Growth.</span>
+                  <span className="text-accent">Engineered for Growth.</span>
                 </motion.h2>
               </div>
               <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
