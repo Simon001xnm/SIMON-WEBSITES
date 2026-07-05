@@ -8,8 +8,10 @@ import { EcommerceFooter } from '@/components/layout/EcommerceFooter';
 import { QuoteForm } from '@/components/sections/QuoteForm';
 import { PartnersSection } from '@/components/sections/PartnersSection';
 import { CoreServicesSection } from '@/components/sections/CoreServicesSection';
+import { ProjectCard } from '@/components/projects/ProjectCard';
+import { MOCK_PROJECTS } from '@/lib/project-data';
 import { Button } from '@/components/ui/button';
-import { Phone, HelpCircle } from 'lucide-react';
+import { Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { WHATSAPP_ORDER_NUMBER } from '@/lib/constants';
 import {
@@ -36,7 +38,7 @@ const stats = [
 const faqs = [
   {
     question: "Do you offer web design and software development in Kenya?",
-    answer: "Yes. Simon Styles is a premier web design and software development company based in Nairobi, Kenya. We specialize in building high-performance websites, custom mobile apps (Android/iOS), and complex business software solutions tailored for the East African market."
+    answer: "Yes. SIMON STYLES is a premier web design and software development company based in Nairobi, Kenya. We specialize in building high-performance websites, custom mobile apps (Android/iOS), and complex business software solutions tailored for the East African market."
   },
   {
     question: "Can you integrate M-Pesa payments into my website or app?",
@@ -51,7 +53,7 @@ const faqs = [
     answer: "Yes, we are the leading provider of corporate laptop leasing in Kenya. We offer flexible rental plans for training, seminars, research projects, and remote teams with full technical support included."
   },
   {
-    question: "What makes Simon Styles the best tech partner in Nairobi?",
+    question: "What makes SIMON STYLES the best tech partner in Nairobi?",
     answer: "With 7+ years of experience and over 1,000 successful projects, we focus on ROI-driven technology. We don't just build tools; we create strategic assets that help you grow your business exponentially through efficient transactions and digital automation."
   }
 ];
@@ -130,8 +132,50 @@ export default function LandingPage() {
           </Container>
         </section>
 
-        {/* Animated Core Services Section - Replaces the 4 boxed pillars */}
+        {/* Animated Core Services Section */}
         <CoreServicesSection />
+
+        {/* Featured Projects Showcase */}
+        <section className="py-24 bg-[#fafafa]">
+          <Container>
+            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+              <div className="max-w-2xl">
+                <motion.div {...fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 mb-6">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-primary">Success Stories</span>
+                </motion.div>
+                <motion.h2 
+                  {...fadeIn} 
+                  transition={{ delay: 0.1 }}
+                  className="text-4xl md:text-6xl font-black tracking-tighter text-primary leading-[0.95]"
+                >
+                  Websites we have <br/>
+                  <span className="text-accent italic">Engineered.</span>
+                </motion.h2>
+              </div>
+              <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
+                <Button asChild variant="outline" className="h-14 px-8 rounded-xl border-2 font-black uppercase tracking-widest text-[10px] hover:bg-primary hover:text-white transition-all">
+                  <Link href="/projects" className="flex items-center gap-2">
+                    View Full Portfolio <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </motion.div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {MOCK_PROJECTS.slice(0, 3).map((project, i) => (
+                <motion.div 
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <ProjectCard project={project} />
+                </motion.div>
+              ))}
+            </div>
+          </Container>
+        </section>
 
         {/* FAQ Section */}
         <section className="py-24 bg-white">
