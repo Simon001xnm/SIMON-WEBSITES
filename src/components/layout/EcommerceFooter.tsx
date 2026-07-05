@@ -21,12 +21,12 @@ export function EcommerceFooter() {
                 <div className="relative w-10 h-10 overflow-hidden rounded-xl grayscale brightness-125">
                   <Image 
                       src="/logo.jpg"
-                      alt="Simon Styles Logo"
+                      alt="SIMON STYLES Logo"
                       fill
                       className="object-cover"
                   />
                 </div>
-                <span className="text-2xl font-black text-white tracking-tighter">SIMON<span className="text-accent">STYLES</span></span>
+                <span className="text-2xl font-black text-white tracking-tighter uppercase">SIMON <span className="text-accent">STYLES</span></span>
               </Link>
               <p className="text-sm leading-relaxed font-medium text-gray-500">
                 Kenya's premier Information Technology partner. Over 7 years of experience and 1000+ innovative achievements.
@@ -91,7 +91,7 @@ export function EcommerceFooter() {
         <Separator className="mb-8 bg-white/5" />
         
         <div className="flex flex-col sm:flex-row justify-between items-center text-[10px] font-black uppercase tracking-widest opacity-40 text-center sm:text-left gap-6">
-          <p>&copy; {currentYear} Simon Styles Technology Limited. All Rights Reserved.</p>
+          <p>&copy; {currentYear} SIMON STYLES TECHNOLOGY LIMITED. All Rights Reserved.</p>
         </div>
       </Container>
     </footer>

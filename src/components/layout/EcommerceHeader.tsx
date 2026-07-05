@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -78,13 +77,13 @@ export function EcommerceHeader() {
             )}>
               <Image 
                   src="/logo.jpg"
-                  alt="Simon Styles Logo"
+                  alt="SIMON STYLES Logo"
                   fill
                   className="object-cover"
               />
             </div>
-            <span className="font-black text-primary tracking-tighter text-lg md:text-2xl">
-              simonstyles
+            <span className="font-black text-primary tracking-tighter text-lg md:text-2xl uppercase">
+              SIMON STYLES
             </span>
           </Link>
 
