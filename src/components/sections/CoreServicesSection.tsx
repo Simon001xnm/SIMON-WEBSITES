@@ -140,7 +140,7 @@ export function CoreServicesSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="w-full bg-gradient-to-r from-[#3b32e0] via-[#ff0099] to-[#3b32e0] py-16 md:py-24 relative overflow-hidden flex flex-col items-center justify-center text-center"
+            className="w-full bg-gradient-to-r from-[#3b32e0] via-[#ff0099] to-[#3b32e0] py-12 md:py-20 relative overflow-hidden flex flex-col items-center justify-center text-center"
         >
             {/* Decorative glows */}
             <div className="absolute top-0 right-0 w-[40vw] h-full bg-white/5 rounded-full blur-[100px] translate-x-1/2 -rotate-12"></div>
@@ -150,7 +150,7 @@ export function CoreServicesSection() {
                 <p className="text-[10px] md:text-xs font-black text-white/70 uppercase tracking-[0.5em] mb-4">
                     Our Expertise
                 </p>
-                <h2 className="text-4xl md:text-8xl font-black text-white tracking-tighter uppercase italic leading-[0.85]">
+                <h2 className="text-3xl md:text-6xl font-black text-white tracking-tighter uppercase italic leading-[0.85]">
                     Our Core Services
                 </h2>
             </div>
