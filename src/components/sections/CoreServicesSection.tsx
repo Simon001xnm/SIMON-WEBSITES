@@ -88,7 +88,7 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative flex flex-col group h-full cursor-pointer"
     >
-      <div className="relative aspect-[4/3] w-full rounded-[3rem] overflow-hidden bg-gray-900 shadow-2xl shadow-black/50 border border-white/5">
+      <div className="relative aspect-[4/3] w-full rounded-[2.5rem] overflow-hidden bg-gray-900 shadow-2xl shadow-black/50 border border-white/5">
         <Image 
             src={service.image} 
             alt={service.title} 
@@ -103,22 +103,22 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
             style={{ transform: "translateZ(60px)" }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
-            <div className={`w-20 h-20 rounded-full flex items-center justify-center bg-white shadow-2xl border-4 border-gray-100 transition-transform duration-500 group-hover:scale-125`}>
-                <service.icon className={`w-10 h-10 ${service.color}`} />
+            <div className={`w-16 h-16 rounded-full flex items-center justify-center bg-white shadow-2xl border-4 border-gray-100 transition-transform duration-500 group-hover:scale-110`}>
+                <service.icon className={`w-8 h-8 ${service.color}`} />
             </div>
         </div>
       </div>
 
       <div 
         style={{ transform: "translateZ(40px)" }}
-        className="mt-8 space-y-3 px-4"
+        className="mt-6 space-y-2 px-2"
       >
-        <h3 className="text-2xl md:text-3xl font-black text-white group-hover:text-primary transition-colors tracking-tight leading-none">{service.title}</h3>
-        <Link href={service.href} className="inline-flex items-center gap-3 group/link">
-            <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${service.color}`}>
+        <h3 className="text-xl md:text-2xl font-black text-white group-hover:text-primary transition-colors tracking-tight leading-none">{service.title}</h3>
+        <Link href={service.href} className="inline-flex items-center gap-2 group/link">
+            <span className={`text-[9px] font-black uppercase tracking-[0.2em] ${service.color}`}>
                 {service.subtitle}
             </span>
-            <ArrowRight className="w-5 h-5 text-white group-hover/link:translate-x-3 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-white group-hover/link:translate-x-2 transition-transform" />
         </Link>
       </div>
     </motion.div>
@@ -127,34 +127,34 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
 
 export function CoreServicesSection() {
   return (
-    <section className="bg-[#0a0a0a] py-24 md:py-40 overflow-hidden relative">
+    <section className="bg-[#0a0a0a] py-20 md:py-32 overflow-hidden relative">
       {/* Texture Background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #444 1px, transparent 0)', backgroundSize: '48px 48px' }}>
       </div>
 
       <Container className="relative z-10">
-        {/* Header Banner - Matches provided screenshot style */}
-        <div className="max-w-4xl mx-auto mb-28 md:mb-36">
+        {/* Header Banner - Refined Typography */}
+        <div className="max-w-3xl mx-auto mb-20 md:mb-24">
             <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-r from-[#3b32e0] via-[#ff0099] to-[#3b32e0] p-12 md:p-20 rounded-[4rem] md:rounded-[8rem] shadow-[0_30px_100px_rgba(59,50,224,0.4)] text-center relative overflow-hidden"
+                className="bg-gradient-to-r from-[#3b32e0] via-[#ff0099] to-[#3b32e0] p-10 md:p-14 rounded-[3rem] md:rounded-[6rem] shadow-[0_20px_80px_rgba(59,50,224,0.3)] text-center relative overflow-hidden"
             >
                 {/* Decorative glow */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-black/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
                 
-                <p className="text-[10px] font-black text-white/60 uppercase tracking-[0.4em] mb-4">What we do?</p>
-                <h2 className="text-4xl md:text-8xl font-black text-white tracking-tighter uppercase italic leading-[0.85]">
+                <p className="text-[9px] font-black text-white/60 uppercase tracking-[0.4em] mb-3">Our Expertise</p>
+                <h2 className="text-3xl md:text-6xl font-black text-white tracking-tighter uppercase italic leading-[0.9]">
                     Our Core <br className="md:hidden" /> Services
                 </h2>
             </motion.div>
         </div>
 
         {/* Services Grid with 3D Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
           {services.map((service, i) => (
             <ServiceCard key={i} service={service} index={i} />
           ))}
