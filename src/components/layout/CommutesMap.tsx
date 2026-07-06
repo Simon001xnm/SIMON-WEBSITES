@@ -266,7 +266,7 @@ const CommutesMapComponent = () => {
       <div class="commutes-info mt-4">
         <div class="commutes-initial-state p-6 bg-white rounded-2xl border-2 border-gray-100 flex justify-between items-center">
           <div>
-            <h3 class="font-black text-primary uppercase tracking-tighter">Locate our Nairobi Lab</h3>
+            <h3 class="font-black text-primary uppercase tracking-tighter">Locate our Nairobi Office</h3>
             <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Get directions to East Africa's leading studio</p>
           </div>
           <button class="add-button bg-primary text-white px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-all">Add Destination</button>

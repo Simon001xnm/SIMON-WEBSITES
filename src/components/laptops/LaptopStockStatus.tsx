@@ -1,4 +1,3 @@
-
 'use client';
 
 import * as React from 'react';
@@ -44,7 +43,7 @@ export function LaptopStockStatus() {
         </ul>
         <div className="p-4 bg-primary/5 text-center border-t border-gray-100">
             <p className="text-[8px] font-black text-primary/40 uppercase tracking-[0.2em]">
-                Updated Real-Time • Nairobi Lab
+                Updated Real-Time • SIMON STYLES
             </p>
         </div>
       </CardContent>

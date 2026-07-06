@@ -184,7 +184,7 @@ export default function LaptopHirePage() {
         <section className="py-24 bg-primary text-white overflow-hidden">
           <Container>
             <div className="text-center mb-20">
-               <h2 className="text-4xl md:text-6xl font-black tracking-tighter italic mb-6"> 센터 OF EXCELLENCE</h2>
+               <h2 className="text-4xl md:text-6xl font-black tracking-tighter italic mb-6"> Center of Excellence</h2>
                <p className="text-gray-400 font-bold uppercase tracking-widest text-sm">Tailor-made corporate solutions</p>
             </div>
 
@@ -234,7 +234,7 @@ export default function LaptopHirePage() {
                 </Link>
               </Button>
             </div>
-            <p className="mt-12 text-[10px] font-black uppercase tracking-[0.5em] opacity-60">SIMON STYLES TECHNOLOGY • NAIROBI LAB</p>
+            <p className="mt-12 text-[10px] font-black uppercase tracking-[0.5em] opacity-60">SIMON STYLES TECHNOLOGY • NAIROBI, KENYA</p>
           </Container>
         </section>
       </main>
