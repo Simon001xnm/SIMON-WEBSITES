@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -23,7 +22,7 @@ const services = [
     subtitle: "CORPORATE SOLUTIONS",
     image: "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=1200&auto=format&fit=crop",
     icon: Building,
-    href: "/#hire",
+    href: "/laptop-hire",
     color: "text-purple-500",
     bgColor: "bg-purple-500"
   },

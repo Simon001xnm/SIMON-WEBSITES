@@ -52,7 +52,8 @@ export function EcommerceHeader() {
   }
 
   const navLinks = [
-    { name: 'Services', href: '/services', icon: Sparkles, hasDropdown: true },
+    { name: 'Services', href: '/services', icon: Sparkles },
+    { name: 'Laptop Hire', href: '/laptop-hire', icon: Laptop },
     { name: 'Social Media', href: '/social-media-management', icon: Share2 },
     { name: 'Portfolio', href: '/projects', icon: Package },
     { name: 'Blog', href: '/blog', icon: Terminal },
@@ -95,7 +96,6 @@ export function EcommerceHeader() {
                 className="group flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-gray-600 hover:text-primary transition-colors"
               >
                 {link.name}
-                {link.hasDropdown && <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform" />}
               </Link>
             ))}
           </nav>
