@@ -3,6 +3,18 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
+    id: 'proj-19',
+    title: 'KEJAINN Cloud Tenant Management',
+    description: 'Comprehensive cloud system for automated rent tracking and property operations.',
+    longDescription: 'Engineered a high-performance tenant management solution tailored for the Kenyan real estate market. The system automates rent collection via M-Pesa integration, manages occupancy data, and tracks maintenance requests through a secure cloud dashboard. Designed for scalability and absolute data integrity.',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop',
+    dataAiHint: 'real estate management',
+    techStack: ['Next.js', 'Firebase', 'Tailwind CSS', 'M-Pesa API', 'Cloud Computing'],
+    liveUrl: 'https://kejainncloud-3v7v.vercel.app/',
+    projectType: 'Systems',
+    status: 'Sold',
+  },
+  {
     id: 'proj-18',
     title: 'SIMON STYLES Crypto Trading Platform',
     description: 'A high-performance trading broker platform featuring real-time market data, secure transactions, and intuitive analytics.',
