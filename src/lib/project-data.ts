@@ -3,6 +3,18 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
+    id: 'proj-22',
+    title: 'Henry Adeeya',
+    description: 'High-end personal brand architecture for strategic leadership and consultancy.',
+    longDescription: 'Designed and developed a premium personal portfolio for Henry Adeeya, a leading strategic consultant. The platform features an elegant, minimalist design optimized for authority-building and direct professional engagement. It showcases a refined user experience tailored for corporate leadership.',
+    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop',
+    dataAiHint: 'professional minimalist portfolio',
+    techStack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'SEO'],
+    liveUrl: 'https://www.henryadeeya.com/',
+    projectType: 'Web',
+    status: 'Sold',
+  },
+  {
     id: 'proj-21',
     title: 'YEDNA Corporate Document Generator',
     description: 'Advanced automated system for generating professional corporate documents and legal templates.',
@@ -119,18 +131,6 @@ export const MOCK_PROJECTS: Project[] = [
     dataAiHint: 'flower shop',
     techStack: ['E-commerce', 'JavaScript', 'PHP', 'Online Payments'],
     liveUrl: 'https://houseofpetals.co.ke/',
-    projectType: 'Web',
-    status: 'Sold',
-  },
-  {
-    id: 'proj-15',
-    title: 'Henry Adeeya',
-    description: 'A professional personal brand and consultancy platform for strategic leadership.',
-    longDescription: 'Engineered a high-performance personal brand website for Henry Adeeya. The platform showcases professional achievements, thought leadership articles, and consultation booking capabilities with a focus on minimalist, high-end aesthetics.',
-    image: 'https://picsum.photos/seed/henry/600/400',
-    dataAiHint: 'professional consultant website',
-    techStack: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-    liveUrl: 'https://henryadeeya.com/',
     projectType: 'Web',
     status: 'Sold',
   },
