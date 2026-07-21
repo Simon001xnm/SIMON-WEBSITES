@@ -3,6 +3,18 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
+    id: 'proj-25',
+    title: 'Benace Technologies',
+    description: 'High-conversion e-commerce architecture for premium computing and lifestyle technology.',
+    longDescription: 'Developed a robust, high-performance e-commerce platform for Benace Technologies. The system is engineered to handle large inventories of laptops and accessories, featuring a streamlined search experience, automated inventory sync, and secure M-Pesa payment integration tailored for the Kenyan retail market.',
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2071&auto=format&fit=crop',
+    dataAiHint: 'laptop ecommerce store',
+    techStack: ['Python / Django', 'Next.js', 'Redis', 'M-Pesa Daraja API'],
+    liveUrl: 'https://www.benacetechnologies.co.ke/',
+    projectType: 'Web',
+    status: 'Sold',
+  },
+  {
     id: 'proj-24',
     title: 'ABC Deliveries',
     description: 'Triple-interface food ecosystem for customers, merchants, and logistics teams.',
