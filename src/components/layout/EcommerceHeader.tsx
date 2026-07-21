@@ -33,8 +33,10 @@ export function EcommerceHeader() {
   const { user, logout } = useAuth();
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -61,6 +63,24 @@ export function EcommerceHeader() {
   ];
 
   const whatsappQuoteLink = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=Hello! I'd like to get a free quote for my project.`;
+
+  if (!mounted) {
+    return (
+      <div className="fixed top-0 left-0 right-0 z-50 w-full">
+        <header className="bg-white py-5 border-b border-transparent">
+          <div className="flex items-center justify-between gap-4 max-w-screen-2xl mx-auto px-4 md:px-6">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-gray-50" />
+              <span className="font-black text-primary tracking-tighter text-lg md:text-2xl uppercase">
+                SIMON STYLES
+              </span>
+            </div>
+            <div className="w-10 h-10 rounded-full border bg-gray-50" />
+          </div>
+        </header>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 w-full">
