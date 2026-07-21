@@ -3,6 +3,18 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
+    id: 'proj-23',
+    title: 'Patrick Osoi',
+    description: 'High-impact digital presence for elite activism and political leadership.',
+    longDescription: 'Developed a high-impact personal brand platform for Patrick Osoi, a prominent Kenyan activist and politician. The site is engineered for high-volume traffic, secure communication, and sophisticated narrative-driven engagement, reflecting the authority and mission of his public office.',
+    image: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=2070&auto=format&fit=crop',
+    dataAiHint: 'political podium speaker',
+    techStack: ['Next.js', 'Tailwind CSS', 'Vercel', 'SEO'],
+    liveUrl: 'https://www.patrickosoi.co.ke/',
+    projectType: 'Web',
+    status: 'Sold',
+  },
+  {
     id: 'proj-22',
     title: 'Henry Adeeya',
     description: 'High-end personal brand architecture for strategic leadership and consultancy.',
