@@ -3,6 +3,18 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
+    id: 'proj-20',
+    title: 'Prime Ink Technologies',
+    description: 'Specialized e-commerce architecture for premium printing hardware and consumables.',
+    longDescription: 'Developed a robust e-commerce platform for Prime Ink Technologies, focusing on technical product categorization for printers, toners, and ink. The system features a streamlined search experience, secure payment integration, and a mobile-first interface optimized for corporate procurement.',
+    image: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=2070&auto=format&fit=crop',
+    dataAiHint: 'office printer tech',
+    techStack: ['Next.js', 'Firebase', 'Tailwind CSS', 'M-Pesa API', 'Search Optimization'],
+    liveUrl: 'https://prime-ink-technologies.vercel.app/',
+    projectType: 'Web',
+    status: 'Sold',
+  },
+  {
     id: 'proj-19',
     title: 'KEJAINN Cloud Tenant Management',
     description: 'Comprehensive cloud system for automated rent tracking and property operations.',
