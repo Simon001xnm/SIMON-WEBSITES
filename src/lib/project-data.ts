@@ -3,6 +3,18 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
+    id: 'proj-24',
+    title: 'ABC Deliveries',
+    description: 'Triple-interface food ecosystem for customers, merchants, and logistics teams.',
+    longDescription: 'Engineered a complex multi-interface ecosystem that synchronizes real-time logistics. The platform features three distinct portals: a user-friendly customer ordering app, a robust merchant dashboard for restaurant owners, and a high-performance rider coordination system. Integrated with M-Pesa for instant payments and real-time tracking to ensure absolute reliability in the Kenyan food delivery market.',
+    image: 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=2070&auto=format&fit=crop',
+    dataAiHint: 'delivery scooter box',
+    techStack: ['Next.js', 'Firebase', 'M-Pesa API', 'Real-time Tracking'],
+    liveUrl: 'https://abcdeliveries.vercel.app/',
+    projectType: 'Systems',
+    status: 'Sold',
+  },
+  {
     id: 'proj-23',
     title: 'Patrick Osoi',
     description: 'High-impact digital presence for elite activism and political leadership.',
