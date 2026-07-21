@@ -3,6 +3,18 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
+    id: 'proj-17',
+    title: 'National Intelligence Voting Platform',
+    description: 'An advanced digital intelligence system designed for secure national-level online voting and geo-spatial data visualization.',
+    longDescription: 'Engineered a highly secure, real-time national intelligence dashboard for online voting. The platform features advanced data visualization, geo-spatial tracking of voting centers, and multi-layered security protocols to ensure absolute election integrity and real-time result monitoring across the territory.',
+    image: 'https://picsum.photos/seed/voting-intel/1200/800',
+    dataAiHint: 'digital dashboard map',
+    techStack: ['Next.js', 'PostgreSQL', 'D3.js', 'Firebase Auth', 'Cybersecurity'],
+    liveUrl: 'https://fbi-kenya-platform.vercel.app/',
+    projectType: 'Systems',
+    status: 'Sold',
+  },
+  {
     id: 'proj-1',
     title: 'Mpoa Wangu',
     description: 'A vibrant and user-friendly e-commerce platform for a premier flower and gift shop in Kenya.',
@@ -40,7 +52,7 @@ export const MOCK_PROJECTS: Project[] = [
   },
    {
     id: 'proj-4',
-    title: 'Simon Styles Company Website',
+    title: 'SIMON STYLES Company Website',
     description: 'A personal portfolio site to showcase software development projects and skills.',
     longDescription: 'A clean, fast, and responsive personal portfolio website built to showcase a collection of software development projects. The site is designed to highlight technical skills and professional experience, featuring a project gallery, about me section, and contact form. Built with modern web technologies for optimal performance and user experience.',
     image: '/Screenshot 2026-01-01 092730.png',
