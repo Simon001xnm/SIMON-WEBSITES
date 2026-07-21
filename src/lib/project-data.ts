@@ -3,6 +3,18 @@ import type { Project } from "@/components/projects/types";
 
 export const MOCK_PROJECTS: Project[] = [
   {
+    id: 'proj-21',
+    title: 'YEDNA Corporate Document Generator',
+    description: 'Advanced automated system for generating professional corporate documents and legal templates.',
+    longDescription: 'Developed YEDNA, a high-performance document automation engine. The platform streamlines corporate workflows by allowing users to generate complex, brand-consistent legal and business documents instantly through an intuitive cloud interface. Features real-time template editing and secure PDF processing.',
+    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop',
+    dataAiHint: 'office documents paperwork',
+    techStack: ['Next.js', 'Tailwind CSS', 'PDF Engine', 'Cloud Storage', 'Firebase'],
+    liveUrl: 'https://yedna.vercel.app/',
+    projectType: 'Systems',
+    status: 'Sold',
+  },
+  {
     id: 'proj-20',
     title: 'Prime Ink Technologies',
     description: 'Specialized e-commerce architecture for premium printing hardware and consumables.',
