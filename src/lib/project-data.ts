@@ -16,9 +16,9 @@ export const MOCK_PROJECTS: Project[] = [
   },
   {
     id: 'proj-18',
-    title: 'SIMON STYLES Crypto Trading Platform',
-    description: 'A high-performance trading broker platform featuring real-time market data, secure transactions, and intuitive analytics.',
-    longDescription: 'Engineered a sophisticated cryptocurrency and forex trading platform. The system integrates real-time price feeds via WebSockets, secure wallet management, and a high-performance order matching engine. Designed with a focus on low-latency execution and professional-grade charting tools to empower modern traders in the digital economy.',
+    title: 'Trading Bot',
+    description: 'A high-performance trading bot featuring real-time market data, secure transactions, and intuitive analytics.',
+    longDescription: 'Engineered a sophisticated cryptocurrency and forex trading bot. The system integrates real-time price feeds via WebSockets, secure wallet management, and a high-performance order matching engine. Designed with a focus on low-latency execution and professional-grade charting tools to empower modern traders in the digital economy.',
     image: 'https://images.unsplash.com/photo-1611974717482-5894f4c2c79f97?q=80&w=2070&auto=format&fit=crop',
     dataAiHint: 'trading charts dashboard',
     techStack: ['Next.js', 'WebSockets', 'Tailwind CSS', 'Firebase', 'Financial APIs'],
